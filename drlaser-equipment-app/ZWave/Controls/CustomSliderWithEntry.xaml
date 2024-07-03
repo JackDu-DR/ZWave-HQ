@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZWave.Controls.CustomSliderWithEntry"
+             xmlns:controls="clr-namespace:ZWave.Controls"
+             x:Name="CustomSliderWithEntryField">
+    <StackLayout>
+        <Grid Margin="10,0,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{OnPlatform WinUI='*', Android='*'}" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="{OnPlatform WinUI='200', Android='100'}" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label 
+               x:Name="SliderLabelText" 
+               Grid.Column="0" 
+               Grid.Row="0"
+               FontAttributes="Bold"
+               FontFamily="{StaticResource OpenSansSemibold}"
+               VerticalTextAlignment="Center"
+               FontSize="{OnPlatform WinUI='15', Android='10'}" />
+            <CheckBox x:Name="CustomCheckBox" CheckedChanged="OnCheckBoxChanged" Grid.Column="1" Grid.Row="0" />
+            <controls:CustomNumberEntryField x:Name="SliderEntry" FieldTotalWidth="{OnPlatform WinUI= '100', Android='80'}" PropertyChanged="SliderEntry_PropertyChanged" EntryFieldValue="0.00" Grid.Column="2" Grid.Row="0" />
+            <Slider x:Name="SliderValueText" Grid.ColumnSpan="3" Grid.Row="1" Margin="5,0,5,0" ValueChanged="onSliderValueChanged" />
+        </Grid>
+    </StackLayout>
+</ContentView>

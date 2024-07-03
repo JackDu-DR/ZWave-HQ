@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Views.SystemVisionPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:converters="clr-namespace:ZWave.Converters"
+    xmlns:enums="clr-namespace:ZWave.Enums"
+    xmlns:graphic="clr-namespace:ZWave.Controls.Graphic"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Systems.Vision"
+    BackgroundColor="{StaticResource GreyNeutral3}">
+    <ContentView.BindingContext>
+        <viewmodel:SystemVisionPageViewModel />
+    </ContentView.BindingContext>
+    <ContentView.Resources>
+        <converters:ShapeTypeValueConverter x:Key="ShapeTypeValueConverter" />
+        <converters:MotionModeToValueConverter x:Key="MotionModeToValueConverter" />
+        <toolkit:EnumToBoolConverter x:Key="EnumToBoolConverter" />
+        <toolkit:IsNotNullConverter x:Key="IsNotNullConverter" />
+        <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        <toolkit:VariableMultiValueConverter x:Key="AllTrueConverter" ConditionType="All" />
+    </ContentView.Resources>
+    <ContentView.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding LoadedCommand}" EventName="Loaded" />
+        <toolkit:EventToCommandBehavior Command="{Binding UnloadedCommand}" EventName="Unloaded" />
+    </ContentView.Behaviors>
+    <Grid ColumnSpacing="{StaticResource GenericSpacing}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="{StaticResource SystemCommandPanelWidth}" />
+        </Grid.ColumnDefinitions>
+        <Border
+            Grid.Column="0"
+            Margin="{StaticResource SystemVisionBorderMargin}"
+            BackgroundColor="White"
+            Stroke="Transparent"
+            VerticalOptions="FillAndExpand">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0,8,8,8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Opacity="0.1"
+                    Radius="4"
+                    Offset="0,2" />
+            </Border.Shadow>
+            <Grid
+                Margin="{StaticResource MarginLR}"
+                ColumnDefinitions="*, Auto"
+                ColumnSpacing="{StaticResource GenericSpacing}">
+                <Grid
+                    Grid.Column="0"
+                    Margin="{StaticResource MarginT}"
+                    RowDefinitions="*, Auto">
+                    <StackLayout
+                        Grid.Row="0"
+                        HorizontalOptions="Start"
+                        Orientation="Vertical"
+                        Spacing="{StaticResource GenericSpacing}"
+                        VerticalOptions="Start">
+                        <HorizontalStackLayout Spacing="{StaticResource GenericSpacing}">
+                            <Button
+                                Clicked="SaveImage"
+                                Style="{StaticResource LightButton}"
+                                Text="{Binding Localization[SaveImage]}"
+                                WidthRequest="{StaticResource SystemVisionImageButtonWidth}" />
+                            <Button
+                                Clicked="OpenImage"
+                                Style="{StaticResource LightButton}"
+                                Text="{Binding Localization[OpenImage]}"
+                                WidthRequest="{StaticResource SystemVisionImageButtonWidth}" />
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout Margin="{StaticResource VisionControlMargin}" Spacing="{StaticResource QuarterGenericSpacing}">
+                            <Label FontSize="{StaticResource Body2FontSize}" Text="{Binding Localization[FolderPth]}" />
+                            <Label
+                                x:Name="FolderPath"
+                                FontSize="{StaticResource Body2FontSize}"
+                                MaximumWidthRequest="{StaticResource SystemVisionFolderPathMaximumWidth}" />
+                        </HorizontalStackLayout>
+                        <BoxView
+                            Margin="{StaticResource VisionControlMargin}"
+                            HeightRequest="{StaticResource SystemVisionSeperateLineHeight}"
+                            HorizontalOptions="FillAndExpand"
+                            Color="{StaticResource GreyNeutral6}" />
+                        <Label
+                            Margin="{StaticResource VisionControlMargin}"
+                            FontAttributes="Bold"
+                            FontSize="{StaticResource Body2FontSize}"
+                            Text="{Binding Localization[DrawShape]}" />
+                        <VerticalStackLayout
+                            RadioButtonGroup.GroupName="ShapeType"
+                            RadioButtonGroup.SelectedValue="{Binding ShapeType, Converter={StaticResource ShapeTypeValueConverter}}"
+                            VerticalOptions="Center">
+                            <VerticalStackLayout.IsEnabled>
+                                <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                                    <Binding Path="IsDrawingEnabled" />
+                                    <Binding Converter="{StaticResource InvertedBoolConverter}" Path="CriticalAction[Any]" />
+                                    <Binding
+                                        Converter="{StaticResource EnumToBoolConverter}"
+                                        ConverterParameter="{x:Static enums:MotionMode.Teaching}"
+                                        Path="MotionMode" />
+                                </MultiBinding>
+                            </VerticalStackLayout.IsEnabled>
+                            <RadioButton
+                                Margin="{StaticResource VisionEllipseRadioButtonMargin}"
+                                CheckedChanged="RadioButton_CheckedChanged"
+                                Content="{Binding Localization[Ellipse]}"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HeightRequest="{StaticResource SystemVisionRadioHeight}"
+                                Value="Ellipse" />
+                            <RadioButton
+                                Margin="{StaticResource VisionControlMargin}"
+                                CheckedChanged="RadioButton_CheckedChanged"
+                                Content="{Binding Localization[Rectangle]}"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HeightRequest="{StaticResource SystemVisionRadioHeight}"
+                                Value="Rectangle" />
+                            <RadioButton
+                                Margin="{StaticResource VisionControlMargin}"
+                                CheckedChanged="RadioButton_CheckedChanged"
+                                Content="{Binding Localization[Circle]}"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HeightRequest="{StaticResource SystemVisionRadioHeight}"
+                                Value="Circle" />
+                        </VerticalStackLayout>
+                        <HorizontalStackLayout Margin="{StaticResource VisionControlMargin}" Spacing="{StaticResource SmallSpacing}">
+                            <Button
+                                Clicked="OnDiscardButtonClicked"
+                                Command="{Binding DiscardROICommand}"
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text="{Binding Localization[Discard]}"
+                                WidthRequest="{StaticResource SystemVisionROIButtonWidth}">
+                                <Button.IsEnabled>
+                                    <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                                        <Binding Path="IsDiscardButtonEnabled" />
+                                        <Binding
+                                            Converter="{StaticResource EnumToBoolConverter}"
+                                            ConverterParameter="{x:Static enums:MotionMode.Teaching}"
+                                            Path="MotionMode" />
+                                    </MultiBinding>
+                                </Button.IsEnabled>
+                            </Button>
+                            <Button
+                                Command="{Binding ApplyROICommand}"
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text="{Binding Localization[Apply]}"
+                                WidthRequest="{StaticResource SystemVisionROIButtonWidth}">
+                                <Button.IsEnabled>
+                                    <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                                        <Binding Path="IsApplyButtonEnabled" />
+                                        <Binding Converter="{StaticResource InvertedBoolConverter}" Path="CriticalAction[Any]" />
+                                        <Binding
+                                            Converter="{StaticResource EnumToBoolConverter}"
+                                            ConverterParameter="{x:Static enums:MotionMode.Teaching}"
+                                            Path="MotionMode" />
+                                    </MultiBinding>
+                                </Button.IsEnabled>
+                            </Button>
+                        </HorizontalStackLayout>
+                        <BoxView
+                            Margin="{StaticResource VisionControlMargin}"
+                            HeightRequest="{StaticResource SystemVisionSeperateLineHeight}"
+                            HorizontalOptions="FillAndExpand"
+                            Color="{StaticResource GreyNeutral6}" />
+                        <Label
+                            Margin="{StaticResource VisionControlMargin}"
+                            FontAttributes="Bold"
+                            FontSize="{StaticResource Body2FontSize}"
+                            Text="{Binding Localization[Mode]}" />
+                        <HorizontalStackLayout
+                            RadioButtonGroup.GroupName="MotionMode"
+                            RadioButtonGroup.SelectedValue="{Binding MotionMode, Converter={StaticResource MotionModeToValueConverter}}"
+                            Spacing="{StaticResource SmallSpacing}"
+                            VerticalOptions="Center">
+                            <HorizontalStackLayout.IsEnabled>
+                                <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                                    <Binding Converter="{StaticResource InvertedBoolConverter}" Path="ConnectButtonEnabled" />
+                                    <Binding Converter="{StaticResource InvertedBoolConverter}" Path="CriticalAction[Any]" />
+                                </MultiBinding>
+                            </HorizontalStackLayout.IsEnabled>
+                            <RadioButton
+                                Margin="{StaticResource VisionControlMargin}"
+                                Content="{Binding Localization[Teaching]}"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HeightRequest="{StaticResource SystemVisionRadioHeight}"
+                                Value="Teaching" />
+                            <RadioButton
+                                Margin="{StaticResource VisionControlMargin}"
+                                Content="{Binding Localization[Moving]}"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HeightRequest="{StaticResource SystemVisionRadioHeight}"
+                                Value="Moving" />
+                        </HorizontalStackLayout>
+                    </StackLayout>
+                    <VerticalStackLayout
+                        x:Name="SelectedROI"
+                        Grid.Row="1"
+                        Margin="{StaticResource MarginB}">
+                        <VerticalStackLayout.IsVisible>
+                            <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                                <Binding Converter="{StaticResource IsNotNullConverter}" Path="TeachingROI" />
+                                <Binding
+                                    Converter="{StaticResource EnumToBoolConverter}"
+                                    ConverterParameter="{x:Static enums:MotionMode.Teaching}"
+                                    Path="MotionMode" />
+                            </MultiBinding>
+                        </VerticalStackLayout.IsVisible>
+                        <HorizontalStackLayout>
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text="{Binding Localization[SelectedArea]}" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text=":" />
+                        </HorizontalStackLayout>
+                        <controls:SelectedROI
+                            Margin="{StaticResource SmallSpacingT}"
+                            FontSize="{StaticResource Body2FontSize}"
+                            ScrollX="{Binding ScrollX}"
+                            ScrollY="{Binding ScrollY}"
+                            ShapeROI="{Binding TeachingROI}" />
+                    </VerticalStackLayout>
+                    <StackLayout
+                        Grid.Row="1"
+                        HeightRequest="{StaticResource SystemVisionROIResultButtonContainerHeight}"
+                        IsVisible="{Binding HasROIResults}">
+                        <BoxView
+                            HeightRequest="{StaticResource SystemVisionSeperateLineHeight}"
+                            HorizontalOptions="FillAndExpand"
+                            Color="{StaticResource GreyNeutral6}" />
+                        <Grid
+                            ColumnDefinitions="*,Auto,Auto"
+                            ColumnSpacing="{StaticResource SmallSpacing}"
+                            VerticalOptions="FillAndExpand">
+                            <Button
+                                Grid.Column="1"
+                                BorderColor="Red"
+                                Clicked="OnDiscardButtonClicked"
+                                Command="{Binding DiscardROIResultCommand}"
+                                Style="{StaticResource LightButton}"
+                                Text="{Binding Localization[DiscardResult]}"
+                                TextColor="Red"
+                                VerticalOptions="Center" />
+                            <Button
+                                Grid.Column="2"
+                                Command="{Binding SaveResultCommand}"
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text="{Binding Localization[SaveResult]}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </StackLayout>
+                </Grid>
+                <Grid Grid.Column="1" RowDefinitions="*,auto,*">
+                    <Grid Grid.Row="0" ColumnDefinitions="*,Auto,Auto">
+                        <controls:DotStatusWithTitle
+                            x:Name="OnLiveIndicator"
+                            Title="{Binding Localization[OnLive]}"
+                            Grid.Column="0"
+                            DotSize="{StaticResource SystemVisionDotSize}"
+                            HorizontalDirection="RightToLeft"
+                            HorizontalOptions="Start"
+                            IsVisible="{Binding IsCameraOnLive}"
+                            ItemsSpacing="{StaticResource SystemVisionDotTextSpacing}"
+                            WidthRequest="{StaticResource SystemVisionDotStatusWithTitleWidth}" />
+                        <controls:EntryWithTitle
+                            Title="Exposure"
+                            Grid.Column="1"
+                            EntryContainerWidthRequest="{StaticResource SystemVisionEntryWithTitleContainerWidth}"
+                            IsSingleEntry="True"
+                            Keyboard="Numeric"
+                            LeftText="{Binding CameraModel.Exposure}"
+                            TitleWidthRequest="{StaticResource SystemVisionEntryWithTitleLabelWidth}"
+                            VerticalOptions="Center">
+                            <controls:EntryWithTitle.IsEnabled>
+                                <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                                    <Binding Converter="{StaticResource InvertedBoolConverter}" Path="CriticalAction[Any]" />
+                                    <Binding
+                                        Converter="{StaticResource EnumToBoolConverter}"
+                                        ConverterParameter="{x:Static enums:MotionMode.Teaching}"
+                                        Path="MotionMode" />
+                                </MultiBinding>
+                            </controls:EntryWithTitle.IsEnabled>
+                        </controls:EntryWithTitle>
+                        <controls:ToggleWithTitle
+                            Title="Light"
+                            Grid.Column="2"
+                            Margin="{StaticResource SystemVisionToggleWithTitleMargin}"
+                            IsToggled="{Binding CameraModel.Light}"
+                            TitleWidthRequest="{StaticResource SystemVisionToggleWithTitleLabelWidth}"
+                            ToggleType="BothSideText">
+                            <controls:ToggleWithTitle.IsEnabled>
+                                <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                                    <Binding Converter="{StaticResource InvertedBoolConverter}" Path="CriticalAction[Any]" />
+                                    <Binding
+                                        Converter="{StaticResource EnumToBoolConverter}"
+                                        ConverterParameter="{x:Static enums:MotionMode.Teaching}"
+                                        Path="MotionMode" />
+                                </MultiBinding>
+                            </controls:ToggleWithTitle.IsEnabled>
+                        </controls:ToggleWithTitle>
+                    </Grid>
+                    <controls:CustomScrollView
+                        Grid.Row="1"
+                        EndScrolled="ShapeGraphicView_EndScrolled"
+                        Ratio="{Binding Ratio}"
+                        ScrollX="{Binding ScrollX}"
+                        ScrollY="{Binding ScrollY}"
+                        Scrolled="ShapeGraphicView_Scrolled"
+                        ViewportHeight="{StaticResource MotionVideoHeight}"
+                        ViewportMaxHeight="{Binding FullImageHeight}"
+                        ViewportMaxWidth="{Binding FullImageWidth}"
+                        ViewportWidth="{StaticResource MotionVideoWidth}">
+                        <Border BackgroundColor="#d9d9d9" StrokeThickness="{StaticResource SystemVisionCameraBorderThickness}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="4" />
+                            </Border.StrokeShape>
+                            <Grid HeightRequest="{StaticResource MotionVideoHeight}" WidthRequest="{StaticResource MotionVideoWidth}">
+                                <ContentView x:Name="LiveCameraContainer" Content="{Binding ChildView, Mode=TwoWay}" />
+                                <controls:DragDetector
+                                    DragCompletedCommand="{Binding MotionChangedCommand}"
+                                    IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                                    ZIndex="{Binding MotionMode, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static enums:MotionMode.Moving}}" />
+                                <graphic:ShapeGraphicView
+                                    x:Name="ShapeGraphicView"
+                                    CompleteDrawingCommand="{Binding DrawCompleteCommand}"
+                                    HasCenterAxisLines="True"
+                                    OnRotatingCommand="{Binding RotatingCommand}"
+                                    PointerChangedCommand="{Binding PointChangedCommand}"
+                                    Ratio="{Binding Ratio}"
+                                    ResetCanvas="{Binding ClearShapes}"
+                                    ResultROIs="{Binding ResultROIs}"
+                                    ShapeType="{Binding ShapeType}">
+                                    <graphic:ShapeGraphicView.DrawingEnabled>
+                                        <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                                            <Binding Path="IsDrawingEnabled" />
+                                            <Binding
+                                                Converter="{StaticResource EnumToBoolConverter}"
+                                                ConverterParameter="{x:Static enums:MotionMode.Teaching}"
+                                                Path="MotionMode" />
+                                        </MultiBinding>
+                                    </graphic:ShapeGraphicView.DrawingEnabled>
+                                </graphic:ShapeGraphicView>
+                            </Grid>
+                        </Border>
+                        <controls:CustomScrollView.IsScrollable>
+                            <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                                <Binding Converter="{StaticResource InvertedBoolConverter}" Path="IsTeaching" />
+                                <Binding Converter="{StaticResource InvertedBoolConverter}" Path="CriticalAction[Any]" />
+                                <Binding
+                                    Converter="{StaticResource EnumToBoolConverter}"
+                                    ConverterParameter="{x:Static enums:MotionMode.Teaching}"
+                                    Path="MotionMode" />
+                            </MultiBinding>
+                        </controls:CustomScrollView.IsScrollable>
+                    </controls:CustomScrollView>
+                    <Grid Grid.Row="2" ColumnDefinitions="*, Auto">
+                        <HorizontalStackLayout Grid.Row="0" VerticalOptions="Center">
+                            <Label FontSize="{StaticResource Body2FontSize}" Text="{Binding MousePosition.X}" />
+                            <Label
+                                Margin="{StaticResource SystemVisionMousePositionMargin}"
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text="," />
+                            <Label FontSize="{StaticResource Body2FontSize}" Text="{Binding MousePosition.Y}" />
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout
+                            Grid.Column="1"
+                            Spacing="{StaticResource HalvedGenericSpacing}"
+                            VerticalOptions="Center">
+                            <Label
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text="{Binding Ratio}"
+                                VerticalOptions="Center" />
+                            <Label
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text="x"
+                                VerticalOptions="Center" />
+                            <ImageButton
+                                BorderWidth="2"
+                                Command="{Binding ZoomOutCommand}"
+                                HeightRequest="{StaticResource SystemVisionZoomButtonHeight}"
+                                Source="minus_circle.png"
+                                Style="{StaticResource LightImageButton}"
+                                WidthRequest="{StaticResource SystemVisionZoomButtonWidth}">
+                                <ImageButton.IsEnabled>
+                                    <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                                        <Binding Converter="{StaticResource InvertedBoolConverter}" Path="CriticalAction[Any]" />
+                                        <Binding
+                                            Converter="{StaticResource EnumToBoolConverter}"
+                                            ConverterParameter="{x:Static enums:MotionMode.Teaching}"
+                                            Path="MotionMode" />
+                                    </MultiBinding>
+                                </ImageButton.IsEnabled>
+                            </ImageButton>
+                            <ImageButton
+                                Padding="2"
+                                BorderWidth="2"
+                                Command="{Binding ZoomInCommand}"
+                                HeightRequest="{StaticResource SystemVisionZoomButtonHeight}"
+                                Source="add_circle.png"
+                                Style="{StaticResource LightImageButton}"
+                                WidthRequest="{StaticResource SystemVisionZoomButtonWidth}">
+                                <ImageButton.IsEnabled>
+                                    <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                                        <Binding Converter="{StaticResource InvertedBoolConverter}" Path="CriticalAction[Any]" />
+                                        <Binding
+                                            Converter="{StaticResource EnumToBoolConverter}"
+                                            ConverterParameter="{x:Static enums:MotionMode.Teaching}"
+                                            Path="MotionMode" />
+                                    </MultiBinding>
+                                </ImageButton.IsEnabled>
+                            </ImageButton>
+                        </HorizontalStackLayout>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border
+            Grid.Column="1"
+            Margin="{StaticResource SystemVisionBorderMargin}"
+            BackgroundColor="White"
+            Stroke="Transparent"
+            VerticalOptions="FillAndExpand">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Opacity="0.1"
+                    Radius="4"
+                    Offset="0,2" />
+            </Border.Shadow>
+            <VerticalStackLayout
+                Grid.Row="0"
+                Padding="{StaticResource GenericSpacing}"
+                BackgroundColor="{StaticResource White}"
+                Spacing="{StaticResource GenericSpacing}">
+                <Button
+                    BorderWidth="1"
+                    Command="{Binding ConnectCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    HeightRequest="{StaticResource SystemVisionCommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[Connect]}"
+                    WidthRequest="{StaticResource CommandButtonWidth}">
+                    <Button.IsEnabled>
+                        <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                            <Binding Path="ConnectButtonEnabled" />
+                            <Binding Converter="{StaticResource InvertedBoolConverter}" Path="CriticalAction[Any]" />
+                        </MultiBinding>
+                    </Button.IsEnabled>
+                </Button>
+                <Button
+                    BorderWidth="1"
+                    Command="{Binding LiveCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    HeightRequest="{StaticResource SystemVisionCommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[Live]}"
+                    WidthRequest="{StaticResource CommandButtonWidth}">
+                    <Button.IsEnabled>
+                        <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                            <Binding Path="LiveButtonEnabled" />
+                            <Binding Converter="{StaticResource InvertedBoolConverter}" Path="CriticalAction[Any]" />
+                        </MultiBinding>
+                    </Button.IsEnabled>
+                </Button>
+                <Button
+                    BorderWidth="1"
+                    Command="{Binding TriggerCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    HeightRequest="{StaticResource SystemVisionCommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[Trigger]}"
+                    WidthRequest="{StaticResource CommandButtonWidth}">
+                    <Button.IsEnabled>
+                        <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                            <Binding Path="TriggerButtonEnabled" />
+                            <Binding Converter="{StaticResource InvertedBoolConverter}" Path="CriticalAction[Any]" />
+                        </MultiBinding>
+                    </Button.IsEnabled>
+                </Button>
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentView>

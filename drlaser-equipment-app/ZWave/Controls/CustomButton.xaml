@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Frame
+    x:Class="ZWave.Controls.CustomButton"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="FrameContainer"
+    HasShadow="False"
+    HorizontalOptions="FillAndExpand"
+    VerticalOptions="FillAndExpand">
+    <Frame.GestureRecognizers>
+        <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
+        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnTapped" />
+    </Frame.GestureRecognizers>
+    <FlexLayout x:Name="FlexContainer" Direction="RowReverse">
+        <Label
+            x:Name="ButtonText"
+            FontSize="{StaticResource Body2FontSize}"
+            Text="{Binding Text, Source={x:Reference FrameContainer}}"
+            VerticalOptions="Center" />
+        <StackLayout x:Name="ImageContainer" VerticalOptions="Center">
+            <Image
+                x:Name="ButtonImage"
+                HeightRequest="{StaticResource CustomButtonImageHeight}"
+                Source="{Binding ImageSource, Source={x:Reference FrameContainer}}"
+                VerticalOptions="FillAndExpand"
+                WidthRequest="{StaticResource CustomButtonImageWidth}" />
+        </StackLayout>
+    </FlexLayout>
+</Frame>

@@ -1,0 +1,4424 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 14.39.33519.0 (4fe53376).
+//
+// C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\CommonLib.tli
+//
+// Wrapper implementations for type library CommonLib.tlb
+// compiler-generated file - DO NOT EDIT!
+
+#pragma once
+
+//
+// dispinterface IMachineMessageHandler wrapper method implementations
+//
+
+inline _bstr_t IMachineMessageHandler::GetMachineQueue ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline VARIANT_BOOL IMachineMessageHandler::GetIsConnectionOpen ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x60020001, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline _bstr_t IMachineMessageHandler::GetPingRoutingKey ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline HRESULT IMachineMessageHandler::Connect ( _bstr_t hostName ) {
+    return _com_dispatch_method(this, 0x60020003, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)hostName);
+}
+
+inline HRESULT IMachineMessageHandler::InitChannel ( ) {
+    return _com_dispatch_method(this, 0x60020004, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT IMachineMessageHandler::Subscribe ( struct ISubscribedMessage * subscribedMessage ) {
+    return _com_dispatch_method(this, 0x60020005, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x000d", subscribedMessage);
+}
+
+inline HRESULT IMachineMessageHandler::Reply ( _bstr_t replyQueue, _bstr_t correlationId, unsigned __int64 deliveryTag, _bstr_t id, const _variant_t & data ) {
+    return _com_dispatch_method(this, 0x60020006, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008\x0008\x0014\x0008\x000c", (BSTR)replyQueue, (BSTR)correlationId, deliveryTag, (BSTR)id, &data);
+}
+
+inline HRESULT IMachineMessageHandler::Reply_2 ( _bstr_t replyQueue, _bstr_t correlationId, unsigned __int64 deliveryTag, SAFEARRAY * data ) {
+    return _com_dispatch_method(this, 0x60020007, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008\x0008\x0014\x2011", (BSTR)replyQueue, (BSTR)correlationId, deliveryTag, data);
+}
+
+inline HRESULT IMachineMessageHandler::BasicAck ( unsigned __int64 deliveryTag, VARIANT_BOOL multiple ) {
+    return _com_dispatch_method(this, 0x60020008, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0014\x000b", deliveryTag, multiple);
+}
+
+inline HRESULT IMachineMessageHandler::PublishToGeneral ( const _variant_t & data, _bstr_t routingKey ) {
+    return _com_dispatch_method(this, 0x60020009, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x000c\x0008", &data, (BSTR)routingKey);
+}
+
+inline HRESULT IMachineMessageHandler::PublishToStream ( const _variant_t & data ) {
+    return _com_dispatch_method(this, 0x6002000a, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x000c", &data);
+}
+
+inline HRESULT IMachineMessageHandler::PublishToCamera1Stream ( SAFEARRAY * data ) {
+    return _com_dispatch_method(this, 0x6002000b, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x2011", data);
+}
+
+inline HRESULT IMachineMessageHandler::PublishToCamera2Stream ( SAFEARRAY * data ) {
+    return _com_dispatch_method(this, 0x6002000c, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x2011", data);
+}
+
+inline HRESULT IMachineMessageHandler::PublishToCamera3Stream ( SAFEARRAY * data ) {
+    return _com_dispatch_method(this, 0x6002000d, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x2011", data);
+}
+
+//
+// interface ISubscribedMessage wrapper method implementations
+//
+
+inline _bstr_t ISubscribedMessage::GetQueueName ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_QueueName(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void ISubscribedMessage::PutQueueName ( _bstr_t pRetVal ) {
+    HRESULT _hr = put_QueueName(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT ISubscribedMessage::Callback ( _bstr_t replyQueue, _bstr_t correlationId, unsigned __int64 deliveryTag, _bstr_t data ) {
+    HRESULT _hr = raw_Callback(replyQueue, correlationId, deliveryTag, data);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// dispinterface IAlarmDTO wrapper method implementations
+//
+
+inline _bstr_t IAlarmDTO::GetErrorId ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IAlarmDTO::PutErrorId ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IAlarmDTO::GetTimeSpan ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAlarmDTO::PutTimeSpan ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline enum AlarmSeverity IAlarmDTO::GetSeverity ( ) {
+    enum AlarmSeverity _result;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAlarmDTO::PutSeverity ( enum AlarmSeverity _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline long IAlarmDTO::GetErrorCode ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAlarmDTO::PutErrorCode ( long _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline long IAlarmDTO::GetWaitResp ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAlarmDTO::PutWaitResp ( long _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline long IAlarmDTO::GetAck ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAlarmDTO::PutAck ( long _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline long IAlarmDTO::GetRetry ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAlarmDTO::PutRetry ( long _arg1 ) {
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline long IAlarmDTO::GetCancel ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAlarmDTO::PutCancel ( long _arg1 ) {
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline HRESULT IAlarmDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020010, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IAlarmRetryResultDTO wrapper method implementations
+//
+
+inline VARIANT_BOOL IAlarmRetryResultDTO::GetIsSuccess ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAlarmRetryResultDTO::PutIsSuccess ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline _bstr_t IAlarmRetryResultDTO::GetAlarmId ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IAlarmRetryResultDTO::PutAlarmId ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline HRESULT IAlarmRetryResultDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020004, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IAxisConfigDTO wrapper method implementations
+//
+
+inline _bstr_t IAxisConfigDTO::GetAxisName ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IAxisConfigDTO::PutAxisName ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IAxisConfigDTO::GetPositionRel ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAxisConfigDTO::PutPositionRel ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IAxisConfigDTO::GetPositionAbs ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAxisConfigDTO::PutPositionAbs ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IAxisConfigDTO::GetPositionMin ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAxisConfigDTO::PutPositionMin ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IAxisConfigDTO::GetPositionMax ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAxisConfigDTO::PutPositionMax ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IAxisConfigDTO::GetVelocity ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAxisConfigDTO::PutVelocity ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IAxisConfigDTO::GetVelocityMin ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAxisConfigDTO::PutVelocityMin ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IAxisConfigDTO::GetVelocityMax ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAxisConfigDTO::PutVelocityMax ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IAxisConfigDTO::GetAccel ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAxisConfigDTO::PutAccel ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IAxisConfigDTO::GetAccelMin ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAxisConfigDTO::PutAccelMin ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IAxisConfigDTO::GetAccelMax ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020014, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAxisConfigDTO::PutAccelMax ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020014, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IAxisConfigDTO::GetJerk ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020016, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAxisConfigDTO::PutJerk ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020016, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IAxisConfigDTO::GetJerkMin ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020018, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAxisConfigDTO::PutJerkMin ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020018, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IAxisConfigDTO::GetJerkMax ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002001a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IAxisConfigDTO::PutJerkMax ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002001a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline _bstr_t IAxisConfigDTO::GetUnit ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x6002001c, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IAxisConfigDTO::PutUnit ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x6002001c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline HRESULT IAxisConfigDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x6002001e, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// interface IBaseDTO wrapper method implementations
+//
+
+inline HRESULT IBaseDTO::LoadDataFromJson ( _bstr_t json ) {
+    HRESULT _hr = raw_LoadDataFromJson(json);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// dispinterface ICameraParamsDTO wrapper method implementations
+//
+
+inline double ICameraParamsDTO::GetExposure ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void ICameraParamsDTO::PutExposure ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline VARIANT_BOOL ICameraParamsDTO::GetLight ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void ICameraParamsDTO::PutLight ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline HRESULT ICameraParamsDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020004, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+inline SAFEARRAY * ICameraParamsDTO::ConvertToBytes ( const _variant_t & obj ) {
+    SAFEARRAY * _result = 0;
+    _com_dispatch_method(this, 0x60020005, DISPATCH_METHOD, VT_ARRAY|VT_UI1, (void*)&_result, 
+        L"\x000c", &obj);
+    return _result;
+}
+
+//
+// dispinterface ICircleROIDTO wrapper method implementations
+//
+
+inline _bstr_t ICircleROIDTO::GetShapeName ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void ICircleROIDTO::PutShapeName ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double ICircleROIDTO::GetRowCenter ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void ICircleROIDTO::PutRowCenter ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double ICircleROIDTO::GetColumnCenter ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void ICircleROIDTO::PutColumnCenter ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double ICircleROIDTO::GetRadius ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void ICircleROIDTO::PutRadius ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline SAFEARRAY * ICircleROIDTO::GetImageBytes ( ) {
+    SAFEARRAY * _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_ARRAY|VT_UI1, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void ICircleROIDTO::PutImageBytes ( SAFEARRAY * _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x2011", _arg1);
+}
+
+inline double ICircleROIDTO::GetScore ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void ICircleROIDTO::PutScore ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline HRESULT ICircleROIDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x6002000c, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IConfigurationDTO wrapper method implementations
+//
+
+inline _bstr_t IConfigurationDTO::GetMachineId ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IConfigurationDTO::PutMachineId ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline long IConfigurationDTO::GetCriticalActionTimeoutDefault ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IConfigurationDTO::PutCriticalActionTimeoutDefault ( long _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline HRESULT IConfigurationDTO::AddAxisConfig ( struct IAxisConfigDTO * AxisConfigDTO ) {
+    return _com_dispatch_method(this, 0x60020004, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0009", AxisConfigDTO);
+}
+
+inline HRESULT IConfigurationDTO::AddProcessTableConfig ( struct IProcessTableConfigurationDTO * ProcessTableConfigurationDTO ) {
+    return _com_dispatch_method(this, 0x60020005, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0009", ProcessTableConfigurationDTO);
+}
+
+inline HRESULT IConfigurationDTO::AddInspectionVisionConfig ( struct IInspectionVisionConfigurationDTO * InspectionVisionConfigurationDTO ) {
+    return _com_dispatch_method(this, 0x60020006, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0009", InspectionVisionConfigurationDTO);
+}
+
+inline HRESULT IConfigurationDTO::AddMotionAxisControlConfig ( struct IMotionAxisControlConfigurationDTO * MotionAxisControlConfigurationDTO ) {
+    return _com_dispatch_method(this, 0x60020007, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0009", MotionAxisControlConfigurationDTO);
+}
+
+inline HRESULT IConfigurationDTO::AddDonorLiftingModuleConfig ( struct IDonorLiftingModuleConfigurationDTO * DonorLiftingModuleConfigurationDTO ) {
+    return _com_dispatch_method(this, 0x60020008, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0009", DonorLiftingModuleConfigurationDTO);
+}
+
+inline HRESULT IConfigurationDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020009, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface ICriticalActionDTO wrapper method implementations
+//
+
+inline enum CriticalType ICriticalActionDTO::GetCriticalType ( ) {
+    enum CriticalType _result;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void ICriticalActionDTO::PutCriticalType ( enum CriticalType _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline VARIANT_BOOL ICriticalActionDTO::GetIsProcessing ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void ICriticalActionDTO::PutIsProcessing ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline long ICriticalActionDTO::GetTimeout ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void ICriticalActionDTO::PutTimeout ( long _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+//
+// dispinterface IDonorLiftingModuleDTO wrapper method implementations
+//
+
+inline double IDonorLiftingModuleDTO::GetXAxisPosition ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleDTO::PutXAxisPosition ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IDonorLiftingModuleDTO::GetYAxisPosition ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleDTO::PutYAxisPosition ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IDonorLiftingModuleDTO::GetZAxisPosition ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleDTO::PutZAxisPosition ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline VARIANT_BOOL IDonorLiftingModuleDTO::GetIsDonorChuckVacuumEnabled ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleDTO::PutIsDonorChuckVacuumEnabled ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline enum DonorLifterUIElement IDonorLiftingModuleDTO::GetDonorLifterUIElement ( ) {
+    enum DonorLifterUIElement _result;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleDTO::PutDonorLifterUIElement ( enum DonorLifterUIElement _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline enum MoveDirection IDonorLiftingModuleDTO::GetMoveDirection ( ) {
+    enum MoveDirection _result;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleDTO::PutMoveDirection ( enum MoveDirection _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline enum MotionCmd IDonorLiftingModuleDTO::GetMotionCmd ( ) {
+    enum MotionCmd _result;
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleDTO::PutMotionCmd ( enum MotionCmd _arg1 ) {
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline enum CameraSelect IDonorLiftingModuleDTO::GetCameraSelect ( ) {
+    enum CameraSelect _result;
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleDTO::PutCameraSelect ( enum CameraSelect _arg1 ) {
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline double IDonorLiftingModuleDTO::GetMoveRel ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleDTO::PutMoveRel ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline HRESULT IDonorLiftingModuleDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020012, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IEllipseROIDTO wrapper method implementations
+//
+
+inline _bstr_t IEllipseROIDTO::GetShapeName ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IEllipseROIDTO::PutShapeName ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IEllipseROIDTO::GetRowCenter ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IEllipseROIDTO::PutRowCenter ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IEllipseROIDTO::GetColumnCenter ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IEllipseROIDTO::PutColumnCenter ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IEllipseROIDTO::GetRow1 ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IEllipseROIDTO::PutRow1 ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IEllipseROIDTO::GetColumn1 ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IEllipseROIDTO::PutColumn1 ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IEllipseROIDTO::GetRadius1 ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IEllipseROIDTO::PutRadius1 ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IEllipseROIDTO::GetRadius2 ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IEllipseROIDTO::PutRadius2 ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IEllipseROIDTO::GetPhi ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IEllipseROIDTO::PutPhi ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline SAFEARRAY * IEllipseROIDTO::GetImageBytes ( ) {
+    SAFEARRAY * _result = 0;
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYGET, VT_ARRAY|VT_UI1, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IEllipseROIDTO::PutImageBytes ( SAFEARRAY * _arg1 ) {
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x2011", _arg1);
+}
+
+inline double IEllipseROIDTO::GetScore ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IEllipseROIDTO::PutScore ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline HRESULT IEllipseROIDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020014, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IImageStreamDTO wrapper method implementations
+//
+
+inline double IImageStreamDTO::GetScrollX ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IImageStreamDTO::PutScrollX ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IImageStreamDTO::GetScrollY ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IImageStreamDTO::PutScrollY ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline long IImageStreamDTO::GetRatio ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IImageStreamDTO::PutRatio ( long _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline double IImageStreamDTO::GetFullImageWidth ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IImageStreamDTO::PutFullImageWidth ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IImageStreamDTO::GetFullImageHeight ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IImageStreamDTO::PutFullImageHeight ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IImageStreamDTO::GetVisualImageWidth ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IImageStreamDTO::PutVisualImageWidth ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IImageStreamDTO::GetVisualImageHeight ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IImageStreamDTO::PutVisualImageHeight ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline __int64 IImageStreamDTO::GetTimestamp ( ) {
+    __int64 _result = 0;
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYGET, VT_I8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IImageStreamDTO::PutTimestamp ( __int64 _arg1 ) {
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0014", _arg1);
+}
+
+inline SAFEARRAY * IImageStreamDTO::GetImageBytes ( ) {
+    SAFEARRAY * _result = 0;
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYGET, VT_ARRAY|VT_UI1, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IImageStreamDTO::PutImageBytes ( SAFEARRAY * _arg1 ) {
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x2011", _arg1);
+}
+
+inline SAFEARRAY * IImageStreamDTO::GetStreamData ( ) {
+    SAFEARRAY * _result = 0;
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYGET, VT_ARRAY|VT_UI1, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IImageStreamDTO::PutStreamData ( SAFEARRAY * _arg1 ) {
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x2011", _arg1);
+}
+
+inline _bstr_t IImageStreamDTO::GetImageID ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020014, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IImageStreamDTO::PutImageID ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020014, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline HRESULT IImageStreamDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020016, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+inline SAFEARRAY * IImageStreamDTO::ConvertToBytes ( const _variant_t & obj ) {
+    SAFEARRAY * _result = 0;
+    _com_dispatch_method(this, 0x60020017, DISPATCH_METHOD, VT_ARRAY|VT_UI1, (void*)&_result, 
+        L"\x000c", &obj);
+    return _result;
+}
+
+//
+// dispinterface IInspectionVisionDTO wrapper method implementations
+//
+
+inline VARIANT_BOOL IInspectionVisionDTO::GetConnected ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutConnected ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline VARIANT_BOOL IInspectionVisionDTO::GetAcquisition ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutAcquisition ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline VARIANT_BOOL IInspectionVisionDTO::GetGrabImage ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutGrabImage ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline VARIANT_BOOL IInspectionVisionDTO::GetGammaEnable ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutGammaEnable ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetExposureTime ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutExposureTime ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetGain ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutGain ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetGamma ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutGamma ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetBlackLevel ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutBlackLevel ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetSharpness ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutSharpness ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline long IInspectionVisionDTO::GetZoomValue ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutZoomValue ( long _arg1 ) {
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline long IInspectionVisionDTO::GetScrollVertical ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x60020014, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutScrollVertical ( long _arg1 ) {
+    _com_dispatch_method(this, 0x60020014, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline long IInspectionVisionDTO::GetScrollHorizontal ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x60020016, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutScrollHorizontal ( long _arg1 ) {
+    _com_dispatch_method(this, 0x60020016, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline enum ProSystemUpLookInspecVisionUIElement IInspectionVisionDTO::GetProSystemUpLookInspecVisionUIElement ( ) {
+    enum ProSystemUpLookInspecVisionUIElement _result;
+    _com_dispatch_method(this, 0x60020018, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutProSystemUpLookInspecVisionUIElement ( enum ProSystemUpLookInspecVisionUIElement _arg1 ) {
+    _com_dispatch_method(this, 0x60020018, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline enum CameraSelect IInspectionVisionDTO::GetCameraSelect ( ) {
+    enum CameraSelect _result;
+    _com_dispatch_method(this, 0x6002001a, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutCameraSelect ( enum CameraSelect _arg1 ) {
+    _com_dispatch_method(this, 0x6002001a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline enum InspectionVisionPage IInspectionVisionDTO::GetInspectionVisionPage ( ) {
+    enum InspectionVisionPage _result;
+    _com_dispatch_method(this, 0x6002001c, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutInspectionVisionPage ( enum InspectionVisionPage _arg1 ) {
+    _com_dispatch_method(this, 0x6002001c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline VARIANT_BOOL IInspectionVisionDTO::GetNumLevelAutoNcc ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x6002001e, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutNumLevelAutoNcc ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x6002001e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline VARIANT_BOOL IInspectionVisionDTO::GetAngStepAuto ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x60020020, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutAngStepAuto ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x60020020, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetNumLevel ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020022, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutNumLevel ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020022, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetAngleStart ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020024, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutAngleStart ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020024, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetAngleExtent ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020026, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutAngleExtent ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020026, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetAngleStep ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020028, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutAngleStep ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020028, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline enum ModelSelect IInspectionVisionDTO::GetModelSelect ( ) {
+    enum ModelSelect _result;
+    _com_dispatch_method(this, 0x6002002a, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutModelSelect ( enum ModelSelect _arg1 ) {
+    _com_dispatch_method(this, 0x6002002a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline enum MetricSelect IInspectionVisionDTO::GetMetricSelect ( ) {
+    enum MetricSelect _result;
+    _com_dispatch_method(this, 0x6002002c, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutMetricSelect ( enum MetricSelect _arg1 ) {
+    _com_dispatch_method(this, 0x6002002c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline _bstr_t IInspectionVisionDTO::GetCalibrationModelId ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x6002002e, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IInspectionVisionDTO::PutCalibrationModelId ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x6002002e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline _bstr_t IInspectionVisionDTO::GetCalibrationModelIdSelection ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020030, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IInspectionVisionDTO::PutCalibrationModelIdSelection ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020030, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IInspectionVisionDTO::GetStepSize ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020032, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutStepSize ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020032, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetStepCount ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020034, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutStepCount ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020034, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetTransactionX ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020036, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutTransactionX ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020036, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetTransactionY ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020038, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutTransactionY ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020038, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetRotation ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002003a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutRotation ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002003a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetScaleX ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002003c, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutScaleX ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002003c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetScaleY ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002003e, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutScaleY ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002003e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetPixelX ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020040, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutPixelX ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020040, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetPixelY ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020042, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutPixelY ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020042, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetFovX ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020044, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutFovX ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020044, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionDTO::GetFovY ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020046, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutFovY ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020046, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline enum ProSystemVCalibartionUIElement IInspectionVisionDTO::GetProSystemVCalibartionUIElement ( ) {
+    enum ProSystemVCalibartionUIElement _result;
+    _com_dispatch_method(this, 0x60020048, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionDTO::PutProSystemVCalibartionUIElement ( enum ProSystemVCalibartionUIElement _arg1 ) {
+    _com_dispatch_method(this, 0x60020048, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline HRESULT IInspectionVisionDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x6002004a, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// interface ILaserApplyDTO wrapper method implementations
+//
+
+inline double ILaserApplyDTO::GetAttenuatorPercentage ( ) {
+    double _result = 0;
+    HRESULT _hr = get_AttenuatorPercentage(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserApplyDTO::PutAttenuatorPercentage ( double pRetVal ) {
+    HRESULT _hr = put_AttenuatorPercentage(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserApplyDTO::GetPPDivider ( ) {
+    double _result = 0;
+    HRESULT _hr = get_PPDivider(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserApplyDTO::PutPPDivider ( double pRetVal ) {
+    HRESULT _hr = put_PPDivider(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum PresetControl ILaserApplyDTO::GetPresetControl ( ) {
+    enum PresetControl _result;
+    HRESULT _hr = get_PresetControl(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserApplyDTO::PutPresetControl ( enum PresetControl pRetVal ) {
+    HRESULT _hr = put_PresetControl(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserApplyDTO::GetPulseDuration ( ) {
+    double _result = 0;
+    HRESULT _hr = get_PulseDuration(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserApplyDTO::PutPulseDuration ( double pRetVal ) {
+    HRESULT _hr = put_PulseDuration(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT ILaserApplyDTO::LoadDataFromJson ( _bstr_t json ) {
+    HRESULT _hr = raw_LoadDataFromJson(json);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IVisionParamsDTO wrapper method implementations
+//
+
+inline double IVisionParamsDTO::GetAttenuatorPercentage ( ) {
+    double _result = 0;
+    HRESULT _hr = get_AttenuatorPercentage(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IVisionParamsDTO::PutAttenuatorPercentage ( double pRetVal ) {
+    HRESULT _hr = put_AttenuatorPercentage(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double IVisionParamsDTO::GetPPDivider ( ) {
+    double _result = 0;
+    HRESULT _hr = get_PPDivider(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IVisionParamsDTO::PutPPDivider ( double pRetVal ) {
+    HRESULT _hr = put_PPDivider(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum PresetControl IVisionParamsDTO::GetPresetControl ( ) {
+    enum PresetControl _result;
+    HRESULT _hr = get_PresetControl(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IVisionParamsDTO::PutPresetControl ( enum PresetControl pRetVal ) {
+    HRESULT _hr = put_PresetControl(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double IVisionParamsDTO::GetPulseDuration ( ) {
+    double _result = 0;
+    HRESULT _hr = get_PulseDuration(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IVisionParamsDTO::PutPulseDuration ( double pRetVal ) {
+    HRESULT _hr = put_PulseDuration(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT IVisionParamsDTO::LoadDataFromJson ( _bstr_t json ) {
+    HRESULT _hr = raw_LoadDataFromJson(json);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface ILaserBasicDTO wrapper method implementations
+//
+
+inline VARIANT_BOOL ILaserBasicDTO::GetIsOutputEnabled ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_IsOutputEnabled(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserBasicDTO::PutIsOutputEnabled ( VARIANT_BOOL pRetVal ) {
+    HRESULT _hr = put_IsOutputEnabled(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserBasicDTO::GetAttenuatorPercentage ( ) {
+    double _result = 0;
+    HRESULT _hr = get_AttenuatorPercentage(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserBasicDTO::PutAttenuatorPercentage ( double pRetVal ) {
+    HRESULT _hr = put_AttenuatorPercentage(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserBasicDTO::GetPPDivider ( ) {
+    double _result = 0;
+    HRESULT _hr = get_PPDivider(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserBasicDTO::PutPPDivider ( double pRetVal ) {
+    HRESULT _hr = put_PPDivider(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum PresetControl ILaserBasicDTO::GetPresetControl ( ) {
+    enum PresetControl _result;
+    HRESULT _hr = get_PresetControl(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserBasicDTO::PutPresetControl ( enum PresetControl pRetVal ) {
+    HRESULT _hr = put_PresetControl(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserBasicDTO::GetPulseDuration ( ) {
+    double _result = 0;
+    HRESULT _hr = get_PulseDuration(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserBasicDTO::PutPulseDuration ( double pRetVal ) {
+    HRESULT _hr = put_PulseDuration(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT ILaserBasicDTO::LoadDataFromJson ( _bstr_t json ) {
+    HRESULT _hr = raw_LoadDataFromJson(json);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface ILaserBurstApplyDTO wrapper method implementations
+//
+
+inline double ILaserBurstApplyDTO::GetP ( ) {
+    double _result = 0;
+    HRESULT _hr = get_P(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserBurstApplyDTO::PutP ( double pRetVal ) {
+    HRESULT _hr = put_P(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserBurstApplyDTO::GetN ( ) {
+    double _result = 0;
+    HRESULT _hr = get_N(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserBurstApplyDTO::PutN ( double pRetVal ) {
+    HRESULT _hr = put_N(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserBurstApplyDTO::GetEnvelopeControlP ( ) {
+    double _result = 0;
+    HRESULT _hr = get_EnvelopeControlP(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserBurstApplyDTO::PutEnvelopeControlP ( double pRetVal ) {
+    HRESULT _hr = put_EnvelopeControlP(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserBurstApplyDTO::GetEnvelopeControlN ( ) {
+    double _result = 0;
+    HRESULT _hr = get_EnvelopeControlN(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserBurstApplyDTO::PutEnvelopeControlN ( double pRetVal ) {
+    HRESULT _hr = put_EnvelopeControlN(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT ILaserBurstApplyDTO::LoadDataFromJson ( _bstr_t json ) {
+    HRESULT _hr = raw_LoadDataFromJson(json);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface ILaserBurstDTO wrapper method implementations
+//
+
+inline VARIANT_BOOL ILaserBurstDTO::GetIsPowerlockEnabled ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_IsPowerlockEnabled(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserBurstDTO::PutIsPowerlockEnabled ( VARIANT_BOOL pRetVal ) {
+    HRESULT _hr = put_IsPowerlockEnabled(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserBurstDTO::GetP ( ) {
+    double _result = 0;
+    HRESULT _hr = get_P(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserBurstDTO::PutP ( double pRetVal ) {
+    HRESULT _hr = put_P(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserBurstDTO::GetN ( ) {
+    double _result = 0;
+    HRESULT _hr = get_N(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserBurstDTO::PutN ( double pRetVal ) {
+    HRESULT _hr = put_N(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserBurstDTO::GetEnvelopeControlP ( ) {
+    double _result = 0;
+    HRESULT _hr = get_EnvelopeControlP(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserBurstDTO::PutEnvelopeControlP ( double pRetVal ) {
+    HRESULT _hr = put_EnvelopeControlP(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserBurstDTO::GetEnvelopeControlN ( ) {
+    double _result = 0;
+    HRESULT _hr = get_EnvelopeControlN(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserBurstDTO::PutEnvelopeControlN ( double pRetVal ) {
+    HRESULT _hr = put_EnvelopeControlN(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT ILaserBurstDTO::LoadDataFromJson ( _bstr_t json ) {
+    HRESULT _hr = raw_LoadDataFromJson(json);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface ILaserInfoDTO wrapper method implementations
+//
+
+inline VARIANT_BOOL ILaserInfoDTO::GetIsConnected ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_IsConnected(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserInfoDTO::PutIsConnected ( VARIANT_BOOL pRetVal ) {
+    HRESULT _hr = put_IsConnected(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum LaserOperation ILaserInfoDTO::GetOperation ( ) {
+    enum LaserOperation _result;
+    HRESULT _hr = get_Operation(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserInfoDTO::PutOperation ( enum LaserOperation pRetVal ) {
+    HRESULT _hr = put_Operation(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL ILaserInfoDTO::GetEmission ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Emission(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserInfoDTO::PutEmission ( VARIANT_BOOL pRetVal ) {
+    HRESULT _hr = put_Emission(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserInfoDTO::GetLaserPower ( ) {
+    double _result = 0;
+    HRESULT _hr = get_LaserPower(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserInfoDTO::PutLaserPower ( double pRetVal ) {
+    HRESULT _hr = put_LaserPower(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserInfoDTO::GetEnergy ( ) {
+    double _result = 0;
+    HRESULT _hr = get_Energy(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserInfoDTO::PutEnergy ( double pRetVal ) {
+    HRESULT _hr = put_Energy(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum LaserStatusRange ILaserInfoDTO::GetLaserPowerRange ( ) {
+    enum LaserStatusRange _result;
+    HRESULT _hr = get_LaserPowerRange(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserInfoDTO::PutLaserPowerRange ( enum LaserStatusRange pRetVal ) {
+    HRESULT _hr = put_LaserPowerRange(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserInfoDTO::GetFrequency ( ) {
+    double _result = 0;
+    HRESULT _hr = get_Frequency(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserInfoDTO::PutFrequency ( double pRetVal ) {
+    HRESULT _hr = put_Frequency(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ILaserInfoDTO::GetPulseDivider ( ) {
+    double _result = 0;
+    HRESULT _hr = get_PulseDivider(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserInfoDTO::PutPulseDivider ( double pRetVal ) {
+    HRESULT _hr = put_PulseDivider(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum LaserStatusRange ILaserInfoDTO::GetFrequencyRange ( ) {
+    enum LaserStatusRange _result;
+    HRESULT _hr = get_FrequencyRange(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserInfoDTO::PutFrequencyRange ( enum LaserStatusRange pRetVal ) {
+    HRESULT _hr = put_FrequencyRange(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long ILaserInfoDTO::GetWaveLength ( ) {
+    long _result = 0;
+    HRESULT _hr = get_WaveLength(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserInfoDTO::PutWaveLength ( long pRetVal ) {
+    HRESULT _hr = put_WaveLength(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum LaserStatusRange ILaserInfoDTO::GetWaveLengthRange ( ) {
+    enum LaserStatusRange _result;
+    HRESULT _hr = get_WaveLengthRange(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ILaserInfoDTO::PutWaveLengthRange ( enum LaserStatusRange pRetVal ) {
+    HRESULT _hr = put_WaveLengthRange(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT ILaserInfoDTO::LoadDataFromJson ( _bstr_t json ) {
+    HRESULT _hr = raw_LoadDataFromJson(json);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// dispinterface ILaserPresetDTO wrapper method implementations
+//
+
+inline enum PresetControl ILaserPresetDTO::GetpresetIndex ( ) {
+    enum PresetControl _result;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void ILaserPresetDTO::PutpresetIndex ( enum PresetControl _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline HRESULT ILaserPresetDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020002, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IMasterDTO wrapper method implementations
+//
+
+inline _bstr_t IMasterDTO::GetMessageContent ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IMasterDTO::PutMessageContent ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline HRESULT IMasterDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020002, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// interface IMessage wrapper method implementations
+//
+
+inline _bstr_t IMessage::Getid ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_id(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IMessage::Putid ( _bstr_t pRetVal ) {
+    HRESULT _hr = put_id(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMessage::Getdata ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_data(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMessage::PutRefdata ( const _variant_t & pRetVal ) {
+    HRESULT _hr = putref_data(pRetVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT IMessage::LoadDataFromJson ( _bstr_t json ) {
+    HRESULT _hr = raw_LoadDataFromJson(json);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// dispinterface IMotionAxisControlDTO wrapper method implementations
+//
+
+inline double IMotionAxisControlDTO::GetMovePos ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlDTO::PutMovePos ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionAxisControlDTO::GetVelPos ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlDTO::PutVelPos ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionAxisControlDTO::GetAcclPos ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlDTO::PutAcclPos ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionAxisControlDTO::GetJerkPos ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlDTO::PutJerkPos ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionAxisControlDTO::GetActualMovePos ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlDTO::PutActualMovePos ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionAxisControlDTO::GetActualVelPos ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlDTO::PutActualVelPos ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionAxisControlDTO::GetActualAcclPos ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlDTO::PutActualAcclPos ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionAxisControlDTO::GetActualJerkPos ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlDTO::PutActualJerkPos ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline VARIANT_BOOL IMotionAxisControlDTO::GetIsRelPos ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlDTO::PutIsRelPos ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline VARIANT_BOOL IMotionAxisControlDTO::GetEnableBtnIsActive ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlDTO::PutEnableBtnIsActive ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline enum MotionUIElement IMotionAxisControlDTO::GetMotionUIElement ( ) {
+    enum MotionUIElement _result;
+    _com_dispatch_method(this, 0x60020014, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlDTO::PutMotionUIElement ( enum MotionUIElement _arg1 ) {
+    _com_dispatch_method(this, 0x60020014, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline enum MotionUIElement IMotionAxisControlDTO::GetExecutingBtn ( ) {
+    enum MotionUIElement _result;
+    _com_dispatch_method(this, 0x60020016, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlDTO::PutExecutingBtn ( enum MotionUIElement _arg1 ) {
+    _com_dispatch_method(this, 0x60020016, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline enum AxisSelection IMotionAxisControlDTO::GetAxisSelection ( ) {
+    enum AxisSelection _result;
+    _com_dispatch_method(this, 0x60020018, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlDTO::PutAxisSelection ( enum AxisSelection _arg1 ) {
+    _com_dispatch_method(this, 0x60020018, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline enum MotionCmd IMotionAxisControlDTO::GetMotionCmd ( ) {
+    enum MotionCmd _result;
+    _com_dispatch_method(this, 0x6002001a, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlDTO::PutMotionCmd ( enum MotionCmd _arg1 ) {
+    _com_dispatch_method(this, 0x6002001a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline HRESULT IMotionAxisControlDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x6002001c, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IMotionCalculateDTO wrapper method implementations
+//
+
+inline double IMotionCalculateDTO::GetPointOneEstTime ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionCalculateDTO::PutPointOneEstTime ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionCalculateDTO::GetPointTwoEstTime ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionCalculateDTO::PutPointTwoEstTime ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionCalculateDTO::GetTotalEstCycleTime ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionCalculateDTO::PutTotalEstCycleTime ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline HRESULT IMotionCalculateDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020006, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IMotionKinematicsDTO wrapper method implementations
+//
+
+inline double IMotionKinematicsDTO::GetVelocity ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionKinematicsDTO::PutVelocity ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionKinematicsDTO::GetAcceleration ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionKinematicsDTO::PutAcceleration ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionKinematicsDTO::GetJerk ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionKinematicsDTO::PutJerk ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+//
+// dispinterface IMotionMovedDTO wrapper method implementations
+//
+
+inline double IMotionMovedDTO::GetTransitionX ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionMovedDTO::PutTransitionX ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionMovedDTO::GetTransitionY ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionMovedDTO::PutTransitionY ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline HRESULT IMotionMovedDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020004, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IMotionProfileDTO wrapper method implementations
+//
+
+inline _bstr_t IMotionProfileDTO::GetName ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IMotionProfileDTO::PutName ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IMotionProfileDTO::GetDistance ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionProfileDTO::PutDistance ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionProfileDTO::GetTime ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionProfileDTO::PutTime ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionProfileDTO::GetVelocity ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionProfileDTO::PutVelocity ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionProfileDTO::GetAcceleration ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionProfileDTO::PutAcceleration ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionProfileDTO::GetJerk ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionProfileDTO::PutJerk ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline HRESULT IMotionProfileDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x6002000c, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IMotionTestDTO wrapper method implementations
+//
+
+inline _bstr_t IMotionTestDTO::GetName ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IMotionTestDTO::PutName ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IMotionTestDTO::GetPointOne ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionTestDTO::PutPointOne ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionTestDTO::GetPointOneDelay ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionTestDTO::PutPointOneDelay ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionTestDTO::GetPointTwo ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionTestDTO::PutPointTwo ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionTestDTO::GetPointTwoDelay ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionTestDTO::PutPointTwoDelay ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionTestDTO::GetNoOfCycles ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionTestDTO::PutNoOfCycles ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionTestDTO::GetVelocity ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionTestDTO::PutVelocity ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionTestDTO::GetAcceleration ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionTestDTO::PutAcceleration ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionTestDTO::GetJerk ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionTestDTO::PutJerk ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline HRESULT IMotionTestDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020012, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IMotionTestStateDTO wrapper method implementations
+//
+
+inline double IMotionTestStateDTO::GetCurrentCycles ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionTestStateDTO::PutCurrentCycles ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionTestStateDTO::GetTotalCycles ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionTestStateDTO::PutTotalCycles ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionTestStateDTO::GetCommandPosition ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionTestStateDTO::PutCommandPosition ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionTestStateDTO::GetEncoderPosition ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionTestStateDTO::PutEncoderPosition ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionTestStateDTO::GetMissingSteps ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionTestStateDTO::PutMissingSteps ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+//
+// dispinterface IProcessTableDTO wrapper method implementations
+//
+
+inline double IProcessTableDTO::GetXAxisPosition ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableDTO::PutXAxisPosition ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IProcessTableDTO::GetYAxisPosition ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableDTO::PutYAxisPosition ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IProcessTableDTO::GetTXAxisPosition ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableDTO::PutTXAxisPosition ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IProcessTableDTO::GetTYAxisPosition ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableDTO::PutTYAxisPosition ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IProcessTableDTO::GetZAxisPosition ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableDTO::PutZAxisPosition ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline VARIANT_BOOL IProcessTableDTO::GetIsSubstrateChuckVacuumEnabled ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableDTO::PutIsSubstrateChuckVacuumEnabled ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline enum ProTableUIElement IProcessTableDTO::GetProTableUIElement ( ) {
+    enum ProTableUIElement _result;
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableDTO::PutProTableUIElement ( enum ProTableUIElement _arg1 ) {
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline enum MoveDirection IProcessTableDTO::GetMoveDirection ( ) {
+    enum MoveDirection _result;
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableDTO::PutMoveDirection ( enum MoveDirection _arg1 ) {
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline enum MotionCmd IProcessTableDTO::GetMotionCmd ( ) {
+    enum MotionCmd _result;
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableDTO::PutMotionCmd ( enum MotionCmd _arg1 ) {
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline enum CameraSelect IProcessTableDTO::GetCameraSelect ( ) {
+    enum CameraSelect _result;
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableDTO::PutCameraSelect ( enum CameraSelect _arg1 ) {
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline double IProcessTableDTO::GetMoveRel ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020014, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableDTO::PutMoveRel ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020014, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline HRESULT IProcessTableDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020016, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IRectangleROIDTO wrapper method implementations
+//
+
+inline _bstr_t IRectangleROIDTO::GetShapeName ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IRectangleROIDTO::PutShapeName ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IRectangleROIDTO::GetRowCenter ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IRectangleROIDTO::PutRowCenter ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IRectangleROIDTO::GetColumnCenter ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IRectangleROIDTO::PutColumnCenter ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IRectangleROIDTO::GetRow1 ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IRectangleROIDTO::PutRow1 ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IRectangleROIDTO::GetColumn1 ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IRectangleROIDTO::PutColumn1 ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IRectangleROIDTO::GetRow2 ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IRectangleROIDTO::PutRow2 ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IRectangleROIDTO::GetColumn2 ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IRectangleROIDTO::PutColumn2 ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IRectangleROIDTO::GetPhi ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IRectangleROIDTO::PutPhi ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline SAFEARRAY * IRectangleROIDTO::GetImageBytes ( ) {
+    SAFEARRAY * _result = 0;
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYGET, VT_ARRAY|VT_UI1, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IRectangleROIDTO::PutImageBytes ( SAFEARRAY * _arg1 ) {
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x2011", _arg1);
+}
+
+inline double IRectangleROIDTO::GetScore ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IRectangleROIDTO::PutScore ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline HRESULT IRectangleROIDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020014, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IVisionImageDto wrapper method implementations
+//
+
+inline double IVisionImageDto::GetFullImageWidth ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IVisionImageDto::PutFullImageWidth ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IVisionImageDto::GetFullImageHeight ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IVisionImageDto::PutFullImageHeight ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IVisionImageDto::GetImageVisualWidth ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IVisionImageDto::PutImageVisualWidth ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IVisionImageDto::GetImageVisualHeight ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IVisionImageDto::PutImageVisualHeight ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IVisionImageDto::GetScrollX ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IVisionImageDto::PutScrollX ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IVisionImageDto::GetScrollY ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IVisionImageDto::PutScrollY ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline long IVisionImageDto::GetRatio ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IVisionImageDto::PutRatio ( long _arg1 ) {
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+//
+// dispinterface IDonorLiftingModuleConfigurationDTO wrapper method implementations
+//
+
+inline _bstr_t IDonorLiftingModuleConfigurationDTO::GetAxisName ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IDonorLiftingModuleConfigurationDTO::PutAxisName ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IDonorLiftingModuleConfigurationDTO::GetArrowContentLeft1DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleConfigurationDTO::PutArrowContentLeft1DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IDonorLiftingModuleConfigurationDTO::GetArrowContentLeft2DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleConfigurationDTO::PutArrowContentLeft2DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IDonorLiftingModuleConfigurationDTO::GetArrowContentLeft3DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleConfigurationDTO::PutArrowContentLeft3DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IDonorLiftingModuleConfigurationDTO::GetArrowContentRight1DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleConfigurationDTO::PutArrowContentRight1DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IDonorLiftingModuleConfigurationDTO::GetArrowContentRight2DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleConfigurationDTO::PutArrowContentRight2DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IDonorLiftingModuleConfigurationDTO::GetArrowContentRight3DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleConfigurationDTO::PutArrowContentRight3DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IDonorLiftingModuleConfigurationDTO::GetEntryValue_Min ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleConfigurationDTO::PutEntryValue_Min ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IDonorLiftingModuleConfigurationDTO::GetEntryValue_Max ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IDonorLiftingModuleConfigurationDTO::PutEntryValue_Max ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline HRESULT IDonorLiftingModuleConfigurationDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020012, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IInspectionVisionConfigurationDTO wrapper method implementations
+//
+
+inline _bstr_t IInspectionVisionConfigurationDTO::GetCameraName ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IInspectionVisionConfigurationDTO::PutCameraName ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline long IInspectionVisionConfigurationDTO::GetZoomValue_Min ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutZoomValue_Min ( long _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline long IInspectionVisionConfigurationDTO::GetZoomValue_Max ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutZoomValue_Max ( long _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline double IInspectionVisionConfigurationDTO::GetCameraMaxSize_X ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutCameraMaxSize_X ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionConfigurationDTO::GetCameraMaxSize_Y ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutCameraMaxSize_Y ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionConfigurationDTO::GetExposureTime_Min ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutExposureTime_Min ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionConfigurationDTO::GetExposureTime_Max ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutExposureTime_Max ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline _bstr_t IInspectionVisionConfigurationDTO::GetExposureTime_ValueType ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IInspectionVisionConfigurationDTO::PutExposureTime_ValueType ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IInspectionVisionConfigurationDTO::GetGain_Min ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutGain_Min ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionConfigurationDTO::GetGain_Max ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutGain_Max ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020012, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline _bstr_t IInspectionVisionConfigurationDTO::GetGain_ValueType ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020014, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IInspectionVisionConfigurationDTO::PutGain_ValueType ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020014, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IInspectionVisionConfigurationDTO::GetGamma_Min ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020016, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutGamma_Min ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020016, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionConfigurationDTO::GetGamma_Max ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020018, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutGamma_Max ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020018, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline _bstr_t IInspectionVisionConfigurationDTO::GetGamma_ValueType ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x6002001a, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IInspectionVisionConfigurationDTO::PutGamma_ValueType ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x6002001a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IInspectionVisionConfigurationDTO::GetBlackLevel_Min ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002001c, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutBlackLevel_Min ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002001c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionConfigurationDTO::GetBlackLevel_Max ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002001e, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutBlackLevel_Max ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002001e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline _bstr_t IInspectionVisionConfigurationDTO::GetBlackLevel_ValueType ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020020, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IInspectionVisionConfigurationDTO::PutBlackLevel_ValueType ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020020, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IInspectionVisionConfigurationDTO::GetSharpness_Min ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020022, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutSharpness_Min ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020022, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionConfigurationDTO::GetSharpness_Max ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020024, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutSharpness_Max ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020024, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline _bstr_t IInspectionVisionConfigurationDTO::GetSharpness_ValueType ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020026, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IInspectionVisionConfigurationDTO::PutSharpness_ValueType ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020026, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IInspectionVisionConfigurationDTO::GetPhi_Min ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020028, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutPhi_Min ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020028, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IInspectionVisionConfigurationDTO::GetPhi_Max ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002002a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutPhi_Max ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002002a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline _bstr_t IInspectionVisionConfigurationDTO::GetPhi_ValueType ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x6002002c, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IInspectionVisionConfigurationDTO::PutPhi_ValueType ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x6002002c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline VARIANT_BOOL IInspectionVisionConfigurationDTO::GetShowSharpness ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x6002002e, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IInspectionVisionConfigurationDTO::PutShowSharpness ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x6002002e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline HRESULT IInspectionVisionConfigurationDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020030, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IMotionAxisControlConfigurationDTO wrapper method implementations
+//
+
+inline _bstr_t IMotionAxisControlConfigurationDTO::GetAxisName ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IMotionAxisControlConfigurationDTO::PutAxisName ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IMotionAxisControlConfigurationDTO::GetPositionREL_DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlConfigurationDTO::PutPositionREL_DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionAxisControlConfigurationDTO::GetPositionABS_DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlConfigurationDTO::PutPositionABS_DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionAxisControlConfigurationDTO::GetVelocity_DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlConfigurationDTO::PutVelocity_DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionAxisControlConfigurationDTO::GetAccel_DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlConfigurationDTO::PutAccel_DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IMotionAxisControlConfigurationDTO::GetJerk_DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IMotionAxisControlConfigurationDTO::PutJerk_DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline HRESULT IMotionAxisControlConfigurationDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x6002000c, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// dispinterface IProcessTableConfigurationDTO wrapper method implementations
+//
+
+inline _bstr_t IProcessTableConfigurationDTO::GetAxisName ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void IProcessTableConfigurationDTO::PutAxisName ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x60020000, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline double IProcessTableConfigurationDTO::GetArrowContentLeft1DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableConfigurationDTO::PutArrowContentLeft1DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020002, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IProcessTableConfigurationDTO::GetArrowContentLeft2DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableConfigurationDTO::PutArrowContentLeft2DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020004, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IProcessTableConfigurationDTO::GetArrowContentLeft3DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableConfigurationDTO::PutArrowContentLeft3DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020006, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IProcessTableConfigurationDTO::GetArrowContentRight1DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableConfigurationDTO::PutArrowContentRight1DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020008, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IProcessTableConfigurationDTO::GetArrowContentRight2DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableConfigurationDTO::PutArrowContentRight2DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IProcessTableConfigurationDTO::GetArrowContentRight3DefaultValue ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableConfigurationDTO::PutArrowContentRight3DefaultValue ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IProcessTableConfigurationDTO::GetEntryValue_Min ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableConfigurationDTO::PutEntryValue_Min ( double _arg1 ) {
+    _com_dispatch_method(this, 0x6002000e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double IProcessTableConfigurationDTO::GetEntryValue_Max ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void IProcessTableConfigurationDTO::PutEntryValue_Max ( double _arg1 ) {
+    _com_dispatch_method(this, 0x60020010, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline HRESULT IProcessTableConfigurationDTO::LoadDataFromJson ( _bstr_t json ) {
+    return _com_dispatch_method(this, 0x60020012, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)json);
+}
+
+//
+// interface IAlarm wrapper method implementations
+//
+
+inline _bstr_t IAlarm::GetFetch ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Fetch(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IAlarm::GetAcknowlegedAlarm ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_AcknowlegedAlarm(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IAlarm::GetCancelledAlarm ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_CancelledAlarm(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IAlarm::GetRetriedAlarm ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_RetriedAlarm(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IAlarm::GetNew ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_New(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IAlarm::GetAck ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Ack(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IAlarm::GetRetry ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Retry(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IAlarm::GetCancel ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Cancel(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface ICamera wrapper method implementations
+//
+
+inline _bstr_t ICamera::GetExposure ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Exposure(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ICamera::GetLight ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Light(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface IConfiguration wrapper method implementations
+//
+
+inline _bstr_t IConfiguration::GetSelf ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Self(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IConfiguration::GetMotionAxisControl ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_MotionAxisControl(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IConfiguration::GetDonorLiftingModule ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_DonorLiftingModule(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IConfiguration::GetProcessTable ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_ProcessTable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IConfiguration::GetInspectionVision ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_InspectionVision(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface ICriticalControl wrapper method implementations
+//
+
+inline _bstr_t ICriticalControl::GetFetch ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Fetch(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ICriticalControl::GetUpdate ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Update(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface IDonorLiftingModule wrapper method implementations
+//
+
+inline _bstr_t IDonorLiftingModule::GetFetch ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Fetch(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IDonorLiftingModule::GetContent ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Content(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IDonorLiftingModule::GetMove ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Move(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IDonorLiftingModule::GetAction ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Action(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IDonorLiftingModule::GetCameraChange ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_CameraChange(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IDonorLiftingModule::GetDonorChuckVacuumOutput ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_DonorChuckVacuumOutput(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IDonorLiftingModule::GetDonorLiftingModuleDTO ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_DonorLiftingModuleDTO(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface ICausewaySystem wrapper method implementations
+//
+
+inline IDonorLiftingModulePtr ICausewaySystem::GetDonorLiftingModule ( ) {
+    struct IDonorLiftingModule * _result = 0;
+    HRESULT _hr = get_DonorLiftingModule(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDonorLiftingModulePtr(_result, false);
+}
+
+inline _bstr_t ICausewaySystem::GetInfo ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Info(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ICausewaySystem::GetFetch ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Fetch(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface IInspectionVision wrapper method implementations
+//
+
+inline _bstr_t IInspectionVision::GetFetch ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Fetch(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetContent ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Content(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetConnect ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Connect(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetLive ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Live(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetTrigger ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Trigger(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetSave ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Save(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetExposureTime ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_ExposureTime(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetGain ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Gain(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetGamma ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Gamma(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetGammaEnable ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_GammaEnable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetBlackLevel ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_BlackLevel(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetSharpness ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Sharpness(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetZoomValue ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_ZoomValue(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetScrollVertical ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_ScrollVertical(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetScrollHorizontal ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_ScrollHorizontal(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetInspectionVisionDTO ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_InspectionVisionDTO(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetImageDTO ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_ImageDTO(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetROIDTO ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_ROIDTO(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetRegionDTO ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_RegionDTO(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetCircleROIResultId ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_CircleROIResultId(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetRectangleROIResultId ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_RectangleROIResultId(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetEllipseROIResultId ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_EllipseROIResultId(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetSaveResultCommandId ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_SaveResultCommandId(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetMotionMovedId ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_MotionMovedId(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetTeach ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Teach(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetNumLevelAutoNcc ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_NumLevelAutoNcc(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetAngStepAuto ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_AngStepAuto(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetNumLevel ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_NumLevel(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetAngleStart ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_AngleStart(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetAngleExtent ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_AngleExtent(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetAngleStep ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_AngleStep(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetCalibrationAction ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_CalibrationAction(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetCalibrationResult ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_CalibrationResult(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetCalibrationModelId ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_CalibrationModelId(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetCalibrationModelIdSelection ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_CalibrationModelIdSelection(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetStepSize ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_StepSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetStepCount ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_StepCount(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetTransactionX ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_TransactionX(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetTransactionY ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_TransactionY(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetRotation ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Rotation(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetScaleX ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_ScaleX(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetScaleY ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_ScaleY(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetPixelX ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_PixelX(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetPixelY ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_PixelY(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetFovX ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_FovX(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IInspectionVision::GetFovY ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_FovY(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface ILaserBasic wrapper method implementations
+//
+
+inline _bstr_t ILaserBasic::GetFetch ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Fetch(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ILaserBasic::GetApply ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Apply(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ILaserBasic::GetConnect ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Connect(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ILaserBasic::GetStandBy ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_StandBy(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ILaserBasic::GetContent ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Content(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ILaserBasic::GetOutput ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Output(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ILaserBasic::GetLaserBasicDTO ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_LaserBasicDTO(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface ILaserBurst wrapper method implementations
+//
+
+inline _bstr_t ILaserBurst::GetFetch ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Fetch(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ILaserBurst::GetApply ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Apply(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ILaserBurst::GetContent ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Content(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ILaserBurst::GetPowerlock ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Powerlock(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ILaserBurst::GetLaserBurstDTO ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_LaserBurstDTO(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface ILaser wrapper method implementations
+//
+
+inline ILaserBurstPtr ILaser::GetLaserBurst ( ) {
+    struct ILaserBurst * _result = 0;
+    HRESULT _hr = get_LaserBurst(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return ILaserBurstPtr(_result, false);
+}
+
+inline ILaserBasicPtr ILaser::GetLaserBasic ( ) {
+    struct ILaserBasic * _result = 0;
+    HRESULT _hr = get_LaserBasic(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return ILaserBasicPtr(_result, false);
+}
+
+inline _bstr_t ILaser::GetInfo ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Info(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ILaser::GetFetch ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Fetch(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface IMotionAxisControl wrapper method implementations
+//
+
+inline _bstr_t IMotionAxisControl::GetFetch ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Fetch(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotionAxisControl::GetContent ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Content(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotionAxisControl::GetChangeAxis ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_ChangeAxis(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotionAxisControl::GetAction ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Action(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotionAxisControl::GetMotionAxisControlDTO ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_MotionAxisControlDTO(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotionAxisControl::GetMotionParamUpdates ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_MotionParamUpdates(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotionAxisControl::GetExecutingBtnStatus ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_ExecutingBtnStatus(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotionAxisControl::GetEnableBtnStatus ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_EnableBtnStatus(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface IMotionControl wrapper method implementations
+//
+
+inline _bstr_t IMotionControl::GetProfiles ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Profiles(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotionControl::GetLogs ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Logs(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotionControl::GetCalculate ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Calculate(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotionControl::GetStart ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Start(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotionControl::GetStop ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Stop(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotionControl::GetKinematics ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Kinematics(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotionControl::GetKinematicsRoute ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_KinematicsRoute(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotionControl::GetTestState ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_TestState(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface IMotion wrapper method implementations
+//
+
+inline IMotionControlPtr IMotion::GetMotionControl ( ) {
+    struct IMotionControl * _result = 0;
+    HRESULT _hr = get_MotionControl(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IMotionControlPtr(_result, false);
+}
+
+inline IMotionAxisControlPtr IMotion::GetMotionAxisControl ( ) {
+    struct IMotionAxisControl * _result = 0;
+    HRESULT _hr = get_MotionAxisControl(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IMotionAxisControlPtr(_result, false);
+}
+
+inline _bstr_t IMotion::GetInfo ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Info(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IMotion::GetFetch ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Fetch(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface IProcessTable wrapper method implementations
+//
+
+inline _bstr_t IProcessTable::GetFetch ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Fetch(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IProcessTable::GetContent ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Content(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IProcessTable::GetMove ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Move(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IProcessTable::GetAction ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Action(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IProcessTable::GetCameraChange ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_CameraChange(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IProcessTable::GetSubstrateChuckVacuumOutput ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_SubstrateChuckVacuumOutput(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IProcessTable::GetProcessTableDTO ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_ProcessTableDTO(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface IProcessSystem wrapper method implementations
+//
+
+inline IProcessTablePtr IProcessSystem::GetProcessTable ( ) {
+    struct IProcessTable * _result = 0;
+    HRESULT _hr = get_ProcessTable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IProcessTablePtr(_result, false);
+}
+
+inline IInspectionVisionPtr IProcessSystem::GetInspectionVision ( ) {
+    struct IInspectionVision * _result = 0;
+    HRESULT _hr = get_InspectionVision(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IInspectionVisionPtr(_result, false);
+}
+
+inline _bstr_t IProcessSystem::GetInfo ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Info(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IProcessSystem::GetFetch ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Fetch(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface IVision wrapper method implementations
+//
+
+inline _bstr_t IVision::GetConnect ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Connect(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IVision::GetTrigger ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Trigger(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IVision::GetCameraParams ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_CameraParams(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IVision::GetExposure ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Exposure(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IVision::GetLight ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Light(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IVision::GetImageDTO ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_ImageDTO(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IVision::GetROIDTO ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_ROIDTO(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IVision::GetCircleROIResultId ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_CircleROIResultId(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IVision::GetRectangleROIResultId ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_RectangleROIResultId(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IVision::GetEllipseROIResultId ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_EllipseROIResultId(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IVision::GetSaveResultCommandId ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_SaveResultCommandId(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline ICameraPtr IVision::GetCamera ( ) {
+    struct ICamera * _result = 0;
+    HRESULT _hr = get_Camera(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return ICameraPtr(_result, false);
+}
+
+inline _bstr_t IVision::GetMotionMovedId ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_MotionMovedId(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface ISystem wrapper method implementations
+//
+
+inline ILaserPtr ISystem::GetLaser ( ) {
+    struct ILaser * _result = 0;
+    HRESULT _hr = get_Laser(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return ILaserPtr(_result, false);
+}
+
+inline ICausewaySystemPtr ISystem::GetCausewaySystem ( ) {
+    struct ICausewaySystem * _result = 0;
+    HRESULT _hr = get_CausewaySystem(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return ICausewaySystemPtr(_result, false);
+}
+
+inline IProcessSystemPtr ISystem::GetProcessSystem ( ) {
+    struct IProcessSystem * _result = 0;
+    HRESULT _hr = get_ProcessSystem(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IProcessSystemPtr(_result, false);
+}
+
+inline IVisionPtr ISystem::GetVision ( ) {
+    struct IVision * _result = 0;
+    HRESULT _hr = get_Vision(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IVisionPtr(_result, false);
+}
+
+inline IMotionPtr ISystem::GetMotion ( ) {
+    struct IMotion * _result = 0;
+    HRESULT _hr = get_Motion(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IMotionPtr(_result, false);
+}
+
+//
+// interface IMaster wrapper method implementations
+//
+
+inline _bstr_t IMaster::GetMessage ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Message(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline ISystemPtr IMaster::GetSystem ( ) {
+    struct ISystem * _result = 0;
+    HRESULT _hr = get_System(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return ISystemPtr(_result, false);
+}
+
+inline IConfigurationPtr IMaster::GetConfiguration ( ) {
+    struct IConfiguration * _result = 0;
+    HRESULT _hr = get_Configuration(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IConfigurationPtr(_result, false);
+}
+
+inline IAlarmPtr IMaster::GetAlarm ( ) {
+    struct IAlarm * _result = 0;
+    HRESULT _hr = get_Alarm(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IAlarmPtr(_result, false);
+}
+
+inline ICriticalControlPtr IMaster::GetCriticalControl ( ) {
+    struct ICriticalControl * _result = 0;
+    HRESULT _hr = get_CriticalControl(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return ICriticalControlPtr(_result, false);
+}
+
+inline _bstr_t IMaster::GetContent ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Content(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}

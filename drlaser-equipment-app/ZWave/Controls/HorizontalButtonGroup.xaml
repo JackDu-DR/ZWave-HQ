@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Controls.HorizontalButtonGroup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Border
+        Grid.Column="0"
+        BackgroundColor="{StaticResource GreyNeutral4}"
+        Stroke="{StaticResource GreyNeutral6}">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="8" />
+        </Border.StrokeShape>
+        <HorizontalStackLayout x:Name="ButtonContainer" VerticalOptions="Start" />
+    </Border>
+</ContentView>

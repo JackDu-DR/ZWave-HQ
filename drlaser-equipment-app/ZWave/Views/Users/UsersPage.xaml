@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Views.UsersPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:converter="clr-namespace:ZWave.Converters"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Users"
+    Padding="{StaticResource GenericSpacing}">
+    <ContentView.BindingContext>
+        <viewmodel:UsersPageViewModel />
+    </ContentView.BindingContext>
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorValueConverter x:Key="StatusBackgroundColorConverter" />
+            <converter:BooleanToColorValueConverter
+                x:Key="StatusTextColorConverter"
+                ColorOnFalse="#151717"
+                ColorOnTrue="#257143" />
+            <converter:BooleanToStringValueConverter
+                x:Key="StatusTextValueConverter"
+                TextOnFalse="Inactive"
+                TextOnTrue="Active"
+                UseLocalization="True" />
+            <converter:BooleanToStringValueConverter
+                x:Key="ToggleStatusTextValueConverter"
+                TextOnFalse="Enable"
+                TextOnTrue="Disable"
+                UseLocalization="True" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Border
+        Grid.Column="0"
+        BackgroundColor="{StaticResource White}"
+        Stroke="Transparent">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="8" />
+        </Border.StrokeShape>
+        <Border.Shadow>
+            <Shadow
+                Brush="{StaticResource Black}"
+                Opacity="0.1"
+                Radius="4"
+                Offset="0,2" />
+        </Border.Shadow>
+        <VerticalStackLayout Padding="{StaticResource GenericSpacing}" Spacing="{StaticResource GenericSpacing}">
+            <Label
+                FontAttributes="Bold"
+                FontSize="{StaticResource Subtitle2FontSize}"
+                HorizontalOptions="Start"
+                Text="{Binding Localization[UserManagement]}"
+                VerticalOptions="Center" />
+            <Grid RowDefinitions="auto, *" RowSpacing="{StaticResource GenericSpacing}">
+                <Grid
+                    Grid.Row="0"
+                    ColumnDefinitions="*, auto, auto, auto"
+                    ColumnSpacing="{StaticResource GenericSpacing}">
+                    <Border
+                        Grid.Column="0"
+                        HeightRequest="{StaticResource EntryHeight}"
+                        HorizontalOptions="Start"
+                        StrokeThickness="1">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="4" />
+                        </Border.StrokeShape>
+                        <Entry
+                            BackgroundColor="White"
+                            FontSize="{StaticResource Body2FontSize}"
+                            Placeholder="{Binding Localization[Search]}"
+                            Text="{Binding SearchText}"
+                            VerticalTextAlignment="Center"
+                            WidthRequest="{StaticResource UserSearchBarWidth}" />
+                    </Border>
+                    <controls:CustomButton
+                        Grid.Column="2"
+                        Padding="{StaticResource SmallSpacing}"
+                        HeightRequest="{StaticResource ButtonHeight}"
+                        ImageSource="filter_white.png"
+                        OnClickedCommand="{Binding ConfigureRoleAccessCommand}"
+                        Text="{Binding Localization[ConfigureRoleAccess]}" />
+                    <controls:CustomButton
+                        Grid.Column="3"
+                        Padding="{StaticResource SmallSpacing}"
+                        HeightRequest="{StaticResource ButtonHeight}"
+                        ImageSource="add_circle_white.png"
+                        OnClickedCommand="{Binding AddUserCommand}"
+                        Text="{Binding Localization[NewUser]}" />
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{StaticResource UserTableRowHeight}" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Border
+                        Grid.Row="0"
+                        BackgroundColor="Transparent"
+                        Stroke="{StaticResource GreyNeutral6}">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="4,4,0,0" />
+                        </Border.StrokeShape>
+                        <Grid Padding="{StaticResource SmallSpacingLR}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="{StaticResource UserTableActionColumnWidth}" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Column="0"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HorizontalOptions="Start"
+                                Text="{Binding Localization[FullName]}"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Column="1"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HorizontalOptions="Start"
+                                Text="{Binding Localization[Username]}"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Column="2"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HorizontalOptions="Start"
+                                Text="{Binding Localization[UserRole]}"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Column="3"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HorizontalOptions="Start"
+                                Text="{Binding Localization[Status]}"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Column="4"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HorizontalOptions="Start"
+                                Text="{Binding Localization[LastLogin]}"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Column="5"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HorizontalOptions="Start"
+                                Text="{Binding Localization[Actions]}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+                    <Border
+                        Grid.Row="1"
+                        Margin="0,-2,0,0"
+                        BackgroundColor="Transparent"
+                        Stroke="{StaticResource GreyNeutral6}">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="0,0,4,4" />
+                        </Border.StrokeShape>
+                        <ListView
+                            x:Name="UserList"
+                            IsPullToRefreshEnabled="True"
+                            ItemsSource="{Binding Users}"
+                            RefreshCommand="{Binding RefreshCommand}"
+                            SelectionMode="None"
+                            SeparatorColor="{StaticResource GreyNeutral3}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid
+                                            Padding="{StaticResource SmallSpacingLR}"
+                                            HeightRequest="{StaticResource UserTableRowHeight}"
+                                            VerticalOptions="Center">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="{StaticResource UserTableActionColumnWidth}" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                Grid.Column="0"
+                                                FontSize="{StaticResource Body2FontSize}"
+                                                HorizontalOptions="Start"
+                                                Text="{Binding FullName}"
+                                                VerticalOptions="Center" />
+                                            <Label
+                                                Grid.Column="1"
+                                                FontSize="{StaticResource Body2FontSize}"
+                                                HorizontalOptions="Start"
+                                                Text="{Binding Username}"
+                                                VerticalOptions="Center" />
+                                            <Label
+                                                Grid.Column="2"
+                                                FontSize="{StaticResource Body2FontSize}"
+                                                HorizontalOptions="Start"
+                                                Text="{Binding UserRole}"
+                                                VerticalOptions="Center" />
+                                            <Border
+                                                Grid.Column="3"
+                                                BackgroundColor="{Binding Status, Converter={StaticResource StatusBackgroundColorConverter}}"
+                                                HeightRequest="{StaticResource UserStatusLabelHeight}"
+                                                HorizontalOptions="Start"
+                                                Stroke="Transparent"
+                                                VerticalOptions="Center"
+                                                WidthRequest="{StaticResource UserStatusLabelWidth}">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="4" />
+                                                </Border.StrokeShape>
+                                                <Label
+                                                    FontSize="{StaticResource Body2FontSize}"
+                                                    HorizontalOptions="Center"
+                                                    Text="{Binding Status, Converter={StaticResource StatusTextValueConverter}}"
+                                                    TextColor="{Binding Status, Converter={StaticResource StatusTextColorConverter}}"
+                                                    VerticalOptions="Center" />
+                                            </Border>
+                                            <Label
+                                                Grid.Column="4"
+                                                FontSize="{StaticResource Body2FontSize}"
+                                                HorizontalOptions="Start"
+                                                Text="{Binding LastLogin}"
+                                                VerticalOptions="Center" />
+                                            <HorizontalStackLayout Grid.Column="5" Spacing="{StaticResource GenericSpacing}">
+                                                <Button
+                                                    Margin="0"
+                                                    Padding="0"
+                                                    BackgroundColor="Transparent"
+                                                    BorderWidth="0"
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UsersPageViewModel}}, Path=EditCommand}"
+                                                    CommandParameter="{Binding Id}"
+                                                    FontSize="{StaticResource Body2FontSize}"
+                                                    HorizontalOptions="Center"
+                                                    Text="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UsersPageViewModel}}, Path=Localization[Edit]}"
+                                                    TextColor="{StaticResource BlueBrand5}" />
+                                                <Button
+                                                    Margin="0"
+                                                    Padding="0"
+                                                    BackgroundColor="Transparent"
+                                                    BorderWidth="0"
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UsersPageViewModel}}, Path=ToggleStatusCommand}"
+                                                    CommandParameter="{Binding Id}"
+                                                    FontSize="{StaticResource Body2FontSize}"
+                                                    HorizontalOptions="Center"
+                                                    Text="{Binding Status, Converter={StaticResource ToggleStatusTextValueConverter}}"
+                                                    TextColor="{StaticResource BlueBrand5}"
+                                                    WidthRequest="120" />
+                                                <Button
+                                                    Margin="0"
+                                                    Padding="0"
+                                                    BackgroundColor="Transparent"
+                                                    BorderWidth="0"
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UsersPageViewModel}}, Path=ChangePasswordCommand}"
+                                                    CommandParameter="{Binding Id}"
+                                                    FontSize="{StaticResource Body2FontSize}"
+                                                    HorizontalOptions="Center"
+                                                    Text="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UsersPageViewModel}}, Path=Localization[ChangePassword]}"
+                                                    TextColor="{StaticResource BlueBrand5}" />
+                                            </HorizontalStackLayout>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Border>
+                </Grid>
+            </Grid>
+        </VerticalStackLayout>
+    </Border>
+</ContentView>

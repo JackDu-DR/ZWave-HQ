@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Frame xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="ZWave.Controls.CustomButtonWithIconText"
+       x:Name="FrameContainer"
+       CornerRadius="8"
+       HasShadow="False"
+       HorizontalOptions="FillAndExpand"
+       VerticalOptions="FillAndExpand">
+    <Frame.GestureRecognizers>
+        <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
+    </Frame.GestureRecognizers>
+
+    <FlexLayout x:Name="ButtonContainer" Direction="Column" JustifyContent="Center" AlignItems="Center">
+        <Image
+            x:Name="ButtonIconImage"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
+        <Label x:Name="CustomButtonText" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+    </FlexLayout>
+</Frame>

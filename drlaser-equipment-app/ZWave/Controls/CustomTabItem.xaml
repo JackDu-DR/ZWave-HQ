@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Controls.CustomTabItem"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    Margin="{StaticResource CustomTabItemContainerMargin}"
+    HeightRequest="{StaticResource CustomTabItemContainerHeight}"
+    WidthRequest="{StaticResource CustomTabItemContainerWidth}">
+    <ContentView.GestureRecognizers>
+        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnTapped" />
+    </ContentView.GestureRecognizers>
+    <Border
+        x:Name="Border"
+        Stroke="{StaticResource GreyNeutral5}"
+        StrokeThickness="1">
+        <Border.StrokeShape>
+            <RoundRectangle x:Name="BorderShape" />
+        </Border.StrokeShape>
+        <VerticalStackLayout>
+            <HorizontalStackLayout
+                Margin="{StaticResource CustomTabItemLabelContainerMargin}"
+                HeightRequest="{StaticResource CustomTabItemLabelContainerHeight}"
+                HorizontalOptions="Center">
+                <Label
+                    x:Name="TitleLabel"
+                    FontSize="{StaticResource Body1FontSize}"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <BoxView
+                x:Name="IndicatorView"
+                CornerRadius="2"
+                HeightRequest="{StaticResource CustomTabItemIndicatorViewHeight}"
+                IsVisible="false"
+                WidthRequest="{StaticResource CustomTabItemIndicatorViewWidth}"
+                Color="{StaticResource BlueBrand5}" />
+        </VerticalStackLayout>
+    </Border>
+</ContentView>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Controls.ContainerWithTitleBar"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <Border StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="4" />
+                </Border.StrokeShape>
+                <StackLayout BackgroundColor="{StaticResource GreyNeutral2}" Orientation="Vertical">
+                    <Label
+                        Padding="{StaticResource ContainerWithTitleBarLabelPadding}"
+                        BackgroundColor="{StaticResource GreyNeutral6}"
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource Body2FontSize}"
+                        HeightRequest="{StaticResource ContainerWithTitleBarLabelHeight}"
+                        Text="{TemplateBinding TitleText}"
+                        VerticalTextAlignment="Center" />
+                    <ScrollView x:Name="scrollView" VerticalOptions="FillAndExpand">
+                        <ContentPresenter />
+                    </ScrollView>
+                </StackLayout>
+            </Border>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>

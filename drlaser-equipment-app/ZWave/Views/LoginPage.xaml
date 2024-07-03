@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ZWave.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels"
+    Title="LoginPage"
+    BackgroundImageSource="login_background.png"
+    x:DataType="viewmodel:LoginPageViewModel">
+    <ContentPage.BindingContext>
+        <viewmodel:LoginPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
+        <toolkit:EventToCommandBehavior Command="{Binding DisappearingCommand}" EventName="Disappearing" />
+    </ContentPage.Behaviors>
+    <VerticalStackLayout
+        Spacing="{StaticResource GenericSpacing}"
+        VerticalOptions="Center"
+        HorizontalOptions="End"
+        WidthRequest="{StaticResource LoginContainer}"
+        Margin="{OnPlatform WinUI='0,0,50,0', Android='0,0,20,0'}">
+        <VerticalStackLayout Spacing="{StaticResource HalvedGenericSpacing}">
+            <Label
+                FontSize="{StaticResource SmallFontSize}"
+                Text="{Binding ErrorText}"
+                TextColor="Red" />
+            <Label FontSize="{StaticResource Body2FontSize}" Text="{Binding Localization[Username]}" />
+            <Border
+                x:Name="UsernameBoder"
+                Padding="0"
+                BackgroundColor="Transparent"
+                Stroke="Transparent">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="4" />
+                </Border.StrokeShape>
+                <Entry
+                    Background="{StaticResource GreyNeutral3}"
+                    FontSize="{StaticResource SmallFontSize}"
+                    HeightRequest="{StaticResource EntryHeight}"
+                    HorizontalOptions="FillAndExpand"
+                    Placeholder="{Binding Localization[Username]}"
+                    Text="{Binding Username}" />
+            </Border>
+        </VerticalStackLayout>
+        <VerticalStackLayout Spacing="{StaticResource HalvedGenericSpacing}">
+            <Label FontSize="{StaticResource Body2FontSize}" Text="{Binding Localization[Password]}" />
+            <Border
+                x:Name="PasswordBoder"
+                Padding="0"
+                BackgroundColor="Transparent"
+                Stroke="Transparent">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="4" />
+                </Border.StrokeShape>
+                <Entry
+                    Background="{StaticResource GreyNeutral3}"
+                    FontSize="{StaticResource SmallFontSize}"
+                    HeightRequest="{StaticResource EntryHeight}"
+                    HorizontalOptions="FillAndExpand"
+                    IsPassword="True"
+                    Placeholder="{Binding Localization[Password]}"
+                    Text="{Binding Password}" />
+            </Border>
+        </VerticalStackLayout>
+        <Button
+            Margin="{StaticResource GenericSpacing}"
+            Command="{Binding LoginCommand}"
+            Text="{Binding Localization[Login]}"
+            WidthRequest="{StaticResource LoginButtonWidth}" />
+    </VerticalStackLayout>
+</ContentPage>

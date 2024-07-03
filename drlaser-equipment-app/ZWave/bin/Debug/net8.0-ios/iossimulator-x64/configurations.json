@@ -1,0 +1,9 @@
+{
+    "RabbitMQConfiguration": {
+        "Url": "localhost"
+    },
+  "ManagementServer": {
+    //"Url": "https://localhost:7272/"
+    "Url": "http://localhost:5087/"
+  }
+}

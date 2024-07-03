@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Controls.NavigationBar"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    Padding="{StaticResource MarginTRB}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <HorizontalStackLayout
+            x:Name="Layout"
+            Grid.Column="0"
+            VerticalOptions="Center" />
+        <HorizontalStackLayout
+            x:Name="LayoutEnd"
+            Grid.Column="2"
+            HorizontalOptions="End"
+            VerticalOptions="Center" />
+    </Grid>
+</ContentView>

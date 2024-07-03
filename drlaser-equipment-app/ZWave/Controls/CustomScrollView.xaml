@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Controls.CustomScrollView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls">
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <Grid x:Name="ScrollViewLayout">
+                <ContentPresenter x:Name="ScrollViewContent" />
+                <controls:CustomScrollBar x:Name="VerticalScrollBar" CustomScrollBarOrientation="Vertical" Scrolled="VerticalScrollBar_Scrolled" />
+                <controls:CustomScrollBar x:Name="HorizontalScrollBar" CustomScrollBarOrientation="Horizontal" Scrolled="HorizontalScrollBar_Scrolled" />
+            </Grid>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>

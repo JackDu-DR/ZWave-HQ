@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Views.Systems.Motions.MotionAxisControlPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:ZWave.Controls"
+    xmlns:converter="clr-namespace:ZWave.Converters"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Systems.Motions"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BackgroundColor="{StaticResource GreyNeutral3}"
+    >
+    <ContentView.BindingContext>
+        <viewmodel:MotionAxisControlPageViewModel />
+    </ContentView.BindingContext>
+    <ContentView.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding LoadedCommand}" EventName="Loaded" />
+        <toolkit:EventToCommandBehavior Command="{Binding UnloadedCommand}" EventName="Unloaded" />
+    </ContentView.Behaviors>
+    <ContentView.Resources>
+        <converter:NegateConverter x:Key="negateConverter" />
+        <x:Double x:Key="EntryWithTitleLabelWidth">140</x:Double>
+        <x:Double x:Key="EntryWithTitleControlWidth">220</x:Double>
+    </ContentView.Resources>
+
+    <Grid ColumnSpacing="{StaticResource GenericSpacing}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="{StaticResource SystemCommandPanelWidth}" />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" IsVisible="{Binding LoadCompleted, Converter={StaticResource negateConverter}}">
+            <control:LoadingAnimation />
+        </StackLayout>
+
+        <Border
+            IsVisible="{Binding LoadCompleted}"
+            Grid.Column="0"
+            Margin="0,-2,0,0"
+            BackgroundColor="White"
+            Stroke="Transparent"
+            VerticalOptions="FillAndExpand">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0,8,8,8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Opacity="0.1"
+                    Radius="4"
+                    Offset="0,2" />
+            </Border.Shadow>
+            <StackLayout
+                    Grid.Column="0"
+                    Padding="16,16,16,16"
+                    HorizontalOptions="Fill"
+                    Orientation="Vertical">
+                <StackLayout
+                    BackgroundColor="White"
+                    Padding="16,8"
+                    Orientation="Horizontal"
+                    Spacing="8"
+                    ZIndex="1">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource OpenSansSemibold}"
+                        Text="{Binding Localization[AxisName]}"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+                    <Picker
+                         IsVisible="False"
+                         ItemsSource="{Binding MotionAxisControlConfigurationModel}"
+                         SelectedIndexChanged="OnSelectedAxisChanged"
+                         SelectedItem="{Binding SelectedAxis, Mode=TwoWay}" />
+                    <control:CustomPicker
+                         x:Name="AxisSelector"
+                         Margin="10,0,0,0"
+                         FontSize="{StaticResource RegularFontSize}"
+                         HeightRequest="{StaticResource AxisPickerHeight}"
+                         HorizontalOptions="Start"
+                         ItemDisplayBinding="AxisName"
+                         ItemsSource="{Binding MotionAxisControlConfigurationModel}"
+                         SelectedItem="{Binding SelectedAxis, Mode=TwoWay}"
+                         VerticalOptions="Center"
+                         BackgroundColor="{StaticResource White}"
+                         WidthRequest="341">
+                    </control:CustomPicker>
+                </StackLayout>
+
+                <control:ContainerWithTitleBar
+                        HorizontalOptions="Start"
+                        TitleText="{Binding Localization[AxisName]}"
+                        WidthRequest="450">
+                    <VerticalStackLayout Padding="{StaticResource GenericSpacing}" Spacing="{StaticResource GenericSpacing}">
+                        <Grid ColumnSpacing="{StaticResource SmallSpacing}" HorizontalOptions="Start">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="110" />
+                                <ColumnDefinition Width="160" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                HorizontalOptions="Start"
+                                Text="{Binding Localization[AxisPositionLabel]}"
+                                VerticalOptions="Center" />
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                RadioButtonGroup.GroupName="RelOrAbsPosition"
+                                RadioButtonGroup.SelectedValue="{Binding SelectedPosition}"
+                                VerticalOptions="Center">
+                                <RadioButton Content="{Binding Localization[Rel]}" Value="PosRel" IsChecked="{Binding IsPosRelEntryEnabled}"/>
+                                <RadioButton Content="{Binding Localization[Abs]}" Value="PosAbs" IsChecked="{Binding IsPosAbsEntryEnabled}"/>
+                            </VerticalStackLayout>
+                            <Border
+                                    Grid.Column="2"
+                                    HeightRequest="{StaticResource EntryHeight}"
+                                    Stroke="{StaticResource GreyNeutral6}"
+                                    StrokeThickness="1">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="4,4,4,4" />
+                                </Border.StrokeShape>
+                                <Entry
+                                    BackgroundColor="{StaticResource GreyNeutral3}"
+                                    HeightRequest="{StaticResource EntryHeight}"
+                                    IsEnabled="False"
+                                    Keyboard="Numeric"
+                                    Text="{Binding MotionAxisControlModel.ActualMovePos}"
+                                    VerticalTextAlignment="Center" />
+                            </Border>
+                            <Grid Grid.Column="3" RowSpacing="{StaticResource SmallSpacing}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+                                <control:EntryWithTitle
+                                    Grid.Row="0"
+                                    EntryContainerWidthRequest="100"
+                                    IsSingleEntry="True"
+                                    Keyboard="Numeric"
+                                    LeftEntryEnabled="{Binding IsPosRelEntryEnabled}"
+                                    LeftText="{Binding MovePosRelValue}"
+                                    Unit="{Binding MotionAxisControlModel.PositionUnit}" />
+                                <control:EntryWithTitle
+                                    Grid.Row="1"
+                                    EntryContainerWidthRequest="100"
+                                    IsSingleEntry="True"
+                                    Keyboard="Numeric"
+                                    LeftEntryEnabled="{Binding IsPosAbsEntryEnabled}"
+                                    LeftText="{Binding MovePosAbsValue}"
+                                    Unit="{Binding MotionAxisControlModel.PositionUnit}" />
+                            </Grid>
+                        </Grid>
+                        <VerticalStackLayout HorizontalOptions="End" Spacing="{StaticResource SmallSpacing}">
+                            <control:EntryWithTitle
+                                x:Name="VelTextFeild"
+                                Title="{Binding Localization[AxisVelocityLabel]}"
+                                EntryContainerWidthRequest="{StaticResource EntryWithTitleControlWidth}"
+                                FontAttributes="Bold"
+                                HeightRequest="{StaticResource EntryHeight}"
+                                LeftEntryEnabled="False"
+                                LeftText="{Binding MotionAxisControlModel.ActualVelPos}"
+                                RightText="{Binding VelPosValue}"
+                                TitleWidthRequest="{StaticResource EntryWithTitleLabelWidth}"
+                                Unit="{Binding MotionAxisControlModel.VelocityUnit}" />
+                            <control:EntryWithTitle
+                                Title="{Binding Localization[AxisAccelLabel]}"
+                                EntryContainerWidthRequest="{StaticResource EntryWithTitleControlWidth}"
+                                FontAttributes="Bold"
+                                HeightRequest="{StaticResource EntryHeight}"
+                                LeftEntryEnabled="False"
+                                LeftText="{Binding MotionAxisControlModel.ActualAcclPos}"
+                                RightText="{Binding AcclPosValue}"
+                                TitleWidthRequest="{StaticResource EntryWithTitleLabelWidth}"
+                                Unit="{Binding MotionAxisControlModel.AccelUnit}" />
+                            <control:EntryWithTitle
+                                Title="{Binding Localization[AxisJerkLabel]}"
+                                EntryContainerWidthRequest="{StaticResource EntryWithTitleControlWidth}"
+                                FontAttributes="Bold"
+                                HeightRequest="{StaticResource EntryHeight}"
+                                LeftEntryEnabled="False"
+                                LeftText="{Binding MotionAxisControlModel.ActualJerkPos}"
+                                RightText="{Binding JerkPosValue}"
+                                TitleWidthRequest="{StaticResource EntryWithTitleLabelWidth}"
+                                Unit="{Binding MotionAxisControlModel.JerkUnit}" />
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </control:ContainerWithTitleBar>
+            </StackLayout>
+        </Border>
+        <Border
+            IsVisible="{Binding LoadCompleted}"
+            Grid.Column="1"
+            Margin="0,-2,0,0"
+            BackgroundColor="Transparent"
+            Stroke="Transparent"
+            VerticalOptions="FillAndExpand">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Opacity="0.1"
+                    Radius="4"
+                    Offset="0,2" />
+            </Border.Shadow>
+            <VerticalStackLayout
+                    Padding="{StaticResource GenericSpacing}"
+                    BackgroundColor="{StaticResource White}"
+                    Spacing="{StaticResource GenericSpacing}">
+                <Button
+                    BorderWidth="1"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    HeightRequest="40"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[Go]}"
+                    Command="{Binding GoCommand}"
+                    IsVisible="{Binding IsShowGoBtn, Converter={StaticResource negateConverter}}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" 
+                    />
+                <Button
+                        BorderWidth="1"
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource OpenSansSemibold}"
+                        HeightRequest="40"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource LightButton}"
+                        Text="{Binding Localization[Go]}"
+                        BackgroundColor="{StaticResource Green6}"
+                        IsVisible="{Binding IsShowGoBtn}"
+                        WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                    BorderWidth="1"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    HeightRequest="40"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[Stop]}"
+                    Command="{Binding StopCommand}"
+                    IsVisible="{Binding IsShowStopBtn, Converter={StaticResource negateConverter}}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                        BorderWidth="1"
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource OpenSansSemibold}"
+                        HeightRequest="40"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource LightButton}"
+                        Text="{Binding Localization[Stop]}"
+                        BackgroundColor="{StaticResource Green6}"
+                        IsVisible="{Binding IsShowStopBtn}"
+                        WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                    BorderWidth="1"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    HeightRequest="40"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[SetZero]}"
+                    Command="{Binding SetZeroCommand}"
+                    IsVisible="{Binding IsShowSetZeroBtn, Converter={StaticResource negateConverter}}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                        BorderWidth="1"
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource OpenSansSemibold}"
+                        HeightRequest="40"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource LightButton}"
+                        Text="{Binding Localization[SetZero]}"
+                        BackgroundColor="{StaticResource Green6}"
+                        IsVisible="{Binding IsShowSetZeroBtn}"
+                        WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                    BorderWidth="1"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    HeightRequest="40"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[Enable]}"
+                    BackgroundColor="{StaticResource Red6}"
+                    Command="{Binding EnableCommand}"
+                    IsVisible="{Binding EnableBtnIsActive, Converter={StaticResource negateConverter}}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                        BorderWidth="1"
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource OpenSansSemibold}"
+                        HeightRequest="40"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource LightButton}"
+                        Text="{Binding Localization[Enable]}"
+                        BackgroundColor="{StaticResource Green6}"
+                        Command="{Binding EnableCommand}"
+                        IsVisible="{Binding EnableBtnIsActive}"
+                        WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                    BorderWidth="1"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    HeightRequest="40"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[EStop]}"
+                    Command="{Binding EStopCommand}"
+                    IsVisible="{Binding IsShowEStopBtn, Converter={StaticResource negateConverter}}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                         BorderWidth="1"
+                         FontAttributes="Bold"
+                         FontFamily="{StaticResource OpenSansSemibold}"
+                         HeightRequest="40"
+                         HorizontalOptions="Center"
+                         Style="{StaticResource LightButton}"
+                         Text="{Binding Localization[EStop]}"
+                         BackgroundColor="{StaticResource Green6}"
+                         IsVisible="{Binding IsShowEStopBtn}"
+                         WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                    BorderWidth="1"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    HeightRequest="40"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[Home]}"
+                    Command="{Binding HomeCommand}"
+                    IsVisible="{Binding IsShowHomeBtn, Converter={StaticResource negateConverter}}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                        BorderWidth="1"
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource OpenSansSemibold}"
+                        HeightRequest="40"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource LightButton}"
+                        Text="{Binding Localization[Home]}"
+                        BackgroundColor="{StaticResource Green6}"
+                        IsVisible="{Binding IsShowHomeBtn}"
+                        WidthRequest="{StaticResource CommandButtonWidth}" />
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentView>

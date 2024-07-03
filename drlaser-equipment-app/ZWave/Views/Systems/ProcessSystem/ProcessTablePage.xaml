@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ZWave.Views.Systems.ProcessSystem.ProcessTablePage"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:graphic="clr-namespace:ZWave.Controls.Graphic"
+    xmlns:converters="clr-namespace:ZWave.Converters"
+    xmlns:local="clr-namespace:ZWave.Views"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Systems.ProcessSystem"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:DataType="viewmodel:ProcessTablePageViewModel"
+    >
+    <ContentView.BindingContext>
+        <viewmodel:ProcessTablePageViewModel />
+    </ContentView.BindingContext>
+    <ContentView.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding LoadedCommand}" EventName="Loaded" />
+        <toolkit:EventToCommandBehavior Command="{Binding UnloadedCommand}" EventName="Unloaded" />
+    </ContentView.Behaviors>
+    <ContentView.Resources>
+        <converters:BoolToSelectedState x:Key="boolToSelectedState" />
+        <converters:NegateConverter x:Key="negateConverter" />
+        <x:Double x:Key="AxisComponentHeight">60</x:Double>
+        <x:Double x:Key="BorderMargin">20</x:Double>
+    </ContentView.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{OnPlatform WinUI='600', Android='500'}" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" IsVisible="{Binding LoadCompleted, Converter={StaticResource negateConverter}}">
+            <controls:LoadingAnimation />
+        </StackLayout>
+
+        <Border 
+            IsVisible="{Binding LoadCompleted}"
+         Grid.Column="0" 
+         Margin="{StaticResource BorderMargin}" 
+         StrokeThickness="0" 
+         BackgroundColor="{StaticResource Gray100}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8,8,8,8"  />
+            </Border.StrokeShape>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <!--<RowDefinition Height="50" />-->
+                    <RowDefinition Height="{OnPlatform WinUI='510', Android='310'}" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!--<StackLayout
+                 Grid.Row="0"
+                 Margin="20, 10, 10, 0"
+                 Orientation="Horizontal"
+                    HorizontalOptions="End"
+                 Spacing="8">
+                    <Label
+                     FontAttributes="Bold"
+                     FontFamily="{StaticResource OpenSansSemibold}"
+                     Text="{Binding Localization[CameraChange]}"
+                     VerticalOptions="Center"
+                     VerticalTextAlignment="Center" />
+                    <Border
+                        Stroke="#CCE1E1E1"
+                        StrokeThickness="1">
+                        <Border.StrokeShape>
+                            <RoundRectangle
+                                CornerRadius="4,4,4,4" />
+                        </Border.StrokeShape>
+                        <Picker
+                             x:Name="AxisSelector"
+                             BackgroundColor="{StaticResource White}"
+                             FontSize="{StaticResource RegularFontSize}"
+                             HeightRequest="{StaticResource AxisPickerHeight}"
+                             HorizontalOptions="Start"
+                             SelectedIndexChanged="onCameraChange"
+                             ItemsSource="{Binding CameraList}"
+                             WidthRequest="180" />
+                    </Border>
+                </StackLayout>-->
+
+                <Border 
+                  Grid.Row="0"
+                  StrokeThickness="0"
+                  BackgroundColor="#d9d9d9"
+                  HeightRequest="{OnPlatform WinUI='500', Android='300'}"
+                  WidthRequest="{OnPlatform WinUI='500', Android='400'}">
+                    <Border.StrokeShape>
+                        <RoundRectangle
+                         CornerRadius="8,8,8,8"/>
+                    </Border.StrokeShape>
+                    <Grid>
+                        <ContentView x:Name="LiveCameraContainer" Content="{Binding ChildView}" />
+                        <graphic:ShapeGraphicView
+                             x:Name="ShapeGraphicView"
+                             HasCenterAxisLines="True"
+                             DrawingEnabled="False" />
+                    </Grid>
+                </Border>
+
+                <ScrollView Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".5*" />
+                            <ColumnDefinition Width=".5*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label 
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            Margin="10,0,10,0"
+                            Text="{Binding Localization[CurrentPosition]}"
+                            TextColor="{StaticResource Black}" 
+                            FontSize="18"/>
+                        <FlexLayout
+                            Grid.Column="0"
+                            Grid.Row="1"
+                            Margin="10,0,10,0"
+                            Direction="Column"
+                            JustifyContent="Start"
+                            AlignItems="Start">
+                            <VerticalStackLayout Margin="5,0,5,0" Spacing="1">
+                                <controls:EntryWithTitle
+                                     Title="{Binding Localization[XAxis]}"
+                                     EntryContainerWidthRequest="{OnPlatform WinUI='110', Android='80'}"
+                                     IsSingleEntry="True"
+                                     LeftText="{Binding ProcessTableModel.XAxisPosition}"
+                                     LeftEntryEnabled="False"
+                                     TitleWidthRequest="{OnPlatform WinUI='110', Android='80'}" />
+                                <controls:EntryWithTitle
+                                     Title="{Binding Localization[YAxis]}"
+                                     EntryContainerWidthRequest="{OnPlatform WinUI='110', Android='80'}"
+                                     IsSingleEntry="True"
+                                     LeftText="{Binding ProcessTableModel.YAxisPosition}"
+                                     LeftEntryEnabled="False"
+                                     TitleWidthRequest="{OnPlatform WinUI='110', Android='80'}" />
+                            </VerticalStackLayout>
+                        </FlexLayout>
+                        <FlexLayout
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            Margin="10,0,10,0"
+                            Direction="Column"
+                            JustifyContent="Start"
+                            AlignItems="Start">
+                            <VerticalStackLayout Margin="5,0,5,0" Spacing="1">
+                                <controls:EntryWithTitle
+                                     Title="{Binding Localization[XAxis0]}"
+                                     EntryContainerWidthRequest="{OnPlatform WinUI='110', Android='80'}"
+                                     IsSingleEntry="True"
+                                     LeftText="{Binding ProcessTableModel.TXAxisPosition}"
+                                     LeftEntryEnabled="False"
+                                     TitleWidthRequest="{OnPlatform WinUI='110', Android='80'}" />
+                                <controls:EntryWithTitle
+                                     Title="{Binding Localization[YAxis0]}"
+                                     EntryContainerWidthRequest="{OnPlatform WinUI='110', Android='80'}"
+                                     IsSingleEntry="True"
+                                     LeftText="{Binding ProcessTableModel.TYAxisPosition}"
+                                     LeftEntryEnabled="False"
+                                     TitleWidthRequest="{OnPlatform WinUI='110', Android='80'}" />
+                                <controls:EntryWithTitle
+                                     Title="{Binding Localization[ZAxis]}"
+                                     EntryContainerWidthRequest="{OnPlatform WinUI='110', Android='80'}"
+                                     IsSingleEntry="True"
+                                     LeftText="{Binding ProcessTableModel.ZAxisPosition}"
+                                     LeftEntryEnabled="False"
+                                     TitleWidthRequest="{OnPlatform WinUI='110', Android='80'}" />
+                            </VerticalStackLayout>
+                        </FlexLayout>
+                    </Grid>
+                </ScrollView>
+            </Grid>
+        </Border>
+
+        <Border 
+            IsVisible="{Binding LoadCompleted}"
+         Grid.Column="1" 
+         Margin="{StaticResource BorderMargin}" 
+         StrokeThickness="0" >
+            <Border.StrokeShape>
+                <RoundRectangle
+                 CornerRadius="8,8,8,8"/>
+            </Border.StrokeShape>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                 Height=".85*" />
+                    <RowDefinition
+                 Height=".15*" />
+                </Grid.RowDefinitions>
+
+                <ScrollView Grid.Row="0" IsVisible="{OnPlatform WinUI='False', Android='True'}">
+                    <StackLayout  Orientation="Vertical" VerticalOptions="Start" Spacing="10">
+                        <Label 
+                            Margin="10,0,10,-10"
+                            Text="{Binding Localization[Motion]}"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource Black}" 
+                            FontSize="20"/>
+                        <controls:AxisControllerWithEntry 
+                            x:Name="Axis_X_Android"
+                            AxisTitle="{Binding Localization[XAxis]}" 
+                            AxisCategory="Pro_Table" 
+                            AxisUnitType="um" 
+                            IsHorizontalAxis="True" 
+                            IsAllowNegativeInput="False"
+                            HeightRequest="{StaticResource AxisComponentHeight}" 
+                            PropertyChanged="AxisControllerWithEntry_PropertyChanged"/>
+                        <controls:AxisControllerWithEntry 
+                            x:Name="Axis_Y_Android"  
+                            AxisTitle="{Binding Localization[YAxis]}" 
+                            AxisCategory="Pro_Table" 
+                            AxisUnitType="um" 
+                            IsHorizontalAxis="True" 
+                            IsAllowNegativeInput="False"
+                            HeightRequest="{StaticResource AxisComponentHeight}" 
+                            PropertyChanged="AxisControllerWithEntry_PropertyChanged"/>
+                        <Label 
+                            Margin="10,0,10,-10"
+                            Text="{Binding Localization[TipTilt]}"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource Black}" 
+                            FontSize="20"/>
+                        <controls:AxisControllerWithEntry 
+                            x:Name="Axis_X0_Android"
+                            AxisTitle="{Binding Localization[XAxis0]}" 
+                            AxisCategory="Pro_Table" 
+                            AxisUnitType="um" 
+                            IsHorizontalAxis="True" 
+                            IsAllowNegativeInput="False"
+                            HeightRequest="{StaticResource AxisComponentHeight}" 
+                            PropertyChanged="AxisControllerWithEntry_PropertyChanged"/>
+                        <controls:AxisControllerWithEntry 
+                            x:Name="Axis_Y0_Android"  
+                            AxisTitle="{Binding Localization[YAxis0]}" 
+                            AxisCategory="Pro_Table" 
+                            AxisUnitType="um" 
+                            IsHorizontalAxis="True" 
+                            IsAllowNegativeInput="False"
+                            HeightRequest="{StaticResource AxisComponentHeight}" 
+                            PropertyChanged="AxisControllerWithEntry_PropertyChanged"/>
+                        <controls:AxisControllerWithEntry
+                            x:Name="Axis_Z_Android"
+                            AxisTitle="{Binding Localization[ZAxis]}" 
+                            AxisCategory="Pro_Table" 
+                            AxisUnitType="um" 
+                            IsVerticalAxis="True" 
+                            IsAllowNegativeInput="False"
+                            HeightRequest="{StaticResource AxisComponentHeight}" 
+                            PropertyChanged="AxisControllerWithEntry_PropertyChanged"/>
+                        <controls:AxisControllerWithEntry
+                            x:Name="Axis_Angle_Android"
+                            AxisTitle="{Binding Localization[Angle]}" 
+                            AxisCategory="Pro_Table" 
+                            AxisUnitType="deg" 
+                            IsAngleAxis="True" 
+                            IsAllowNegativeInput="False"
+                            HeightRequest="{StaticResource AxisComponentHeight}" 
+                            PropertyChanged="AxisControllerWithEntry_PropertyChanged"/>
+
+                        <Button
+                             Margin="10,16,0,0"
+                             BackgroundColor="White"
+                             BorderColor="{StaticResource GreyNeutral5}"
+                             BorderWidth="1"
+                             FontAttributes="Bold"
+                             Command="{Binding HomeAllCommand}"
+                             FontFamily="{StaticResource OpenSansSemibold}"
+                             HeightRequest="40"
+                             HorizontalOptions="Start"
+                             Text="{Binding Localization[HomeAll]}"
+                             TextColor="{StaticResource GreyNeutral14}"
+                             WidthRequest="120" />
+                    </StackLayout>
+                </ScrollView>
+
+                <StackLayout  Orientation="Vertical" VerticalOptions="Start" Spacing="10" IsVisible="{OnPlatform WinUI='True', Android='False'}">
+                    <Label 
+                        Margin="10,0,10,-10"
+                        Text="{Binding Localization[Motion]}"
+                        FontAttributes="Bold"
+                        TextColor="{StaticResource Black}" 
+                        FontSize="20"/>
+                    <controls:AxisControllerWithEntry 
+                        x:Name="Axis_X_Windows"
+                        AxisTitle="{Binding Localization[XAxis]}" 
+                        AxisCategory="Pro_Table" 
+                        AxisUnitType="um" 
+                        IsHorizontalAxis="True" 
+                        IsAllowNegativeInput="False"
+                        HeightRequest="{StaticResource AxisComponentHeight}" 
+                        PropertyChanged="AxisControllerWithEntry_PropertyChanged"/>
+                    <controls:AxisControllerWithEntry 
+                        x:Name="Axis_Y_Windows"  
+                        AxisTitle="{Binding Localization[YAxis]}" 
+                        AxisCategory="Pro_Table" 
+                        AxisUnitType="um" 
+                        IsHorizontalAxis="True" 
+                        IsAllowNegativeInput="False"
+                        HeightRequest="{StaticResource AxisComponentHeight}" 
+                        PropertyChanged="AxisControllerWithEntry_PropertyChanged"/>
+
+                    <Label 
+                        Margin="10,0,10,-10"
+                        Text="{Binding Localization[TipTilt]}"
+                        FontAttributes="Bold"
+                        TextColor="{StaticResource Black}" 
+                        FontSize="20"/>
+                    <controls:AxisControllerWithEntry 
+                        x:Name="Axis_X0_Windows"
+                        AxisTitle="{Binding Localization[XAxis0]}" 
+                        AxisCategory="Pro_Table" 
+                        AxisUnitType="um" 
+                        IsHorizontalAxis="True" 
+                        IsAllowNegativeInput="False"
+                        HeightRequest="{StaticResource AxisComponentHeight}" 
+                        PropertyChanged="AxisControllerWithEntry_PropertyChanged"/>
+                    <controls:AxisControllerWithEntry 
+                        x:Name="Axis_Y0_Windows"  
+                        AxisTitle="{Binding Localization[YAxis0]}" 
+                        AxisCategory="Pro_Table" 
+                        AxisUnitType="um" 
+                        IsHorizontalAxis="True" 
+                        IsAllowNegativeInput="False"
+                        HeightRequest="{StaticResource AxisComponentHeight}" 
+                        PropertyChanged="AxisControllerWithEntry_PropertyChanged"/>
+                    <controls:AxisControllerWithEntry
+                        x:Name="Axis_Z_Windows"
+                        AxisTitle="{Binding Localization[ZAxis]}" 
+                        AxisCategory="Pro_Table" 
+                        AxisUnitType="um" 
+                        IsVerticalAxis="True" 
+                        IsAllowNegativeInput="False"
+                        HeightRequest="{StaticResource AxisComponentHeight}" 
+                        PropertyChanged="AxisControllerWithEntry_PropertyChanged"/>
+                    <controls:AxisControllerWithEntry
+                        x:Name="Axis_Angle_Windows"
+                        AxisTitle="{Binding Localization[Angle]}" 
+                        AxisCategory="Pro_Table" 
+                        AxisUnitType="deg" 
+                        IsAngleAxis="True" 
+                        IsAllowNegativeInput="False"
+                        HeightRequest="{StaticResource AxisComponentHeight}" 
+                        PropertyChanged="AxisControllerWithEntry_PropertyChanged"/>
+
+                    <Button
+                         Margin="10,16,0,0"
+                         BackgroundColor="White"
+                         BorderColor="{StaticResource GreyNeutral5}"
+                         BorderWidth="1"
+                         FontAttributes="Bold"
+                         Command="{Binding HomeAllCommand}"
+                         FontFamily="{StaticResource OpenSansSemibold}"
+                         HeightRequest="40"
+                         HorizontalOptions="Start"
+                         Text="{Binding Localization[HomeAll]}"
+                         TextColor="{StaticResource GreyNeutral14}"
+                         WidthRequest="120" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="10">
+                    <Label
+                         FontAttributes="Bold"
+                         FontFamily="{StaticResource OpenSansSemibold}"
+                         Text="{Binding Localization[SubstrateChuckVacuum]}"
+                         VerticalOptions="Center"
+                         WidthRequest="{OnPlatform WinUI='200', Android='180'}" />
+                    <StackLayout VerticalOptions="Center">
+                        <controls:StateButton
+                             HeightRequest="40"
+                             LeftText="{Binding Localization[On]}"
+                             RightText="{Binding Localization[Off]}"
+                             SelectState="{Binding ProcessTableModel.IsSubstrateChuckVacuumEnabled, Converter={StaticResource boolToSelectedState}}"
+                             SelectedColor="{StaticResource White}"
+                             UnselectedColor="{StaticResource GreyNeutral3}"
+                             WidthRequest="{OnPlatform WinUI='200', Android='160'}" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="5">
+                        <controls:CustomButtonWithIconText
+                             ButtonIconWidth="{OnPlatform WinUI='30', Android='20'}"
+                             ButtonWidth="{OnPlatform WinUI='80', Android='80'}"        
+                             ButtonIconSource="upload.png"
+                             ButtonText="{Binding Localization[Loading]}"
+                             Clicked="OnLoadingBtnClicked"/>
+                        <controls:CustomButtonWithIconText
+                             ButtonIconWidth="{OnPlatform WinUI='30', Android='20'}"
+                             ButtonWidth="{OnPlatform WinUI='80', Android='80'}"   
+                             ButtonIconSource="download.png"
+                             ButtonText="{Binding Localization[Unloading]}"
+                             Clicked="OnUnloadingBtnClicked"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentView>

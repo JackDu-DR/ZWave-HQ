@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+	x:Class="ZWave.Views.SystemPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:local="clr-namespace:ZWave.Views"
+    xmlns:systems="clr-namespace:ZWave.Views.Systems"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels"
+	Padding="{StaticResource ContainerPadding}"
+    x:DataType="viewmodel:SystemPageViewModel">
+    <ContentView.BindingContext>
+        <viewmodel:SystemPageViewModel />
+    </ContentView.BindingContext>
+    <Grid ColumnSpacing="{StaticResource Margin}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{StaticResource SystemModulePanelWidth}" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Border
+            Grid.Column="0"
+            BackgroundColor="White"
+            Stroke="Transparent">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Opacity="0.1"
+                    Radius="5"
+                    Offset="0,2" />
+            </Border.Shadow>
+            <VerticalStackLayout
+                x:Name="SystemTab"
+                Spacing="{StaticResource GenericSpacing}"
+                Padding="{StaticResource GenericSpacing}">
+                <controls:CustomButton
+                    x:Name="Module1"
+                    ClassId="Module1"
+                    Clicked="Button_Clicked"
+                    ContentLayout="Left, 6"
+                    NormalBackgroundColor="{StaticResource Yellow200Accent}"
+                    SelectedBackgroundColor="{StaticResource Yellow100Accent}"
+                    HeightRequest="{StaticResource ModuleButtonHeight}"
+					ImageSource="calendar.png"
+                    Text="{Binding Localization[Module1]}"
+                    WidthRequest="{StaticResource ModuleButtonWidth}"/>
+                <controls:CustomButton
+                    x:Name="CausewaySystem"
+                    ClassId="CausewaySystem"
+                    Clicked="Button_Clicked"
+                    ContentLayout="Left, 6"
+                    NormalBackgroundColor="{StaticResource Yellow200Accent}"
+                    SelectedBackgroundColor="{StaticResource Yellow100Accent}"
+                    HeightRequest="{StaticResource ModuleButtonHeight}"
+                    Text="{Binding Localization[CausewaySystem]}"
+                    WidthRequest="{StaticResource ModuleButtonWidth}"/>
+                <controls:CustomButton
+                    x:Name="ProcessSystem"
+                    ClassId="ProcessSystem"
+                    Clicked="Button_Clicked"
+                    ContentLayout="Left, 6"
+                    NormalBackgroundColor="{StaticResource Yellow200Accent}"
+                    SelectedBackgroundColor="{StaticResource Yellow100Accent}"
+                    HeightRequest="{StaticResource ModuleButtonHeight}"
+                    Text="{Binding Localization[ProcessSystem]}"
+                    WidthRequest="{StaticResource ModuleButtonWidth}"/>
+                <controls:CustomButton
+                    x:Name="LaserEngine"
+                    ClassId="LaserEngine"
+                    Clicked="Button_Clicked"
+                    ContentLayout="Left, 6"
+                    NormalBackgroundColor="{StaticResource Yellow200Accent}"
+                    SelectedBackgroundColor="{StaticResource Yellow100Accent}"
+                    HeightRequest="{StaticResource ModuleButtonHeight}"
+                    Text="{Binding Localization[LaserEngine]}"
+                    WidthRequest="{StaticResource ModuleButtonWidth}"/>
+            </VerticalStackLayout>
+        </Border>
+        <Border
+            Grid.Column="1"
+            BackgroundColor="{StaticResource GreyNeutral3}"
+            Stroke="Transparent">
+            <Border.StrokeShape>
+                <RoundRectangle
+                    CornerRadius="8,8,8,8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Offset="0,6"
+                    Radius="4"
+                    Opacity="0.1" />
+            </Border.Shadow>
+            <StackLayout x:Name="SystemPageContent" Orientation="Vertical" VerticalOptions="FillAndExpand">
+               
+                <!--<controls:CustomTabView x:Name="module1Tab" CurrentItem="{x:Reference laserTab}">
+                    <controls:CustomTabView.TabItems>
+                        <controls:CustomTabItem
+                            Title="{Binding Localization[Motion]}"
+                            TabType="Motion"
+                            CornerRadius="8,0,0,0"
+                            TabColor="{StaticResource GreyNeutral3}" />
+                        <controls:CustomTabItem
+                            x:Name="laserTab"
+                            Title="{Binding Localization[Laser]}"
+                            TabType="Laser"
+                            CornerRadius="0,0,0,0"
+                            TabColor="{StaticResource GreyNeutral3}" />
+                        <controls:CustomTabItem
+                            Title="{Binding Localization[Vision]}"
+                            TabType="Vision"
+                            CornerRadius="0,8,0,0"
+                            TabColor="{StaticResource GreyNeutral3}" />
+                    </controls:CustomTabView.TabItems>
+                </controls:CustomTabView>-->
+
+                <!--<controls:CustomTabView x:Name="causewaySystemTab" CurrentItem="{x:Reference donorLiftingModuleTab}">
+                    <controls:CustomTabView.TabItems>
+                        <controls:CustomTabItem
+                            x:Name="donorLiftingModuleTab"
+                            Title="{Binding Localization[DonorLiftingModule]}"
+                            TabType="DonorLiftingModule"
+                            CornerRadius="8,0,0,0"
+                            TabColor="{StaticResource GreyNeutral3}" />
+                        <controls:CustomTabItem
+                            x:Name="substrateLiftingModuleTab"
+                            Title="{Binding Localization[SubstrateLiftingModule]}"
+                            TabType="SubstrateLiftingModule"
+                            CornerRadius="0,0,0,0"
+                            TabColor="{StaticResource GreyNeutral3}" />
+                    </controls:CustomTabView.TabItems>
+                </controls:CustomTabView>
+
+                <controls:CustomTabView x:Name="processSystemTab" CurrentItem="{x:Reference processTableTab}">
+                    <controls:CustomTabView.TabItems>
+                        <controls:CustomTabItem
+                            x:Name="processTableTab"
+                            Title="{Binding Localization[ProcessTable]}"
+                            TabType="ProcessTable"
+                            CornerRadius="8,0,0,0"
+                            TabColor="{StaticResource GreyNeutral3}" />
+                        <controls:CustomTabItem
+                             x:Name="inspectionVisionTab"
+                            Title="{Binding Localization[InspectionVision]}"
+                            TabType="InspectionVision"
+                            CornerRadius="0,0,0,0"
+                            TabColor="{StaticResource GreyNeutral3}" />
+                    </controls:CustomTabView.TabItems>
+                </controls:CustomTabView>-->
+            </StackLayout>
+        </Border>
+    </Grid>
+</ContentView>

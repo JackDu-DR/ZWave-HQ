@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ZWave.Views.MasterPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:converters="clr-namespace:ZWave.Converters"
+    xmlns:local="clr-namespace:ZWave.Views"
+    xmlns:local1="clr-namespace:ZWave.Shared.Enums"
+    xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels"
+    x:DataType="viewmodel:MasterPageViewModel"
+    BackgroundColor="{StaticResource Black}">
+    <ContentPage.BindingContext>
+        <viewmodel:MasterPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
+        <toolkit:EventToCommandBehavior Command="{Binding DisappearingCommand}" EventName="Disappearing" />
+    </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <converters:TypeToViewConverter x:Key="typeToViewConverter" />
+        <converters:AvailablePagesToIsVisibleConverter x:Key="availablePagesToIsVisibleConverter" />
+    </ContentPage.Resources>
+    <Grid x:Name="MasterGrid" BackgroundColor="{StaticResource GreyNeutral3}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource TitleLayoutHeight}" />
+            <RowDefinition Height="{StaticResource MessageLayoutHeight}" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="{StaticResource NavigationBarHeight}" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="{StaticResource MasterTitleBarMargin}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <HorizontalStackLayout
+                Grid.Column="0"
+                Padding="{StaticResource TitlePadding}"
+                Spacing="{StaticResource SmallSpacing}">
+                <Image HeightRequest="{StaticResource LogoHeight}" Source="drlaser_title.png" />
+                <HorizontalStackLayout Spacing="5" VerticalOptions="Center">
+                    <Image HeightRequest="{StaticResource MasterCalendarHeight}" Source="calendar_black.png" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource OpenSansSemibold}"
+                        FontSize="{StaticResource Body2FontSize}"
+                        Text="{Binding CurrentDateTime}"
+                        VerticalTextAlignment="Center" />
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            <Label
+                Grid.Column="1"
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                FontSize="{StaticResource DoubleRegularFontSize}"
+                Text="{Binding SelectedPageTitle}"
+                VerticalTextAlignment="Center" />
+            <HorizontalStackLayout
+                Grid.Column="2"
+                HorizontalOptions="End"
+                Spacing="{StaticResource GenericSpacing}"
+                VerticalOptions="Center">
+                <ActivityIndicator
+                    HeightRequest="{StaticResource MasterCriticalActionSpinnerSize}"
+                    IsRunning="{Binding CriticalAction[Any]}"
+                    WidthRequest="{StaticResource MasterCriticalActionSpinnerSize}"
+                    Color="{StaticResource Gray400}" />
+                <Button
+                    BorderWidth="1"
+                    Command="{Binding VersionBtnClickedCommand}"
+                    FontFamily="{StaticResource OpenSansRegular}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HeightRequest="{StaticResource MasterLogoutHeight}"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource LightButton}"
+                    Text="About"
+                    WidthRequest="{StaticResource MasterLogoutWidth}" 
+                    />
+                <!--<Label
+                    Padding="{StaticResource TitlePadding}"
+                    HorizontalOptions="End"
+                    Text="About"
+                    TextColor="{StaticResource Blue100Accent}"
+                    VerticalOptions="Center" 
+                    ToolTipProperties.Text="{Binding DisplayVersion}"/>-->
+                <!--<Label
+                    Padding="{StaticResource TitlePadding}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HorizontalOptions="End"
+                    Text="Production Name"
+                    TextColor="{StaticResource Blue100Accent}"
+                    ToolTipProperties.Text="This is temporator text"
+                    VerticalOptions="Center" />-->
+                <BoxView
+                    Margin="{StaticResource MasterTitleDividerMargin}"
+                    WidthRequest="2"
+                    Color="{StaticResource GreyNeutral9}" />
+                <HorizontalStackLayout Spacing="{StaticResource HalvedGenericSpacing}">
+                    <Image
+                        HeightRequest="{StaticResource MasterUserIconHeight}"
+                        Source="user_icon_black.png"
+                        VerticalOptions="Center" />
+                    <Label
+                        Padding="{StaticResource TitlePadding}"
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource Body2FontSize}"
+                        Text="{Binding FullName}"
+                        TextColor="{StaticResource Black}"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
+                <BoxView
+                    Margin="{StaticResource MasterTitleDividerMargin}"
+                    WidthRequest="2"
+                    Color="{StaticResource GreyNeutral9}" />
+                <Button
+                    BorderWidth="1"
+                    Command="{Binding LogoutCommand}"
+                    FontFamily="{StaticResource OpenSansRegular}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HeightRequest="{StaticResource MasterLogoutHeight}"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource LightButton}"
+                    Text="Logout"
+                    WidthRequest="{StaticResource MasterLogoutWidth}" />
+            </HorizontalStackLayout>
+        </Grid>
+
+        <Grid
+            Grid.Row="1"
+            Margin="{StaticResource MarginLR}"
+            ColumnSpacing="{StaticResource GenericSpacing}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{StaticResource MasterSquareBarWidth}" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="{StaticResource MasterStatusLightWidth}" />
+                <ColumnDefinition Width="{StaticResource MasterSquareBarWidth}" />
+            </Grid.ColumnDefinitions>
+            <controls:ShadowContainer Grid.Column="0" />
+            <controls:ShadowContainer Grid.Column="1">
+                <controls:CustomEditor
+                    Margin="0,0,0,-1"
+                    Placeholder="{Binding Localization[MessageAreaPlaceholder]}"
+                    Text="{Binding MessageBoxContent}"
+                    IsReadOnly="True"
+                    Stroke="Transparent" />
+            </controls:ShadowContainer>
+            <controls:ShadowContainer Grid.Column="2">
+                <Grid Margin="{StaticResource MasterLightMargin}" RowSpacing="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <BoxView Grid.Row="0" Color="{StaticResource Red6}" />
+                    <BoxView Grid.Row="1" Color="{StaticResource Yellow7}" />
+                    <BoxView Grid.Row="2" Color="{StaticResource Green6}" />
+                </Grid>
+            </controls:ShadowContainer>
+            <VerticalStackLayout Grid.Column="3" Spacing="8">
+                <controls:CustomPicker
+                    BackgroundColor="White"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HeightRequest="{StaticResource MessageButtonHeight}"
+                    ItemsSource="{Binding Languages}"
+                    SelectedItem="{Binding SelectedLanguage}"
+                    WidthRequest="{StaticResource MasterSquareBarWidth}" />
+                <Button
+                    x:Name="ShutdownButton"
+                    Padding="{StaticResource MasterButtonPadding}"
+                    Clicked="ShutdownButton_Clicked"
+                    ContentLayout="left, 4"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HeightRequest="{StaticResource MessageButtonHeight}"
+                    ImageSource="shutdown.png"
+                    Text="{Binding Localization[Shutdown]}"
+                    VerticalOptions="End" />
+            </VerticalStackLayout>
+        </Grid>
+
+        <ContentView Grid.Row="2" Content="{Binding SelectedTabPage, Converter={StaticResource typeToViewConverter}}" />
+
+        <StackLayout
+            x:Name="ShutdownDropLayout"
+            Grid.Row="2"
+            HorizontalOptions="End"
+            IsVisible="False"
+            VerticalOptions="Start"
+            WidthRequest="{StaticResource MasterDropDownMenuWidth}">
+            <controls:ShadowContainer Margin="{StaticResource MasterDropDownMenuContainerMargin}" WidthRequest="{StaticResource MasterDropDownMenuContainerWidth}">
+                <VerticalStackLayout Padding="{StaticResource SmallSpacing}" Spacing="{StaticResource SmallSpacing}">
+                    <controls:CustomButton
+                        ContentLayout="Right"
+                        CustomStyle="{StaticResource NoBorderLightCustomButton}"
+                        ImageSource="switch_user.png"
+                        JustifyContent="SpaceBetween"
+                        Text="{Binding Localization[SwitchUser]}"
+                        TextColor="{StaticResource GreyNeutral14}" />
+                    <controls:CustomButton
+                        ContentLayout="Right"
+                        CustomStyle="{StaticResource NoBorderLightCustomButton}"
+                        ImageSource="restart.png"
+                        JustifyContent="SpaceBetween"
+                        Text="{Binding Localization[Restart]}"
+                        TextColor="{StaticResource GreyNeutral14}" />
+                    <controls:CustomButton
+                        ContentLayout="Right"
+                        CustomStyle="{StaticResource NoBorderLightCustomButton}"
+                        ImageSource="shutdown_black.png"
+                        JustifyContent="SpaceBetween"
+                        Clicked="ShutdownSystemButton_Clicked"
+                        Text="{Binding Localization[Shutdown]}"
+                        TextColor="{StaticResource GreyNeutral14}" />
+                </VerticalStackLayout>
+            </controls:ShadowContainer>
+        </StackLayout>
+        <controls:NavigationBar
+            Grid.Row="3"
+            Command="{Binding NavigationButtonSelectedCommand}"
+            SelectedTabPage="{Binding SelectedTabPage}">
+            <controls:NavigationBar.NavigationButtons>
+                <controls:NavigationButton
+                    Title="{Binding Localization[Jobs]}"
+                    Margin="{StaticResource MarginLeft}"
+                    NormalIcon="jobs_black.png"
+                    SelectedIcon="jobs_white.png"
+                    TabPage="Jobs"
+                    VerticalOptions="Center" />
+                <controls:NavigationButton
+                    Title="{Binding Localization[System]}"
+                    Margin="{StaticResource MarginLeft}"
+                    NormalIcon="system_black.png"
+                    SelectedIcon="system_white.png"
+                    TabPage="System"
+                    VerticalOptions="Center" />
+                <controls:NavigationButton
+                    Title="{Binding Localization[Recipies]}"
+                    Margin="{StaticResource MarginLeft}"
+                    NormalIcon="recipes_black.png"
+                    SelectedIcon="recipes_white.png"
+                    TabPage="Recipies"
+                    VerticalOptions="Center" />
+                <controls:NavigationButton
+                    Title="{Binding Localization[Setup]}"
+                    Margin="{StaticResource MarginLeft}"
+                    NormalIcon="setup_black.png"
+                    SelectedIcon="setup_white.png"
+                    TabPage="Setup"
+                    VerticalOptions="Center" />
+                <controls:NavigationButton
+                    Title="{Binding Localization[Datalog]}"
+                    Margin="{StaticResource MarginLeft}"
+                    NormalIcon="datalog_black.png"
+                    SelectedIcon="datalog_white.png"
+                    TabPage="Datalog"
+                    VerticalOptions="Center" />
+                <controls:NavigationButton
+                    Title="{Binding Localization[Users]}"
+                    Margin="{StaticResource MarginLeft}"
+                    NormalIcon="user_black.png"
+                    SelectedIcon="user_white.png"
+                    TabPage="Users"
+                    VerticalOptions="Center" />
+                <controls:NavigationButton
+                    Title="{Binding Localization[Alarms]}"
+                    Margin="{StaticResource MarginLeft}"
+                    IsAtBarEnd="True"
+                    NormalIcon="alarms_black.png"
+                    SelectedBackgroundColor="{StaticResource Red6}"
+                    SelectedIcon="alarms_white.png"
+                    TabPage="Alarms"
+                    VerticalOptions="Center" />
+            </controls:NavigationBar.NavigationButtons>
+        </controls:NavigationBar>
+    </Grid>
+</ContentPage>

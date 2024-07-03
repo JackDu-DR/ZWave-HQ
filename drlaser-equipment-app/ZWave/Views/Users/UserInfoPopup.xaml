@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="ZWave.Views.Users.UserInfoPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Users"
+    x:DataType="viewmodel:UserInfoPopupViewModel"
+    CanBeDismissedByTappingOutsideOfPopup="False"
+    Color="Transparent">
+    <Border Background="White">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="8" />
+        </Border.StrokeShape>
+        <Grid RowDefinitions="*, auto" RowSpacing="{StaticResource GenericSpacing}">
+            <Grid
+                x:Name="UserInfoPopupContainer"
+                Grid.Row="0"
+                Padding="{StaticResource GenericSpacing}"
+                BackgroundColor="White"
+                RowDefinitions="auto, *"
+                RowSpacing="{StaticResource GenericSpacing}"
+                WidthRequest="{StaticResource UserInfoPopupWidth}">
+                <ImageButton
+                    Grid.Row="0"
+                    Clicked="ClosePopup"
+                    HeightRequest="{StaticResource CloseIconSize}"
+                    HorizontalOptions="End"
+                    Source="close.png"
+                    WidthRequest="{StaticResource CloseIconSize}" />
+                <VerticalStackLayout Grid.Row="1" Spacing="{StaticResource GenericSpacing}">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource SubTitle1FontSize}"
+                        HeightRequest="{StaticResource UserInfoPopupTitleLabelHeight}"
+                        Text="{Binding PopupTitle}" />
+                    <VerticalStackLayout Spacing="{StaticResource SmallSpacing}">
+                        <Label FontSize="{StaticResource Body2FontSize}" LineBreakMode="WordWrap">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontSize="{StaticResource Body2FontSize}"
+                                        Text="* "
+                                        TextColor="Red" />
+                                    <Span FontSize="{StaticResource Body2FontSize}" Text="{Binding Localization[Username]}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Border StrokeThickness="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="4" />
+                            </Border.StrokeShape>
+                            <Entry
+                                FontSize="{StaticResource Body2FontSize}"
+                                HeightRequest="{StaticResource EntryHeight}"
+                                HorizontalOptions="FillAndExpand"
+                                IsEnabled="{Binding IsAddNewUser}"
+                                Text="{Binding Username}" />
+                        </Border>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="{StaticResource SmallSpacing}">
+                        <Label FontSize="{StaticResource Body2FontSize}" Text="{Binding Localization[FullName]}" />
+                        <Border StrokeThickness="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="4" />
+                            </Border.StrokeShape>
+                            <Entry
+                                FontSize="{StaticResource Body2FontSize}"
+                                HeightRequest="{StaticResource EntryHeight}"
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding FullName}" />
+                        </Border>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout IsVisible="{Binding IsAddNewUser}" Spacing="{StaticResource SmallSpacing}">
+                        <Label FontSize="{StaticResource Body2FontSize}" LineBreakMode="WordWrap">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontSize="{StaticResource Body2FontSize}"
+                                        Text="* "
+                                        TextColor="Red" />
+                                    <Span FontSize="{StaticResource Body2FontSize}" Text="{Binding Localization[Password]}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Border StrokeThickness="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="4" />
+                            </Border.StrokeShape>
+                            <Grid ColumnDefinitions="*, auto">
+                                <Entry
+                                    x:Name="PasswordEntry"
+                                    Grid.Column="0"
+                                    FontSize="{StaticResource Body2FontSize}"
+                                    HeightRequest="{StaticResource EntryHeight}"
+                                    HorizontalOptions="FillAndExpand"
+                                    IsPassword="True"
+                                    Text="{Binding Password}" />
+                                <StackLayout
+                                    Grid.Column="1"
+                                    Margin="{StaticResource ShowHidePasswordIconMargin}"
+                                    Padding="{StaticResource ShowHidePasswordIconPadding}"
+                                    BackgroundColor="White"
+                                    VerticalOptions="FillAndExpand">
+                                    <ImageButton
+                                        x:Name="ShowHidePasswordIcon"
+                                        Clicked="ShowHidePassword"
+                                        HeightRequest="{StaticResource ShowHidePasswordIconSize}"
+                                        HorizontalOptions="End"
+                                        Source="eye_closed_black.png"
+                                        VerticalOptions="FillAndExpand"
+                                        WidthRequest="{StaticResource ShowHidePasswordIconSize}" />
+                                </StackLayout>
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout IsVisible="{Binding IsAddNewUser}" Spacing="{StaticResource SmallSpacing}">
+                        <Label FontSize="{StaticResource Body2FontSize}" LineBreakMode="WordWrap">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontSize="{StaticResource Body2FontSize}"
+                                        Text="* "
+                                        TextColor="Red" />
+                                    <Span FontSize="{StaticResource Body2FontSize}" Text="{Binding Localization[RePassword]}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Border StrokeThickness="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="4" />
+                            </Border.StrokeShape>
+                            <Grid ColumnDefinitions="*, auto">
+                                <Entry
+                                    x:Name="ReEnterPasswordEntry"
+                                    Grid.Column="0"
+                                    FontSize="{StaticResource Body2FontSize}"
+                                    HeightRequest="{StaticResource EntryHeight}"
+                                    HorizontalOptions="FillAndExpand"
+                                    IsPassword="True"
+                                    Text="{Binding ReEnterPassword}" />
+                                <StackLayout
+                                    Grid.Column="1"
+                                    Margin="{StaticResource ShowHidePasswordIconMargin}"
+                                    Padding="{StaticResource ShowHidePasswordIconPadding}"
+                                    BackgroundColor="White"
+                                    VerticalOptions="FillAndExpand">
+                                    <ImageButton
+                                        x:Name="ShowHideRePasswordIcon"
+                                        Clicked="ShowHideRePassword"
+                                        HeightRequest="{StaticResource ShowHidePasswordIconSize}"
+                                        HorizontalOptions="End"
+                                        Source="eye_closed_black.png"
+                                        VerticalOptions="FillAndExpand"
+                                        WidthRequest="{StaticResource ShowHidePasswordIconSize}" />
+                                </StackLayout>
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="{StaticResource SmallSpacing}">
+                        <Label FontSize="{StaticResource Body2FontSize}" LineBreakMode="WordWrap">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontSize="{StaticResource Body2FontSize}"
+                                        Text="* "
+                                        TextColor="Red" />
+                                    <Span FontSize="{StaticResource Body2FontSize}" Text="{Binding Localization[UserRole]}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Border StrokeThickness="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="4" />
+                            </Border.StrokeShape>
+                            <controls:CustomPicker
+                                FontSize="{StaticResource Body2FontSize}"
+                                HeightRequest="{StaticResource EntryHeight}"
+                                HorizontalOptions="FillAndExpand"
+                                ItemsSource="{Binding UserRoles}"
+                                SelectedItem="{Binding SelectedRole}" />
+                        </Border>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                Padding="{StaticResource GenericSpacing}"
+                BackgroundColor="{StaticResource GreyNeutral3}"
+                ColumnDefinitions="*,*"
+                ColumnSpacing="{StaticResource GenericSpacing}">
+                <Button
+                    Grid.Column="0"
+                    BackgroundColor="White"
+                    Clicked="ClosePopup"
+                    FontSize="{StaticResource Body2FontSize}"
+                    Text="{Binding Localization[Cancel]}"
+                    TextColor="Black"
+                    WidthRequest="{StaticResource UserInfoPopupButtonWidth}" />
+                <Button
+                    Grid.Column="1"
+                    Clicked="ConfirmButtonClicked"
+                    FontSize="{StaticResource Body2FontSize}"
+                    Text="{Binding ConfirmButtonText}"
+                    WidthRequest="{StaticResource UserInfoPopupButtonWidth}" />
+            </Grid>
+        </Grid>
+    </Border>
+</toolkit:Popup>

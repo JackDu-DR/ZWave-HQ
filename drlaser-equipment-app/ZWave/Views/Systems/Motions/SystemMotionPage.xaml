@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Views.SystemMotionPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:converters="clr-namespace:ZWave.Converters"
+    xmlns:motions="clr-namespace:ZWave.Views.Systems.Motions"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Systems.Motions"
+    BackgroundColor="{StaticResource GreyNeutral3}">
+    <ContentView.BindingContext>
+        <viewmodel:SystemMotionPageViewModel />
+    </ContentView.BindingContext>
+    <ContentView.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding LoadedCommand}" EventName="Loaded" />
+    </ContentView.Behaviors>
+    <ContentView.Resources>
+        <converters:SelectedTabToCommandPanelVisibleConverter x:Key="SelectedTabToCommandPanelVisibleConverter" />
+        <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+    </ContentView.Resources>
+    <Grid ColumnDefinitions="*, auto">
+        <Border
+            Grid.Column="0"
+            BackgroundColor="White"
+            Stroke="Transparent"
+            VerticalOptions="FillAndExpand">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0,8,8,8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Opacity="0.1"
+                    Radius="4"
+                    Offset="0,2" />
+            </Border.Shadow>
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                <!--<StackLayout
+                    Padding="{StaticResource SystemMotionPadding}"
+                    Orientation="Horizontal"
+                    Spacing="{StaticResource HalvedGenericSpacing}">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource OpenSansSemibold}"
+                        FontSize="{StaticResource Body2FontSize}"
+                        Text="{Binding Localization[SelectAxisLabel]}"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+                    <controls:CustomPicker
+                        x:Name="AxisSelector"
+                        Title="{Binding Localization[AxisPickerPlaceholder]}"
+                        BackgroundColor="{StaticResource White}"
+                        FontSize="{StaticResource Body2FontSize}"
+                        HeightRequest="{StaticResource AxisPickerHeight}"
+                        HorizontalOptions="Start"
+                        IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                        ItemDisplayBinding="AxisName"
+                        ItemsSource="{Binding AxisList}"
+                        SelectedItem="{Binding SelectedAxis, Mode=TwoWay}"
+                        WidthRequest="{StaticResource SystemMotionPickerWidth}" />
+                </StackLayout>-->
+                <controls:CustomTabView
+                    x:Name="TabView"
+                    BackgroundColor="{StaticResource White}"
+                    CurrentItem="{x:Reference AxisControl}">
+                    <controls:CustomTabView.TabItems>
+                        <controls:CustomTabItem
+                            x:Name="AxisControl"
+                            Title="{Binding Localization[AxisControl]}"
+                            BorderVisible="False"
+                            IndicatorIsVisible="True"
+                            TabType="MotionAxis" />
+                        <controls:CustomTabItem
+                            x:Name="MotionSetting"
+                            Title="{Binding Localization[MotionSetting]}"
+                            BorderVisible="False"
+                            IndicatorIsVisible="True"
+                            TabType="MotionSetting" />
+                        <controls:CustomTabItem
+                            x:Name="MotionControl"
+                            Title="{Binding Localization[MotionControl]}"
+                            BorderVisible="False"
+                            IndicatorIsVisible="True"
+                            TabType="MotionControl" />
+                    </controls:CustomTabView.TabItems>
+                </controls:CustomTabView>
+            </StackLayout>
+        </Border>
+
+        <!--<Border
+            Grid.Column="1"
+            Margin="{StaticResource MarginL}"
+            BackgroundColor="Transparent"
+            IsVisible="{Binding Source={x:Reference TabView}, Path=CurrentItem, Converter={StaticResource SelectedTabToCommandPanelVisibleConverter}}"
+            Stroke="Transparent"
+            VerticalOptions="FillAndExpand">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Opacity="0.1"
+                    Radius="4"
+                    Offset="0,2" />
+            </Border.Shadow>
+            <VerticalStackLayout
+                Padding="{StaticResource GenericSpacing}"
+                BackgroundColor="{StaticResource White}"
+                Spacing="{StaticResource GenericSpacing}">
+                <Button
+                    BorderWidth="{StaticResource CommandButtonBorderWidth}"
+                    Command="{Binding GoCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HeightRequest="{StaticResource CommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[Go]}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                    BorderWidth="{StaticResource CommandButtonBorderWidth}"
+                    Command="{Binding StopCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HeightRequest="{StaticResource CommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    IsEnabled="{Binding CriticalAction[MotionAxisGo]}"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[Stop]}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                    BorderWidth="{StaticResource CommandButtonBorderWidth}"
+                    Command="{Binding SetZeroCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HeightRequest="{StaticResource CommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[SetZero]}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                    BorderWidth="{StaticResource CommandButtonBorderWidth}"
+                    Command="{Binding EnableCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HeightRequest="{StaticResource CommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[Enable]}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                    BorderWidth="{StaticResource CommandButtonBorderWidth}"
+                    Command="{Binding EStopCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HeightRequest="{StaticResource CommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[EStop]}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                    BorderWidth="{StaticResource CommandButtonBorderWidth}"
+                    Command="{Binding HomeCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HeightRequest="{StaticResource CommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[Home]}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+            </VerticalStackLayout>
+        </Border>-->
+    </Grid>
+</ContentView>

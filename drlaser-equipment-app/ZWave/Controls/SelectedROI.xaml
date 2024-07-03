@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Controls.SelectedROI"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="SelectedROIContainer">
+    <Grid>
+        <VerticalStackLayout x:Name="CircleContainer" IsVisible="false">
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[RowCenter]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="CircleRowCenter" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[ColumnCenter]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="CircleColumnCenter" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[Radius]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="CircleRadius" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <VerticalStackLayout x:Name="RectangleContainer" IsVisible="false">
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[Row1]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="RectangleRow1" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[Column1]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="RectangleColumn1" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[Row2]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="RectangleRow2" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[Column2]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="RectangleColumn2" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[RowCenter]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="RectangleRowCenter" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[ColumnCenter]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="RectangleColumnCenter" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[Phi]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="RectanglePhi" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <VerticalStackLayout x:Name="EllipseContainer" IsVisible="false">
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[Row1]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="EllipseRow1" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[Column1]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="EllipseColumn1" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[RowCenter]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="EllipseRowCenter" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[ColumnCenter]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="EllipseColumnCenter" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[Radius1]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="EllipseRadius1" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[Radius2]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="EllipseRadius2" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" Text="{Binding Localization[Phi]}" />
+                <Label
+                    Margin="{StaticResource SelectedROILabelMarin}"
+                    FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}"
+                    Text=":" />
+                <Label x:Name="EllipsePhi" FontSize="{Binding Source={x:Reference SelectedROIContainer}, Path=FontSize}" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
+</ContentView>

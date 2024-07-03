@@ -1,0 +1,80 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  AlarmCallBack.cpp
+  AlarmStorage.cpp
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\AlarmStorage.cpp(33,38): warning C4244: 'argument': conversion from '__time64_t' to 'double', possible loss of data
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\AlarmStorage.cpp(59,23): warning C4244: 'argument': conversion from '__time64_t' to 'double', possible loss of data
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\AlarmStorage.cpp(107,38): warning C4101: 'e': unreferenced local variable
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\AlarmStorage.cpp(123,38): warning C4101: 'e': unreferenced local variable
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\AlarmStorage.cpp(133,35): warning C4267: '=': conversion from 'size_t' to 'ULONG', possible loss of data
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\AlarmStorage.cpp(134,77): warning C4267: 'argument': conversion from 'size_t' to 'ULONG', possible loss of data
+  ConfigurationCallBack.cpp
+  CriticalAction.cpp
+  CriticalActionCallback.cpp
+  DonorLiftingModuleConfigurationCallBack.cpp
+  InspectionVisionCallBack.cpp
+  InspectionVisionConfigurationCallBack.cpp
+  LaserCallBack.cpp
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\LaserCallBack.cpp(43,32): warning C4244: 'argument': conversion from 'double' to 'long', possible loss of data
+  MotionAxisControlConfigurationCallBack.cpp
+  MotionCallBack.cpp
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\MotionCallBack.cpp(42,52): warning C4267: '=': conversion from 'size_t' to 'ULONG', possible loss of data
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\MotionCallBack.cpp(43,94): warning C4267: 'argument': conversion from 'size_t' to 'ULONG', possible loss of data
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\MotionCallBack.cpp(76,6): warning C4129: 'S': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\MotionCallBack.cpp(93,6): warning C4129: 'R': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\MotionCallBack.cpp(127,6): warning C4129: 'R': unrecognized character escape sequence
+  PingCallBack.cpp
+  ProcessTableConfigurationCallBack.cpp
+  RPCQueueHandler.cpp
+  VisionCallBack.cpp
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\VisionCallBack.cpp(132,15): warning C4129: 'C': unrecognized character escape sequence
+  main.cpp
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(694,12): warning C4129: 'S': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(743,12): warning C4129: 'M': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(759,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(772,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(785,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(798,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(810,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(823,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(836,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(849,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(862,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(875,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(888,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(910,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(923,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(936,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(955,12): warning C4129: 'I': unrecognized character escape sequence
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(1260,67): warning C4267: '=': conversion from 'size_t' to 'ULONG', possible loss of data
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(1261,109): warning C4267: 'argument': conversion from 'size_t' to 'ULONG', possible loss of data
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(1295,61): warning C4267: '=': conversion from 'size_t' to 'ULONG', possible loss of data
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(1296,103): warning C4267: 'argument': conversion from 'size_t' to 'ULONG', possible loss of data
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(1438,46): warning C4244: 'initializing': conversion from '_Rep' to 'double', possible loss of data
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(1438,46): warning C4244:         with
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(1438,46): warning C4244:         [
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(1438,46): warning C4244:             _Rep=__int64
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(1438,46): warning C4244:         ]
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(1445,54): warning C4267: 'argument': conversion from 'size_t' to 'long', possible loss of data
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp(1415,22): warning C4858: discarding return value: The result of 'std::async' should be stored in a variable. If the return value is discarded, the temporary 'std::future' is destroyed, waiting for an async result or evaluating a deferred result, thus defeating the purpose of 'std::async'.
+  Generating Code...
+  LINK : 0 new modules and 16 (out of 83) modules have changed since prior linking
+  Starting pass 2
+       VisionCallBack.obj
+       main.obj
+       RPCQueueHandler.obj
+       ProcessTableConfigurationCallBack.obj
+       PingCallBack.obj
+       MotionCallBack.obj
+       MotionAxisControlConfigurationCallBack.obj
+       ConfigurationCallBack.obj
+       LaserCallBack.obj
+       InspectionVisionConfigurationCallBack.obj
+       InspectionVisionCallBack.obj
+       DonorLiftingModuleConfigurationCallBack.obj
+       CriticalActionCallback.obj
+       CriticalAction.obj
+       AlarmCallBack.obj
+       AlarmStorage.obj
+       MSVCRTD.lib(loadcfg.obj)
+  Finished pass 2
+  MachineApp.vcxproj -> C:\ZWave-HQ\drlaser-equipment-app\bin\Debug\MachineApp.exe

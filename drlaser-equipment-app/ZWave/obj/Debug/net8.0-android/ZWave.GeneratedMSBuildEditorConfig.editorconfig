@@ -1,0 +1,449 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = true
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0-android
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ZWave
+build_property.ProjectDir = C:\ZWave-HQ\drlaser-equipment-app\ZWave\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/ArrowWithNumber.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.ArrowWithNumber.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\ArrowWithNumber.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\ArrowWithNumber.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/AxisControllerWithEntry.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.AxisControllerWithEntry.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\AxisControllerWithEntry.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\AxisControllerWithEntry.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/ButtonInGroup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.ButtonInGroup.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\ButtonInGroup.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\ButtonInGroup.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/CheckboxWithTitle.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.CheckboxWithTitle.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\CheckboxWithTitle.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\CheckboxWithTitle.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/ContainerWithTitleBar.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.ContainerWithTitleBar.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\ContainerWithTitleBar.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\ContainerWithTitleBar.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/CustomButton.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.CustomButton.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\CustomButton.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\CustomButton.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/CustomButtonWithIconText.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.CustomButtonWithIconText.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\CustomButtonWithIconText.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\CustomButtonWithIconText.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/CustomEditor.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.CustomEditor.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\CustomEditor.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\CustomEditor.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/CustomNumberEntryField.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.CustomNumberEntryField.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\CustomNumberEntryField.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\CustomNumberEntryField.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/CustomPicker.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.CustomPicker.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\CustomPicker.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\CustomPicker.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/CustomScrollBar.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.CustomScrollBar.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\CustomScrollBar.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\CustomScrollBar.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/CustomScrollView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.CustomScrollView.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\CustomScrollView.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\CustomScrollView.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/CustomSliderWithEntry.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.CustomSliderWithEntry.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\CustomSliderWithEntry.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\CustomSliderWithEntry.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/CustomTabItem.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.CustomTabItem.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\CustomTabItem.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\CustomTabItem.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/CustomTabView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.CustomTabView.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\CustomTabView.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\CustomTabView.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/DotStatusWithTitle.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.DotStatusWithTitle.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\DotStatusWithTitle.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\DotStatusWithTitle.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/DragDetector.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.DragDetector.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\DragDetector.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\DragDetector.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/EntryWithTitle.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.EntryWithTitle.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\EntryWithTitle.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\EntryWithTitle.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/Graphic/ShapeGraphicView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.Graphic.ShapeGraphicView.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\Graphic\ShapeGraphicView.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\Graphic\ShapeGraphicView.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/HorizontalButtonGroup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.HorizontalButtonGroup.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\HorizontalButtonGroup.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\HorizontalButtonGroup.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/InformationBoxPopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.InformationBoxPopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\InformationBoxPopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\InformationBoxPopup.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/LoadingAnimation.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.LoadingAnimation.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\LoadingAnimation.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\LoadingAnimation.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/MultipleArrowWithImage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.MultipleArrowWithImage.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\MultipleArrowWithImage.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\MultipleArrowWithImage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/MultipleLiveCamera.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.MultipleLiveCamera.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\MultipleLiveCamera.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\MultipleLiveCamera.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/NavigationBar.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.NavigationBar.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\NavigationBar.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\NavigationBar.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/NavigationButton.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.NavigationButton.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\NavigationButton.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\NavigationButton.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/SelectedROI.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.SelectedROI.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\SelectedROI.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\SelectedROI.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/ShadowContainer.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.ShadowContainer.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\ShadowContainer.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\ShadowContainer.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/StateButton.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.StateButton.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\StateButton.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\StateButton.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/StatusLabel.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.StatusLabel.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\StatusLabel.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\StatusLabel.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Controls/ToggleWithTitle.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Controls.ToggleWithTitle.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\ToggleWithTitle.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\ToggleWithTitle.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Resources/Styles/Dimensions.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Resources.Styles.Dimensions.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Dimensions.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Dimensions.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Resources/Styles/Fonts.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Resources.Styles.Fonts.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Fonts.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Fonts.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/AlarmsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.AlarmsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AlarmsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AlarmsPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/ConfirmPopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.ConfirmPopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ConfirmPopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ConfirmPopup.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/DatalogPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.DatalogPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\DatalogPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\DatalogPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/EstablishServerConnectionErrorPopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.EstablishServerConnectionErrorPopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\EstablishServerConnectionErrorPopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\EstablishServerConnectionErrorPopup.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/JobsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.JobsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\JobsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\JobsPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Jobs/JobMainView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Jobs.JobMainView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Jobs\JobMainView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Jobs\JobMainView.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Jobs/JobMainView2.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Jobs.JobMainView2.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Jobs\JobMainView2.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Jobs\JobMainView2.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\LoginPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/MasterPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.MasterPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\MasterPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\MasterPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/NeedShutdownErrorPopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.NeedShutdownErrorPopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\NeedShutdownErrorPopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\NeedShutdownErrorPopup.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/RecipiesPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.RecipiesPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\RecipiesPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\RecipiesPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/SetupPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.SetupPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\SetupPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\SetupPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/SystemPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.SystemPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\SystemPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\SystemPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/CausewaySystem/DonorLiftingModulePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.CausewaySystem.DonorLiftingModulePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\CausewaySystem\DonorLiftingModulePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\CausewaySystem\DonorLiftingModulePage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/CausewaySystem/SubstrateLiftingModulePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.CausewaySystem.SubstrateLiftingModulePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\CausewaySystem\SubstrateLiftingModulePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\CausewaySystem\SubstrateLiftingModulePage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/LaserBasicPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.LaserBasicPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\LaserBasicPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\LaserBasicPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/LaserBurstControlPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.LaserBurstControlPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\LaserBurstControlPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\LaserBurstControlPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/LaserExternalControlPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.LaserExternalControlPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\LaserExternalControlPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\LaserExternalControlPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/Motions/MotionAxisControlPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.Motions.MotionAxisControlPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\Motions\MotionAxisControlPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\Motions\MotionAxisControlPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/Motions/MotionControlPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.Motions.MotionControlPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\Motions\MotionControlPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\Motions\MotionControlPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/Motions/MotionSettingPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.Motions.MotionSettingPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\Motions\MotionSettingPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\Motions\MotionSettingPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/Motions/SystemMotionPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.Motions.SystemMotionPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\Motions\SystemMotionPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\Motions\SystemMotionPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/Motions/TuneSettingsFilterControlPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.Motions.TuneSettingsFilterControlPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\Motions\TuneSettingsFilterControlPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\Motions\TuneSettingsFilterControlPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/Motions/TuneSettingsGainsControlPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.Motions.TuneSettingsGainsControlPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\Motions\TuneSettingsGainsControlPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\Motions\TuneSettingsGainsControlPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/ProcessSystem/InspectionVisionPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.ProcessSystem.InspectionVisionPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\ProcessSystem\InspectionVisionPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\ProcessSystem\InspectionVisionPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/ProcessSystem/InspectionVision/CalibrationTab.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.ProcessSystem.InspectionVision.CalibrationTab.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\ProcessSystem\InspectionVision\CalibrationTab.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\ProcessSystem\InspectionVision\CalibrationTab.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/ProcessSystem/InspectionVision/CameraTab.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.ProcessSystem.InspectionVision.CameraTab.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\ProcessSystem\InspectionVision\CameraTab.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\ProcessSystem\InspectionVision\CameraTab.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/ProcessSystem/InspectionVision/TeachingTab.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.ProcessSystem.InspectionVision.TeachingTab.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\ProcessSystem\InspectionVision\TeachingTab.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\ProcessSystem\InspectionVision\TeachingTab.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/ProcessSystem/ProcessTablePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.ProcessSystem.ProcessTablePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\ProcessSystem\ProcessTablePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\ProcessSystem\ProcessTablePage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/SystemLaserPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.SystemLaserPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\SystemLaserPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\SystemLaserPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Systems/Vision/SystemVisionPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Systems.Vision.SystemVisionPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Systems\Vision\SystemVisionPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Systems\Vision\SystemVisionPage.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Users/ChangePasswordPopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Users.ChangePasswordPopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Users\ChangePasswordPopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Users\ChangePasswordPopup.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Users/TabPagePermissionPopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Users.TabPagePermissionPopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Users\TabPagePermissionPopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Users\TabPagePermissionPopup.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Users/UserInfoPopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Users.UserInfoPopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Users\UserInfoPopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Users\UserInfoPopup.xaml
+
+[C:/ZWave-HQ/drlaser-equipment-app/ZWave/Views/Users/UsersPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ZWave.Views.Users.UsersPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Users\UsersPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Users\UsersPage.xaml

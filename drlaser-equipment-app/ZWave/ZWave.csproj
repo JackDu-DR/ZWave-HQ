@@ -1,0 +1,340 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net8.0-maccatalyst;net8.0-android;net8.0-ios</TargetFrameworks>
+        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+        <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+        <!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
+        <OutputType>Exe</OutputType>
+        <RootNamespace>ZWave</RootNamespace>
+        <UseMaui>true</UseMaui>
+        <SingleProject>true</SingleProject>
+        <ImplicitUsings>enable</ImplicitUsings>
+
+        <!-- Display name -->
+        <ApplicationTitle>ZWave</ApplicationTitle>
+
+        <!-- App Identifier -->
+        <ApplicationId>com.companyname.ZWave</ApplicationId>
+        <ApplicationIdGuid>ac28e4dc-e939-42ba-b448-96b0826f9841</ApplicationIdGuid>
+
+        <!-- Versions -->
+        <ApplicationDisplayVersion>1.0.2</ApplicationDisplayVersion>
+        <ApplicationVersion>3</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<NeutralLanguage>en-US</NeutralLanguage>
+	</PropertyGroup>
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(RuntimeIdentifierOverride)' != ''">
+		<RuntimeIdentifier>$(RuntimeIdentifierOverride)</RuntimeIdentifier>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	</PropertyGroup>
+
+    <ItemGroup>
+        <!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\drlaser_icon.svg" Color="#FFFFFF" ForegroundScale="0.65" />
+		
+        <!-- Splash Screen -->
+        <MauiSplashScreen Include="Resources\Splash\drlaser_icon.svg" Color="#FFFFFF" BaseSize="512,128" />
+
+        <!-- Images -->
+        <MauiImage Include="Resources\Images\*" />
+        <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+        <MauiImage Update="Resources\Images\drlaser_title.svg" BaseSize="288,56" />
+        <MauiImage Update="Resources\Images\calendar_black.svg" BaseSize="32,32" />
+        <MauiImage Update="Resources\Images\minus_circle.svg" BaseSize="32,32" />
+        <MauiImage Update="Resources\Images\add_circle.svg" BaseSize="32,32" />
+
+        <!-- Custom Fonts -->
+        <MauiFont Include="Resources\Fonts\*" />
+
+        <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+        <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+    </ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\Calendar.png" />
+	  <None Remove="Resources\Images\close.png" />
+	  <None Remove="Resources\Images\datalog_black.png" />
+	  <None Remove="Resources\Images\datalog_white.png" />
+	  <None Remove="Resources\Images\jobs_black.png" />
+	  <None Remove="Resources\Images\jobs_white.png" />
+	  <None Remove="Resources\Images\minimized.png" />
+	  <None Remove="Resources\Images\recipes_black.png" />
+	  <None Remove="Resources\Images\recipes_white.png" />
+	  <None Remove="Resources\Images\restart.png" />
+	  <None Remove="Resources\Images\setup_black.png" />
+	  <None Remove="Resources\Images\setup_white.png" />
+	  <None Remove="Resources\Images\shutdown.png" />
+	  <None Remove="Resources\Images\shutdown_black.png" />
+	  <None Remove="Resources\Images\switch_user.png" />
+	  <None Remove="Resources\Images\system_black.png" />
+	  <None Remove="Resources\Images\system_white.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="LiveChartsCore.SkiaSharpView.Maui" Version="2.0.0-rc2" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Serilog" Version="3.1.1" />
+		<PackageReference Include="Serilog.Extensions.Logging" Version="7.0.0" />
+		<PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+		<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+		<PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0" />
+		<PackageReference Include="XAct.Core.PCL" Version="0.0.5014" />
+	</ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\CommonLib\CommonLib.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Controls\DotStatusWithTitle.xaml.cs">
+          <DependentUpon>DotStatusWithTitle.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Controls\ButtonInGroup.xaml.cs">
+          <DependentUpon>ButtonInGroup.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Controls\HorizontalButtonGroup.xaml.cs">
+          <DependentUpon>HorizontalButtonGroup.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Controls\SelectedROI.xaml.cs">
+          <DependentUpon>SelectedROI.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Controls\StateButton.xaml.cs">
+            <DependentUpon>StateButton.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Controls\ToggleWithTitle.xaml.cs">
+          <DependentUpon>ToggleWithTitle.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Resources\Strings\AppResources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>AppResources.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Resources\Strings\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Views\ConfirmPopup.xaml.cs">
+          <DependentUpon>ConfirmPopup.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\EstablishServerConnectionErrorPopup.xaml.cs">
+          <DependentUpon>EstablishServerConnectionErrorPopup.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\NeedShutdownErrorPopup.xaml.cs">
+          <DependentUpon>NeedShutdownErrorPopup.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\Systems\LaserBasicPage.xaml.cs">
+            <DependentUpon>LaserBasicPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\Systems\Motions\TuneSettingsGainsControlPage.xaml.cs">
+            <DependentUpon>TuneSettingsGainsControlPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\Systems\Motions\TuneSettingsFilterControlPage.xaml.cs">
+            <DependentUpon>TuneSettingsFilterControlPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\Users\TabPagePermissionPopup.xaml.cs">
+          <DependentUpon>TabPagePermissionPopup.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\Users\UsersPage.xaml.cs">
+          <DependentUpon>UsersPage.xaml</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Resources\Strings\AppResources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Strings\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <MauiXaml Update="Controls\CheckboxWithTitle.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\CustomEditor.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\CustomPicker.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\DotStatusWithTitle.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\EntryWithTitle.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\Graphic\ShapeGraphicView.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\ButtonInGroup.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\HorizontalButtonGroup.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\InformationBoxPopup.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\LoadingAnimation.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\NavigationBar.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\NavigationButton.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\SelectedROI.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\ShadowContainer.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\StateButton.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\StatusLabel.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\ToggleWithTitle.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Resources\Styles\Dimensions.Android.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\AlarmsPage.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\ConfirmPopup.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\EstablishServerConnectionErrorPopup.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\LoginPage.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\NeedShutdownErrorPopup.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Jobs\JobMainView.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Jobs\JobMainView2.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Systems\LaserBasicPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\DatalogPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\CustomTabItem.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\CustomTabView.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\MasterPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\JobsPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\RecipiesPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\SetupPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Systems\Motions\MotionControlPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Systems\LaserExternalControlPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Systems\Motions\MotionAxisControlPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Systems\Motions\MotionSettingPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Systems\Motions\TuneSettingsFilterControlPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Systems\Motions\TuneSettingsGainsControlPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Systems\ProcessSystem\InspectionVision\CalibrationTab.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Systems\ProcessSystem\InspectionVision\CameraTab.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Systems\ProcessSystem\InspectionVision\TeachingTab.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Systems\SystemLaserPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Systems\Motions\SystemMotionPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\SystemPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Systems\LaserBurstControlPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Systems\Vision\SystemVisionPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Users\ChangePasswordPopup.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Users\TabPagePermissionPopup.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Users\UserInfoPopup.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Views\Users\UsersPage.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+    </ItemGroup>
+
+	<ItemGroup>
+	  <None Update="configurations.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+	<Import Project="..\ZWave.Shared\ZWave.Shared.projitems" Label="Shared" />
+
+	<ItemGroup>
+	  <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.40" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.40" />
+	</ItemGroup>
+
+</Project>

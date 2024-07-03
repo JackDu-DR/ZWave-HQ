@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Views.AlarmsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:converters="clr-namespace:ZWave.Converters"
+    xmlns:model="clr-namespace:ZWave.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels"
+    Padding="{StaticResource MarginLTR}"
+    x:DataType="viewmodel:AlarmsPageViewModel">
+    <ContentView.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding LoadedCommand}" EventName="Loaded" />
+        <toolkit:EventToCommandBehavior Command="{Binding UnloadedCommand}" EventName="Unloaded" />
+    </ContentView.Behaviors>
+    <ContentView.Resources>
+        <converters:AlarmSeverityToImageSourceString x:Key="SeverityToImageString" />
+        <converters:ButtonAlarmSeverityToStringValueConverter x:Key="ButtonSeverityToString" />
+        <converters:AlternatingColorValueConverter
+            x:Key="GrayRowColorConverter"
+            EvenNumberColor="{StaticResource GreyNeutral2}"
+            OddNumberColor="Transparent" />
+        <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        <toolkit:VariableMultiValueConverter x:Key="AllTrueConverter" ConditionType="All" />
+    </ContentView.Resources>
+    <Grid ColumnSpacing="{StaticResource GenericSpacing}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="{StaticResource AlarmPageSecondsColumnWidth}" />
+            <ColumnDefinition Width="{StaticResource SystemCommandPanelWidth}" />
+        </Grid.ColumnDefinitions>
+        <Border
+            Grid.Column="0"
+            Padding="{StaticResource GenericSpacing}"
+            BackgroundColor="{StaticResource White}"
+            Stroke="Transparent">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Opacity="0.1"
+                    Radius="4"
+                    Offset="0,2" />
+            </Border.Shadow>
+            <Grid RowSpacing="{StaticResource GenericSpacing}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{StaticResource AlarmPageSeverityButtonHeight}" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <controls:HorizontalButtonGroup
+                    x:Name="ButtonGroup"
+                    Grid.Row="0"
+                    HorizontalOptions="Start"
+                    ResetOnUnload="True"
+                    SelectedButton="{x:Reference AllSeverity}">
+                    <controls:HorizontalButtonGroup.Buttons>
+                        <controls:ButtonInGroup
+                            x:Name="HighSeverity"
+                            CommandParameter="1"
+                            ImageSource="high_severity_dot.png"
+                            IsSelected="{Binding SelectedServerity, Converter={StaticResource ButtonSeverityToString}, ConverterParameter=1}"
+                            OnClickedCommand="{Binding SeverityClickedCommand}"
+                            Text="{Binding Localization[High]}" />
+                        <controls:ButtonInGroup
+                            x:Name="MediumSeverity"
+                            CommandParameter="2"
+                            ImageSource="medium_severity_dot.png"
+                            IsSelected="{Binding SelectedServerity, Converter={StaticResource ButtonSeverityToString}, ConverterParameter=2}"
+                            OnClickedCommand="{Binding SeverityClickedCommand}"
+                            Text="{Binding Localization[Medium]}" />
+                        <controls:ButtonInGroup
+                            x:Name="LowSeverity"
+                            CommandParameter="3"
+                            ImageSource="low_severity_dot.png"
+                            IsSelected="{Binding SelectedServerity, Converter={StaticResource ButtonSeverityToString}, ConverterParameter=3}"
+                            OnClickedCommand="{Binding SeverityClickedCommand}"
+                            Text="{Binding Localization[Low]}" />
+                        <controls:ButtonInGroup
+                            x:Name="AllSeverity"
+                            CommandParameter="0"
+                            ImageSource="all_severity_dot.png"
+                            IsSelected="{Binding SelectedServerity, Converter={StaticResource ButtonSeverityToString}, ConverterParameter=0}"
+                            OnClickedCommand="{Binding SeverityClickedCommand}"
+                            Text="{Binding Localization[All]}" />
+                    </controls:HorizontalButtonGroup.Buttons>
+                </controls:HorizontalButtonGroup>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{StaticResource AlarmPageTableHeaderHeight}" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Border
+                        Grid.Row="0"
+                        BackgroundColor="Transparent"
+                        Stroke="{StaticResource GreyNeutral6}">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="4,4,0,0" />
+                        </Border.StrokeShape>
+                        <Grid Padding="{StaticResource SmallSpacing}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="{StaticResource AlarmPageTableTimeSpanColumnWidth}" />
+                                <ColumnDefinition Width="{StaticResource AlarmPageTableErrorCodeColumnWidth}" />
+                                <ColumnDefinition Width="{StaticResource AlarmPageTableSeverityColumnWidth}" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Column="0"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HorizontalOptions="Start"
+                                Text="{Binding Localization[TimeSpan]}"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Column="1"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HorizontalOptions="Start"
+                                Text="{Binding Localization[ErrorCode]}"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Column="2"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HorizontalOptions="Start"
+                                Text="{Binding Localization[Severity]}"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Column="3"
+                                FontSize="{StaticResource Body2FontSize}"
+                                HorizontalOptions="Start"
+                                Text="{Binding Localization[Description]}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+                    <Border
+                        Grid.Row="1"
+                        Margin="0,-2,0,0"
+                        BackgroundColor="Transparent"
+                        Stroke="{StaticResource GreyNeutral6}">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="0,0,4,4" />
+                        </Border.StrokeShape>
+                        <ListView
+                            IsPullToRefreshEnabled="True"
+                            ItemsSource="{Binding AlarmsViewModels}"
+                            RefreshCommand="{Binding RefreshCommand}"
+                            SelectedItem="{Binding SelectedAlarm, Mode=TwoWay}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="model:AlarmModel">
+                                    <ViewCell>
+                                        <Grid Padding="{StaticResource SmallSpacing}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="{StaticResource AlarmPageTableTimeSpanColumnWidth}" />
+                                                <ColumnDefinition Width="{StaticResource AlarmPageTableErrorCodeColumnWidth}" />
+                                                <ColumnDefinition Width="{StaticResource AlarmPageTableSeverityColumnWidth}" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                Grid.Column="0"
+                                                FontSize="{StaticResource RegularFontSize}"
+                                                HorizontalOptions="Start"
+                                                Text="{Binding TimeSpan}"
+                                                VerticalOptions="Center" />
+                                            <Label
+                                                Grid.Column="1"
+                                                FontSize="{StaticResource RegularFontSize}"
+                                                HorizontalOptions="Start"
+                                                Text="{Binding AlarmCode}"
+                                                VerticalOptions="Center" />
+                                            <HorizontalStackLayout Grid.Column="2">
+                                                <Image Source="{Binding Severity, Converter={StaticResource SeverityToImageString}}" />
+                                                <Label
+                                                    Grid.Column="2"
+                                                    FontSize="{StaticResource RegularFontSize}"
+                                                    HorizontalOptions="Start"
+                                                    Text="{Binding DisplaySeverity}"
+                                                    VerticalOptions="Center" />
+                                            </HorizontalStackLayout>
+                                            <Label
+                                                Grid.Column="3"
+                                                FontSize="{StaticResource RegularFontSize}"
+                                                HorizontalOptions="Start"
+                                                Text="{Binding Description}"
+                                                VerticalOptions="Center" />
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border
+            Grid.Column="1"
+            BackgroundColor="{StaticResource White}"
+            Stroke="Transparent">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Opacity="0.1"
+                    Radius="4"
+                    Offset="0,2" />
+            </Border.Shadow>
+            <Grid Padding="{StaticResource GenericSpacing}" RowSpacing="{StaticResource GenericSpacing}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{StaticResource AlarmPageDescriptionHeight}" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackLayout
+                    Grid.Row="0"
+                    Orientation="Vertical"
+                    Spacing="{StaticResource HalvedGenericSpacing}"
+                    VerticalOptions="FillAndExpand">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource RegularFontSize}"
+                        Text="{Binding Localization[AlarmDescription]}" />
+                    <controls:CustomEditor
+                        BackgroundColor="{StaticResource GreyNeutral3}"
+                        IsReadOnly="True"
+                        Text="{Binding SelectedAlarm.Description, Mode=TwoWay}"
+                        TextColor="{StaticResource Black}"
+                        VerticalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout
+                    Grid.Row="1"
+                    Orientation="Vertical"
+                    Spacing="{StaticResource HalvedGenericSpacing}"
+                    VerticalOptions="FillAndExpand">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource RegularFontSize}"
+                        Text="{Binding Localization[RecoveryGuide]}" />
+                    <controls:CustomEditor
+                        BackgroundColor="{StaticResource GreyNeutral3}"
+                        IsReadOnly="True"
+                        Text="{Binding SelectedAlarm.RecoveryGuideline, Mode=TwoWay}"
+                        TextColor="{StaticResource Black}"
+                        VerticalOptions="FillAndExpand" />
+                </StackLayout>
+            </Grid>
+        </Border>
+        <Border
+            Grid.Column="2"
+            BackgroundColor="{StaticResource GreyNeutral3}"
+            Stroke="Transparent">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Opacity="0.1"
+                    Radius="4"
+                    Offset="0,0" />
+            </Border.Shadow>
+            <VerticalStackLayout
+                Padding="{StaticResource GenericSpacing}"
+                BackgroundColor="White"
+                Spacing="{StaticResource GenericSpacing}">
+                <Button
+                    x:Name="AckButton"
+                    BackgroundColor="White"
+                    BorderColor="{StaticResource GreyNeutral5}"
+                    BorderWidth="1"
+                    Command="{Binding AcknowledgeCommand}"
+                    CommandParameter="{Binding SelectedAlarm.Id}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    FontSize="{StaticResource RegularFontSize}"
+                    HeightRequest="{StaticResource AlarmPageCommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    IsEnabled="{Binding SelectedAlarm.AckEnabled}"
+                    Text="{Binding Localization[Acknowledge]}"
+                    TextColor="{StaticResource GreyNeutral14}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                    x:Name="RetryButton"
+                    BackgroundColor="White"
+                    BorderColor="{StaticResource GreyNeutral5}"
+                    BorderWidth="1"
+                    Command="{Binding RetryCommand}"
+                    CommandParameter="{Binding SelectedAlarm.Id}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    FontSize="{StaticResource RegularFontSize}"
+                    HeightRequest="{StaticResource AlarmPageCommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    Text="{Binding Localization[Retry]}"
+                    TextColor="{StaticResource GreyNeutral14}"
+                    WidthRequest="{StaticResource CommandButtonWidth}">
+                    <Button.IsEnabled>
+                        <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                            <Binding Path="SelectedAlarm.RetryEnabled" />
+                            <Binding Converter="{StaticResource InvertedBoolConverter}" Path="CriticalAction[Any]" />
+                        </MultiBinding>
+                    </Button.IsEnabled>
+                </Button>
+                <Button
+                    x:Name="CancelButton"
+                    BackgroundColor="White"
+                    BorderColor="{StaticResource GreyNeutral5}"
+                    BorderWidth="1"
+                    Command="{Binding CancelCommand}"
+                    CommandParameter="{Binding SelectedAlarm.Id}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    FontSize="{StaticResource RegularFontSize}"
+                    HeightRequest="{StaticResource AlarmPageCommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    Text="{Binding Localization[Cancel]}"
+                    TextColor="{StaticResource GreyNeutral14}"
+                    WidthRequest="{StaticResource CommandButtonWidth}">
+                    <Button.IsEnabled>
+                        <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                            <Binding Path="SelectedAlarm.CancelEnabled" />
+                            <Binding Converter="{StaticResource InvertedBoolConverter}" Path="CriticalAction[Any]" />
+                        </MultiBinding>
+                    </Button.IsEnabled>
+                </Button>
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentView>

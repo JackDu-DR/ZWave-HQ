@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Controls.MultipleLiveCamera"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    x:Name="MultipleCamera">
+    <Grid RowDefinitions="auto, *" RowSpacing="8">
+        <controls:CustomPicker
+            x:Name="CameraPicker"
+            Grid.Row="0"
+            BackgroundColor="White"
+            FontSize="{StaticResource Body2FontSize}"
+            HeightRequest="{StaticResource MessageButtonHeight}"
+            HorizontalOptions="Start"
+            ItemsSource="{Binding Source={x:Reference MultipleCamera}, Path=ItemsSource}"
+            SelectedItem="{Binding Source={x:Reference MultipleCamera}, Path=SelectedItem}"
+            WidthRequest="{StaticResource MasterSquareBarWidth}" />
+        <Border
+            Grid.Row="1"
+            BackgroundColor="#d9d9d9"
+            HorizontalOptions="Start"
+            StrokeThickness="0"
+            VerticalOptions="Start">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="4" />
+            </Border.StrokeShape>
+            <Grid
+                ColumnDefinitions="Auto"
+                HorizontalOptions="Start"
+                RowDefinitions="Auto"
+                VerticalOptions="Start">
+                <Grid
+                    x:Name="Grid4Cameras"
+                    ColumnDefinitions="*,*"
+                    HeightRequest="{StaticResource JobCameraHeight}"
+                    IsVisible="true"
+                    RowDefinitions="*, *"
+                    WidthRequest="{StaticResource JobCameraWidth}">
+                    <controls:LiveCamera
+                        x:Name="Camera1"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        CameraSource="{Binding Source={x:Reference MultipleCamera}, Path=Camera1Source}"
+                        HorizontalOptions="FillAndExpand"
+                        IsActive="true"
+                        VerticalOptions="FillAndExpand" />
+                    <controls:LiveCamera
+                        x:Name="Camera2"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        CameraSource="{Binding Source={x:Reference MultipleCamera}, Path=Camera2Source}"
+                        HorizontalOptions="FillAndExpand"
+                        IsActive="true"
+                        VerticalOptions="FillAndExpand" />
+                    <controls:LiveCamera
+                        x:Name="Camera3"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        CameraSource="{Binding Source={x:Reference MultipleCamera}, Path=Camera3Source}"
+                        HorizontalOptions="FillAndExpand"
+                        IsActive="true"
+                        VerticalOptions="FillAndExpand" />
+                </Grid>
+                <BoxView WidthRequest="2" Color="Green" />
+                <BoxView HeightRequest="2" Color="Green" />
+            </Grid>
+        </Border>
+    </Grid>
+</ContentView>

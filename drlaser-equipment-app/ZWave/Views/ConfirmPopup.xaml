@@ -1,0 +1,58 @@
+<toolkit:Popup
+    x:Class="ZWave.Views.ConfirmPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels"
+    CanBeDismissedByTappingOutsideOfPopup="False"
+    Color="Transparent">
+    <Border Background="White">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="8" />
+        </Border.StrokeShape>
+        <VerticalStackLayout Background="White">
+            <Image
+                Margin="12,12,12,0"
+                HeightRequest="12"
+                HorizontalOptions="End"
+                Source="close.png"
+                WidthRequest="12" />
+            <Label
+                Margin="20,0,20,20"
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                FontSize="{StaticResource SubTitle1FontSize}"
+                HorizontalTextAlignment="Start" />
+            <Label
+                Margin="20,0,20,20"
+                FontSize="{StaticResource Body2FontSize}"
+                HorizontalTextAlignment="Start" />
+            <Grid
+                Padding="16,20,16,20"
+                Background="{StaticResource GreyNeutral3}"
+                ColumnSpacing="16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Grid.Column="0"
+                    BorderWidth="1"
+                    Clicked="OnConfirmClicked"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    HeightRequest="40"
+                    HorizontalOptions="FillAndExpand" />
+                <Button
+                    Grid.Column="1"
+                    BorderWidth="1"
+                    Clicked="OnCancelClicked"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    HeightRequest="40"
+                    HorizontalOptions="FillAndExpand"
+                    Style="{StaticResource LightButton}" />
+            </Grid>
+        </VerticalStackLayout>
+    </Border>
+</toolkit:Popup>

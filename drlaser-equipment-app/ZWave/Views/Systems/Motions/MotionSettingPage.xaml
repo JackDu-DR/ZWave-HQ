@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Views.Systems.Motions.MotionSettingPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:motions="clr-namespace:ZWave.Views.Systems.Motions"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Systems.Motions">
+    <ContentView.BindingContext>
+        <viewmodel:MotionSettingPageViewModel />
+    </ContentView.BindingContext>
+    <ContentView.Resources>
+        <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+    </ContentView.Resources>
+    <Grid
+        x:Name="TableContainer"
+        Padding="{StaticResource GenericSpacing}"
+        ColumnSpacing="{StaticResource SmallSpacing}"
+        HorizontalOptions="Start"
+        MaximumWidthRequest="{StaticResource MotionSettingTableContainerMaximumWidth}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <controls:ContainerWithTitleBar
+            x:Name="MotorTable"
+            Grid.Column="0"
+            HorizontalOptions="Start"
+            MaximumHeightRequest="{StaticResource MotionSettingMotorTableMaximumHeight}"
+            TitleText="{Binding Localization[Motor]}"
+            VerticalOptions="Start">
+            <StackLayout
+                Padding="{StaticResource MotionSettingMotorTablePadding}"
+                Orientation="Vertical"
+                Spacing="{StaticResource GenericSpacing}">
+                <HorizontalStackLayout HeightRequest="35" Spacing="{StaticResource GenericSpacing}">
+                    <controls:ToggleWithTitle
+                        IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                        ToggleOffText="{Binding Localization[Off]}"
+                        ToggleOnText="{Binding Localization[On]}"
+                        ToggleType="BothSideText" />
+                    <Button
+                        FontAttributes="Bold"
+                        IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                        Style="{StaticResource LightButton}"
+                        Text="{Binding Localization[Home]}" />
+                    <Button
+                        FontAttributes="Bold"
+                        IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                        Style="{StaticResource LightButton}"
+                        Text="{Binding Localization[Stop]}" />
+                </HorizontalStackLayout>
+                <VerticalStackLayout Spacing="{StaticResource HalvedGenericSpacing}">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource Body2FontSize}"
+                        Text="{Binding Localization[SensorStatus]}" />
+                    <controls:DotStatusWithTitle
+                        Title="{Binding Localization[HomeSensor]}"
+                        HorizontalOptions="Start"
+                        WidthRequest="{StaticResource MotionSettingCircleStatusWithLabelWidth}" />
+                    <controls:DotStatusWithTitle
+                        Title="{Binding Localization[LimitSensorPositive]}"
+                        HorizontalOptions="Start"
+                        WidthRequest="{StaticResource MotionSettingCircleStatusWithLabelWidth}" />
+                    <controls:DotStatusWithTitle
+                        Title="{Binding Localization[LimitSensorNegative]}"
+                        HorizontalOptions="Start"
+                        WidthRequest="{StaticResource MotionSettingCircleStatusWithLabelWidth}" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="{StaticResource HalvedGenericSpacing}">
+                    <controls:EntryWithTitle
+                        Title="{Binding Localization[SWMotionLimitPositive]}"
+                        EntryContainerWidthRequest="{StaticResource MotorEntryControlWidth}"
+                        IsSingleEntry="True"
+                        LeftText="0.00"
+                        TitleWidthRequest="{StaticResource MotionSettingMotorEntryLabelWidth}"
+                        Unit="cnt" />
+                    <controls:EntryWithTitle
+                        Title="{Binding Localization[SWMotionLimitNegative]}"
+                        EntryContainerWidthRequest="{StaticResource MotorEntryControlWidth}"
+                        IsSingleEntry="True"
+                        LeftText="0.00"
+                        TitleWidthRequest="{StaticResource MotionSettingMotorEntryLabelWidth}"
+                        Unit="cnt" />
+                </VerticalStackLayout>
+            </StackLayout>
+        </controls:ContainerWithTitleBar>
+        <controls:ContainerWithTitleBar
+            x:Name="TuneSettingsTable"
+            Grid.Column="1"
+            TitleText="{Binding Localization[TuneSettings]}"
+            VerticalOptions="Start">
+            <controls:CustomTabView
+                Padding="{StaticResource GenericSpacing}"
+                BackgroundColor="{StaticResource GreyNeutral2}"
+                CurrentItem="{x:Reference GainsControl}">
+                <controls:CustomTabView.TabItems>
+                    <controls:CustomTabItem
+                        x:Name="GainsControl"
+                        Title="{Binding Localization[Gains]}"
+                        BorderVisible="True"
+                        IndicatorIsVisible="True"
+                        TabColor="{StaticResource GreyNeutral3}"
+                        TabType="MotionGain" />
+                    <controls:CustomTabItem
+                        x:Name="FiltersControl"
+                        Title="{Binding Localization[Filters]}"
+                        BorderVisible="True"
+                        IndicatorIsVisible="True"
+                        TabColor="{StaticResource GreyNeutral3}"
+                        TabType="MotionFilter" />
+                </controls:CustomTabView.TabItems>
+            </controls:CustomTabView>
+        </controls:ContainerWithTitleBar>
+        <controls:ContainerWithTitleBar
+            x:Name="ControlSettingsTable"
+            Grid.Column="2"
+            MaximumHeightRequest="{StaticResource ControlSettingsTableMaximumHeight}"
+            TitleText="{Binding Localization[ControlSettings]}"
+            VerticalOptions="Start">
+            <StackLayout
+                Padding="{StaticResource GenericSpacing}"
+                Orientation="Vertical"
+                Spacing="{StaticResource GenericSpacing}">
+                <HorizontalStackLayout Spacing="{StaticResource SmallSpacing}">
+                    <controls:EntryWithTitle
+                        Title="{Binding Localization[Distance]}"
+                        EntryContainerWidthRequest="{StaticResource ControlSettingsEntryControlWidth1}"
+                        IsSingleEntry="True"
+                        LeftText="2"
+                        TitleWidthRequest="{StaticResource ControlSettingsEntryLabelWidth1}" />
+                    <controls:EntryWithTitle
+                        Title="{Binding Localization[TimeInSeconds]}"
+                        EntryContainerWidthRequest="{StaticResource ControlSettingsEntryControlWidth1}"
+                        IsSingleEntry="True"
+                        LeftText="2"
+                        TitleWidthRequest="{StaticResource ControlSettingsEntryLabelWidth1}" />
+                </HorizontalStackLayout>
+                <VerticalStackLayout Spacing="{StaticResource SmallSpacing}">
+                    <controls:EntryWithTitle
+                        Title="{Binding Localization[Vel]}"
+                        EntryContainerWidthRequest="{StaticResource ControlSettingsEntryControlWidth2}"
+                        IsSingleEntry="True"
+                        LeftText="00"
+                        TitleWidthRequest="{StaticResource ControlSettingsEntryLabelWidth2}" />
+                    <controls:EntryWithTitle
+                        Title="{Binding Localization[Accel]}"
+                        EntryContainerWidthRequest="{StaticResource ControlSettingsEntryControlWidth2}"
+                        IsSingleEntry="True"
+                        LeftText="00"
+                        TitleWidthRequest="{StaticResource ControlSettingsEntryLabelWidth2}" />
+                    <controls:EntryWithTitle
+                        Title="{Binding Localization[Jerk]}"
+                        EntryContainerWidthRequest="{StaticResource ControlSettingsEntryControlWidth2}"
+                        IsSingleEntry="True"
+                        LeftText="00"
+                        TitleWidthRequest="{StaticResource ControlSettingsEntryLabelWidth2}" />
+                </VerticalStackLayout>
+                <HorizontalStackLayout Spacing="{StaticResource SmallSpacing}">
+                    <Button
+                        FontAttributes="Bold"
+                        HeightRequest="{StaticResource MotionSettingControlSettingsButtonHeight}"
+                        IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                        Style="{StaticResource LightButton}"
+                        Text="{Binding Localization[Calculate]}"
+                        WidthRequest="{StaticResource ControlSettingsButtonWidth}" />
+                    <Button
+                        FontAttributes="Bold"
+                        HeightRequest="{StaticResource MotionSettingControlSettingsButtonHeight}"
+                        IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                        Style="{StaticResource LightButton}"
+                        Text="{Binding Localization[TimeCalculate]}"
+                        WidthRequest="{StaticResource ControlSettingsButtonWidth}" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="{StaticResource SmallSpacing}">
+                    <Button
+                        FontAttributes="Bold"
+                        HeightRequest="{StaticResource MotionSettingControlSettingsButtonHeight}"
+                        IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                        Style="{StaticResource LightButton}"
+                        Text="{Binding Localization[Save]}"
+                        WidthRequest="{StaticResource ControlSettingsButtonWidth}" />
+                    <controls:CustomPicker
+                        BackgroundColor="{StaticResource White}"
+                        FontSize="{StaticResource Body2FontSize}"
+                        HeightRequest="{StaticResource ControlSettingsTablePickerHeight}"
+                        WidthRequest="{StaticResource ControlSettingsPickerWidth}" />
+                </HorizontalStackLayout>
+            </StackLayout>
+        </controls:ContainerWithTitleBar>
+    </Grid>
+</ContentView>

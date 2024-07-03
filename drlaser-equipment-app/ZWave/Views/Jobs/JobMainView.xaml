@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Views.Jobs.JobMainView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:converters="clr-namespace:ZWave.Converters"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Jobs"
+    x:DataType="viewmodel:JobMainViewModel"
+    VerticalOptions="FillAndExpand">
+    <ContentView.BindingContext>
+        <viewmodel:JobMainViewModel />
+    </ContentView.BindingContext>
+    <ContentView.Resources>
+        <converters:LaserStatusRangeToColor x:Key="laserStatusRangeToColor" />
+        <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+    </ContentView.Resources>
+    <ContentView.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding LoadedCommand}" EventName="Loaded" />
+        <toolkit:EventToCommandBehavior Command="{Binding UnloadedCommand}" EventName="Unloaded" />
+    </ContentView.Behaviors>
+    <Grid BackgroundColor="{StaticResource GreyNeutral3}" ColumnSpacing="{StaticResource GenericSpacing}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="{StaticResource SystemCommandPanelWidth}" />
+        </Grid.ColumnDefinitions>
+        <Border
+            Grid.Column="0"
+            BackgroundColor="{StaticResource White}"
+            Stroke="Transparent">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0,8,8,8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Opacity="0.1"
+                    Radius="4"
+                    Offset="0,2" />
+            </Border.Shadow>
+            <Grid Padding="{StaticResource GenericSpacing}" RowSpacing="{StaticResource GenericSpacing}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{StaticResource JobStatusBarHeight}" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <VerticalStackLayout Grid.Row="0">
+                    <HorizontalStackLayout>
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="{StaticResource OpenSansSemibold}"
+                            FontSize="{StaticResource Subtitle2FontSize}"
+                            HorizontalOptions="Start"
+                            Text="{Binding Localization[LaserName]}"
+                            VerticalOptions="Start" />
+                        <BoxView Style="{StaticResource VerticalDivider}" />
+                        <controls:StatusLabel
+                            Title="{Binding Localization[LaserConnection]}"
+                            StatusColor="{Binding LaserConnectionStatus, Converter={StaticResource laserStatusRangeToColor}}"
+                            StatusText="{Binding Localization[Disconnected]}"
+                            VerticalOptions="Start" />
+                        <BoxView Style="{StaticResource VerticalDivider}" />
+                        <controls:StatusLabel
+                            Title="{Binding Localization[Emission]}"
+                            StatusColor="{Binding EmissionStatus, Converter={StaticResource laserStatusRangeToColor}}"
+                            StatusText="{Binding Localization[NoEmission]}"
+                            VerticalOptions="Start" />
+                        <BoxView Style="{StaticResource VerticalDivider}" />
+                        <controls:StatusLabel
+                            Title="{Binding Localization[LaserPowerEnergy]}"
+                            StatusColor="{Binding PowerEnergyStatus, Converter={StaticResource laserStatusRangeToColor}}"
+                            StatusText="{Binding PowerEnergyValue}"
+                            VerticalOptions="Start" />
+                        <BoxView Style="{StaticResource VerticalDivider}" />
+                        <controls:StatusLabel
+                            Title="{Binding Localization[FrequencyPulseDivider]}"
+                            StatusColor="{Binding FrequencyPulseDividerStatus, Converter={StaticResource laserStatusRangeToColor}}"
+                            StatusText="{Binding FrequencyPulseDividerValue}"
+                            VerticalOptions="Start" />
+                        <BoxView Style="{StaticResource VerticalDivider}" />
+                        <controls:StatusLabel
+                            Title="{Binding Localization[WaveLength]}"
+                            StatusColor="{Binding WaveLengthStatus, Converter={StaticResource laserStatusRangeToColor}}"
+                            StatusText="{Binding WaveLengthValue}"
+                            VerticalOptions="Start" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+                <Grid Grid.Row="1" ColumnSpacing="{StaticResource GenericSpacing}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="{StaticResource AxisContainerWidth}" />
+                    </Grid.ColumnDefinitions>
+                    <controls:MultipleLiveCamera
+                        Grid.Column="0"
+                        Camera1Source="{Binding Camera1Sources}"
+                        Camera2Source="{Binding Camera2Sources}"
+                        Camera3Source="{Binding Camera3Sources}"
+                        ItemsSource="{Binding CameraOptions}"
+                        SelectedItem="{Binding SelectedCameraOption}" />
+                    <VerticalStackLayout Grid.Column="1">
+                        <ContentView Margin="0,0,0,8" HeightRequest="{StaticResource MessageButtonHeight}" />
+                        <VerticalStackLayout
+                            Padding="{StaticResource GenericSpacing}"
+                            BackgroundColor="{StaticResource GreyNeutral2}"
+                            Spacing="{StaticResource GenericSpacing}">
+                            <controls:EntryWithTitle
+                                x:Name="AxisOne"
+                                EntryContainerWidthRequest="{StaticResource AxisControlWidth}"
+                                IsSingleEntry="True"
+                                Keyboard="Numeric"
+                                RightText="0.00"
+                                TitleWidthRequest="{StaticResource AxisLabelWidth}"
+                                Unit="{Binding Localization[UnitMM]}" />
+                            <controls:EntryWithTitle
+                                x:Name="AxisTwo"
+                                EntryContainerWidthRequest="{StaticResource AxisControlWidth}"
+                                IsSingleEntry="True"
+                                Keyboard="Numeric"
+                                RightText="0.00"
+                                TitleWidthRequest="{StaticResource AxisLabelWidth}"
+                                Unit="{Binding Localization[UnitDeg]}" />
+                            <controls:EntryWithTitle
+                                x:Name="AxisThree"
+                                EntryContainerWidthRequest="{StaticResource AxisControlWidth}"
+                                IsSingleEntry="True"
+                                Keyboard="Numeric"
+                                RightText="0.00"
+                                TitleWidthRequest="{StaticResource AxisLabelWidth}"
+                                Unit="{Binding Localization[UnitDeg]}" />
+                            <controls:EntryWithTitle
+                                x:Name="AxisFour"
+                                EntryContainerWidthRequest="{StaticResource AxisControlWidth}"
+                                IsSingleEntry="True"
+                                Keyboard="Numeric"
+                                RightText="0.00"
+                                TitleWidthRequest="{StaticResource AxisLabelWidth}"
+                                Unit="{Binding Localization[UnitMM]}" />
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border
+            Grid.Column="1"
+            BackgroundColor="{StaticResource GreyNeutral3}"
+            Stroke="Transparent">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Opacity="0.1"
+                    Radius="4"
+                    Offset="0,0" />
+            </Border.Shadow>
+            <VerticalStackLayout
+                Padding="{StaticResource GenericSpacing}"
+                BackgroundColor="White"
+                Spacing="{StaticResource GenericSpacing}">
+                <Button
+                    BackgroundColor="White"
+                    BorderColor="{StaticResource GreyNeutral5}"
+                    BorderWidth="1"
+                    Command="{Binding ConnectCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HeightRequest="{StaticResource JobMainViewCommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                    Text="{Binding Localization[Connect]}"
+                    TextColor="{StaticResource GreyNeutral14}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                    BackgroundColor="White"
+                    BorderColor="{StaticResource GreyNeutral5}"
+                    BorderWidth="1"
+                    Command="{Binding StandbyCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HeightRequest="{StaticResource JobMainViewCommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                    Text="{Binding Localization[Standby]}"
+                    TextColor="{StaticResource GreyNeutral14}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentView>

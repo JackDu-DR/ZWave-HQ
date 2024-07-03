@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Controls.DotStatusWithTitle"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="StatusDotWithLabel">
+    <Grid x:Name="StatusGrid" ColumnSpacing="{StaticResource GenericSpacing}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Label
+            x:Name="StatusLabel"
+            Grid.Column="0"
+            FlowDirection="LeftToRight"
+            FontSize="{StaticResource Body2FontSize}"
+            VerticalOptions="Center" />
+        <Ellipse
+            x:Name="StatusDot"
+            Grid.Column="1"
+            Fill="{Binding Source={x:Reference StatusDotWithLabel}, Path=StatusColor}"
+            HorizontalOptions="Center"
+            StrokeThickness="0" />
+    </Grid>
+</ContentView>

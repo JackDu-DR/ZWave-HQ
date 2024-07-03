@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Border
+    x:Class="ZWave.Controls.CustomPicker"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="PickerBorder"
+    Padding="0"
+    Stroke="{StaticResource GreyNeutral6}">
+    <Border.StrokeShape>
+        <RoundRectangle CornerRadius="4" />
+    </Border.StrokeShape>
+    <Grid Margin="0,0,1,0">
+        <Image
+            x:Name="PickerIcon"
+            Grid.Row="0"
+            Margin="{StaticResource PickerIconMargin}"
+            HeightRequest="{StaticResource PickerIconSize}"
+            HorizontalOptions="End"
+            IsVisible="False"
+            Source="arrow_down_black.png"
+            VerticalOptions="Center"
+            WidthRequest="{StaticResource PickerIconSize}" />
+        <Picker
+            x:Name="PickerControl"
+            Grid.Row="0"
+            Margin="0"
+            BackgroundColor="{Binding Source={x:Reference PickerBorder}, Path=BackgroundColor}"
+            FontSize="{Binding Source={x:Reference PickerBorder}, Path=FontSize}"
+            HorizontalOptions="FillAndExpand"
+            ItemsSource="{Binding Source={x:Reference PickerBorder}, Path=ItemsSource}"
+            SelectedIndex="{Binding Source={x:Reference PickerBorder}, Path=SelectedIndex}"
+            SelectedItem="{Binding Source={x:Reference PickerBorder}, Path=SelectedItem}"
+            VerticalOptions="FillAndExpand" />
+    </Grid>
+</Border>

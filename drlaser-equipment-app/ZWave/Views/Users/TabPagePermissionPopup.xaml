@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="ZWave.Views.Users.TabPagePermissionPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:converter="clr-namespace:ZWave.Converters"
+    xmlns:enum="clr-namespace:ZWave.Shared.Enums"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Users"
+    x:DataType="viewmodel:TabPagePermissionViewModel"
+    CanBeDismissedByTappingOutsideOfPopup="False"
+    Color="Transparent">
+    <toolkit:Popup.BindingContext>
+        <viewmodel:TabPagePermissionViewModel />
+    </toolkit:Popup.BindingContext>
+    <toolkit:Popup.Resources>
+        <converter:TabPagePermissionToBooleanConverter x:Key="RoleAdminTabPagePermissionConverter" />
+        <converter:TabPagePermissionToBooleanConverter x:Key="RoleOperatorTabPagePermissionConverter" />
+        <converter:TabPagePermissionToBooleanConverter x:Key="RoleServiceEngineerTabPagePermissionConverter" />
+        <converter:TabPagePermissionToBooleanConverter x:Key="RoleProductionEngineerTabPagePermissionConverter" />
+    </toolkit:Popup.Resources>
+    <Border Background="White">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="8" />
+        </Border.StrokeShape>
+        <Grid RowDefinitions="*, auto" RowSpacing="{StaticResource GenericSpacing}">
+            <Grid
+                Grid.Row="0"
+                Padding="{StaticResource GenericSpacing}"
+                BackgroundColor="White"
+                HeightRequest="{StaticResource TabPagePermissionPopupHeight}"
+                RowDefinitions="auto, *"
+                RowSpacing="{StaticResource GenericSpacing}"
+                WidthRequest="{StaticResource TabPagePermissionPopupWidth}">
+                <ImageButton
+                    Grid.Row="0"
+                    Clicked="ClosePopup"
+                    HeightRequest="{StaticResource CloseIconSize}"
+                    HorizontalOptions="End"
+                    Source="close.png"
+                    WidthRequest="{StaticResource CloseIconSize}" />
+                <VerticalStackLayout Grid.Row="1" Spacing="{StaticResource GenericSpacing}">
+                    <Label
+                        Margin="{StaticResource MarginBT}"
+                        Style="{StaticResource SubTitle1LabelStyle}"
+                        Text="{Binding Localization[ConfigureRoleAccess]}" />
+                    <Grid
+                        ColumnDefinitions="auto,*,*,*,*,*,*,*"
+                        ColumnSpacing="{StaticResource GenericSpacing}"
+                        RowSpacing="{StaticResource GenericSpacing}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="{StaticResource TabPagePermissionPopupTableRowHeight}" />
+                            <RowDefinition Height="{StaticResource TabPagePermissionPopupTableRowHeight}" />
+                            <RowDefinition Height="{StaticResource TabPagePermissionPopupTableRowHeight}" />
+                            <RowDefinition Height="{StaticResource TabPagePermissionPopupTableRowHeight}" />
+                            <RowDefinition Height="{StaticResource TabPagePermissionPopupTableRowHeight}" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontSize="{StaticResource Body2FontSize}"
+                            Text="{Binding Localization[Admin]}"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center" />
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            FontSize="{StaticResource Body2FontSize}"
+                            Text="{Binding Localization[Operator]}"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center" />
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            FontSize="{StaticResource Body2FontSize}"
+                            Text="{Binding Localization[ServiceEngineer]}"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center" />
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            FontSize="{StaticResource Body2FontSize}"
+                            Text="{Binding Localization[ProductionEngineer]}"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center" />
+
+                        <!--  Jobs page control  -->
+                        <HorizontalStackLayout
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            HorizontalOptions="Center"
+                            Spacing="{StaticResource QuarterGenericSpacing}">
+                            <Image
+                                Source="jobs_black.png"
+                                VerticalOptions="Center"
+                                WidthRequest="{StaticResource TabPagePermissionPopupIconWidth}" />
+                            <Label
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text="{Binding Localization[Jobs]}"
+                                VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                        <controls:ToggleWithTitle
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            IsToggled="{Binding RoleAdminPermissions, Mode=TwoWay, Converter={StaticResource RoleAdminTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Jobs}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            IsToggled="{Binding RoleOperatorPermissions, Mode=TwoWay, Converter={StaticResource RoleOperatorTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Jobs}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            IsToggled="{Binding RoleServiceEngineerPermissions, Mode=TwoWay, Converter={StaticResource RoleServiceEngineerTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Jobs}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            IsToggled="{Binding RoleProductionEngineerPermissions, Mode=TwoWay, Converter={StaticResource RoleProductionEngineerTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Jobs}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+
+                        <!--  System page control  -->
+                        <HorizontalStackLayout
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            HorizontalOptions="Center"
+                            Spacing="{StaticResource QuarterGenericSpacing}">
+                            <Image
+                                Source="system_black.png"
+                                VerticalOptions="Center"
+                                WidthRequest="{StaticResource TabPagePermissionPopupIconWidth}" />
+                            <Label
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text="{Binding Localization[System]}"
+                                VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                        <controls:ToggleWithTitle
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            IsToggled="{Binding RoleAdminPermissions, Mode=TwoWay, Converter={StaticResource RoleAdminTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.System}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            IsToggled="{Binding RoleOperatorPermissions, Mode=TwoWay, Converter={StaticResource RoleOperatorTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.System}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            IsToggled="{Binding RoleServiceEngineerPermissions, Mode=TwoWay, Converter={StaticResource RoleServiceEngineerTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.System}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="4"
+                            Grid.Column="2"
+                            IsToggled="{Binding RoleProductionEngineerPermissions, Mode=TwoWay, Converter={StaticResource RoleProductionEngineerTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.System}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+
+                        <!--  Recipies page control  -->
+                        <HorizontalStackLayout
+                            Grid.Row="0"
+                            Grid.Column="3"
+                            HorizontalOptions="Center"
+                            Spacing="{StaticResource QuarterGenericSpacing}">
+                            <Image
+                                Source="recipes_black.png"
+                                VerticalOptions="Center"
+                                WidthRequest="{StaticResource TabPagePermissionPopupIconWidth}" />
+                            <Label
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text="{Binding Localization[Recipies]}"
+                                VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                        <controls:ToggleWithTitle
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            IsToggled="{Binding RoleAdminPermissions, Mode=TwoWay, Converter={StaticResource RoleAdminTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Recipies}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="2"
+                            Grid.Column="3"
+                            IsToggled="{Binding RoleOperatorPermissions, Mode=TwoWay, Converter={StaticResource RoleOperatorTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Recipies}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="3"
+                            Grid.Column="3"
+                            IsToggled="{Binding RoleServiceEngineerPermissions, Mode=TwoWay, Converter={StaticResource RoleServiceEngineerTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Recipies}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="4"
+                            Grid.Column="3"
+                            IsToggled="{Binding RoleProductionEngineerPermissions, Mode=TwoWay, Converter={StaticResource RoleProductionEngineerTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Recipies}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+
+                        <!--  Setup page control  -->
+                        <HorizontalStackLayout
+                            Grid.Row="0"
+                            Grid.Column="4"
+                            HorizontalOptions="Center"
+                            Spacing="{StaticResource QuarterGenericSpacing}">
+                            <Image
+                                Source="setup_black.png"
+                                VerticalOptions="Center"
+                                WidthRequest="{StaticResource TabPagePermissionPopupIconWidth}" />
+                            <Label
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text="{Binding Localization[Setup]}"
+                                VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                        <controls:ToggleWithTitle
+                            Grid.Row="1"
+                            Grid.Column="4"
+                            IsToggled="{Binding RoleAdminPermissions, Mode=TwoWay, Converter={StaticResource RoleAdminTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Setup}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="2"
+                            Grid.Column="4"
+                            IsToggled="{Binding RoleOperatorPermissions, Mode=TwoWay, Converter={StaticResource RoleOperatorTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Setup}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="3"
+                            Grid.Column="4"
+                            IsToggled="{Binding RoleServiceEngineerPermissions, Mode=TwoWay, Converter={StaticResource RoleServiceEngineerTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Setup}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="4"
+                            Grid.Column="4"
+                            IsToggled="{Binding RoleProductionEngineerPermissions, Mode=TwoWay, Converter={StaticResource RoleProductionEngineerTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Setup}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+
+                        <!--  Datalog page control  -->
+                        <HorizontalStackLayout
+                            Grid.Row="0"
+                            Grid.Column="5"
+                            HorizontalOptions="Center"
+                            Spacing="{StaticResource QuarterGenericSpacing}">
+                            <Image
+                                Source="datalog_black.png"
+                                VerticalOptions="Center"
+                                WidthRequest="{StaticResource TabPagePermissionPopupIconWidth}" />
+                            <Label
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text="{Binding Localization[Datalog]}"
+                                VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                        <controls:ToggleWithTitle
+                            Grid.Row="1"
+                            Grid.Column="5"
+                            IsToggled="{Binding RoleAdminPermissions, Mode=TwoWay, Converter={StaticResource RoleAdminTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Datalog}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="2"
+                            Grid.Column="5"
+                            IsToggled="{Binding RoleOperatorPermissions, Mode=TwoWay, Converter={StaticResource RoleOperatorTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Datalog}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="3"
+                            Grid.Column="5"
+                            IsToggled="{Binding RoleServiceEngineerPermissions, Mode=TwoWay, Converter={StaticResource RoleServiceEngineerTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Datalog}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="4"
+                            Grid.Column="5"
+                            IsToggled="{Binding RoleProductionEngineerPermissions, Mode=TwoWay, Converter={StaticResource RoleProductionEngineerTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Datalog}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+
+                        <!--  User page control  -->
+                        <HorizontalStackLayout
+                            Grid.Row="0"
+                            Grid.Column="6"
+                            HorizontalOptions="Center"
+                            Spacing="{StaticResource QuarterGenericSpacing}">
+                            <Image
+                                Source="user_black.png"
+                                VerticalOptions="Center"
+                                WidthRequest="{StaticResource TabPagePermissionPopupIconWidth}" />
+                            <Label
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text="{Binding Localization[Users]}"
+                                VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                        <controls:ToggleWithTitle
+                            Grid.Row="1"
+                            Grid.Column="6"
+                            IsToggled="{Binding RoleAdminPermissions, Mode=TwoWay, Converter={StaticResource RoleAdminTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Users}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="2"
+                            Grid.Column="6"
+                            IsToggled="{Binding RoleOperatorPermissions, Mode=TwoWay, Converter={StaticResource RoleOperatorTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Users}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="3"
+                            Grid.Column="6"
+                            IsToggled="{Binding RoleServiceEngineerPermissions, Mode=TwoWay, Converter={StaticResource RoleServiceEngineerTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Users}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="4"
+                            Grid.Column="6"
+                            IsToggled="{Binding RoleProductionEngineerPermissions, Mode=TwoWay, Converter={StaticResource RoleProductionEngineerTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Users}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+
+                        <!--  Alarm page control  -->
+                        <HorizontalStackLayout
+                            Grid.Row="0"
+                            Grid.Column="7"
+                            HorizontalOptions="Center"
+                            Spacing="{StaticResource QuarterGenericSpacing}">
+                            <Image
+                                Source="alarms_black.png"
+                                VerticalOptions="Center"
+                                WidthRequest="{StaticResource TabPagePermissionPopupIconWidth}" />
+                            <Label
+                                FontSize="{StaticResource Body2FontSize}"
+                                Text="{Binding Localization[Alarms]}"
+                                VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                        <controls:ToggleWithTitle
+                            Grid.Row="1"
+                            Grid.Column="7"
+                            IsToggled="{Binding RoleAdminPermissions, Mode=TwoWay, Converter={StaticResource RoleAdminTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Alarms}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="2"
+                            Grid.Column="7"
+                            IsToggled="{Binding RoleOperatorPermissions, Mode=TwoWay, Converter={StaticResource RoleOperatorTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Alarms}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="3"
+                            Grid.Column="7"
+                            IsToggled="{Binding RoleServiceEngineerPermissions, Mode=TwoWay, Converter={StaticResource RoleServiceEngineerTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Alarms}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                        <controls:ToggleWithTitle
+                            Grid.Row="4"
+                            Grid.Column="7"
+                            IsToggled="{Binding RoleProductionEngineerPermissions, Mode=TwoWay, Converter={StaticResource RoleProductionEngineerTabPagePermissionConverter}, ConverterParameter={x:Static enum:TabPage.Alarms}}"
+                            ToggleType="NoText"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                Padding="{StaticResource GenericSpacing}"
+                BackgroundColor="{StaticResource GreyNeutral3}"
+                ColumnDefinitions="*,*"
+                ColumnSpacing="{StaticResource GenericSpacing}">
+                <Button
+                    Grid.Column="0"
+                    BackgroundColor="White"
+                    Clicked="ClosePopup"
+                    FontSize="{StaticResource Body2FontSize}"
+                    Text="{Binding Localization[Cancel]}"
+                    TextColor="Black"
+                    WidthRequest="{StaticResource TabPagePermissionPopupButtonWidth}" />
+                <Button
+                    Grid.Column="1"
+                    Clicked="ClosePopup"
+                    Command="{Binding SaveCommand}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    Text="{Binding Localization[Save]}"
+                    WidthRequest="{StaticResource TabPagePermissionPopupButtonWidth}" />
+            </Grid>
+        </Grid>
+    </Border>
+</toolkit:Popup>

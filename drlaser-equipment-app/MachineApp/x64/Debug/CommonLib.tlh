@@ -1,0 +1,3993 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 14.39.33519.0 (4fe53376).
+//
+// C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\CommonLib.tlh
+//
+// C++ source equivalent of type library CommonLib.tlb
+// compiler-generated file - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+namespace CommonLib {
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("0ba251e4-eb26-45d4-a984-27cd5f04810f"))
+/* LIBID */ __CommonLib;
+struct __declspec(uuid("efbad983-f985-4b51-a77b-c92b411d0e28"))
+/* dispinterface */ IMachineMessageHandler;
+struct __declspec(uuid("38d5c554-70c6-4926-bdba-932ca6e1089c"))
+/* interface */ ISubscribedMessage;
+struct /* coclass */ BaseMessageHandler;
+struct /* coclass */ MachineMessageHandler;
+enum AlarmSeverity : int;
+enum AxisSelection : int;
+enum CameraSelect : int;
+enum CriticalType : int;
+enum DonorLifterUIElement : int;
+enum PresetControl : int;
+enum InspectionVisionPage : int;
+enum LaserOperation : int;
+enum MetricSelect : int;
+enum ModelSelect : int;
+enum MotionCmd : int;
+enum MotionUIElement : int;
+enum MoveDirection : int;
+enum ProSystemUpLookInspecVisionUIElement : int;
+enum ProSystemVCalibartionUIElement : int;
+enum ProTableUIElement : int;
+enum LaserStatusRange : int;
+struct __declspec(uuid("c30e197a-1db5-4ee9-93bf-a8cd27914eb8"))
+/* dispinterface */ IAlarmDTO;
+struct __declspec(uuid("981e16a1-d926-4a90-bd2f-ca59f92f1b0a"))
+/* dispinterface */ IAlarmRetryResultDTO;
+struct __declspec(uuid("55105c56-beac-4a16-a07c-c47e587d4a98"))
+/* dispinterface */ IAxisConfigDTO;
+struct __declspec(uuid("c16d926d-86f2-4d69-bfd4-5fa69e8589d3"))
+/* interface */ IBaseDTO;
+struct __declspec(uuid("ab5b0576-fa34-47c7-8b20-f99ed717a055"))
+/* dispinterface */ ICameraParamsDTO;
+struct __declspec(uuid("9f1abd47-0164-4971-acdc-449659cf29b8"))
+/* dispinterface */ ICircleROIDTO;
+struct __declspec(uuid("9d02e477-90df-48be-84fc-12e3413793e7"))
+/* dispinterface */ IConfigurationDTO;
+struct __declspec(uuid("ec81daee-90d9-4932-a072-0d85e845450c"))
+/* dispinterface */ ICriticalActionDTO;
+struct __declspec(uuid("d4f9588b-dbc7-4b99-8b4f-8a0590a9612a"))
+/* dispinterface */ IDonorLiftingModuleDTO;
+struct __declspec(uuid("9a17c537-5b96-4912-92d0-196ef5d04e83"))
+/* dispinterface */ IEllipseROIDTO;
+struct __declspec(uuid("93049125-4644-41e5-8bd8-acaa803be082"))
+/* dispinterface */ IImageStreamDTO;
+struct __declspec(uuid("f0eb9fdc-014e-4345-a0d8-929a6cc9e36f"))
+/* dispinterface */ IInspectionVisionDTO;
+struct __declspec(uuid("9efc7c56-e4c7-4788-be4e-1d6c401ebfcc"))
+/* interface */ ILaserApplyDTO;
+struct __declspec(uuid("549b5e28-bc6f-4c25-9a3e-8c0627896971"))
+/* interface */ IVisionParamsDTO;
+struct /* coclass */ VisionParamsDTO;
+struct __declspec(uuid("e5c560a8-2e34-4df1-b23c-871917948fad"))
+/* interface */ ILaserBasicDTO;
+struct __declspec(uuid("e27ba3e7-3030-4579-905f-d4b23b7396a8"))
+/* interface */ ILaserBurstApplyDTO;
+struct __declspec(uuid("2b734c43-3679-4b39-8ed6-fcbd57ca4e14"))
+/* interface */ ILaserBurstDTO;
+struct __declspec(uuid("03c88646-6342-454e-9f58-c261b12f955d"))
+/* interface */ ILaserInfoDTO;
+struct __declspec(uuid("3918078c-4e0f-4c81-abe2-97ba65b38ac5"))
+/* dispinterface */ ILaserPresetDTO;
+struct __declspec(uuid("df411358-dbe8-452d-8f7b-aaf53376df70"))
+/* dispinterface */ IMasterDTO;
+struct __declspec(uuid("da0770a2-2fbd-4023-94ac-a227231751db"))
+/* interface */ IMessage;
+struct __declspec(uuid("9db83651-38ce-4658-ab61-537da2913e64"))
+/* dispinterface */ IMotionAxisControlDTO;
+struct __declspec(uuid("ea4a1eeb-4e07-43d2-919e-7ebc584a86f9"))
+/* dispinterface */ IMotionCalculateDTO;
+struct __declspec(uuid("29bf8684-c05f-4fcb-83fb-ec8cbb93e3e8"))
+/* dispinterface */ IMotionKinematicsDTO;
+struct __declspec(uuid("eb90ce05-f550-4932-aa58-6406b8dd483c"))
+/* dispinterface */ IMotionMovedDTO;
+struct __declspec(uuid("f401afa0-d7d2-49a4-8ab8-e57dde516216"))
+/* dispinterface */ IMotionProfileDTO;
+struct __declspec(uuid("13e3c1db-4fc6-4713-8ce5-fc719de5b84f"))
+/* dispinterface */ IMotionTestDTO;
+struct __declspec(uuid("59fdcc88-e411-4cd8-b0b2-7fd3c028e41f"))
+/* dispinterface */ IMotionTestStateDTO;
+struct __declspec(uuid("63273ac8-d932-4b3c-9d70-0bc76f805e3f"))
+/* dispinterface */ IProcessTableDTO;
+struct __declspec(uuid("f4941f23-4130-4a01-a9bd-c485fbbdbeba"))
+/* dispinterface */ IRectangleROIDTO;
+struct __declspec(uuid("27c2f164-f85d-4822-bc28-f4ddaac162d1"))
+/* dispinterface */ IVisionImageDto;
+struct __declspec(uuid("63c0b2d7-07eb-428a-8d8b-6f7beb8137d3"))
+/* dispinterface */ IDonorLiftingModuleConfigurationDTO;
+struct __declspec(uuid("2f3db086-cce4-4350-a0ae-28354c30f404"))
+/* dispinterface */ IInspectionVisionConfigurationDTO;
+struct __declspec(uuid("24ea0c0b-81d8-4170-a3b7-5f1d8fe47928"))
+/* dispinterface */ IMotionAxisControlConfigurationDTO;
+struct __declspec(uuid("91cf460d-3133-4541-991b-827635aff712"))
+/* dispinterface */ IProcessTableConfigurationDTO;
+struct /* coclass */ AlarmDTO;
+struct /* coclass */ AlarmRetryResultDTO;
+struct /* coclass */ AxisConfigDTO;
+struct /* coclass */ BaseDTO;
+struct /* coclass */ CameraParamsDTO;
+struct /* coclass */ CircleROIDTO;
+struct /* coclass */ ConfigurationDTO;
+struct /* coclass */ CriticalActionDTO;
+struct /* coclass */ DonorLiftingModuleDTO;
+struct /* coclass */ EllipseROIDTO;
+struct /* coclass */ ImageStreamDTO;
+struct /* coclass */ InspectionVisionDTO;
+struct /* coclass */ LaserApplyDTO;
+struct /* coclass */ LaserBasicDTO;
+struct /* coclass */ LaserBurstApplyDTO;
+struct /* coclass */ LaserBurstDTO;
+struct /* coclass */ LaserInfoDTO;
+struct /* coclass */ LaserPresetDTO;
+struct /* coclass */ MasterDTO;
+struct /* coclass */ Message;
+struct /* coclass */ MotionAxisControlDTO;
+struct /* coclass */ MotionCalculateDTO;
+struct /* coclass */ MotionKinematicsDTO;
+struct /* coclass */ MotionMovedDTO;
+struct /* coclass */ MotionProfileDTO;
+struct /* coclass */ MotionTestDTO;
+struct /* coclass */ MotionTestStateDTO;
+struct /* coclass */ ProcessTableDTO;
+struct /* coclass */ RectangleROIDTO;
+struct /* coclass */ VisionImageDto;
+struct /* coclass */ DonorLiftingModuleConfigurationDTO;
+struct /* coclass */ InspectionVisionConfigurationDTO;
+struct /* coclass */ MotionAxisControlConfigurationDTO;
+struct /* coclass */ ProcessTableConfigurationDTO;
+struct __declspec(uuid("650a532e-8b7d-41c9-882e-d7c9257ae0b5"))
+/* interface */ IAlarm;
+struct __declspec(uuid("33e5e57b-5c55-4e6e-877e-a9e76bc843c2"))
+/* interface */ ICamera;
+struct __declspec(uuid("0b984ce0-1129-45fc-bda7-1a6ff4d87869"))
+/* interface */ ICausewaySystem;
+struct __declspec(uuid("1268da2f-48d4-43d4-8944-e379a4917a73"))
+/* interface */ IConfiguration;
+struct __declspec(uuid("26e7490b-d8c8-440f-a3a7-ad715f9777db"))
+/* interface */ ICriticalControl;
+struct __declspec(uuid("0e6d46bc-8c64-4593-9c95-10ca6174bb34"))
+/* interface */ IDonorLiftingModule;
+struct __declspec(uuid("de7b4804-668a-43e6-aeba-3a0884224479"))
+/* interface */ IInspectionVision;
+struct __declspec(uuid("f59a39ec-d116-414c-acc2-fabbb17f7b42"))
+/* interface */ ILaser;
+struct __declspec(uuid("6945bf15-4867-4e06-ad46-7fcbd431f7cc"))
+/* interface */ ILaserBasic;
+struct __declspec(uuid("8fa0f66c-cb3c-419c-b83e-0a44badb4074"))
+/* interface */ ILaserBurst;
+struct __declspec(uuid("907a04f2-3b5d-426b-9f08-a67ba1aa5873"))
+/* interface */ IMaster;
+struct __declspec(uuid("71b1a35b-8828-4b54-8542-ba28e8d25cc9"))
+/* interface */ IMotion;
+struct __declspec(uuid("a293bdea-d4a1-4002-a0a6-d64c748bfb3a"))
+/* interface */ IMotionAxisControl;
+struct __declspec(uuid("d97d5469-4360-4e6e-ac76-b8e062bb9f8a"))
+/* interface */ IMotionControl;
+struct __declspec(uuid("90752de1-a242-44ed-bad7-cd52d8f6ec22"))
+/* interface */ IProcessSystem;
+struct __declspec(uuid("e48d773f-a494-4ad5-b2d6-95624ab80eeb"))
+/* interface */ IProcessTable;
+struct __declspec(uuid("0767dabd-9db6-4481-8914-57e527c90190"))
+/* interface */ ISystem;
+struct __declspec(uuid("7fdf4b10-6866-42be-b572-1f7006e00527"))
+/* interface */ IVision;
+struct /* coclass */ Alarm;
+struct /* coclass */ Camera;
+struct /* coclass */ CausewaySystem;
+struct /* coclass */ Configuration;
+struct /* coclass */ CriticalControl;
+struct /* coclass */ DonorLiftingModule;
+struct /* coclass */ InspectionVision;
+struct /* coclass */ Laser;
+struct /* coclass */ LaserBasic;
+struct /* coclass */ LaserBurst;
+struct /* coclass */ Master;
+struct /* coclass */ Motion;
+struct /* coclass */ MotionAxisControl;
+struct /* coclass */ MotionControl;
+struct /* coclass */ ProcessSystem;
+struct /* coclass */ ProcessTable;
+struct /* coclass */ System;
+struct /* coclass */ Vision;
+struct __declspec(uuid("0f62f43c-1d65-fdef-d425-bce24b7709f2"))
+/* dual interface */ _BaseMessageHandler;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IMachineMessageHandler, __uuidof(IMachineMessageHandler));
+_COM_SMARTPTR_TYPEDEF(ISubscribedMessage, __uuidof(ISubscribedMessage));
+_COM_SMARTPTR_TYPEDEF(IAlarmDTO, __uuidof(IAlarmDTO));
+_COM_SMARTPTR_TYPEDEF(IAlarmRetryResultDTO, __uuidof(IAlarmRetryResultDTO));
+_COM_SMARTPTR_TYPEDEF(IAxisConfigDTO, __uuidof(IAxisConfigDTO));
+_COM_SMARTPTR_TYPEDEF(IBaseDTO, __uuidof(IBaseDTO));
+_COM_SMARTPTR_TYPEDEF(ICameraParamsDTO, __uuidof(ICameraParamsDTO));
+_COM_SMARTPTR_TYPEDEF(ICircleROIDTO, __uuidof(ICircleROIDTO));
+_COM_SMARTPTR_TYPEDEF(IConfigurationDTO, __uuidof(IConfigurationDTO));
+_COM_SMARTPTR_TYPEDEF(ICriticalActionDTO, __uuidof(ICriticalActionDTO));
+_COM_SMARTPTR_TYPEDEF(IDonorLiftingModuleDTO, __uuidof(IDonorLiftingModuleDTO));
+_COM_SMARTPTR_TYPEDEF(IEllipseROIDTO, __uuidof(IEllipseROIDTO));
+_COM_SMARTPTR_TYPEDEF(IImageStreamDTO, __uuidof(IImageStreamDTO));
+_COM_SMARTPTR_TYPEDEF(IInspectionVisionDTO, __uuidof(IInspectionVisionDTO));
+_COM_SMARTPTR_TYPEDEF(ILaserApplyDTO, __uuidof(ILaserApplyDTO));
+_COM_SMARTPTR_TYPEDEF(IVisionParamsDTO, __uuidof(IVisionParamsDTO));
+_COM_SMARTPTR_TYPEDEF(ILaserBasicDTO, __uuidof(ILaserBasicDTO));
+_COM_SMARTPTR_TYPEDEF(ILaserBurstApplyDTO, __uuidof(ILaserBurstApplyDTO));
+_COM_SMARTPTR_TYPEDEF(ILaserBurstDTO, __uuidof(ILaserBurstDTO));
+_COM_SMARTPTR_TYPEDEF(ILaserInfoDTO, __uuidof(ILaserInfoDTO));
+_COM_SMARTPTR_TYPEDEF(ILaserPresetDTO, __uuidof(ILaserPresetDTO));
+_COM_SMARTPTR_TYPEDEF(IMasterDTO, __uuidof(IMasterDTO));
+_COM_SMARTPTR_TYPEDEF(IMessage, __uuidof(IMessage));
+_COM_SMARTPTR_TYPEDEF(IMotionAxisControlDTO, __uuidof(IMotionAxisControlDTO));
+_COM_SMARTPTR_TYPEDEF(IMotionCalculateDTO, __uuidof(IMotionCalculateDTO));
+_COM_SMARTPTR_TYPEDEF(IMotionKinematicsDTO, __uuidof(IMotionKinematicsDTO));
+_COM_SMARTPTR_TYPEDEF(IMotionMovedDTO, __uuidof(IMotionMovedDTO));
+_COM_SMARTPTR_TYPEDEF(IMotionProfileDTO, __uuidof(IMotionProfileDTO));
+_COM_SMARTPTR_TYPEDEF(IMotionTestDTO, __uuidof(IMotionTestDTO));
+_COM_SMARTPTR_TYPEDEF(IMotionTestStateDTO, __uuidof(IMotionTestStateDTO));
+_COM_SMARTPTR_TYPEDEF(IProcessTableDTO, __uuidof(IProcessTableDTO));
+_COM_SMARTPTR_TYPEDEF(IRectangleROIDTO, __uuidof(IRectangleROIDTO));
+_COM_SMARTPTR_TYPEDEF(IVisionImageDto, __uuidof(IVisionImageDto));
+_COM_SMARTPTR_TYPEDEF(IDonorLiftingModuleConfigurationDTO, __uuidof(IDonorLiftingModuleConfigurationDTO));
+_COM_SMARTPTR_TYPEDEF(IInspectionVisionConfigurationDTO, __uuidof(IInspectionVisionConfigurationDTO));
+_COM_SMARTPTR_TYPEDEF(IMotionAxisControlConfigurationDTO, __uuidof(IMotionAxisControlConfigurationDTO));
+_COM_SMARTPTR_TYPEDEF(IProcessTableConfigurationDTO, __uuidof(IProcessTableConfigurationDTO));
+_COM_SMARTPTR_TYPEDEF(IAlarm, __uuidof(IAlarm));
+_COM_SMARTPTR_TYPEDEF(ICamera, __uuidof(ICamera));
+_COM_SMARTPTR_TYPEDEF(IConfiguration, __uuidof(IConfiguration));
+_COM_SMARTPTR_TYPEDEF(ICriticalControl, __uuidof(ICriticalControl));
+_COM_SMARTPTR_TYPEDEF(IDonorLiftingModule, __uuidof(IDonorLiftingModule));
+_COM_SMARTPTR_TYPEDEF(ICausewaySystem, __uuidof(ICausewaySystem));
+_COM_SMARTPTR_TYPEDEF(IInspectionVision, __uuidof(IInspectionVision));
+_COM_SMARTPTR_TYPEDEF(ILaserBasic, __uuidof(ILaserBasic));
+_COM_SMARTPTR_TYPEDEF(ILaserBurst, __uuidof(ILaserBurst));
+_COM_SMARTPTR_TYPEDEF(ILaser, __uuidof(ILaser));
+_COM_SMARTPTR_TYPEDEF(IMotionAxisControl, __uuidof(IMotionAxisControl));
+_COM_SMARTPTR_TYPEDEF(IMotionControl, __uuidof(IMotionControl));
+_COM_SMARTPTR_TYPEDEF(IMotion, __uuidof(IMotion));
+_COM_SMARTPTR_TYPEDEF(IProcessTable, __uuidof(IProcessTable));
+_COM_SMARTPTR_TYPEDEF(IProcessSystem, __uuidof(IProcessSystem));
+_COM_SMARTPTR_TYPEDEF(IVision, __uuidof(IVision));
+_COM_SMARTPTR_TYPEDEF(ISystem, __uuidof(ISystem));
+_COM_SMARTPTR_TYPEDEF(IMaster, __uuidof(IMaster));
+_COM_SMARTPTR_TYPEDEF(_BaseMessageHandler, __uuidof(_BaseMessageHandler));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("efbad983-f985-4b51-a77b-c92b411d0e28"))
+IMachineMessageHandler : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetMachineQueue))
+    _bstr_t MachineQueue;
+    __declspec(property(get=GetIsConnectionOpen))
+    VARIANT_BOOL IsConnectionOpen;
+    __declspec(property(get=GetPingRoutingKey))
+    _bstr_t PingRoutingKey;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    _bstr_t GetMachineQueue ( );
+    VARIANT_BOOL GetIsConnectionOpen ( );
+    _bstr_t GetPingRoutingKey ( );
+    HRESULT Connect (
+        _bstr_t hostName );
+    HRESULT InitChannel ( );
+    HRESULT Subscribe (
+        struct ISubscribedMessage * subscribedMessage );
+    HRESULT Reply (
+        _bstr_t replyQueue,
+        _bstr_t correlationId,
+        unsigned __int64 deliveryTag,
+        _bstr_t id,
+        const _variant_t & data );
+    HRESULT Reply_2 (
+        _bstr_t replyQueue,
+        _bstr_t correlationId,
+        unsigned __int64 deliveryTag,
+        SAFEARRAY * data );
+    HRESULT BasicAck (
+        unsigned __int64 deliveryTag,
+        VARIANT_BOOL multiple );
+    HRESULT PublishToGeneral (
+        const _variant_t & data,
+        _bstr_t routingKey );
+    HRESULT PublishToStream (
+        const _variant_t & data );
+    HRESULT PublishToCamera1Stream (
+        SAFEARRAY * data );
+    HRESULT PublishToCamera2Stream (
+        SAFEARRAY * data );
+    HRESULT PublishToCamera3Stream (
+        SAFEARRAY * data );
+};
+
+struct __declspec(uuid("38d5c554-70c6-4926-bdba-932ca6e1089c"))
+ISubscribedMessage : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetQueueName,put=PutQueueName))
+    _bstr_t QueueName;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetQueueName ( );
+    void PutQueueName (
+        _bstr_t pRetVal );
+    HRESULT Callback (
+        _bstr_t replyQueue,
+        _bstr_t correlationId,
+        unsigned __int64 deliveryTag,
+        _bstr_t data );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_QueueName (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_QueueName (
+        /*[in]*/ BSTR pRetVal ) = 0;
+      virtual HRESULT __stdcall raw_Callback (
+        /*[in]*/ BSTR replyQueue,
+        /*[in]*/ BSTR correlationId,
+        /*[in]*/ unsigned __int64 deliveryTag,
+        /*[in]*/ BSTR data ) = 0;
+};
+
+struct __declspec(uuid("dc34148b-bdd5-321e-96c6-d2b05b8dddb3"))
+BaseMessageHandler;
+    // [ default ] interface _BaseMessageHandler
+
+struct __declspec(uuid("81a3d110-2b41-440d-bae7-1a93887bb22c"))
+MachineMessageHandler;
+    // [ default ] dispinterface IMachineMessageHandler
+
+enum __declspec(uuid("8e434def-16fc-40cb-ad0a-57eb71a7f083"))
+AlarmSeverity : int
+{
+    AlarmSeverity_High = 1,
+    AlarmSeverity_Medium = 2,
+    AlarmSeverity_Low = 3
+};
+
+enum __declspec(uuid("d9deda03-7543-4986-a781-aee00653c996"))
+AxisSelection : int
+{
+    AxisSelection_BuffThinkFocusZ = 13,
+    AxisSelection_BuffUpLookCamZ = 12,
+    AxisSelection_BuffTableT = 11,
+    AxisSelection_BuffTableY = 10,
+    AxisSelection_BuffTableX = 9,
+    AxisSelection_CaswaySubLifterZ = 8,
+    AxisSelection_CaswayDonorLifterZ = 7,
+    AxisSelection_CaswayDonorLifterY = 6,
+    AxisSelection_CaswayDonorLifterX = 5,
+    AxisSelection_ProsDownLookCamZ = 4,
+    AxisSelection_ProsUpLookCamZ = 3,
+    AxisSelection_ProsTableY = 2,
+    AxisSelection_ProTableX = 1
+};
+
+enum __declspec(uuid("3f2bf972-5765-491d-961f-18325c652ad6"))
+CameraSelect : int
+{
+    CameraSelect_BufferUpLookCam = 3,
+    CameraSelect_ProsDownLookCam = 2,
+    CameraSelect_ProsUpLookCam = 1
+};
+
+enum __declspec(uuid("cd4c1e51-518a-3cee-9796-596e7a96a7e8"))
+CriticalType : int
+{
+    CriticalType_Any = 0,
+    CriticalType_Motion = 1,
+    CriticalType_MotionTeaching = 2,
+    CriticalType_MotionAxisGo = 3,
+    CriticalType_MotionControlStart = 4,
+    CriticalType_MotionMoving = 5
+};
+
+enum __declspec(uuid("e69e72a4-dc97-42e2-ae66-a6a256d1c009"))
+DonorLifterUIElement : int
+{
+    DonorLifterUIElement_Donor_Camera_Change = 9,
+    DonorLifterUIElement_Donor_Home_All = 8,
+    DonorLifterUIElement_Donor_Unloading = 7,
+    DonorLifterUIElement_Donor_Loading = 6,
+    DonorLifterUIElement_Donor_Vacuum_Chuck_Off = 5,
+    DonorLifterUIElement_Donor_Vacuum_Chuck_On = 4,
+    DonorLifterUIElement_Donor_Axis_Z = 3,
+    DonorLifterUIElement_Donor_Axis_Y = 2,
+    DonorLifterUIElement_Donor_Axis_X = 1
+};
+
+enum __declspec(uuid("a1b2c3d4-e5f6-7890-1234-56789abcdef0"))
+PresetControl : int
+{
+    PresetControl_Zero = 0,
+    PresetControl_One = 1,
+    PresetControl_Two = 2
+};
+
+enum __declspec(uuid("fc0d1895-ae03-446f-acd3-9a7d2be0972d"))
+InspectionVisionPage : int
+{
+    InspectionVisionPage_CalibrationPage = 5,
+    InspectionVisionPage_ResultPage = 4,
+    InspectionVisionPage_TeachPage = 3,
+    InspectionVisionPage_LightingPage = 2,
+    InspectionVisionPage_CameraPage = 1
+};
+
+enum __declspec(uuid("52dca470-e6eb-4773-a975-d5e6f1c19b22"))
+LaserOperation : int
+{
+    LaserOperation_Operation = 0,
+    LaserOperation_Standby = 1,
+    LaserOperation_Housekeeping = 2
+};
+
+enum __declspec(uuid("5815d1bb-6c98-47c2-a1e3-1240da2b482b"))
+MetricSelect : int
+{
+    MetricSelect_UsePolarity = 2,
+    MetricSelect_IgnoreGlobalPolarity = 1
+};
+
+enum __declspec(uuid("1527c2fc-03f5-4559-be51-f04df6c145dd"))
+ModelSelect : int
+{
+    ModelSelect_ShapeBasedModel = 2,
+    ModelSelect_NCCModel = 1
+};
+
+enum __declspec(uuid("37d8595d-e7ca-4398-a6c6-81bc0b59eb07"))
+MotionCmd : int
+{
+    MotionCmd_move_rel = 7,
+    MotionCmd_move_abs = 6,
+    MotionCmd_home = 5,
+    MotionCmd_reset = 4,
+    MotionCmd_eStop = 3,
+    MotionCmd_stop = 2,
+    MotionCmd_enable = 1
+};
+
+enum __declspec(uuid("f0130220-ce5f-4768-bc76-216957ee318a"))
+MotionUIElement : int
+{
+    MotionUIElement_HOME = 6,
+    MotionUIElement_E_STOP = 5,
+    MotionUIElement_ENABLE = 4,
+    MotionUIElement_SET_ZERO = 3,
+    MotionUIElement_STOP = 2,
+    MotionUIElement_GO = 1
+};
+
+enum __declspec(uuid("916f9f66-9fd9-479f-a424-20dfb657b3e8"))
+MoveDirection : int
+{
+    MoveDirection_down = 4,
+    MoveDirection_up = 3,
+    MoveDirection_left = 2,
+    MoveDirection_right = 1
+};
+
+enum __declspec(uuid("c6362402-cce4-4361-a8c5-102c98442cd4"))
+ProSystemUpLookInspecVisionUIElement : int
+{
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_CAMERASELECTION = 15,
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_SHARPNESS = 14,
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_BLACKLEVEL = 13,
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_GAMMAENABLE = 12,
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_GAMMA = 11,
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_GAIN = 10,
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_EXPOSURE = 9,
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_GRAB = 8,
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_ACQUISITION = 7,
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_CONNECT = 6,
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_ZOOM_IN = 5,
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_ZOOM_OUT = 4,
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_SAVE = 3,
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_SCROLL_VERTICAL = 2,
+    ProSystemUpLookInspecVisionUIElement_INSPEC_VISION_SCROLL_HORIZONTAL = 1
+};
+
+enum __declspec(uuid("403cf779-46d2-4ca3-b540-81a2f2d22746"))
+ProSystemVCalibartionUIElement : int
+{
+    ProSystemVCalibartionUIElement_INSPEC_VISION_STOP_CALIBRATION = 3,
+    ProSystemVCalibartionUIElement_INSPEC_VISION_AUTO_CALIBRATION = 2,
+    ProSystemVCalibartionUIElement_INSPEC_VISION_STEP_CALIBRATION = 1
+};
+
+enum __declspec(uuid("f98fa989-9c39-4054-bf65-1656b21869b6"))
+ProTableUIElement : int
+{
+    ProTableUIElement_Pro_Table_Camera_Change = 12,
+    ProTableUIElement_Pro_Table_Home_All = 11,
+    ProTableUIElement_Pro_Table_Unloading = 10,
+    ProTableUIElement_Pro_Table_Loading = 9,
+    ProTableUIElement_Pro_Table_Vacuum_Chuck_Off = 8,
+    ProTableUIElement_Pro_Table_Vacuum_Chuck_On = 7,
+    ProTableUIElement_Pro_Table_Axis_X = 6,
+    ProTableUIElement_Pro_Table_Axis_Y = 5,
+    ProTableUIElement_Pro_Table_Tip_Tilt_TX = 4,
+    ProTableUIElement_Pro_Table_Tip_Tilt_TY = 3,
+    ProTableUIElement_Pro_Table_Tip_Tilt_Z = 2,
+    ProTableUIElement_Pro_Table_Tip_Tilt_T = 1
+};
+
+enum __declspec(uuid("d2fc95d4-71b4-4cf3-b9d8-f370aafb92cb"))
+LaserStatusRange : int
+{
+    LaserStatusRange_WithinRange = 0,
+    LaserStatusRange_Warning = 1,
+    LaserStatusRange_OutOfRange = 2,
+    LaserStatusRange_Unknown = 3
+};
+
+struct __declspec(uuid("c30e197a-1db5-4ee9-93bf-a8cd27914eb8"))
+IAlarmDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetErrorId,put=PutErrorId))
+    _bstr_t ErrorId;
+    __declspec(property(get=GetTimeSpan,put=PutTimeSpan))
+    double TimeSpan;
+    __declspec(property(get=GetSeverity,put=PutSeverity))
+    enum AlarmSeverity Severity;
+    __declspec(property(get=GetErrorCode,put=PutErrorCode))
+    long ErrorCode;
+    __declspec(property(get=GetWaitResp,put=PutWaitResp))
+    long WaitResp;
+    __declspec(property(get=GetAck,put=PutAck))
+    long Ack;
+    __declspec(property(get=GetRetry,put=PutRetry))
+    long Retry;
+    __declspec(property(get=GetCancel,put=PutCancel))
+    long Cancel;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    _bstr_t GetErrorId ( );
+    void PutErrorId (
+        _bstr_t _arg1 );
+    double GetTimeSpan ( );
+    void PutTimeSpan (
+        double _arg1 );
+    enum AlarmSeverity GetSeverity ( );
+    void PutSeverity (
+        enum AlarmSeverity _arg1 );
+    long GetErrorCode ( );
+    void PutErrorCode (
+        long _arg1 );
+    long GetWaitResp ( );
+    void PutWaitResp (
+        long _arg1 );
+    long GetAck ( );
+    void PutAck (
+        long _arg1 );
+    long GetRetry ( );
+    void PutRetry (
+        long _arg1 );
+    long GetCancel ( );
+    void PutCancel (
+        long _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("981e16a1-d926-4a90-bd2f-ca59f92f1b0a"))
+IAlarmRetryResultDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetIsSuccess,put=PutIsSuccess))
+    VARIANT_BOOL IsSuccess;
+    __declspec(property(get=GetAlarmId,put=PutAlarmId))
+    _bstr_t AlarmId;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    VARIANT_BOOL GetIsSuccess ( );
+    void PutIsSuccess (
+        VARIANT_BOOL _arg1 );
+    _bstr_t GetAlarmId ( );
+    void PutAlarmId (
+        _bstr_t _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("55105c56-beac-4a16-a07c-c47e587d4a98"))
+IAxisConfigDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetAxisName,put=PutAxisName))
+    _bstr_t AxisName;
+    __declspec(property(get=GetPositionRel,put=PutPositionRel))
+    double PositionRel;
+    __declspec(property(get=GetPositionAbs,put=PutPositionAbs))
+    double PositionAbs;
+    __declspec(property(get=GetPositionMin,put=PutPositionMin))
+    double PositionMin;
+    __declspec(property(get=GetPositionMax,put=PutPositionMax))
+    double PositionMax;
+    __declspec(property(get=GetVelocity,put=PutVelocity))
+    double Velocity;
+    __declspec(property(get=GetVelocityMin,put=PutVelocityMin))
+    double VelocityMin;
+    __declspec(property(get=GetVelocityMax,put=PutVelocityMax))
+    double VelocityMax;
+    __declspec(property(get=GetAccel,put=PutAccel))
+    double Accel;
+    __declspec(property(get=GetAccelMin,put=PutAccelMin))
+    double AccelMin;
+    __declspec(property(get=GetAccelMax,put=PutAccelMax))
+    double AccelMax;
+    __declspec(property(get=GetJerk,put=PutJerk))
+    double Jerk;
+    __declspec(property(get=GetJerkMin,put=PutJerkMin))
+    double JerkMin;
+    __declspec(property(get=GetJerkMax,put=PutJerkMax))
+    double JerkMax;
+    __declspec(property(get=GetUnit,put=PutUnit))
+    _bstr_t Unit;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    _bstr_t GetAxisName ( );
+    void PutAxisName (
+        _bstr_t _arg1 );
+    double GetPositionRel ( );
+    void PutPositionRel (
+        double _arg1 );
+    double GetPositionAbs ( );
+    void PutPositionAbs (
+        double _arg1 );
+    double GetPositionMin ( );
+    void PutPositionMin (
+        double _arg1 );
+    double GetPositionMax ( );
+    void PutPositionMax (
+        double _arg1 );
+    double GetVelocity ( );
+    void PutVelocity (
+        double _arg1 );
+    double GetVelocityMin ( );
+    void PutVelocityMin (
+        double _arg1 );
+    double GetVelocityMax ( );
+    void PutVelocityMax (
+        double _arg1 );
+    double GetAccel ( );
+    void PutAccel (
+        double _arg1 );
+    double GetAccelMin ( );
+    void PutAccelMin (
+        double _arg1 );
+    double GetAccelMax ( );
+    void PutAccelMax (
+        double _arg1 );
+    double GetJerk ( );
+    void PutJerk (
+        double _arg1 );
+    double GetJerkMin ( );
+    void PutJerkMin (
+        double _arg1 );
+    double GetJerkMax ( );
+    void PutJerkMax (
+        double _arg1 );
+    _bstr_t GetUnit ( );
+    void PutUnit (
+        _bstr_t _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("c16d926d-86f2-4d69-bfd4-5fa69e8589d3"))
+IBaseDTO : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_LoadDataFromJson (
+        /*[in]*/ BSTR json ) = 0;
+};
+
+struct __declspec(uuid("ab5b0576-fa34-47c7-8b20-f99ed717a055"))
+ICameraParamsDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetExposure,put=PutExposure))
+    double Exposure;
+    __declspec(property(get=GetLight,put=PutLight))
+    VARIANT_BOOL Light;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    double GetExposure ( );
+    void PutExposure (
+        double _arg1 );
+    VARIANT_BOOL GetLight ( );
+    void PutLight (
+        VARIANT_BOOL _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+    SAFEARRAY * ConvertToBytes (
+        const _variant_t & obj );
+};
+
+struct __declspec(uuid("9f1abd47-0164-4971-acdc-449659cf29b8"))
+ICircleROIDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetShapeName,put=PutShapeName))
+    _bstr_t ShapeName;
+    __declspec(property(get=GetRowCenter,put=PutRowCenter))
+    double RowCenter;
+    __declspec(property(get=GetColumnCenter,put=PutColumnCenter))
+    double ColumnCenter;
+    __declspec(property(get=GetRadius,put=PutRadius))
+    double Radius;
+    __declspec(property(get=GetImageBytes,put=PutImageBytes))
+    SAFEARRAY * ImageBytes;
+    __declspec(property(get=GetScore,put=PutScore))
+    double Score;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    _bstr_t GetShapeName ( );
+    void PutShapeName (
+        _bstr_t _arg1 );
+    double GetRowCenter ( );
+    void PutRowCenter (
+        double _arg1 );
+    double GetColumnCenter ( );
+    void PutColumnCenter (
+        double _arg1 );
+    double GetRadius ( );
+    void PutRadius (
+        double _arg1 );
+    SAFEARRAY * GetImageBytes ( );
+    void PutImageBytes (
+        SAFEARRAY * _arg1 );
+    double GetScore ( );
+    void PutScore (
+        double _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("9d02e477-90df-48be-84fc-12e3413793e7"))
+IConfigurationDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetMachineId,put=PutMachineId))
+    _bstr_t MachineId;
+    __declspec(property(get=GetCriticalActionTimeoutDefault,put=PutCriticalActionTimeoutDefault))
+    long CriticalActionTimeoutDefault;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    _bstr_t GetMachineId ( );
+    void PutMachineId (
+        _bstr_t _arg1 );
+    long GetCriticalActionTimeoutDefault ( );
+    void PutCriticalActionTimeoutDefault (
+        long _arg1 );
+    HRESULT AddAxisConfig (
+        struct IAxisConfigDTO * AxisConfigDTO );
+    HRESULT AddProcessTableConfig (
+        struct IProcessTableConfigurationDTO * ProcessTableConfigurationDTO );
+    HRESULT AddInspectionVisionConfig (
+        struct IInspectionVisionConfigurationDTO * InspectionVisionConfigurationDTO );
+    HRESULT AddMotionAxisControlConfig (
+        struct IMotionAxisControlConfigurationDTO * MotionAxisControlConfigurationDTO );
+    HRESULT AddDonorLiftingModuleConfig (
+        struct IDonorLiftingModuleConfigurationDTO * DonorLiftingModuleConfigurationDTO );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("ec81daee-90d9-4932-a072-0d85e845450c"))
+ICriticalActionDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetCriticalType,put=PutCriticalType))
+    enum CriticalType _CriticalType;
+    __declspec(property(get=GetIsProcessing,put=PutIsProcessing))
+    VARIANT_BOOL IsProcessing;
+    __declspec(property(get=GetTimeout,put=PutTimeout))
+    long Timeout;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    enum CriticalType GetCriticalType ( );
+    void PutCriticalType (
+        enum CriticalType _arg1 );
+    VARIANT_BOOL GetIsProcessing ( );
+    void PutIsProcessing (
+        VARIANT_BOOL _arg1 );
+    long GetTimeout ( );
+    void PutTimeout (
+        long _arg1 );
+};
+
+struct __declspec(uuid("d4f9588b-dbc7-4b99-8b4f-8a0590a9612a"))
+IDonorLiftingModuleDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetXAxisPosition,put=PutXAxisPosition))
+    double XAxisPosition;
+    __declspec(property(get=GetYAxisPosition,put=PutYAxisPosition))
+    double YAxisPosition;
+    __declspec(property(get=GetZAxisPosition,put=PutZAxisPosition))
+    double ZAxisPosition;
+    __declspec(property(get=GetIsDonorChuckVacuumEnabled,put=PutIsDonorChuckVacuumEnabled))
+    VARIANT_BOOL IsDonorChuckVacuumEnabled;
+    __declspec(property(get=GetDonorLifterUIElement,put=PutDonorLifterUIElement))
+    enum DonorLifterUIElement _DonorLifterUIElement;
+    __declspec(property(get=GetMoveDirection,put=PutMoveDirection))
+    enum MoveDirection _MoveDirection;
+    __declspec(property(get=GetMotionCmd,put=PutMotionCmd))
+    enum MotionCmd _MotionCmd;
+    __declspec(property(get=GetCameraSelect,put=PutCameraSelect))
+    enum CameraSelect _CameraSelect;
+    __declspec(property(get=GetMoveRel,put=PutMoveRel))
+    double MoveRel;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    double GetXAxisPosition ( );
+    void PutXAxisPosition (
+        double _arg1 );
+    double GetYAxisPosition ( );
+    void PutYAxisPosition (
+        double _arg1 );
+    double GetZAxisPosition ( );
+    void PutZAxisPosition (
+        double _arg1 );
+    VARIANT_BOOL GetIsDonorChuckVacuumEnabled ( );
+    void PutIsDonorChuckVacuumEnabled (
+        VARIANT_BOOL _arg1 );
+    enum DonorLifterUIElement GetDonorLifterUIElement ( );
+    void PutDonorLifterUIElement (
+        enum DonorLifterUIElement _arg1 );
+    enum MoveDirection GetMoveDirection ( );
+    void PutMoveDirection (
+        enum MoveDirection _arg1 );
+    enum MotionCmd GetMotionCmd ( );
+    void PutMotionCmd (
+        enum MotionCmd _arg1 );
+    enum CameraSelect GetCameraSelect ( );
+    void PutCameraSelect (
+        enum CameraSelect _arg1 );
+    double GetMoveRel ( );
+    void PutMoveRel (
+        double _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("9a17c537-5b96-4912-92d0-196ef5d04e83"))
+IEllipseROIDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetShapeName,put=PutShapeName))
+    _bstr_t ShapeName;
+    __declspec(property(get=GetRowCenter,put=PutRowCenter))
+    double RowCenter;
+    __declspec(property(get=GetColumnCenter,put=PutColumnCenter))
+    double ColumnCenter;
+    __declspec(property(get=GetRow1,put=PutRow1))
+    double Row1;
+    __declspec(property(get=GetColumn1,put=PutColumn1))
+    double Column1;
+    __declspec(property(get=GetRadius1,put=PutRadius1))
+    double Radius1;
+    __declspec(property(get=GetRadius2,put=PutRadius2))
+    double Radius2;
+    __declspec(property(get=GetPhi,put=PutPhi))
+    double Phi;
+    __declspec(property(get=GetImageBytes,put=PutImageBytes))
+    SAFEARRAY * ImageBytes;
+    __declspec(property(get=GetScore,put=PutScore))
+    double Score;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    _bstr_t GetShapeName ( );
+    void PutShapeName (
+        _bstr_t _arg1 );
+    double GetRowCenter ( );
+    void PutRowCenter (
+        double _arg1 );
+    double GetColumnCenter ( );
+    void PutColumnCenter (
+        double _arg1 );
+    double GetRow1 ( );
+    void PutRow1 (
+        double _arg1 );
+    double GetColumn1 ( );
+    void PutColumn1 (
+        double _arg1 );
+    double GetRadius1 ( );
+    void PutRadius1 (
+        double _arg1 );
+    double GetRadius2 ( );
+    void PutRadius2 (
+        double _arg1 );
+    double GetPhi ( );
+    void PutPhi (
+        double _arg1 );
+    SAFEARRAY * GetImageBytes ( );
+    void PutImageBytes (
+        SAFEARRAY * _arg1 );
+    double GetScore ( );
+    void PutScore (
+        double _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("93049125-4644-41e5-8bd8-acaa803be082"))
+IImageStreamDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetScrollX,put=PutScrollX))
+    double ScrollX;
+    __declspec(property(get=GetScrollY,put=PutScrollY))
+    double ScrollY;
+    __declspec(property(get=GetRatio,put=PutRatio))
+    long Ratio;
+    __declspec(property(get=GetFullImageWidth,put=PutFullImageWidth))
+    double FullImageWidth;
+    __declspec(property(get=GetFullImageHeight,put=PutFullImageHeight))
+    double FullImageHeight;
+    __declspec(property(get=GetVisualImageWidth,put=PutVisualImageWidth))
+    double VisualImageWidth;
+    __declspec(property(get=GetVisualImageHeight,put=PutVisualImageHeight))
+    double VisualImageHeight;
+    __declspec(property(get=GetTimestamp,put=PutTimestamp))
+    __int64 Timestamp;
+    __declspec(property(get=GetImageBytes,put=PutImageBytes))
+    SAFEARRAY * ImageBytes;
+    __declspec(property(get=GetStreamData,put=PutStreamData))
+    SAFEARRAY * StreamData;
+    __declspec(property(get=GetImageID,put=PutImageID))
+    _bstr_t ImageID;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    double GetScrollX ( );
+    void PutScrollX (
+        double _arg1 );
+    double GetScrollY ( );
+    void PutScrollY (
+        double _arg1 );
+    long GetRatio ( );
+    void PutRatio (
+        long _arg1 );
+    double GetFullImageWidth ( );
+    void PutFullImageWidth (
+        double _arg1 );
+    double GetFullImageHeight ( );
+    void PutFullImageHeight (
+        double _arg1 );
+    double GetVisualImageWidth ( );
+    void PutVisualImageWidth (
+        double _arg1 );
+    double GetVisualImageHeight ( );
+    void PutVisualImageHeight (
+        double _arg1 );
+    __int64 GetTimestamp ( );
+    void PutTimestamp (
+        __int64 _arg1 );
+    SAFEARRAY * GetImageBytes ( );
+    void PutImageBytes (
+        SAFEARRAY * _arg1 );
+    SAFEARRAY * GetStreamData ( );
+    void PutStreamData (
+        SAFEARRAY * _arg1 );
+    _bstr_t GetImageID ( );
+    void PutImageID (
+        _bstr_t _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+    SAFEARRAY * ConvertToBytes (
+        const _variant_t & obj );
+};
+
+struct __declspec(uuid("f0eb9fdc-014e-4345-a0d8-929a6cc9e36f"))
+IInspectionVisionDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetConnected,put=PutConnected))
+    VARIANT_BOOL Connected;
+    __declspec(property(get=GetScaleX,put=PutScaleX))
+    double ScaleX;
+    __declspec(property(get=GetAcquisition,put=PutAcquisition))
+    VARIANT_BOOL Acquisition;
+    __declspec(property(get=GetScaleY,put=PutScaleY))
+    double ScaleY;
+    __declspec(property(get=GetGrabImage,put=PutGrabImage))
+    VARIANT_BOOL GrabImage;
+    __declspec(property(get=GetPixelX,put=PutPixelX))
+    double PixelX;
+    __declspec(property(get=GetGammaEnable,put=PutGammaEnable))
+    VARIANT_BOOL GammaEnable;
+    __declspec(property(get=GetPixelY,put=PutPixelY))
+    double PixelY;
+    __declspec(property(get=GetExposureTime,put=PutExposureTime))
+    double ExposureTime;
+    __declspec(property(get=GetFovX,put=PutFovX))
+    double FovX;
+    __declspec(property(get=GetGain,put=PutGain))
+    double Gain;
+    __declspec(property(get=GetFovY,put=PutFovY))
+    double FovY;
+    __declspec(property(get=GetGamma,put=PutGamma))
+    double Gamma;
+    __declspec(property(get=GetProSystemVCalibartionUIElement,put=PutProSystemVCalibartionUIElement))
+    enum ProSystemVCalibartionUIElement _ProSystemVCalibartionUIElement;
+    __declspec(property(get=GetBlackLevel,put=PutBlackLevel))
+    double BlackLevel;
+    __declspec(property(get=GetSharpness,put=PutSharpness))
+    double Sharpness;
+    __declspec(property(get=GetZoomValue,put=PutZoomValue))
+    long ZoomValue;
+    __declspec(property(get=GetScrollVertical,put=PutScrollVertical))
+    long ScrollVertical;
+    __declspec(property(get=GetScrollHorizontal,put=PutScrollHorizontal))
+    long ScrollHorizontal;
+    __declspec(property(get=GetProSystemUpLookInspecVisionUIElement,put=PutProSystemUpLookInspecVisionUIElement))
+    enum ProSystemUpLookInspecVisionUIElement _ProSystemUpLookInspecVisionUIElement;
+    __declspec(property(get=GetCameraSelect,put=PutCameraSelect))
+    enum CameraSelect _CameraSelect;
+    __declspec(property(get=GetInspectionVisionPage,put=PutInspectionVisionPage))
+    enum InspectionVisionPage _InspectionVisionPage;
+    __declspec(property(get=GetNumLevelAutoNcc,put=PutNumLevelAutoNcc))
+    VARIANT_BOOL NumLevelAutoNcc;
+    __declspec(property(get=GetAngStepAuto,put=PutAngStepAuto))
+    VARIANT_BOOL AngStepAuto;
+    __declspec(property(get=GetNumLevel,put=PutNumLevel))
+    double NumLevel;
+    __declspec(property(get=GetAngleStart,put=PutAngleStart))
+    double AngleStart;
+    __declspec(property(get=GetAngleExtent,put=PutAngleExtent))
+    double AngleExtent;
+    __declspec(property(get=GetAngleStep,put=PutAngleStep))
+    double AngleStep;
+    __declspec(property(get=GetModelSelect,put=PutModelSelect))
+    enum ModelSelect _ModelSelect;
+    __declspec(property(get=GetMetricSelect,put=PutMetricSelect))
+    enum MetricSelect _MetricSelect;
+    __declspec(property(get=GetCalibrationModelId,put=PutCalibrationModelId))
+    _bstr_t CalibrationModelId;
+    __declspec(property(get=GetCalibrationModelIdSelection,put=PutCalibrationModelIdSelection))
+    _bstr_t CalibrationModelIdSelection;
+    __declspec(property(get=GetStepSize,put=PutStepSize))
+    double StepSize;
+    __declspec(property(get=GetStepCount,put=PutStepCount))
+    double StepCount;
+    __declspec(property(get=GetTransactionX,put=PutTransactionX))
+    double TransactionX;
+    __declspec(property(get=GetTransactionY,put=PutTransactionY))
+    double TransactionY;
+    __declspec(property(get=GetRotation,put=PutRotation))
+    double Rotation;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    VARIANT_BOOL GetConnected ( );
+    void PutConnected (
+        VARIANT_BOOL _arg1 );
+    VARIANT_BOOL GetAcquisition ( );
+    void PutAcquisition (
+        VARIANT_BOOL _arg1 );
+    VARIANT_BOOL GetGrabImage ( );
+    void PutGrabImage (
+        VARIANT_BOOL _arg1 );
+    VARIANT_BOOL GetGammaEnable ( );
+    void PutGammaEnable (
+        VARIANT_BOOL _arg1 );
+    double GetExposureTime ( );
+    void PutExposureTime (
+        double _arg1 );
+    double GetGain ( );
+    void PutGain (
+        double _arg1 );
+    double GetGamma ( );
+    void PutGamma (
+        double _arg1 );
+    double GetBlackLevel ( );
+    void PutBlackLevel (
+        double _arg1 );
+    double GetSharpness ( );
+    void PutSharpness (
+        double _arg1 );
+    long GetZoomValue ( );
+    void PutZoomValue (
+        long _arg1 );
+    long GetScrollVertical ( );
+    void PutScrollVertical (
+        long _arg1 );
+    long GetScrollHorizontal ( );
+    void PutScrollHorizontal (
+        long _arg1 );
+    enum ProSystemUpLookInspecVisionUIElement GetProSystemUpLookInspecVisionUIElement ( );
+    void PutProSystemUpLookInspecVisionUIElement (
+        enum ProSystemUpLookInspecVisionUIElement _arg1 );
+    enum CameraSelect GetCameraSelect ( );
+    void PutCameraSelect (
+        enum CameraSelect _arg1 );
+    enum InspectionVisionPage GetInspectionVisionPage ( );
+    void PutInspectionVisionPage (
+        enum InspectionVisionPage _arg1 );
+    VARIANT_BOOL GetNumLevelAutoNcc ( );
+    void PutNumLevelAutoNcc (
+        VARIANT_BOOL _arg1 );
+    VARIANT_BOOL GetAngStepAuto ( );
+    void PutAngStepAuto (
+        VARIANT_BOOL _arg1 );
+    double GetNumLevel ( );
+    void PutNumLevel (
+        double _arg1 );
+    double GetAngleStart ( );
+    void PutAngleStart (
+        double _arg1 );
+    double GetAngleExtent ( );
+    void PutAngleExtent (
+        double _arg1 );
+    double GetAngleStep ( );
+    void PutAngleStep (
+        double _arg1 );
+    enum ModelSelect GetModelSelect ( );
+    void PutModelSelect (
+        enum ModelSelect _arg1 );
+    enum MetricSelect GetMetricSelect ( );
+    void PutMetricSelect (
+        enum MetricSelect _arg1 );
+    _bstr_t GetCalibrationModelId ( );
+    void PutCalibrationModelId (
+        _bstr_t _arg1 );
+    _bstr_t GetCalibrationModelIdSelection ( );
+    void PutCalibrationModelIdSelection (
+        _bstr_t _arg1 );
+    double GetStepSize ( );
+    void PutStepSize (
+        double _arg1 );
+    double GetStepCount ( );
+    void PutStepCount (
+        double _arg1 );
+    double GetTransactionX ( );
+    void PutTransactionX (
+        double _arg1 );
+    double GetTransactionY ( );
+    void PutTransactionY (
+        double _arg1 );
+    double GetRotation ( );
+    void PutRotation (
+        double _arg1 );
+    double GetScaleX ( );
+    void PutScaleX (
+        double _arg1 );
+    double GetScaleY ( );
+    void PutScaleY (
+        double _arg1 );
+    double GetPixelX ( );
+    void PutPixelX (
+        double _arg1 );
+    double GetPixelY ( );
+    void PutPixelY (
+        double _arg1 );
+    double GetFovX ( );
+    void PutFovX (
+        double _arg1 );
+    double GetFovY ( );
+    void PutFovY (
+        double _arg1 );
+    enum ProSystemVCalibartionUIElement GetProSystemVCalibartionUIElement ( );
+    void PutProSystemVCalibartionUIElement (
+        enum ProSystemVCalibartionUIElement _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("9efc7c56-e4c7-4788-be4e-1d6c401ebfcc"))
+ILaserApplyDTO : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetAttenuatorPercentage,put=PutAttenuatorPercentage))
+    double AttenuatorPercentage;
+    __declspec(property(get=GetPPDivider,put=PutPPDivider))
+    double PPDivider;
+    __declspec(property(get=GetPresetControl,put=PutPresetControl))
+    enum PresetControl _PresetControl;
+    __declspec(property(get=GetPulseDuration,put=PutPulseDuration))
+    double PulseDuration;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    double GetAttenuatorPercentage ( );
+    void PutAttenuatorPercentage (
+        double pRetVal );
+    double GetPPDivider ( );
+    void PutPPDivider (
+        double pRetVal );
+    enum PresetControl GetPresetControl ( );
+    void PutPresetControl (
+        enum PresetControl pRetVal );
+    double GetPulseDuration ( );
+    void PutPulseDuration (
+        double pRetVal );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_AttenuatorPercentage (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_AttenuatorPercentage (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PPDivider (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PPDivider (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PresetControl (
+        /*[out,retval]*/ enum PresetControl * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PresetControl (
+        /*[in]*/ enum PresetControl pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PulseDuration (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PulseDuration (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall raw_LoadDataFromJson (
+        /*[in]*/ BSTR json ) = 0;
+};
+
+struct __declspec(uuid("549b5e28-bc6f-4c25-9a3e-8c0627896971"))
+IVisionParamsDTO : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetAttenuatorPercentage,put=PutAttenuatorPercentage))
+    double AttenuatorPercentage;
+    __declspec(property(get=GetPPDivider,put=PutPPDivider))
+    double PPDivider;
+    __declspec(property(get=GetPresetControl,put=PutPresetControl))
+    enum PresetControl _PresetControl;
+    __declspec(property(get=GetPulseDuration,put=PutPulseDuration))
+    double PulseDuration;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    double GetAttenuatorPercentage ( );
+    void PutAttenuatorPercentage (
+        double pRetVal );
+    double GetPPDivider ( );
+    void PutPPDivider (
+        double pRetVal );
+    enum PresetControl GetPresetControl ( );
+    void PutPresetControl (
+        enum PresetControl pRetVal );
+    double GetPulseDuration ( );
+    void PutPulseDuration (
+        double pRetVal );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_AttenuatorPercentage (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_AttenuatorPercentage (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PPDivider (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PPDivider (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PresetControl (
+        /*[out,retval]*/ enum PresetControl * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PresetControl (
+        /*[in]*/ enum PresetControl pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PulseDuration (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PulseDuration (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall raw_LoadDataFromJson (
+        /*[in]*/ BSTR json ) = 0;
+};
+
+struct __declspec(uuid("5df65319-101f-48a8-b52d-e809ceb82d8b"))
+VisionParamsDTO;
+    // interface IBaseDTO
+    // [ default ] interface IVisionParamsDTO
+
+struct __declspec(uuid("e5c560a8-2e34-4df1-b23c-871917948fad"))
+ILaserBasicDTO : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetIsOutputEnabled,put=PutIsOutputEnabled))
+    VARIANT_BOOL IsOutputEnabled;
+    __declspec(property(get=GetAttenuatorPercentage,put=PutAttenuatorPercentage))
+    double AttenuatorPercentage;
+    __declspec(property(get=GetPPDivider,put=PutPPDivider))
+    double PPDivider;
+    __declspec(property(get=GetPresetControl,put=PutPresetControl))
+    enum PresetControl _PresetControl;
+    __declspec(property(get=GetPulseDuration,put=PutPulseDuration))
+    double PulseDuration;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    VARIANT_BOOL GetIsOutputEnabled ( );
+    void PutIsOutputEnabled (
+        VARIANT_BOOL pRetVal );
+    double GetAttenuatorPercentage ( );
+    void PutAttenuatorPercentage (
+        double pRetVal );
+    double GetPPDivider ( );
+    void PutPPDivider (
+        double pRetVal );
+    enum PresetControl GetPresetControl ( );
+    void PutPresetControl (
+        enum PresetControl pRetVal );
+    double GetPulseDuration ( );
+    void PutPulseDuration (
+        double pRetVal );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_IsOutputEnabled (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_IsOutputEnabled (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_AttenuatorPercentage (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_AttenuatorPercentage (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PPDivider (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PPDivider (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PresetControl (
+        /*[out,retval]*/ enum PresetControl * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PresetControl (
+        /*[in]*/ enum PresetControl pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PulseDuration (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PulseDuration (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall raw_LoadDataFromJson (
+        /*[in]*/ BSTR json ) = 0;
+};
+
+struct __declspec(uuid("e27ba3e7-3030-4579-905f-d4b23b7396a8"))
+ILaserBurstApplyDTO : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetP,put=PutP))
+    double P;
+    __declspec(property(get=GetN,put=PutN))
+    double N;
+    __declspec(property(get=GetEnvelopeControlP,put=PutEnvelopeControlP))
+    double EnvelopeControlP;
+    __declspec(property(get=GetEnvelopeControlN,put=PutEnvelopeControlN))
+    double EnvelopeControlN;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    double GetP ( );
+    void PutP (
+        double pRetVal );
+    double GetN ( );
+    void PutN (
+        double pRetVal );
+    double GetEnvelopeControlP ( );
+    void PutEnvelopeControlP (
+        double pRetVal );
+    double GetEnvelopeControlN ( );
+    void PutEnvelopeControlN (
+        double pRetVal );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_P (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_P (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_N (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_N (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_EnvelopeControlP (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_EnvelopeControlP (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_EnvelopeControlN (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_EnvelopeControlN (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall raw_LoadDataFromJson (
+        /*[in]*/ BSTR json ) = 0;
+};
+
+struct __declspec(uuid("2b734c43-3679-4b39-8ed6-fcbd57ca4e14"))
+ILaserBurstDTO : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetIsPowerlockEnabled,put=PutIsPowerlockEnabled))
+    VARIANT_BOOL IsPowerlockEnabled;
+    __declspec(property(get=GetP,put=PutP))
+    double P;
+    __declspec(property(get=GetN,put=PutN))
+    double N;
+    __declspec(property(get=GetEnvelopeControlP,put=PutEnvelopeControlP))
+    double EnvelopeControlP;
+    __declspec(property(get=GetEnvelopeControlN,put=PutEnvelopeControlN))
+    double EnvelopeControlN;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    VARIANT_BOOL GetIsPowerlockEnabled ( );
+    void PutIsPowerlockEnabled (
+        VARIANT_BOOL pRetVal );
+    double GetP ( );
+    void PutP (
+        double pRetVal );
+    double GetN ( );
+    void PutN (
+        double pRetVal );
+    double GetEnvelopeControlP ( );
+    void PutEnvelopeControlP (
+        double pRetVal );
+    double GetEnvelopeControlN ( );
+    void PutEnvelopeControlN (
+        double pRetVal );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_IsPowerlockEnabled (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_IsPowerlockEnabled (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_P (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_P (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_N (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_N (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_EnvelopeControlP (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_EnvelopeControlP (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_EnvelopeControlN (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_EnvelopeControlN (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall raw_LoadDataFromJson (
+        /*[in]*/ BSTR json ) = 0;
+};
+
+struct __declspec(uuid("03c88646-6342-454e-9f58-c261b12f955d"))
+ILaserInfoDTO : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetIsConnected,put=PutIsConnected))
+    VARIANT_BOOL IsConnected;
+    __declspec(property(get=GetOperation,put=PutOperation))
+    enum LaserOperation Operation;
+    __declspec(property(get=GetEmission,put=PutEmission))
+    VARIANT_BOOL Emission;
+    __declspec(property(get=GetLaserPower,put=PutLaserPower))
+    double LaserPower;
+    __declspec(property(get=GetEnergy,put=PutEnergy))
+    double Energy;
+    __declspec(property(get=GetLaserPowerRange,put=PutLaserPowerRange))
+    enum LaserStatusRange LaserPowerRange;
+    __declspec(property(get=GetFrequency,put=PutFrequency))
+    double Frequency;
+    __declspec(property(get=GetPulseDivider,put=PutPulseDivider))
+    double PulseDivider;
+    __declspec(property(get=GetFrequencyRange,put=PutFrequencyRange))
+    enum LaserStatusRange FrequencyRange;
+    __declspec(property(get=GetWaveLength,put=PutWaveLength))
+    long WaveLength;
+    __declspec(property(get=GetWaveLengthRange,put=PutWaveLengthRange))
+    enum LaserStatusRange WaveLengthRange;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    VARIANT_BOOL GetIsConnected ( );
+    void PutIsConnected (
+        VARIANT_BOOL pRetVal );
+    enum LaserOperation GetOperation ( );
+    void PutOperation (
+        enum LaserOperation pRetVal );
+    VARIANT_BOOL GetEmission ( );
+    void PutEmission (
+        VARIANT_BOOL pRetVal );
+    double GetLaserPower ( );
+    void PutLaserPower (
+        double pRetVal );
+    double GetEnergy ( );
+    void PutEnergy (
+        double pRetVal );
+    enum LaserStatusRange GetLaserPowerRange ( );
+    void PutLaserPowerRange (
+        enum LaserStatusRange pRetVal );
+    double GetFrequency ( );
+    void PutFrequency (
+        double pRetVal );
+    double GetPulseDivider ( );
+    void PutPulseDivider (
+        double pRetVal );
+    enum LaserStatusRange GetFrequencyRange ( );
+    void PutFrequencyRange (
+        enum LaserStatusRange pRetVal );
+    long GetWaveLength ( );
+    void PutWaveLength (
+        long pRetVal );
+    enum LaserStatusRange GetWaveLengthRange ( );
+    void PutWaveLengthRange (
+        enum LaserStatusRange pRetVal );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_IsConnected (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_IsConnected (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Operation (
+        /*[out,retval]*/ enum LaserOperation * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Operation (
+        /*[in]*/ enum LaserOperation pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Emission (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Emission (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_LaserPower (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_LaserPower (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Energy (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Energy (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_LaserPowerRange (
+        /*[out,retval]*/ enum LaserStatusRange * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_LaserPowerRange (
+        /*[in]*/ enum LaserStatusRange pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Frequency (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Frequency (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PulseDivider (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PulseDivider (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_FrequencyRange (
+        /*[out,retval]*/ enum LaserStatusRange * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_FrequencyRange (
+        /*[in]*/ enum LaserStatusRange pRetVal ) = 0;
+      virtual HRESULT __stdcall get_WaveLength (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_WaveLength (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_WaveLengthRange (
+        /*[out,retval]*/ enum LaserStatusRange * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_WaveLengthRange (
+        /*[in]*/ enum LaserStatusRange pRetVal ) = 0;
+      virtual HRESULT __stdcall raw_LoadDataFromJson (
+        /*[in]*/ BSTR json ) = 0;
+};
+
+struct __declspec(uuid("3918078c-4e0f-4c81-abe2-97ba65b38ac5"))
+ILaserPresetDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetpresetIndex,put=PutpresetIndex))
+    enum PresetControl presetIndex;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    enum PresetControl GetpresetIndex ( );
+    void PutpresetIndex (
+        enum PresetControl _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("df411358-dbe8-452d-8f7b-aaf53376df70"))
+IMasterDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetMessageContent,put=PutMessageContent))
+    _bstr_t MessageContent;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    _bstr_t GetMessageContent ( );
+    void PutMessageContent (
+        _bstr_t _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("da0770a2-2fbd-4023-94ac-a227231751db"))
+IMessage : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=Getid,put=Putid))
+    _bstr_t id;
+    __declspec(property(get=Getdata,put=PutRefdata))
+    _variant_t data;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t Getid ( );
+    void Putid (
+        _bstr_t pRetVal );
+    _variant_t Getdata ( );
+    void PutRefdata (
+        const _variant_t & pRetVal );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_id (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_id (
+        /*[in]*/ BSTR pRetVal ) = 0;
+      virtual HRESULT __stdcall get_data (
+        /*[out,retval]*/ VARIANT * pRetVal ) = 0;
+      virtual HRESULT __stdcall putref_data (
+        /*[in]*/ VARIANT pRetVal ) = 0;
+      virtual HRESULT __stdcall raw_LoadDataFromJson (
+        /*[in]*/ BSTR json ) = 0;
+};
+
+struct __declspec(uuid("9db83651-38ce-4658-ab61-537da2913e64"))
+IMotionAxisControlDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetMovePos,put=PutMovePos))
+    double MovePos;
+    __declspec(property(get=GetVelPos,put=PutVelPos))
+    double VelPos;
+    __declspec(property(get=GetAcclPos,put=PutAcclPos))
+    double AcclPos;
+    __declspec(property(get=GetJerkPos,put=PutJerkPos))
+    double JerkPos;
+    __declspec(property(get=GetActualMovePos,put=PutActualMovePos))
+    double ActualMovePos;
+    __declspec(property(get=GetActualVelPos,put=PutActualVelPos))
+    double ActualVelPos;
+    __declspec(property(get=GetActualAcclPos,put=PutActualAcclPos))
+    double ActualAcclPos;
+    __declspec(property(get=GetActualJerkPos,put=PutActualJerkPos))
+    double ActualJerkPos;
+    __declspec(property(get=GetIsRelPos,put=PutIsRelPos))
+    VARIANT_BOOL IsRelPos;
+    __declspec(property(get=GetEnableBtnIsActive,put=PutEnableBtnIsActive))
+    VARIANT_BOOL EnableBtnIsActive;
+    __declspec(property(get=GetMotionUIElement,put=PutMotionUIElement))
+    enum MotionUIElement _MotionUIElement;
+    __declspec(property(get=GetExecutingBtn,put=PutExecutingBtn))
+    enum MotionUIElement ExecutingBtn;
+    __declspec(property(get=GetAxisSelection,put=PutAxisSelection))
+    enum AxisSelection _AxisSelection;
+    __declspec(property(get=GetMotionCmd,put=PutMotionCmd))
+    enum MotionCmd _MotionCmd;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    double GetMovePos ( );
+    void PutMovePos (
+        double _arg1 );
+    double GetVelPos ( );
+    void PutVelPos (
+        double _arg1 );
+    double GetAcclPos ( );
+    void PutAcclPos (
+        double _arg1 );
+    double GetJerkPos ( );
+    void PutJerkPos (
+        double _arg1 );
+    double GetActualMovePos ( );
+    void PutActualMovePos (
+        double _arg1 );
+    double GetActualVelPos ( );
+    void PutActualVelPos (
+        double _arg1 );
+    double GetActualAcclPos ( );
+    void PutActualAcclPos (
+        double _arg1 );
+    double GetActualJerkPos ( );
+    void PutActualJerkPos (
+        double _arg1 );
+    VARIANT_BOOL GetIsRelPos ( );
+    void PutIsRelPos (
+        VARIANT_BOOL _arg1 );
+    VARIANT_BOOL GetEnableBtnIsActive ( );
+    void PutEnableBtnIsActive (
+        VARIANT_BOOL _arg1 );
+    enum MotionUIElement GetMotionUIElement ( );
+    void PutMotionUIElement (
+        enum MotionUIElement _arg1 );
+    enum MotionUIElement GetExecutingBtn ( );
+    void PutExecutingBtn (
+        enum MotionUIElement _arg1 );
+    enum AxisSelection GetAxisSelection ( );
+    void PutAxisSelection (
+        enum AxisSelection _arg1 );
+    enum MotionCmd GetMotionCmd ( );
+    void PutMotionCmd (
+        enum MotionCmd _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("ea4a1eeb-4e07-43d2-919e-7ebc584a86f9"))
+IMotionCalculateDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetPointOneEstTime,put=PutPointOneEstTime))
+    double PointOneEstTime;
+    __declspec(property(get=GetPointTwoEstTime,put=PutPointTwoEstTime))
+    double PointTwoEstTime;
+    __declspec(property(get=GetTotalEstCycleTime,put=PutTotalEstCycleTime))
+    double TotalEstCycleTime;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    double GetPointOneEstTime ( );
+    void PutPointOneEstTime (
+        double _arg1 );
+    double GetPointTwoEstTime ( );
+    void PutPointTwoEstTime (
+        double _arg1 );
+    double GetTotalEstCycleTime ( );
+    void PutTotalEstCycleTime (
+        double _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("29bf8684-c05f-4fcb-83fb-ec8cbb93e3e8"))
+IMotionKinematicsDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetVelocity,put=PutVelocity))
+    double Velocity;
+    __declspec(property(get=GetAcceleration,put=PutAcceleration))
+    double Acceleration;
+    __declspec(property(get=GetJerk,put=PutJerk))
+    double Jerk;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    double GetVelocity ( );
+    void PutVelocity (
+        double _arg1 );
+    double GetAcceleration ( );
+    void PutAcceleration (
+        double _arg1 );
+    double GetJerk ( );
+    void PutJerk (
+        double _arg1 );
+};
+
+struct __declspec(uuid("eb90ce05-f550-4932-aa58-6406b8dd483c"))
+IMotionMovedDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetTransitionX,put=PutTransitionX))
+    double TransitionX;
+    __declspec(property(get=GetTransitionY,put=PutTransitionY))
+    double TransitionY;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    double GetTransitionX ( );
+    void PutTransitionX (
+        double _arg1 );
+    double GetTransitionY ( );
+    void PutTransitionY (
+        double _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("f401afa0-d7d2-49a4-8ab8-e57dde516216"))
+IMotionProfileDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetName,put=PutName))
+    _bstr_t Name;
+    __declspec(property(get=GetDistance,put=PutDistance))
+    double Distance;
+    __declspec(property(get=GetTime,put=PutTime))
+    double Time;
+    __declspec(property(get=GetVelocity,put=PutVelocity))
+    double Velocity;
+    __declspec(property(get=GetAcceleration,put=PutAcceleration))
+    double Acceleration;
+    __declspec(property(get=GetJerk,put=PutJerk))
+    double Jerk;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    _bstr_t GetName ( );
+    void PutName (
+        _bstr_t _arg1 );
+    double GetDistance ( );
+    void PutDistance (
+        double _arg1 );
+    double GetTime ( );
+    void PutTime (
+        double _arg1 );
+    double GetVelocity ( );
+    void PutVelocity (
+        double _arg1 );
+    double GetAcceleration ( );
+    void PutAcceleration (
+        double _arg1 );
+    double GetJerk ( );
+    void PutJerk (
+        double _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("13e3c1db-4fc6-4713-8ce5-fc719de5b84f"))
+IMotionTestDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetName,put=PutName))
+    _bstr_t Name;
+    __declspec(property(get=GetPointOne,put=PutPointOne))
+    double PointOne;
+    __declspec(property(get=GetPointOneDelay,put=PutPointOneDelay))
+    double PointOneDelay;
+    __declspec(property(get=GetPointTwo,put=PutPointTwo))
+    double PointTwo;
+    __declspec(property(get=GetPointTwoDelay,put=PutPointTwoDelay))
+    double PointTwoDelay;
+    __declspec(property(get=GetNoOfCycles,put=PutNoOfCycles))
+    double NoOfCycles;
+    __declspec(property(get=GetVelocity,put=PutVelocity))
+    double Velocity;
+    __declspec(property(get=GetAcceleration,put=PutAcceleration))
+    double Acceleration;
+    __declspec(property(get=GetJerk,put=PutJerk))
+    double Jerk;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    _bstr_t GetName ( );
+    void PutName (
+        _bstr_t _arg1 );
+    double GetPointOne ( );
+    void PutPointOne (
+        double _arg1 );
+    double GetPointOneDelay ( );
+    void PutPointOneDelay (
+        double _arg1 );
+    double GetPointTwo ( );
+    void PutPointTwo (
+        double _arg1 );
+    double GetPointTwoDelay ( );
+    void PutPointTwoDelay (
+        double _arg1 );
+    double GetNoOfCycles ( );
+    void PutNoOfCycles (
+        double _arg1 );
+    double GetVelocity ( );
+    void PutVelocity (
+        double _arg1 );
+    double GetAcceleration ( );
+    void PutAcceleration (
+        double _arg1 );
+    double GetJerk ( );
+    void PutJerk (
+        double _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("59fdcc88-e411-4cd8-b0b2-7fd3c028e41f"))
+IMotionTestStateDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetCurrentCycles,put=PutCurrentCycles))
+    double CurrentCycles;
+    __declspec(property(get=GetTotalCycles,put=PutTotalCycles))
+    double TotalCycles;
+    __declspec(property(get=GetCommandPosition,put=PutCommandPosition))
+    double CommandPosition;
+    __declspec(property(get=GetEncoderPosition,put=PutEncoderPosition))
+    double EncoderPosition;
+    __declspec(property(get=GetMissingSteps,put=PutMissingSteps))
+    double MissingSteps;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    double GetCurrentCycles ( );
+    void PutCurrentCycles (
+        double _arg1 );
+    double GetTotalCycles ( );
+    void PutTotalCycles (
+        double _arg1 );
+    double GetCommandPosition ( );
+    void PutCommandPosition (
+        double _arg1 );
+    double GetEncoderPosition ( );
+    void PutEncoderPosition (
+        double _arg1 );
+    double GetMissingSteps ( );
+    void PutMissingSteps (
+        double _arg1 );
+};
+
+struct __declspec(uuid("63273ac8-d932-4b3c-9d70-0bc76f805e3f"))
+IProcessTableDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetXAxisPosition,put=PutXAxisPosition))
+    double XAxisPosition;
+    __declspec(property(get=GetYAxisPosition,put=PutYAxisPosition))
+    double YAxisPosition;
+    __declspec(property(get=GetTXAxisPosition,put=PutTXAxisPosition))
+    double TXAxisPosition;
+    __declspec(property(get=GetTYAxisPosition,put=PutTYAxisPosition))
+    double TYAxisPosition;
+    __declspec(property(get=GetZAxisPosition,put=PutZAxisPosition))
+    double ZAxisPosition;
+    __declspec(property(get=GetIsSubstrateChuckVacuumEnabled,put=PutIsSubstrateChuckVacuumEnabled))
+    VARIANT_BOOL IsSubstrateChuckVacuumEnabled;
+    __declspec(property(get=GetProTableUIElement,put=PutProTableUIElement))
+    enum ProTableUIElement _ProTableUIElement;
+    __declspec(property(get=GetMoveDirection,put=PutMoveDirection))
+    enum MoveDirection _MoveDirection;
+    __declspec(property(get=GetMotionCmd,put=PutMotionCmd))
+    enum MotionCmd _MotionCmd;
+    __declspec(property(get=GetCameraSelect,put=PutCameraSelect))
+    enum CameraSelect _CameraSelect;
+    __declspec(property(get=GetMoveRel,put=PutMoveRel))
+    double MoveRel;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    double GetXAxisPosition ( );
+    void PutXAxisPosition (
+        double _arg1 );
+    double GetYAxisPosition ( );
+    void PutYAxisPosition (
+        double _arg1 );
+    double GetTXAxisPosition ( );
+    void PutTXAxisPosition (
+        double _arg1 );
+    double GetTYAxisPosition ( );
+    void PutTYAxisPosition (
+        double _arg1 );
+    double GetZAxisPosition ( );
+    void PutZAxisPosition (
+        double _arg1 );
+    VARIANT_BOOL GetIsSubstrateChuckVacuumEnabled ( );
+    void PutIsSubstrateChuckVacuumEnabled (
+        VARIANT_BOOL _arg1 );
+    enum ProTableUIElement GetProTableUIElement ( );
+    void PutProTableUIElement (
+        enum ProTableUIElement _arg1 );
+    enum MoveDirection GetMoveDirection ( );
+    void PutMoveDirection (
+        enum MoveDirection _arg1 );
+    enum MotionCmd GetMotionCmd ( );
+    void PutMotionCmd (
+        enum MotionCmd _arg1 );
+    enum CameraSelect GetCameraSelect ( );
+    void PutCameraSelect (
+        enum CameraSelect _arg1 );
+    double GetMoveRel ( );
+    void PutMoveRel (
+        double _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("f4941f23-4130-4a01-a9bd-c485fbbdbeba"))
+IRectangleROIDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetShapeName,put=PutShapeName))
+    _bstr_t ShapeName;
+    __declspec(property(get=GetRowCenter,put=PutRowCenter))
+    double RowCenter;
+    __declspec(property(get=GetColumnCenter,put=PutColumnCenter))
+    double ColumnCenter;
+    __declspec(property(get=GetRow1,put=PutRow1))
+    double Row1;
+    __declspec(property(get=GetColumn1,put=PutColumn1))
+    double Column1;
+    __declspec(property(get=GetRow2,put=PutRow2))
+    double Row2;
+    __declspec(property(get=GetColumn2,put=PutColumn2))
+    double Column2;
+    __declspec(property(get=GetPhi,put=PutPhi))
+    double Phi;
+    __declspec(property(get=GetImageBytes,put=PutImageBytes))
+    SAFEARRAY * ImageBytes;
+    __declspec(property(get=GetScore,put=PutScore))
+    double Score;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    _bstr_t GetShapeName ( );
+    void PutShapeName (
+        _bstr_t _arg1 );
+    double GetRowCenter ( );
+    void PutRowCenter (
+        double _arg1 );
+    double GetColumnCenter ( );
+    void PutColumnCenter (
+        double _arg1 );
+    double GetRow1 ( );
+    void PutRow1 (
+        double _arg1 );
+    double GetColumn1 ( );
+    void PutColumn1 (
+        double _arg1 );
+    double GetRow2 ( );
+    void PutRow2 (
+        double _arg1 );
+    double GetColumn2 ( );
+    void PutColumn2 (
+        double _arg1 );
+    double GetPhi ( );
+    void PutPhi (
+        double _arg1 );
+    SAFEARRAY * GetImageBytes ( );
+    void PutImageBytes (
+        SAFEARRAY * _arg1 );
+    double GetScore ( );
+    void PutScore (
+        double _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("27c2f164-f85d-4822-bc28-f4ddaac162d1"))
+IVisionImageDto : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetFullImageWidth,put=PutFullImageWidth))
+    double FullImageWidth;
+    __declspec(property(get=GetFullImageHeight,put=PutFullImageHeight))
+    double FullImageHeight;
+    __declspec(property(get=GetImageVisualWidth,put=PutImageVisualWidth))
+    double ImageVisualWidth;
+    __declspec(property(get=GetImageVisualHeight,put=PutImageVisualHeight))
+    double ImageVisualHeight;
+    __declspec(property(get=GetScrollX,put=PutScrollX))
+    double ScrollX;
+    __declspec(property(get=GetScrollY,put=PutScrollY))
+    double ScrollY;
+    __declspec(property(get=GetRatio,put=PutRatio))
+    long Ratio;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    double GetFullImageWidth ( );
+    void PutFullImageWidth (
+        double _arg1 );
+    double GetFullImageHeight ( );
+    void PutFullImageHeight (
+        double _arg1 );
+    double GetImageVisualWidth ( );
+    void PutImageVisualWidth (
+        double _arg1 );
+    double GetImageVisualHeight ( );
+    void PutImageVisualHeight (
+        double _arg1 );
+    double GetScrollX ( );
+    void PutScrollX (
+        double _arg1 );
+    double GetScrollY ( );
+    void PutScrollY (
+        double _arg1 );
+    long GetRatio ( );
+    void PutRatio (
+        long _arg1 );
+};
+
+struct __declspec(uuid("63c0b2d7-07eb-428a-8d8b-6f7beb8137d3"))
+IDonorLiftingModuleConfigurationDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetAxisName,put=PutAxisName))
+    _bstr_t AxisName;
+    __declspec(property(get=GetArrowContentLeft1DefaultValue,put=PutArrowContentLeft1DefaultValue))
+    double ArrowContentLeft1DefaultValue;
+    __declspec(property(get=GetArrowContentLeft2DefaultValue,put=PutArrowContentLeft2DefaultValue))
+    double ArrowContentLeft2DefaultValue;
+    __declspec(property(get=GetArrowContentLeft3DefaultValue,put=PutArrowContentLeft3DefaultValue))
+    double ArrowContentLeft3DefaultValue;
+    __declspec(property(get=GetArrowContentRight1DefaultValue,put=PutArrowContentRight1DefaultValue))
+    double ArrowContentRight1DefaultValue;
+    __declspec(property(get=GetArrowContentRight2DefaultValue,put=PutArrowContentRight2DefaultValue))
+    double ArrowContentRight2DefaultValue;
+    __declspec(property(get=GetArrowContentRight3DefaultValue,put=PutArrowContentRight3DefaultValue))
+    double ArrowContentRight3DefaultValue;
+    __declspec(property(get=GetEntryValue_Min,put=PutEntryValue_Min))
+    double EntryValue_Min;
+    __declspec(property(get=GetEntryValue_Max,put=PutEntryValue_Max))
+    double EntryValue_Max;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    _bstr_t GetAxisName ( );
+    void PutAxisName (
+        _bstr_t _arg1 );
+    double GetArrowContentLeft1DefaultValue ( );
+    void PutArrowContentLeft1DefaultValue (
+        double _arg1 );
+    double GetArrowContentLeft2DefaultValue ( );
+    void PutArrowContentLeft2DefaultValue (
+        double _arg1 );
+    double GetArrowContentLeft3DefaultValue ( );
+    void PutArrowContentLeft3DefaultValue (
+        double _arg1 );
+    double GetArrowContentRight1DefaultValue ( );
+    void PutArrowContentRight1DefaultValue (
+        double _arg1 );
+    double GetArrowContentRight2DefaultValue ( );
+    void PutArrowContentRight2DefaultValue (
+        double _arg1 );
+    double GetArrowContentRight3DefaultValue ( );
+    void PutArrowContentRight3DefaultValue (
+        double _arg1 );
+    double GetEntryValue_Min ( );
+    void PutEntryValue_Min (
+        double _arg1 );
+    double GetEntryValue_Max ( );
+    void PutEntryValue_Max (
+        double _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("2f3db086-cce4-4350-a0ae-28354c30f404"))
+IInspectionVisionConfigurationDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetCameraName,put=PutCameraName))
+    _bstr_t CameraName;
+    __declspec(property(get=GetPhi_ValueType,put=PutPhi_ValueType))
+    _bstr_t Phi_ValueType;
+    __declspec(property(get=GetZoomValue_Min,put=PutZoomValue_Min))
+    long ZoomValue_Min;
+    __declspec(property(get=GetShowSharpness,put=PutShowSharpness))
+    VARIANT_BOOL ShowSharpness;
+    __declspec(property(get=GetZoomValue_Max,put=PutZoomValue_Max))
+    long ZoomValue_Max;
+    __declspec(property(get=GetCameraMaxSize_X,put=PutCameraMaxSize_X))
+    double CameraMaxSize_X;
+    __declspec(property(get=GetCameraMaxSize_Y,put=PutCameraMaxSize_Y))
+    double CameraMaxSize_Y;
+    __declspec(property(get=GetExposureTime_Min,put=PutExposureTime_Min))
+    double ExposureTime_Min;
+    __declspec(property(get=GetExposureTime_Max,put=PutExposureTime_Max))
+    double ExposureTime_Max;
+    __declspec(property(get=GetExposureTime_ValueType,put=PutExposureTime_ValueType))
+    _bstr_t ExposureTime_ValueType;
+    __declspec(property(get=GetGain_Min,put=PutGain_Min))
+    double Gain_Min;
+    __declspec(property(get=GetGain_Max,put=PutGain_Max))
+    double Gain_Max;
+    __declspec(property(get=GetGain_ValueType,put=PutGain_ValueType))
+    _bstr_t Gain_ValueType;
+    __declspec(property(get=GetGamma_Min,put=PutGamma_Min))
+    double Gamma_Min;
+    __declspec(property(get=GetGamma_Max,put=PutGamma_Max))
+    double Gamma_Max;
+    __declspec(property(get=GetGamma_ValueType,put=PutGamma_ValueType))
+    _bstr_t Gamma_ValueType;
+    __declspec(property(get=GetBlackLevel_Min,put=PutBlackLevel_Min))
+    double BlackLevel_Min;
+    __declspec(property(get=GetBlackLevel_Max,put=PutBlackLevel_Max))
+    double BlackLevel_Max;
+    __declspec(property(get=GetBlackLevel_ValueType,put=PutBlackLevel_ValueType))
+    _bstr_t BlackLevel_ValueType;
+    __declspec(property(get=GetSharpness_Min,put=PutSharpness_Min))
+    double Sharpness_Min;
+    __declspec(property(get=GetSharpness_Max,put=PutSharpness_Max))
+    double Sharpness_Max;
+    __declspec(property(get=GetSharpness_ValueType,put=PutSharpness_ValueType))
+    _bstr_t Sharpness_ValueType;
+    __declspec(property(get=GetPhi_Min,put=PutPhi_Min))
+    double Phi_Min;
+    __declspec(property(get=GetPhi_Max,put=PutPhi_Max))
+    double Phi_Max;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    _bstr_t GetCameraName ( );
+    void PutCameraName (
+        _bstr_t _arg1 );
+    long GetZoomValue_Min ( );
+    void PutZoomValue_Min (
+        long _arg1 );
+    long GetZoomValue_Max ( );
+    void PutZoomValue_Max (
+        long _arg1 );
+    double GetCameraMaxSize_X ( );
+    void PutCameraMaxSize_X (
+        double _arg1 );
+    double GetCameraMaxSize_Y ( );
+    void PutCameraMaxSize_Y (
+        double _arg1 );
+    double GetExposureTime_Min ( );
+    void PutExposureTime_Min (
+        double _arg1 );
+    double GetExposureTime_Max ( );
+    void PutExposureTime_Max (
+        double _arg1 );
+    _bstr_t GetExposureTime_ValueType ( );
+    void PutExposureTime_ValueType (
+        _bstr_t _arg1 );
+    double GetGain_Min ( );
+    void PutGain_Min (
+        double _arg1 );
+    double GetGain_Max ( );
+    void PutGain_Max (
+        double _arg1 );
+    _bstr_t GetGain_ValueType ( );
+    void PutGain_ValueType (
+        _bstr_t _arg1 );
+    double GetGamma_Min ( );
+    void PutGamma_Min (
+        double _arg1 );
+    double GetGamma_Max ( );
+    void PutGamma_Max (
+        double _arg1 );
+    _bstr_t GetGamma_ValueType ( );
+    void PutGamma_ValueType (
+        _bstr_t _arg1 );
+    double GetBlackLevel_Min ( );
+    void PutBlackLevel_Min (
+        double _arg1 );
+    double GetBlackLevel_Max ( );
+    void PutBlackLevel_Max (
+        double _arg1 );
+    _bstr_t GetBlackLevel_ValueType ( );
+    void PutBlackLevel_ValueType (
+        _bstr_t _arg1 );
+    double GetSharpness_Min ( );
+    void PutSharpness_Min (
+        double _arg1 );
+    double GetSharpness_Max ( );
+    void PutSharpness_Max (
+        double _arg1 );
+    _bstr_t GetSharpness_ValueType ( );
+    void PutSharpness_ValueType (
+        _bstr_t _arg1 );
+    double GetPhi_Min ( );
+    void PutPhi_Min (
+        double _arg1 );
+    double GetPhi_Max ( );
+    void PutPhi_Max (
+        double _arg1 );
+    _bstr_t GetPhi_ValueType ( );
+    void PutPhi_ValueType (
+        _bstr_t _arg1 );
+    VARIANT_BOOL GetShowSharpness ( );
+    void PutShowSharpness (
+        VARIANT_BOOL _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("24ea0c0b-81d8-4170-a3b7-5f1d8fe47928"))
+IMotionAxisControlConfigurationDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetAxisName,put=PutAxisName))
+    _bstr_t AxisName;
+    __declspec(property(get=GetPositionREL_DefaultValue,put=PutPositionREL_DefaultValue))
+    double PositionREL_DefaultValue;
+    __declspec(property(get=GetPositionABS_DefaultValue,put=PutPositionABS_DefaultValue))
+    double PositionABS_DefaultValue;
+    __declspec(property(get=GetVelocity_DefaultValue,put=PutVelocity_DefaultValue))
+    double Velocity_DefaultValue;
+    __declspec(property(get=GetAccel_DefaultValue,put=PutAccel_DefaultValue))
+    double Accel_DefaultValue;
+    __declspec(property(get=GetJerk_DefaultValue,put=PutJerk_DefaultValue))
+    double Jerk_DefaultValue;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    _bstr_t GetAxisName ( );
+    void PutAxisName (
+        _bstr_t _arg1 );
+    double GetPositionREL_DefaultValue ( );
+    void PutPositionREL_DefaultValue (
+        double _arg1 );
+    double GetPositionABS_DefaultValue ( );
+    void PutPositionABS_DefaultValue (
+        double _arg1 );
+    double GetVelocity_DefaultValue ( );
+    void PutVelocity_DefaultValue (
+        double _arg1 );
+    double GetAccel_DefaultValue ( );
+    void PutAccel_DefaultValue (
+        double _arg1 );
+    double GetJerk_DefaultValue ( );
+    void PutJerk_DefaultValue (
+        double _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("91cf460d-3133-4541-991b-827635aff712"))
+IProcessTableConfigurationDTO : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetAxisName,put=PutAxisName))
+    _bstr_t AxisName;
+    __declspec(property(get=GetArrowContentLeft1DefaultValue,put=PutArrowContentLeft1DefaultValue))
+    double ArrowContentLeft1DefaultValue;
+    __declspec(property(get=GetArrowContentLeft2DefaultValue,put=PutArrowContentLeft2DefaultValue))
+    double ArrowContentLeft2DefaultValue;
+    __declspec(property(get=GetArrowContentLeft3DefaultValue,put=PutArrowContentLeft3DefaultValue))
+    double ArrowContentLeft3DefaultValue;
+    __declspec(property(get=GetArrowContentRight1DefaultValue,put=PutArrowContentRight1DefaultValue))
+    double ArrowContentRight1DefaultValue;
+    __declspec(property(get=GetArrowContentRight2DefaultValue,put=PutArrowContentRight2DefaultValue))
+    double ArrowContentRight2DefaultValue;
+    __declspec(property(get=GetArrowContentRight3DefaultValue,put=PutArrowContentRight3DefaultValue))
+    double ArrowContentRight3DefaultValue;
+    __declspec(property(get=GetEntryValue_Min,put=PutEntryValue_Min))
+    double EntryValue_Min;
+    __declspec(property(get=GetEntryValue_Max,put=PutEntryValue_Max))
+    double EntryValue_Max;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    _bstr_t GetAxisName ( );
+    void PutAxisName (
+        _bstr_t _arg1 );
+    double GetArrowContentLeft1DefaultValue ( );
+    void PutArrowContentLeft1DefaultValue (
+        double _arg1 );
+    double GetArrowContentLeft2DefaultValue ( );
+    void PutArrowContentLeft2DefaultValue (
+        double _arg1 );
+    double GetArrowContentLeft3DefaultValue ( );
+    void PutArrowContentLeft3DefaultValue (
+        double _arg1 );
+    double GetArrowContentRight1DefaultValue ( );
+    void PutArrowContentRight1DefaultValue (
+        double _arg1 );
+    double GetArrowContentRight2DefaultValue ( );
+    void PutArrowContentRight2DefaultValue (
+        double _arg1 );
+    double GetArrowContentRight3DefaultValue ( );
+    void PutArrowContentRight3DefaultValue (
+        double _arg1 );
+    double GetEntryValue_Min ( );
+    void PutEntryValue_Min (
+        double _arg1 );
+    double GetEntryValue_Max ( );
+    void PutEntryValue_Max (
+        double _arg1 );
+    HRESULT LoadDataFromJson (
+        _bstr_t json );
+};
+
+struct __declspec(uuid("16c039b0-408f-4563-94ae-5b054512f920"))
+AlarmDTO;
+    // [ default ] dispinterface IAlarmDTO
+    // interface IBaseDTO
+
+struct __declspec(uuid("4edf6bbf-d887-4942-a2d9-8906d65b7aa0"))
+AlarmRetryResultDTO;
+    // [ default ] dispinterface IAlarmRetryResultDTO
+    // interface IBaseDTO
+
+struct __declspec(uuid("6c79d934-e8ae-42f2-970e-09d8b029d01f"))
+AxisConfigDTO;
+    // [ default ] dispinterface IAxisConfigDTO
+    // interface IBaseDTO
+
+struct __declspec(uuid("291d093e-9336-44ab-b4a9-708add4e1d20"))
+BaseDTO;
+    // [ default ] interface IBaseDTO
+
+struct __declspec(uuid("3a97fd30-f719-4b3a-9eb2-7137c34e2dad"))
+CameraParamsDTO;
+    // interface IBaseDTO
+    // [ default ] dispinterface ICameraParamsDTO
+
+struct __declspec(uuid("512b2bcc-54ee-489b-8820-ebfc5471106f"))
+CircleROIDTO;
+    // interface IBaseDTO
+    // [ default ] dispinterface ICircleROIDTO
+
+struct __declspec(uuid("0e3431a7-afb0-4212-aa46-272a6b85ab13"))
+ConfigurationDTO;
+    // [ default ] dispinterface IConfigurationDTO
+    // interface IBaseDTO
+
+struct __declspec(uuid("3dddde69-63c9-4905-80df-a652a7c67dc4"))
+CriticalActionDTO;
+    // [ default ] dispinterface ICriticalActionDTO
+
+struct __declspec(uuid("996fe9ff-efe0-41ef-bf05-8313f0aa7c50"))
+DonorLiftingModuleDTO;
+    // interface IBaseDTO
+    // [ default ] dispinterface IDonorLiftingModuleDTO
+
+struct __declspec(uuid("4d9e54bc-4d63-47e0-ad1e-56a86b3c4162"))
+EllipseROIDTO;
+    // interface IBaseDTO
+    // [ default ] dispinterface IEllipseROIDTO
+
+struct __declspec(uuid("ed9eee39-219c-4600-a1e4-6cf6326b9fad"))
+ImageStreamDTO;
+    // interface IBaseDTO
+    // [ default ] dispinterface IImageStreamDTO
+
+struct __declspec(uuid("3ba95d9d-1189-4925-90bf-47bacf9cc454"))
+InspectionVisionDTO;
+    // interface IBaseDTO
+    // [ default ] dispinterface IInspectionVisionDTO
+
+struct __declspec(uuid("7e0a7fc3-b0dd-4cb8-8436-e7afc325b913"))
+LaserApplyDTO;
+    // interface IBaseDTO
+    // [ default ] interface ILaserApplyDTO
+
+struct __declspec(uuid("18879276-f0e2-47d1-be2e-9beaea08e638"))
+LaserBasicDTO;
+    // interface IBaseDTO
+    // interface ILaserApplyDTO
+    // [ default ] interface ILaserBasicDTO
+
+struct __declspec(uuid("2486000e-a3ab-4800-8977-3000e9cfb615"))
+LaserBurstApplyDTO;
+    // interface IBaseDTO
+    // [ default ] interface ILaserBurstApplyDTO
+
+struct __declspec(uuid("78299917-3846-4249-9718-cd94e2fc7e1b"))
+LaserBurstDTO;
+    // interface IBaseDTO
+    // interface ILaserBurstApplyDTO
+    // [ default ] interface ILaserBurstDTO
+
+struct __declspec(uuid("21e54b04-641a-42c7-8091-03023cebe502"))
+LaserInfoDTO;
+    // [ default ] interface ILaserInfoDTO
+    // interface IBaseDTO
+
+struct __declspec(uuid("6c73a3ad-a724-4185-8026-81e0c1113bc3"))
+LaserPresetDTO;
+    // [ default ] dispinterface ILaserPresetDTO
+    // interface IBaseDTO
+
+struct __declspec(uuid("7d8cd593-6920-4bf4-99c4-e5dd5bd2aec1"))
+MasterDTO;
+    // interface IBaseDTO
+    // [ default ] dispinterface IMasterDTO
+
+struct __declspec(uuid("d5a1beab-d5b1-4792-8fbe-378c014006c7"))
+Message;
+    // interface IBaseDTO
+    // [ default ] interface IMessage
+
+struct __declspec(uuid("3c8ae85d-80d1-4f53-8b98-f3600e1d4d64"))
+MotionAxisControlDTO;
+    // interface IBaseDTO
+    // [ default ] dispinterface IMotionAxisControlDTO
+
+struct __declspec(uuid("7417c284-b620-4f62-841a-4a7a7acab33f"))
+MotionCalculateDTO;
+    // [ default ] dispinterface IMotionCalculateDTO
+    // interface IBaseDTO
+
+struct __declspec(uuid("dd179a46-2f6c-47ff-9680-dcf0f30e9da9"))
+MotionKinematicsDTO;
+    // [ default ] dispinterface IMotionKinematicsDTO
+
+struct __declspec(uuid("38da8cfe-e4e4-443c-9271-3dbe7d2c2fbf"))
+MotionMovedDTO;
+    // [ default ] dispinterface IMotionMovedDTO
+    // interface IBaseDTO
+
+struct __declspec(uuid("46ebcf03-ece7-466e-8700-09b8660baa6e"))
+MotionProfileDTO;
+    // [ default ] dispinterface IMotionProfileDTO
+    // interface IBaseDTO
+
+struct __declspec(uuid("ad024818-2046-485b-9178-f7628784e603"))
+MotionTestDTO;
+    // [ default ] dispinterface IMotionTestDTO
+    // interface IBaseDTO
+
+struct __declspec(uuid("8e1cdbd0-e697-4e95-bb95-c01a3a288c77"))
+MotionTestStateDTO;
+    // [ default ] dispinterface IMotionTestStateDTO
+
+struct __declspec(uuid("ebc9edf1-27cc-4e40-a6ac-23af480ecb37"))
+ProcessTableDTO;
+    // interface IBaseDTO
+    // [ default ] dispinterface IProcessTableDTO
+
+struct __declspec(uuid("d678e411-f542-431c-8f44-92cb85162212"))
+RectangleROIDTO;
+    // interface IBaseDTO
+    // [ default ] dispinterface IRectangleROIDTO
+
+struct __declspec(uuid("3ba95ce6-c90c-438a-974b-9b0661300064"))
+VisionImageDto;
+    // interface IBaseDTO
+    // [ default ] dispinterface IVisionImageDto
+
+struct __declspec(uuid("d1a1fb3c-b57f-4516-9387-c1ef1d9f415f"))
+DonorLiftingModuleConfigurationDTO;
+    // interface IBaseDTO
+    // [ default ] dispinterface IDonorLiftingModuleConfigurationDTO
+
+struct __declspec(uuid("0c8888d7-0b06-48aa-b7a2-cc3937d94144"))
+InspectionVisionConfigurationDTO;
+    // interface IBaseDTO
+    // [ default ] dispinterface IInspectionVisionConfigurationDTO
+
+struct __declspec(uuid("05687414-5b91-466e-91b0-0d24aeb1adbb"))
+MotionAxisControlConfigurationDTO;
+    // interface IBaseDTO
+    // [ default ] dispinterface IMotionAxisControlConfigurationDTO
+
+struct __declspec(uuid("2c4cd941-73d7-46df-836c-fdb7d272ea3e"))
+ProcessTableConfigurationDTO;
+    // interface IBaseDTO
+    // [ default ] dispinterface IProcessTableConfigurationDTO
+
+struct __declspec(uuid("650a532e-8b7d-41c9-882e-d7c9257ae0b5"))
+IAlarm : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetFetch))
+    _bstr_t Fetch;
+    __declspec(property(get=GetAcknowlegedAlarm))
+    _bstr_t AcknowlegedAlarm;
+    __declspec(property(get=GetCancelledAlarm))
+    _bstr_t CancelledAlarm;
+    __declspec(property(get=GetRetriedAlarm))
+    _bstr_t RetriedAlarm;
+    __declspec(property(get=GetNew))
+    _bstr_t New;
+    __declspec(property(get=GetAck))
+    _bstr_t Ack;
+    __declspec(property(get=GetRetry))
+    _bstr_t Retry;
+    __declspec(property(get=GetCancel))
+    _bstr_t Cancel;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetFetch ( );
+    _bstr_t GetAcknowlegedAlarm ( );
+    _bstr_t GetCancelledAlarm ( );
+    _bstr_t GetRetriedAlarm ( );
+    _bstr_t GetNew ( );
+    _bstr_t GetAck ( );
+    _bstr_t GetRetry ( );
+    _bstr_t GetCancel ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Fetch (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_AcknowlegedAlarm (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CancelledAlarm (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_RetriedAlarm (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_New (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Ack (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Retry (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Cancel (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("33e5e57b-5c55-4e6e-877e-a9e76bc843c2"))
+ICamera : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetExposure))
+    _bstr_t Exposure;
+    __declspec(property(get=GetLight))
+    _bstr_t Light;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetExposure ( );
+    _bstr_t GetLight ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Exposure (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Light (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("1268da2f-48d4-43d4-8944-e379a4917a73"))
+IConfiguration : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetSelf))
+    _bstr_t Self;
+    __declspec(property(get=GetMotionAxisControl))
+    _bstr_t MotionAxisControl;
+    __declspec(property(get=GetDonorLiftingModule))
+    _bstr_t DonorLiftingModule;
+    __declspec(property(get=GetProcessTable))
+    _bstr_t ProcessTable;
+    __declspec(property(get=GetInspectionVision))
+    _bstr_t InspectionVision;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetSelf ( );
+    _bstr_t GetMotionAxisControl ( );
+    _bstr_t GetDonorLiftingModule ( );
+    _bstr_t GetProcessTable ( );
+    _bstr_t GetInspectionVision ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Self (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MotionAxisControl (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DonorLiftingModule (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ProcessTable (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_InspectionVision (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("26e7490b-d8c8-440f-a3a7-ad715f9777db"))
+ICriticalControl : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetFetch))
+    _bstr_t Fetch;
+    __declspec(property(get=GetUpdate))
+    _bstr_t Update;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetFetch ( );
+    _bstr_t GetUpdate ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Fetch (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Update (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("0e6d46bc-8c64-4593-9c95-10ca6174bb34"))
+IDonorLiftingModule : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetFetch))
+    _bstr_t Fetch;
+    __declspec(property(get=GetContent))
+    _bstr_t Content;
+    __declspec(property(get=GetMove))
+    _bstr_t Move;
+    __declspec(property(get=GetAction))
+    _bstr_t Action;
+    __declspec(property(get=GetCameraChange))
+    _bstr_t CameraChange;
+    __declspec(property(get=GetDonorChuckVacuumOutput))
+    _bstr_t DonorChuckVacuumOutput;
+    __declspec(property(get=GetDonorLiftingModuleDTO))
+    _bstr_t DonorLiftingModuleDTO;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetFetch ( );
+    _bstr_t GetContent ( );
+    _bstr_t GetMove ( );
+    _bstr_t GetAction ( );
+    _bstr_t GetCameraChange ( );
+    _bstr_t GetDonorChuckVacuumOutput ( );
+    _bstr_t GetDonorLiftingModuleDTO ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Fetch (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Content (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Move (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Action (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CameraChange (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DonorChuckVacuumOutput (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DonorLiftingModuleDTO (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("0b984ce0-1129-45fc-bda7-1a6ff4d87869"))
+ICausewaySystem : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetDonorLiftingModule))
+    IDonorLiftingModulePtr DonorLiftingModule;
+    __declspec(property(get=GetInfo))
+    _bstr_t Info;
+    __declspec(property(get=GetFetch))
+    _bstr_t Fetch;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    IDonorLiftingModulePtr GetDonorLiftingModule ( );
+    _bstr_t GetInfo ( );
+    _bstr_t GetFetch ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_DonorLiftingModule (
+        /*[out,retval]*/ struct IDonorLiftingModule * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Info (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Fetch (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("de7b4804-668a-43e6-aeba-3a0884224479"))
+IInspectionVision : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetFetch))
+    _bstr_t Fetch;
+    __declspec(property(get=GetContent))
+    _bstr_t Content;
+    __declspec(property(get=GetConnect))
+    _bstr_t Connect;
+    __declspec(property(get=GetLive))
+    _bstr_t Live;
+    __declspec(property(get=GetTrigger))
+    _bstr_t Trigger;
+    __declspec(property(get=GetSave))
+    _bstr_t Save;
+    __declspec(property(get=GetExposureTime))
+    _bstr_t ExposureTime;
+    __declspec(property(get=GetGain))
+    _bstr_t Gain;
+    __declspec(property(get=GetGamma))
+    _bstr_t Gamma;
+    __declspec(property(get=GetGammaEnable))
+    _bstr_t GammaEnable;
+    __declspec(property(get=GetBlackLevel))
+    _bstr_t BlackLevel;
+    __declspec(property(get=GetSharpness))
+    _bstr_t Sharpness;
+    __declspec(property(get=GetZoomValue))
+    _bstr_t ZoomValue;
+    __declspec(property(get=GetScrollVertical))
+    _bstr_t ScrollVertical;
+    __declspec(property(get=GetScrollHorizontal))
+    _bstr_t ScrollHorizontal;
+    __declspec(property(get=GetInspectionVisionDTO))
+    _bstr_t InspectionVisionDTO;
+    __declspec(property(get=GetImageDTO))
+    _bstr_t ImageDTO;
+    __declspec(property(get=GetROIDTO))
+    _bstr_t ROIDTO;
+    __declspec(property(get=GetRegionDTO))
+    _bstr_t RegionDTO;
+    __declspec(property(get=GetCircleROIResultId))
+    _bstr_t CircleROIResultId;
+    __declspec(property(get=GetRectangleROIResultId))
+    _bstr_t RectangleROIResultId;
+    __declspec(property(get=GetEllipseROIResultId))
+    _bstr_t EllipseROIResultId;
+    __declspec(property(get=GetSaveResultCommandId))
+    _bstr_t SaveResultCommandId;
+    __declspec(property(get=GetMotionMovedId))
+    _bstr_t MotionMovedId;
+    __declspec(property(get=GetTeach))
+    _bstr_t Teach;
+    __declspec(property(get=GetNumLevelAutoNcc))
+    _bstr_t NumLevelAutoNcc;
+    __declspec(property(get=GetAngStepAuto))
+    _bstr_t AngStepAuto;
+    __declspec(property(get=GetNumLevel))
+    _bstr_t NumLevel;
+    __declspec(property(get=GetAngleStart))
+    _bstr_t AngleStart;
+    __declspec(property(get=GetAngleExtent))
+    _bstr_t AngleExtent;
+    __declspec(property(get=GetAngleStep))
+    _bstr_t AngleStep;
+    __declspec(property(get=GetCalibrationAction))
+    _bstr_t CalibrationAction;
+    __declspec(property(get=GetCalibrationResult))
+    _bstr_t CalibrationResult;
+    __declspec(property(get=GetCalibrationModelId))
+    _bstr_t CalibrationModelId;
+    __declspec(property(get=GetCalibrationModelIdSelection))
+    _bstr_t CalibrationModelIdSelection;
+    __declspec(property(get=GetStepSize))
+    _bstr_t StepSize;
+    __declspec(property(get=GetStepCount))
+    _bstr_t StepCount;
+    __declspec(property(get=GetTransactionX))
+    _bstr_t TransactionX;
+    __declspec(property(get=GetTransactionY))
+    _bstr_t TransactionY;
+    __declspec(property(get=GetRotation))
+    _bstr_t Rotation;
+    __declspec(property(get=GetScaleX))
+    _bstr_t ScaleX;
+    __declspec(property(get=GetScaleY))
+    _bstr_t ScaleY;
+    __declspec(property(get=GetPixelX))
+    _bstr_t PixelX;
+    __declspec(property(get=GetPixelY))
+    _bstr_t PixelY;
+    __declspec(property(get=GetFovX))
+    _bstr_t FovX;
+    __declspec(property(get=GetFovY))
+    _bstr_t FovY;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetFetch ( );
+    _bstr_t GetContent ( );
+    _bstr_t GetConnect ( );
+    _bstr_t GetLive ( );
+    _bstr_t GetTrigger ( );
+    _bstr_t GetSave ( );
+    _bstr_t GetExposureTime ( );
+    _bstr_t GetGain ( );
+    _bstr_t GetGamma ( );
+    _bstr_t GetGammaEnable ( );
+    _bstr_t GetBlackLevel ( );
+    _bstr_t GetSharpness ( );
+    _bstr_t GetZoomValue ( );
+    _bstr_t GetScrollVertical ( );
+    _bstr_t GetScrollHorizontal ( );
+    _bstr_t GetInspectionVisionDTO ( );
+    _bstr_t GetImageDTO ( );
+    _bstr_t GetROIDTO ( );
+    _bstr_t GetRegionDTO ( );
+    _bstr_t GetCircleROIResultId ( );
+    _bstr_t GetRectangleROIResultId ( );
+    _bstr_t GetEllipseROIResultId ( );
+    _bstr_t GetSaveResultCommandId ( );
+    _bstr_t GetMotionMovedId ( );
+    _bstr_t GetTeach ( );
+    _bstr_t GetNumLevelAutoNcc ( );
+    _bstr_t GetAngStepAuto ( );
+    _bstr_t GetNumLevel ( );
+    _bstr_t GetAngleStart ( );
+    _bstr_t GetAngleExtent ( );
+    _bstr_t GetAngleStep ( );
+    _bstr_t GetCalibrationAction ( );
+    _bstr_t GetCalibrationResult ( );
+    _bstr_t GetCalibrationModelId ( );
+    _bstr_t GetCalibrationModelIdSelection ( );
+    _bstr_t GetStepSize ( );
+    _bstr_t GetStepCount ( );
+    _bstr_t GetTransactionX ( );
+    _bstr_t GetTransactionY ( );
+    _bstr_t GetRotation ( );
+    _bstr_t GetScaleX ( );
+    _bstr_t GetScaleY ( );
+    _bstr_t GetPixelX ( );
+    _bstr_t GetPixelY ( );
+    _bstr_t GetFovX ( );
+    _bstr_t GetFovY ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Fetch (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Content (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Connect (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Live (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Trigger (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Save (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ExposureTime (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Gain (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Gamma (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GammaEnable (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_BlackLevel (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Sharpness (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ZoomValue (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ScrollVertical (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ScrollHorizontal (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_InspectionVisionDTO (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ImageDTO (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ROIDTO (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_RegionDTO (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CircleROIResultId (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_RectangleROIResultId (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_EllipseROIResultId (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_SaveResultCommandId (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MotionMovedId (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Teach (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_NumLevelAutoNcc (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_AngStepAuto (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_NumLevel (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_AngleStart (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_AngleExtent (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_AngleStep (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CalibrationAction (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CalibrationResult (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CalibrationModelId (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CalibrationModelIdSelection (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_StepSize (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_StepCount (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_TransactionX (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_TransactionY (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Rotation (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ScaleX (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ScaleY (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PixelX (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PixelY (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_FovX (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_FovY (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("6945bf15-4867-4e06-ad46-7fcbd431f7cc"))
+ILaserBasic : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetFetch))
+    _bstr_t Fetch;
+    __declspec(property(get=GetApply))
+    _bstr_t Apply;
+    __declspec(property(get=GetConnect))
+    _bstr_t Connect;
+    __declspec(property(get=GetStandBy))
+    _bstr_t StandBy;
+    __declspec(property(get=GetContent))
+    _bstr_t Content;
+    __declspec(property(get=GetOutput))
+    _bstr_t Output;
+    __declspec(property(get=GetLaserBasicDTO))
+    _bstr_t LaserBasicDTO;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetFetch ( );
+    _bstr_t GetApply ( );
+    _bstr_t GetConnect ( );
+    _bstr_t GetStandBy ( );
+    _bstr_t GetContent ( );
+    _bstr_t GetOutput ( );
+    _bstr_t GetLaserBasicDTO ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Fetch (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Apply (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Connect (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_StandBy (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Content (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Output (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_LaserBasicDTO (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("8fa0f66c-cb3c-419c-b83e-0a44badb4074"))
+ILaserBurst : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetFetch))
+    _bstr_t Fetch;
+    __declspec(property(get=GetApply))
+    _bstr_t Apply;
+    __declspec(property(get=GetContent))
+    _bstr_t Content;
+    __declspec(property(get=GetPowerlock))
+    _bstr_t Powerlock;
+    __declspec(property(get=GetLaserBurstDTO))
+    _bstr_t LaserBurstDTO;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetFetch ( );
+    _bstr_t GetApply ( );
+    _bstr_t GetContent ( );
+    _bstr_t GetPowerlock ( );
+    _bstr_t GetLaserBurstDTO ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Fetch (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Apply (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Content (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Powerlock (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_LaserBurstDTO (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("f59a39ec-d116-414c-acc2-fabbb17f7b42"))
+ILaser : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetLaserBurst))
+    ILaserBurstPtr LaserBurst;
+    __declspec(property(get=GetLaserBasic))
+    ILaserBasicPtr LaserBasic;
+    __declspec(property(get=GetInfo))
+    _bstr_t Info;
+    __declspec(property(get=GetFetch))
+    _bstr_t Fetch;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    ILaserBurstPtr GetLaserBurst ( );
+    ILaserBasicPtr GetLaserBasic ( );
+    _bstr_t GetInfo ( );
+    _bstr_t GetFetch ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_LaserBurst (
+        /*[out,retval]*/ struct ILaserBurst * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_LaserBasic (
+        /*[out,retval]*/ struct ILaserBasic * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Info (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Fetch (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("a293bdea-d4a1-4002-a0a6-d64c748bfb3a"))
+IMotionAxisControl : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetFetch))
+    _bstr_t Fetch;
+    __declspec(property(get=GetContent))
+    _bstr_t Content;
+    __declspec(property(get=GetChangeAxis))
+    _bstr_t ChangeAxis;
+    __declspec(property(get=GetAction))
+    _bstr_t Action;
+    __declspec(property(get=GetMotionAxisControlDTO))
+    _bstr_t MotionAxisControlDTO;
+    __declspec(property(get=GetMotionParamUpdates))
+    _bstr_t MotionParamUpdates;
+    __declspec(property(get=GetExecutingBtnStatus))
+    _bstr_t ExecutingBtnStatus;
+    __declspec(property(get=GetEnableBtnStatus))
+    _bstr_t EnableBtnStatus;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetFetch ( );
+    _bstr_t GetContent ( );
+    _bstr_t GetChangeAxis ( );
+    _bstr_t GetAction ( );
+    _bstr_t GetMotionAxisControlDTO ( );
+    _bstr_t GetMotionParamUpdates ( );
+    _bstr_t GetExecutingBtnStatus ( );
+    _bstr_t GetEnableBtnStatus ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Fetch (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Content (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ChangeAxis (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Action (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MotionAxisControlDTO (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MotionParamUpdates (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ExecutingBtnStatus (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_EnableBtnStatus (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("d97d5469-4360-4e6e-ac76-b8e062bb9f8a"))
+IMotionControl : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetProfiles))
+    _bstr_t Profiles;
+    __declspec(property(get=GetLogs))
+    _bstr_t Logs;
+    __declspec(property(get=GetCalculate))
+    _bstr_t Calculate;
+    __declspec(property(get=GetStart))
+    _bstr_t Start;
+    __declspec(property(get=GetStop))
+    _bstr_t Stop;
+    __declspec(property(get=GetKinematics))
+    _bstr_t Kinematics;
+    __declspec(property(get=GetKinematicsRoute))
+    _bstr_t KinematicsRoute;
+    __declspec(property(get=GetTestState))
+    _bstr_t TestState;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetProfiles ( );
+    _bstr_t GetLogs ( );
+    _bstr_t GetCalculate ( );
+    _bstr_t GetStart ( );
+    _bstr_t GetStop ( );
+    _bstr_t GetKinematics ( );
+    _bstr_t GetKinematicsRoute ( );
+    _bstr_t GetTestState ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Profiles (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Logs (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Calculate (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Start (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Stop (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Kinematics (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_KinematicsRoute (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_TestState (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("71b1a35b-8828-4b54-8542-ba28e8d25cc9"))
+IMotion : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetMotionControl))
+    IMotionControlPtr MotionControl;
+    __declspec(property(get=GetMotionAxisControl))
+    IMotionAxisControlPtr MotionAxisControl;
+    __declspec(property(get=GetInfo))
+    _bstr_t Info;
+    __declspec(property(get=GetFetch))
+    _bstr_t Fetch;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    IMotionControlPtr GetMotionControl ( );
+    IMotionAxisControlPtr GetMotionAxisControl ( );
+    _bstr_t GetInfo ( );
+    _bstr_t GetFetch ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_MotionControl (
+        /*[out,retval]*/ struct IMotionControl * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MotionAxisControl (
+        /*[out,retval]*/ struct IMotionAxisControl * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Info (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Fetch (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("e48d773f-a494-4ad5-b2d6-95624ab80eeb"))
+IProcessTable : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetFetch))
+    _bstr_t Fetch;
+    __declspec(property(get=GetContent))
+    _bstr_t Content;
+    __declspec(property(get=GetMove))
+    _bstr_t Move;
+    __declspec(property(get=GetAction))
+    _bstr_t Action;
+    __declspec(property(get=GetCameraChange))
+    _bstr_t CameraChange;
+    __declspec(property(get=GetSubstrateChuckVacuumOutput))
+    _bstr_t SubstrateChuckVacuumOutput;
+    __declspec(property(get=GetProcessTableDTO))
+    _bstr_t ProcessTableDTO;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetFetch ( );
+    _bstr_t GetContent ( );
+    _bstr_t GetMove ( );
+    _bstr_t GetAction ( );
+    _bstr_t GetCameraChange ( );
+    _bstr_t GetSubstrateChuckVacuumOutput ( );
+    _bstr_t GetProcessTableDTO ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Fetch (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Content (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Move (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Action (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CameraChange (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_SubstrateChuckVacuumOutput (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ProcessTableDTO (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("90752de1-a242-44ed-bad7-cd52d8f6ec22"))
+IProcessSystem : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetProcessTable))
+    IProcessTablePtr ProcessTable;
+    __declspec(property(get=GetInspectionVision))
+    IInspectionVisionPtr InspectionVision;
+    __declspec(property(get=GetInfo))
+    _bstr_t Info;
+    __declspec(property(get=GetFetch))
+    _bstr_t Fetch;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    IProcessTablePtr GetProcessTable ( );
+    IInspectionVisionPtr GetInspectionVision ( );
+    _bstr_t GetInfo ( );
+    _bstr_t GetFetch ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_ProcessTable (
+        /*[out,retval]*/ struct IProcessTable * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_InspectionVision (
+        /*[out,retval]*/ struct IInspectionVision * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Info (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Fetch (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("7fdf4b10-6866-42be-b572-1f7006e00527"))
+IVision : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetConnect))
+    _bstr_t Connect;
+    __declspec(property(get=GetTrigger))
+    _bstr_t Trigger;
+    __declspec(property(get=GetCameraParams))
+    _bstr_t CameraParams;
+    __declspec(property(get=GetExposure))
+    _bstr_t Exposure;
+    __declspec(property(get=GetLight))
+    _bstr_t Light;
+    __declspec(property(get=GetImageDTO))
+    _bstr_t ImageDTO;
+    __declspec(property(get=GetROIDTO))
+    _bstr_t ROIDTO;
+    __declspec(property(get=GetCircleROIResultId))
+    _bstr_t CircleROIResultId;
+    __declspec(property(get=GetRectangleROIResultId))
+    _bstr_t RectangleROIResultId;
+    __declspec(property(get=GetEllipseROIResultId))
+    _bstr_t EllipseROIResultId;
+    __declspec(property(get=GetSaveResultCommandId))
+    _bstr_t SaveResultCommandId;
+    __declspec(property(get=GetCamera))
+    ICameraPtr Camera;
+    __declspec(property(get=GetMotionMovedId))
+    _bstr_t MotionMovedId;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetConnect ( );
+    _bstr_t GetTrigger ( );
+    _bstr_t GetCameraParams ( );
+    _bstr_t GetExposure ( );
+    _bstr_t GetLight ( );
+    _bstr_t GetImageDTO ( );
+    _bstr_t GetROIDTO ( );
+    _bstr_t GetCircleROIResultId ( );
+    _bstr_t GetRectangleROIResultId ( );
+    _bstr_t GetEllipseROIResultId ( );
+    _bstr_t GetSaveResultCommandId ( );
+    ICameraPtr GetCamera ( );
+    _bstr_t GetMotionMovedId ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Connect (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Trigger (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CameraParams (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Exposure (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Light (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ImageDTO (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ROIDTO (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CircleROIResultId (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_RectangleROIResultId (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_EllipseROIResultId (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_SaveResultCommandId (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Camera (
+        /*[out,retval]*/ struct ICamera * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MotionMovedId (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("0767dabd-9db6-4481-8914-57e527c90190"))
+ISystem : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetLaser))
+    ILaserPtr Laser;
+    __declspec(property(get=GetCausewaySystem))
+    ICausewaySystemPtr CausewaySystem;
+    __declspec(property(get=GetProcessSystem))
+    IProcessSystemPtr ProcessSystem;
+    __declspec(property(get=GetVision))
+    IVisionPtr Vision;
+    __declspec(property(get=GetMotion))
+    IMotionPtr Motion;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    ILaserPtr GetLaser ( );
+    ICausewaySystemPtr GetCausewaySystem ( );
+    IProcessSystemPtr GetProcessSystem ( );
+    IVisionPtr GetVision ( );
+    IMotionPtr GetMotion ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Laser (
+        /*[out,retval]*/ struct ILaser * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CausewaySystem (
+        /*[out,retval]*/ struct ICausewaySystem * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ProcessSystem (
+        /*[out,retval]*/ struct IProcessSystem * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Vision (
+        /*[out,retval]*/ struct IVision * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Motion (
+        /*[out,retval]*/ struct IMotion * * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("907a04f2-3b5d-426b-9f08-a67ba1aa5873"))
+IMaster : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetMessage))
+    _bstr_t Message;
+    __declspec(property(get=GetSystem))
+    ISystemPtr System;
+    __declspec(property(get=GetConfiguration))
+    IConfigurationPtr Configuration;
+    __declspec(property(get=GetAlarm))
+    IAlarmPtr Alarm;
+    __declspec(property(get=GetCriticalControl))
+    ICriticalControlPtr CriticalControl;
+    __declspec(property(get=GetContent))
+    _bstr_t Content;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetMessage ( );
+    ISystemPtr GetSystem ( );
+    IConfigurationPtr GetConfiguration ( );
+    IAlarmPtr GetAlarm ( );
+    ICriticalControlPtr GetCriticalControl ( );
+    _bstr_t GetContent ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Message (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_System (
+        /*[out,retval]*/ struct ISystem * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Configuration (
+        /*[out,retval]*/ struct IConfiguration * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Alarm (
+        /*[out,retval]*/ struct IAlarm * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CriticalControl (
+        /*[out,retval]*/ struct ICriticalControl * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Content (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("f198643e-f54c-4687-8b90-9259ca6e005d"))
+Alarm;
+    // [ default ] interface IAlarm
+
+struct __declspec(uuid("3c95f053-0e54-4fcd-b42f-ee25a954a168"))
+Camera;
+    // [ default ] interface ICamera
+
+struct __declspec(uuid("c210fd04-4537-4be9-8975-267c9009cd2d"))
+CausewaySystem;
+    // [ default ] interface ICausewaySystem
+
+struct __declspec(uuid("2749a840-968a-41e1-94d7-c43ecf6e21f0"))
+Configuration;
+    // [ default ] interface IConfiguration
+
+struct __declspec(uuid("10b5fe40-379e-4963-ab71-25c6cb603435"))
+CriticalControl;
+    // [ default ] interface ICriticalControl
+
+struct __declspec(uuid("33990010-44b4-41a9-ad9b-3516b0f856c8"))
+DonorLiftingModule;
+    // [ default ] interface IDonorLiftingModule
+
+struct __declspec(uuid("785e1556-1e00-4c43-b7f9-27508f84643a"))
+InspectionVision;
+    // [ default ] interface IInspectionVision
+
+struct __declspec(uuid("560ab0aa-0f32-41bc-98f2-eca07547bdd9"))
+Laser;
+    // [ default ] interface ILaser
+
+struct __declspec(uuid("94b708e2-40dc-45f3-a940-194bced2d051"))
+LaserBasic;
+    // [ default ] interface ILaserBasic
+
+struct __declspec(uuid("df0b7385-14b9-4903-9fec-96829fec892c"))
+LaserBurst;
+    // [ default ] interface ILaserBurst
+
+struct __declspec(uuid("3e890b5d-71a4-4c3b-a56b-42cbdda3cd7f"))
+Master;
+    // [ default ] interface IMaster
+
+struct __declspec(uuid("dda897ed-d702-4263-ac2b-361465c11e81"))
+Motion;
+    // [ default ] interface IMotion
+
+struct __declspec(uuid("e7d89a6f-7ebf-4bb4-9823-c54b3d027693"))
+MotionAxisControl;
+    // [ default ] interface IMotionAxisControl
+
+struct __declspec(uuid("c783bcf4-5333-40e7-9ba4-235d3fec2e96"))
+MotionControl;
+    // [ default ] interface IMotionControl
+
+struct __declspec(uuid("70dd3ecf-ae65-4b71-b012-07bd1ab9428f"))
+ProcessSystem;
+    // [ default ] interface IProcessSystem
+
+struct __declspec(uuid("126d4578-7d90-473e-822b-3a1d9686c5fc"))
+ProcessTable;
+    // [ default ] interface IProcessTable
+
+struct __declspec(uuid("8b2ccf45-5c2d-4910-b52c-2c99a2d8759f"))
+System;
+    // [ default ] interface ISystem
+
+struct __declspec(uuid("6c19b496-2e0f-45e8-9f9b-c42fb1c40f2c"))
+Vision;
+    // [ default ] interface IVision
+
+struct __declspec(uuid("0f62f43c-1d65-fdef-d425-bce24b7709f2"))
+_BaseMessageHandler : IDispatch
+{};
+
+//
+// Wrapper method implementations
+//
+
+#include "C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\CommonLib.tli"
+
+} // namespace CommonLib
+
+#pragma pack(pop)

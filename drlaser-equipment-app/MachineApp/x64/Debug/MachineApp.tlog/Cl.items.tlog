@@ -1,0 +1,17 @@
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\AlarmStorage.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\AlarmStorage.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\AlarmCallBack.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\AlarmCallBack.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\CriticalAction.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\CriticalAction.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\CriticalActionCallback.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\CriticalActionCallback.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\DonorLiftingModuleConfigurationCallBack.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\DonorLiftingModuleConfigurationCallBack.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\Helper.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\Helper.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\InspectionVisionCallBack.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\InspectionVisionCallBack.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\InspectionVisionConfigurationCallBack.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\InspectionVisionConfigurationCallBack.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\LaserCallBack.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\LaserCallBack.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\ConfigurationCallBack.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\ConfigurationCallBack.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\MotionAxisControlConfigurationCallBack.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\MotionAxisControlConfigurationCallBack.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\MotionCallBack.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\MotionCallBack.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\PingCallBack.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\PingCallBack.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\ProcessTableConfigurationCallBack.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\ProcessTableConfigurationCallBack.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\RPCQueueHandler.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\RPCQueueHandler.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\main.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\main.obj
+C:\ZWave-HQ\drlaser-equipment-app\MachineApp\VisionCallBack.cpp;C:\ZWave-HQ\drlaser-equipment-app\MachineApp\x64\Debug\VisionCallBack.obj

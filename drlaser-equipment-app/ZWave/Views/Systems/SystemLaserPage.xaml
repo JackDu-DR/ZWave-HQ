@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Views.Systems.SystemLaserPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:converters="clr-namespace:ZWave.Converters"
+    xmlns:local="clr-namespace:ZWave.Views"
+    xmlns:systems="clr-namespace:ZWave.Views.Systems"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Systems"
+    x:DataType="viewmodel:SystemLaserPageViewModel"
+    BackgroundColor="{StaticResource GreyNeutral3}">
+    <ContentView.BindingContext>
+        <viewmodel:SystemLaserPageViewModel />
+    </ContentView.BindingContext>
+    <ContentView.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding LoadedCommand}" EventName="Loaded" />
+        <toolkit:EventToCommandBehavior Command="{Binding UnloadedCommand}" EventName="Unloaded" />
+    </ContentView.Behaviors>
+    <ContentView.Resources>
+        <converters:BooleanToConnectionStatusColor x:Key="booleanToConnectionStatusColor" />
+        <converters:OperationalStatusToColor x:Key="operationalStatusToColor" />
+        <converters:BooleanToEmissionStatusColor x:Key="booleanToEmissionStatusColor" />
+        <converters:LaserStatusRangeToColor x:Key="laserStatusRangeToColor" />
+        <converters:SelectedTabToCommandPanelVisibleConverter x:Key="SelectedTabToCommandPanelVisibleConverter" />
+        <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+    </ContentView.Resources>
+    <Grid ColumnDefinitions="*, auto">
+        <Border
+            Grid.Column="0"
+            BackgroundColor="White"
+            Stroke="Transparent"
+            VerticalOptions="FillAndExpand">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0,8,8,8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Opacity="0.1"
+                    Radius="4"
+                    Offset="0,2" />
+            </Border.Shadow>
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <HorizontalStackLayout Margin="{StaticResource MarginLT}" Padding="0">
+                    <controls:StatusLabel
+                        Title="{Binding Localization[LaserConnection]}"
+                        StatusColor="{Binding LaserConnectionStatus, Converter={StaticResource booleanToConnectionStatusColor}}"
+                        StatusText="{Binding LaserConnectionValue}"
+                        VerticalOptions="Start" />
+                    <BoxView Style="{StaticResource VerticalDivider}" />
+                    <controls:StatusLabel
+                        Title="{Binding Localization[LaserOperation]}"
+                        StatusColor="{Binding OperationalStatus, Converter={StaticResource operationalStatusToColor}}"
+                        StatusText="{Binding Localization[Operational]}"
+                        VerticalOptions="Start" />
+                    <BoxView Style="{StaticResource VerticalDivider}" />
+                    <controls:StatusLabel
+                        Title="{Binding Localization[Emission]}"
+                        StatusColor="{Binding EmissionStatus, Converter={StaticResource booleanToEmissionStatusColor}}"
+                        StatusText="{Binding EmissionValue}"
+                        VerticalOptions="Start" />
+                    <BoxView Style="{StaticResource VerticalDivider}" />
+                    <controls:StatusLabel
+                        Title="{Binding Localization[LaserPowerEnergy]}"
+                        StatusColor="{Binding LaserPowerRange, Converter={StaticResource laserStatusRangeToColor}}"
+                        StatusText="{Binding PowerEnergyValue}"
+                        VerticalOptions="Start" />
+                    <BoxView Style="{StaticResource VerticalDivider}" />
+                    <controls:StatusLabel
+                        Title="{Binding Localization[FrequencyPulseDivider]}"
+                        StatusColor="{Binding FrequencyRange, Converter={StaticResource laserStatusRangeToColor}}"
+                        StatusText="{Binding FrequencyPulseDividerValue}"
+                        VerticalOptions="Start" />
+                    <BoxView Style="{StaticResource VerticalDivider}" />
+                    <controls:StatusLabel
+                        Title="{Binding Localization[WaveLength]}"
+                        StatusColor="{Binding WaveLengthRange, Converter={StaticResource laserStatusRangeToColor}}"
+                        StatusText="{Binding WaveLengthValue}"
+                        VerticalOptions="Start" />
+                </HorizontalStackLayout>
+                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                    <controls:CustomTabView
+                        x:Name="TabView"
+                        BackgroundColor="{StaticResource White}"
+                        CurrentItem="{x:Reference Basic}"
+                        VerticalOptions="FillAndExpand">
+                        <controls:CustomTabView.TabItems>
+                            <controls:CustomTabItem
+                                x:Name="Basic"
+                                Title="{Binding Localization[Basic]}"
+                                BorderVisible="False"
+                                IndicatorIsVisible="True"
+                                TabType="LaserBasic" />
+                            <controls:CustomTabItem
+                                Title="{Binding Localization[BurstControl]}"
+                                BorderVisible="False"
+                                IndicatorIsVisible="True"
+                                TabType="LaserBurst" />
+                            <controls:CustomTabItem
+                                Title="{Binding Localization[ExternalControls]}"
+                                BorderVisible="False"
+                                IndicatorIsVisible="True"
+                                TabType="LaserExternal" />
+                            <controls:CustomTabItem
+                                Title="{Binding Localization[Advanced]}"
+                                BorderVisible="False"
+                                IndicatorIsVisible="True"
+                                TabType="LaserExternal" />
+                            <controls:CustomTabItem
+                                Title="{Binding Localization[PresetEditor]}"
+                                BorderVisible="False"
+                                IndicatorIsVisible="True"
+                                TabType="LaserExternal" />
+                        </controls:CustomTabView.TabItems>
+                    </controls:CustomTabView>
+                </StackLayout>
+            </StackLayout>
+        </Border>
+
+        <Border
+            Grid.Column="1"
+            Margin="{StaticResource MarginL}"
+            BackgroundColor="Transparent"
+            IsVisible="{Binding Source={x:Reference TabView}, Path=CurrentItem, Converter={StaticResource SelectedTabToCommandPanelVisibleConverter}}"
+            Stroke="Transparent"
+            VerticalOptions="FillAndExpand">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Black}"
+                    Opacity="0.1"
+                    Radius="4"
+                    Offset="0,2" />
+            </Border.Shadow>
+            <VerticalStackLayout
+                Padding="{StaticResource GenericSpacing}"
+                BackgroundColor="{StaticResource White}"
+                Spacing="{StaticResource GenericSpacing}">
+                <Button
+                    BackgroundColor="White"
+                    BorderColor="{StaticResource GreyNeutral5}"
+                    BorderWidth="1"
+                    Command="{Binding ConnectCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HeightRequest="{StaticResource CommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                    Text="{Binding Localization[Connect]}"
+                    TextColor="{StaticResource GreyNeutral14}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+                <Button
+                    BackgroundColor="White"
+                    BorderColor="{StaticResource GreyNeutral5}"
+                    BorderWidth="1"
+                    Command="{Binding StandbyCommand}"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HeightRequest="{StaticResource CommandButtonHeight}"
+                    HorizontalOptions="Center"
+                    IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                    Text="{Binding Localization[Standby]}"
+                    TextColor="{StaticResource GreyNeutral14}"
+                    WidthRequest="{StaticResource CommandButtonWidth}" />
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentView>

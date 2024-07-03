@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Border
+    x:Class="ZWave.Controls.CustomEditor"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="EditorBorder"
+    Stroke="Transparent">
+    <Border.StrokeShape>
+        <RoundRectangle CornerRadius="4" />
+    </Border.StrokeShape>
+    <Editor
+        x:Name="Editor"
+        TextChanged="Editor_TextChanged"
+        BackgroundColor="{Binding Source={x:Reference EditorBorder}, Path=BackgroundColor}"
+        FontSize="{StaticResource Body1FontSize}"
+        IsEnabled="{Binding Source={x:Reference EditorBorder}, Path=IsEnabled}"
+        IsReadOnly="{Binding Source={x:Reference EditorBorder}, Path=IsReadOnly}"
+        Placeholder="{Binding Source={x:Reference EditorBorder}, Path=Placeholder}"
+        Text="{Binding Source={x:Reference EditorBorder}, Path=Text}"
+        TextColor="{Binding Source={x:Reference EditorBorder}, Path=TextColor}"
+        VerticalOptions="FillAndExpand" />
+</Border>

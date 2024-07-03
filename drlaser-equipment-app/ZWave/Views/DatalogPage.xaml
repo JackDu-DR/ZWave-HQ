@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Views.DatalogPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:converters="clr-namespace:ZWave.Converters"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels">
+    <ContentView.BindingContext>
+        <viewmodel:DatalogPageViewModel />
+    </ContentView.BindingContext>
+    <ContentView.Resources>
+        <converters:AlternatingColorValueConverter
+            x:Key="GrayRowColorConverter"
+            EvenNumberColor="{StaticResource GreyNeutral2}"
+            OddNumberColor="Transparent" />
+    </ContentView.Resources>
+    <controls:ShadowContainer Margin="{StaticResource MarginLTR}">
+        <Grid
+            Padding="{StaticResource GenericSpacing}"
+            RowDefinitions="Auto, Auto, *"
+            RowSpacing="{StaticResource GenericSpacing}">
+            <Label
+                Grid.Row="0"
+                FontAttributes="Bold"
+                FontSize="{StaticResource LargeFontSize}"
+                Text="{Binding Localization[Datalog]}" />
+            <HorizontalStackLayout Grid.Row="1" Spacing="{StaticResource GenericSpacing}">
+                <Label Text="{Binding Localization[From]}" VerticalOptions="Center" />
+                <DatePicker Date="{Binding DateFrom}" WidthRequest="{StaticResource DatalogDatePickerWidth}" />
+                <Label Text="{Binding Localization[To]}" VerticalOptions="Center" />
+                <DatePicker Date="{Binding DateTo}" WidthRequest="{StaticResource DatalogDatePickerWidth}" />
+                <Button
+                    Command="{Binding ExportCommand}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    Text="{Binding Localization[Export]}" />
+            </HorizontalStackLayout>
+            <Border
+                Grid.Row="2"
+                Stroke="{StaticResource GreyNeutral5}"
+                StrokeThickness="1">
+                <StackLayout Orientation="Vertical">
+                    <Grid Padding="{StaticResource SmallSpacing}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource DatalogTableColumnWidth}" />
+                            <ColumnDefinition Width="{StaticResource DatalogTableColumnWidth}" />
+                            <ColumnDefinition Width="{StaticResource DatalogTableColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+                            FontSize="{StaticResource Body2FontSize}"
+                            Text="{Binding Localization[Timestamp]}"
+                            TextColor="{StaticResource GreyNeutral11}" />
+                        <Label
+                            Grid.Column="1"
+                            FontSize="{StaticResource Body2FontSize}"
+                            Text="{Binding Localization[Type]}"
+                            TextColor="{StaticResource GreyNeutral11}" />
+                        <Label
+                            Grid.Column="2"
+                            FontSize="{StaticResource Body2FontSize}"
+                            Text="{Binding Localization[From]}"
+                            TextColor="{StaticResource GreyNeutral11}" />
+                        <Label
+                            Grid.Column="3"
+                            FontSize="{StaticResource Body2FontSize}"
+                            Text="{Binding Localization[Message]}"
+                            TextColor="{StaticResource GreyNeutral11}"
+                            VerticalOptions="End" />
+                    </Grid>
+                    <BoxView HeightRequest="1" Color="{StaticResource GreyNeutral5}" />
+                    <ListView
+                        IsPullToRefreshEnabled="true"
+                        IsRefreshing="{Binding IsRefreshing}"
+                        ItemsSource="{Binding LogItems}"
+                        RefreshCommand="{Binding RefreshCommand}"
+                        SelectionMode="None"
+                        VerticalOptions="FillAndExpand">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <VerticalStackLayout>
+                                        <Grid Padding="{StaticResource GenericSpacing}" BackgroundColor="{Binding Index, Converter={StaticResource GrayRowColorConverter}}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="{StaticResource DatalogTableColumnWidth}" />
+                                                <ColumnDefinition Width="{StaticResource DatalogTableColumnWidth}" />
+                                                <ColumnDefinition Width="{StaticResource DatalogTableColumnWidth}" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                Grid.Column="0"
+                                                FontSize="{StaticResource Body2FontSize}"
+                                                Text="{Binding CreatedTime}" />
+                                            <Label
+                                                Grid.Column="1"
+                                                FontSize="{StaticResource Body2FontSize}"
+                                                Text="{Binding Action}" />
+                                            <Label
+                                                Grid.Column="2"
+                                                FontSize="{StaticResource Body2FontSize}"
+                                                Text="{Binding UserName}" />
+                                            <Label
+                                                Grid.Column="3"
+                                                FontSize="{StaticResource Body2FontSize}"
+                                                Text="{Binding Message}"
+                                                VerticalOptions="End" />
+                                        </Grid>
+                                        <BoxView HeightRequest="1" Color="{StaticResource GreyNeutral5}" />
+                                    </VerticalStackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Border>
+        </Grid>
+    </controls:ShadowContainer>
+</ContentView>

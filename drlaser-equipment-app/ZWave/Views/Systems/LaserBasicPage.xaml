@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Views.Systems.LaserBasicPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:converters="clr-namespace:ZWave.Converters"
+    xmlns:local="clr-namespace:ZWave.Views"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Systems"
+    x:DataType="viewmodel:LaserBasicPageViewModel">
+    <ContentView.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding LoadedCommand}" EventName="Loaded" />
+        <toolkit:EventToCommandBehavior Command="{Binding UnloadedCommand}" EventName="Unloaded" />
+    </ContentView.Behaviors>
+    <ContentView.Resources>
+        <converters:BoolToSelectedState x:Key="boolToSelectedState" />
+        <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+    </ContentView.Resources>
+    <VerticalStackLayout Padding="{StaticResource GenericSpacing}" Spacing="{StaticResource GenericSpacing}">
+        <HorizontalStackLayout>
+            <Label
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                FontSize="{StaticResource Body2FontSize}"
+                Text="{Binding Localization[OutputControl]}"
+                VerticalOptions="Center"
+                WidthRequest="{StaticResource LaserBasicLeftSideLabelWidth}" />
+            <StackLayout Margin="{StaticResource ControlMarginTop}" VerticalOptions="Center">
+                <controls:StateButton
+                    HeightRequest="{StaticResource LaserBasicStateButtonHeight}"
+                    IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                    LeftText="{Binding Localization[Enabled]}"
+                    RightText="{Binding Localization[Disable]}"
+                    SelectState="{Binding LaserBasicModel.IsOutputEnabled, Converter={StaticResource boolToSelectedState}}"
+                    SelectedColor="{StaticResource White}"
+                    UnselectedColor="{StaticResource GreyNeutral3}"
+                    WidthRequest="{StaticResource LaserBasicRightSideControlWidth}" />
+            </StackLayout>
+        </HorizontalStackLayout>
+        <VerticalStackLayout
+            HorizontalOptions="Start"
+            Spacing="{StaticResource GenericSpacing}"
+            WidthRequest="{StaticResource LaserBasicOtherSettingsWidth}">
+            <Label
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                FontSize="{StaticResource Body2FontSize}"
+                Text="{Binding Localization[OtherSettings]}" />
+            <HorizontalStackLayout Margin="{StaticResource LaserBasicPresetContainerMargin}" HeightRequest="{StaticResource EntryHeight}">
+                <Label
+                    FontSize="{StaticResource Body2FontSize}"
+                    Text="{Binding Localization[Preset]}"
+                    VerticalOptions="Center"
+                    WidthRequest="{StaticResource LaserBasicLeftSideLabelWidth}" />
+                <HorizontalStackLayout Spacing="{StaticResource SmallSpacing}">
+                    <Border
+                        x:Name="RightEntryLayout"
+                        Grid.Column="1"
+                        HeightRequest="{StaticResource EntryHeight}"
+                        Stroke="#CCE1E1E1"
+                        StrokeThickness="1">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="4" />
+                        </Border.StrokeShape>
+                        <Entry
+                            Background="{StaticResource GreyNeutral3}"
+                            FontSize="{StaticResource Body2FontSize}"
+                            IsEnabled="False"
+                            Text="{Binding LaserBasicModel.ActualPresetControl}"
+                            WidthRequest="{StaticResource LaserBasicPresetEntryWidth}" />
+                    </Border>
+                    <controls:CustomPicker
+                        x:Name="picker"
+                        FontSize="{StaticResource Body2FontSize}"
+                        HeightRequest="{StaticResource EntryHeight}"
+                        HorizontalOptions="Start"
+                        ItemsSource="{Binding PresetItemsSource}"
+                        SelectedItem="{Binding LaserBasicModel.PresetControl}"
+                        VerticalOptions="Center"
+                        WidthRequest="{StaticResource LaserBasicPresetPickerWidth}" />
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            <controls:EntryWithTitle
+                Title="{Binding Localization[AttenuatorPercentage]}"
+                EntryContainerWidthRequest="{StaticResource LaserBasicRightSideControlWidth}"
+                Keyboard="Numeric"
+                LeftEntryEnabled="False"
+                LeftText="{Binding LaserBasicModel.ActualAttenuatorPercentage}"
+                RightText="{Binding LaserBasicModel.AttenuatorPercentage}"
+                TitleWidthRequest="{StaticResource LaserBasicLeftSideLabelWidth}" />
+            <controls:EntryWithTitle
+                Title="{Binding Localization[PPDivider]}"
+                EntryContainerWidthRequest="{StaticResource LaserBasicRightSideControlWidth}"
+                Keyboard="Numeric"
+                LeftEntryEnabled="False"
+                LeftText="{Binding LaserBasicModel.ActualPPDivider}"
+                Orientation="Horizontal"
+                RightText="{Binding LaserBasicModel.PPDivider}"
+                TitleWidthRequest="{StaticResource LaserBasicLeftSideLabelWidth}" />
+            <controls:EntryWithTitle
+                Title="{Binding Localization[PulseDuration]}"
+                EntryContainerWidthRequest="{StaticResource LaserBasicRightSideControlWidth}"
+                Keyboard="Numeric"
+                LeftEntryEnabled="False"
+                LeftText="{Binding LaserBasicModel.ActualPulseDuration}"
+                RightText="{Binding LaserBasicModel.PulseDuration}"
+                TitleWidthRequest="{StaticResource LaserBasicLeftSideLabelWidth}" />
+
+            <Button
+                Margin="{StaticResource MarginT}"
+                BackgroundColor="White"
+                BorderColor="{StaticResource GreyNeutral5}"
+                BorderWidth="1"
+                Command="{Binding ApplyCommand}"
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                FontSize="{StaticResource Body2FontSize}"
+                HeightRequest="{StaticResource LaserBasicApplyButtonHeight}"
+                HorizontalOptions="End"
+                IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                Text="{Binding Localization[Apply]}"
+                TextColor="{StaticResource GreyNeutral14}"
+                WidthRequest="{StaticResource LaserBasicApplyButtonWidth}" />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentView>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Views.JobsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:jobs="clr-namespace:ZWave.Views.Jobs"
+    xmlns:strings="clr-namespace:ZWave.Resources.Strings"
+    Padding="{StaticResource MarginLTR}">
+    <controls:CustomTabView x:Name="JobTab" CurrentItem="{x:Reference Main1}">
+        <controls:CustomTabView.TabItems>
+            <controls:CustomTabItem
+                x:Name="Main1"
+                Title="{Binding Localization[Main1]}"
+                CornerRadius="8,0,0,0"
+                TabColor="{StaticResource GreyNeutral3}"
+                TabType="JobMain1" />
+            <controls:CustomTabItem
+                x:Name="Main2"
+                Title="{Binding Localization[Main2]}"
+                CornerRadius="8,0,0,0"
+                TabColor="{StaticResource GreyNeutral3}"
+                TabType="JobMain2" />
+        </controls:CustomTabView.TabItems>
+    </controls:CustomTabView>
+</ContentView>

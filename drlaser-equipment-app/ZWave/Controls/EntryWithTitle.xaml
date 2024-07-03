@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Controls.EntryWithTitle"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Grid x:Name="Container">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{StaticResource EntryWithTitleControlsTitleWidth}" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Label
+            x:Name="TitleLabel"
+            Grid.Column="0"
+            FontSize="{StaticResource Body2FontSize}"
+            VerticalOptions="Center" />
+        <Grid
+            x:Name="Grid"
+            Grid.Column="1"
+            ColumnSpacing="{StaticResource SmallSpacing}"
+            HorizontalOptions="Start">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="{StaticResource EntryWithTitleControlsUnitWidth}" />
+            </Grid.ColumnDefinitions>
+            <Grid
+                x:Name="LeftEntryGrid"
+                Grid.Column="0"
+                RowSpacing="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{StaticResource EntryHeight}" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border
+                    x:Name="LeftEntryLayout"
+                    Grid.Row="0"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="4" />
+                    </Border.StrokeShape>
+                    <Entry
+                        x:Name="LeftEntry"
+                        BackgroundColor="White"
+                        FontSize="{StaticResource Body2FontSize}"
+                        HeightRequest="{StaticResource EntryHeight}"
+                        TextChanged="OnLeftTextChange"
+                        VerticalTextAlignment="Center" />
+                </Border>
+                <Label
+                    x:Name="InvalidMessageLeftLabel"
+                    Grid.Row="1"
+                    FontSize="{StaticResource Caption1FontSize}"
+                    TextColor="{StaticResource Red6}" />
+            </Grid>
+            <Grid
+                x:Name="RightEntryGrid"
+                Grid.Column="1"
+                RowSpacing="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{StaticResource EntryHeight}" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border
+                    x:Name="RightEntryLayout"
+                    Grid.Row="0"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="4" />
+                    </Border.StrokeShape>
+                    <Entry
+                        x:Name="RightEntry"
+                        BackgroundColor="White"
+                        FontSize="{StaticResource Body2FontSize}"
+                        HeightRequest="{StaticResource EntryHeight}"
+                        TextChanged="OnRightTextChange"
+                        VerticalTextAlignment="Center" />
+                </Border>
+                <Label
+                    x:Name="InvalidMessageRightLabel"
+                    Grid.Row="1"
+                    FontSize="{StaticResource Caption1FontSize}"
+                    TextColor="{StaticResource Red6}" />
+            </Grid>
+            <Label
+                x:Name="UnitLabel"
+                Grid.Column="2"
+                FontSize="{StaticResource Body2FontSize}"
+                HorizontalOptions="Start"
+                Text="mm"
+                VerticalOptions="Center" />
+        </Grid>
+    </Grid>
+</ContentView>

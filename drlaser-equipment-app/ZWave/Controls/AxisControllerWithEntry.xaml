@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ZWave.Controls"
+             x:Class="ZWave.Controls.AxisControllerWithEntry">
+    <Grid Margin="5" ColumnSpacing="{OnPlatform WinUI='50', Android='10'}" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{OnPlatform WinUI='.2*', Android='.17*'}" />
+            <ColumnDefinition Width=".5*" />
+            <ColumnDefinition Width="{OnPlatform WinUI='.3*', Android='.33*'}" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" ColumnSpacing="{OnPlatform WinUI='5', Android='2'}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="{OnPlatform WinUI='40', Android='20'}" />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="AxisType"  Grid.Column="0" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+            <controls:CustomButtonWithIconText       
+                x:Name="HomeBtn"
+                Grid.Column="1" 
+                ButtonIconSource="home.png"
+                ButtonText=""
+                ButtonIconWidth="20"
+                ButtonWidth="20"
+                HorizontalOptions="EndAndExpand"
+                Clicked="OnHomeBtnClicked" />
+        </Grid>
+
+        <StackLayout Grid.Column="1" Orientation="Horizontal" Spacing="{OnPlatform WinUI= '20', Android='10'}" >
+            <controls:MultipleArrowWithImage
+                x:Name="ArrowContentLeft1"
+                Clicked="OnIconMoveBtnClicked" />
+            <controls:MultipleArrowWithImage
+                x:Name="ArrowContentLeft2"
+                Clicked="OnIconMoveBtnClicked" />
+            <controls:MultipleArrowWithImage
+                x:Name="ArrowContentLeft3"
+                Clicked="OnIconMoveBtnClicked" />
+
+            <StackLayout Margin="{OnPlatform WinUI= '10,0,10,0', Android='2,0,2,0'}" />
+
+            <controls:MultipleArrowWithImage
+                x:Name="ArrowContentRight1"
+                Clicked="OnIconMoveBtnClicked" />
+            <controls:MultipleArrowWithImage
+                x:Name="ArrowContentRight2"
+                Clicked="OnIconMoveBtnClicked" />
+            <controls:MultipleArrowWithImage
+                x:Name="ArrowContentRight3"
+                Clicked="OnIconMoveBtnClicked" />
+        </StackLayout>
+
+        <StackLayout Grid.Column="2" Orientation="Horizontal" Spacing="15">
+            <Border
+                Grid.Column="0"
+                Stroke="#CCE1E1E1"
+                StrokeThickness="1"
+                >
+                <Border.StrokeShape>
+                    <RoundRectangle
+                        CornerRadius="4,4,4,4" />
+                </Border.StrokeShape>
+                <controls:CustomNumberEntryField x:Name="AxisMoveNumberInput" PropertyChanged="AxisMoveNumberInput_PropertyChanged" FieldTotalWidth="{OnPlatform WinUI= '100', Android='70'}" />
+            </Border>
+
+            <Label x:Name="AxisUnitTypeText" FontAttributes="Bold" Margin="-10" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <controls:CustomButtonWithIconText
+                x:Name="AxisMoveIcon1"
+                ButtonIconWidth="20"
+                ButtonWidth="30"   
+                ButtonIconSource="single_arrow_red.png"
+                ButtonText=""
+                Clicked="OnMoveBtnClicked" />
+            <controls:CustomButtonWithIconText
+                x:Name="AxisMoveIcon2"
+                ButtonIconWidth="20"
+                ButtonWidth="30"    
+                ButtonIconSource="single_arrow_red.png"
+                ButtonText=""
+                Clicked="OnMoveBtnClicked" />
+        </StackLayout>
+    </Grid>
+</ContentView>

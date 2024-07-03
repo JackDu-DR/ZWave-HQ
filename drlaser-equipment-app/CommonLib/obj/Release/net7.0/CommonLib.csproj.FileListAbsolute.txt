@@ -1,0 +1,16 @@
+C:\ZWave-HQ\drlaser-equipment-app\bin\net7.0\CommonLib.comhost.dll
+C:\ZWave-HQ\drlaser-equipment-app\bin\net7.0\CommonLib.deps.json
+C:\ZWave-HQ\drlaser-equipment-app\bin\net7.0\CommonLib.runtimeconfig.json
+C:\ZWave-HQ\drlaser-equipment-app\bin\net7.0\CommonLib.dll
+C:\ZWave-HQ\drlaser-equipment-app\bin\net7.0\CommonLib.pdb
+C:\ZWave-HQ\drlaser-equipment-app\CommonLib\obj\Release\net7.0\CommonLib.csproj.AssemblyReference.cache
+C:\ZWave-HQ\drlaser-equipment-app\CommonLib\obj\Release\net7.0\CommonLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\ZWave-HQ\drlaser-equipment-app\CommonLib\obj\Release\net7.0\CommonLib.AssemblyInfoInputs.cache
+C:\ZWave-HQ\drlaser-equipment-app\CommonLib\obj\Release\net7.0\CommonLib.AssemblyInfo.cs
+C:\ZWave-HQ\drlaser-equipment-app\CommonLib\obj\Release\net7.0\CommonLib.csproj.CoreCompileInputs.cache
+C:\ZWave-HQ\drlaser-equipment-app\CommonLib\obj\Release\net7.0\CommonLib.csproj.Up2Date
+C:\ZWave-HQ\drlaser-equipment-app\CommonLib\obj\Release\net7.0\CommonLib.dll
+C:\ZWave-HQ\drlaser-equipment-app\CommonLib\obj\Release\net7.0\refint\CommonLib.dll
+C:\ZWave-HQ\drlaser-equipment-app\CommonLib\obj\Release\net7.0\CommonLib.pdb
+C:\ZWave-HQ\drlaser-equipment-app\CommonLib\obj\Release\net7.0\CommonLib.genruntimeconfig.cache
+C:\ZWave-HQ\drlaser-equipment-app\CommonLib\obj\Release\net7.0\ref\CommonLib.dll

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Views.Systems.LaserBurstControlPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:converters="clr-namespace:ZWave.Converters"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Systems"
+    x:DataType="viewmodel:LaserBurstPageViewModel">
+    <ContentView.BindingContext>
+        <viewmodel:LaserBurstPageViewModel />
+    </ContentView.BindingContext>
+    <ContentView.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding LoadedCommand}" EventName="Loaded" />
+        <toolkit:EventToCommandBehavior Command="{Binding UnloadedCommand}" EventName="Unloaded" />
+    </ContentView.Behaviors>
+    <ContentView.Resources>
+        <converters:BoolToSelectedState x:Key="boolToSelectedState" />
+        <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+    </ContentView.Resources>
+    <VerticalStackLayout Padding="{StaticResource GenericSpacing}" Spacing="{StaticResource GenericSpacing}">
+        <HorizontalStackLayout>
+            <Label
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                FontSize="{StaticResource Body2FontSize}"
+                Text="{Binding Localization[Powerlock]}"
+                VerticalOptions="Center"
+                WidthRequest="{StaticResource LaserBurstLeftSideLabelWidth}" />
+            <StackLayout Margin="{StaticResource ControlMarginTop}" VerticalOptions="Center">
+                <controls:StateButton
+                    HeightRequest="{StaticResource LaserBurstStateButtonHeight}"
+                    IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                    LeftText="{Binding Localization[Enabled]}"
+                    RightText="{Binding Localization[Disable]}"
+                    SelectState="{Binding IsPowerlockEnabled, Converter={StaticResource boolToSelectedState}}"
+                    SelectedColor="{StaticResource White}"
+                    UnselectedColor="{StaticResource GreyNeutral3}"
+                    WidthRequest="{StaticResource LaserBurstRightSideControlWidth}" />
+            </StackLayout>
+        </HorizontalStackLayout>
+        <VerticalStackLayout
+            HorizontalOptions="Start"
+            Spacing="{StaticResource GenericSpacing}"
+            WidthRequest="{StaticResource LaserBurstOtherSettingsWidth}">
+            <Label
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                FontSize="{StaticResource Body2FontSize}"
+                Text="{Binding Localization[OtherSettings]}" />
+            <VerticalStackLayout Margin="{StaticResource LaserBurstOtherSettingsContainerMargin}" Spacing="{StaticResource GenericSpacing}">
+                <controls:EntryWithTitle
+                    Title="{Binding Localization[P]}"
+                    EntryContainerWidthRequest="{StaticResource LaserBurstRightSideControlWidth}"
+                    Keyboard="Numeric"
+                    LeftEntryEnabled="False"
+                    LeftText="{Binding ActualP}"
+                    RightText="{Binding P}"
+                    TitleWidthRequest="{StaticResource LaserBurstLeftSideLabelWidth}" />
+                <controls:EntryWithTitle
+                    Title="{Binding Localization[N]}"
+                    EntryContainerWidthRequest="{StaticResource LaserBurstRightSideControlWidth}"
+                    Keyboard="Numeric"
+                    LeftEntryEnabled="False"
+                    LeftText="{Binding ActualN}"
+                    RightText="{Binding N}"
+                    TitleWidthRequest="{StaticResource LaserBurstLeftSideLabelWidth}" />
+                <controls:EntryWithTitle
+                    Title="{Binding Localization[EnvelopeControlP]}"
+                    EntryContainerWidthRequest="{StaticResource LaserBurstRightSideControlWidth}"
+                    Keyboard="Numeric"
+                    LeftEntryEnabled="False"
+                    LeftText="{Binding ActualEnvelopeControlP}"
+                    Orientation="Horizontal"
+                    RightText="{Binding EnvelopeControlP}"
+                    TitleWidthRequest="{StaticResource LaserBurstLeftSideLabelWidth}" />
+                <controls:EntryWithTitle
+                    Title="{Binding Localization[EnvelopeControlN]}"
+                    EntryContainerWidthRequest="{StaticResource LaserBurstRightSideControlWidth}"
+                    Keyboard="Numeric"
+                    LeftEntryEnabled="False"
+                    LeftText="{Binding ActualEnvelopeControlN}"
+                    RightText="{Binding EnvelopeControlN}"
+                    TitleWidthRequest="{StaticResource LaserBurstLeftSideLabelWidth}" />
+            </VerticalStackLayout>
+
+            <Button
+                Margin="{StaticResource MarginT}"
+                BackgroundColor="White"
+                BorderColor="{StaticResource GreyNeutral5}"
+                BorderWidth="1"
+                Command="{Binding ApplyCommand}"
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                HeightRequest="{StaticResource LaserBurstApplyButtonHeight}"
+                HorizontalOptions="End"
+                IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                Text="{Binding Localization[Apply]}"
+                TextColor="{StaticResource GreyNeutral14}"
+                WidthRequest="{StaticResource LaserBurstApplyButtonWidth}" />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentView>

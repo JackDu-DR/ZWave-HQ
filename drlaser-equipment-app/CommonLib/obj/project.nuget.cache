@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "9MzzBDVYpL/7PLcEoQkNpxsAXMzhoi1TwtBiXgllCk2jquaVEWBxjIP03g14DJpKblFPSMnT2x8MXPk+tJ4zZw==",
+  "success": true,
+  "projectFilePath": "C:\\ZWave-HQ\\drlaser-equipment-app\\CommonLib\\CommonLib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\NUS project\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\NUS project\\.nuget\\packages\\rabbitmq.client\\6.8.1\\rabbitmq.client.6.8.1.nupkg.sha512",
+    "C:\\Users\\NUS project\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\NUS project\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZWave.Views.Systems.ProcessSystem.InspectionVision.TeachingTab"
+             xmlns:controls="clr-namespace:ZWave.Controls"
+             xmlns:converters="clr-namespace:ZWave.Converters"
+             xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Systems.ProcessSystem"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:DataType="viewmodel:InspectionVisionPageViewModel">
+    <ContentView.Resources>
+        <converters:NegateConverter x:Key="negateConverter" />
+        <converters:ActionModeValueConverter x:Key="VisionActionModeValueConverter" />
+    </ContentView.Resources>
+    <StackLayout Orientation="Vertical" Spacing="2">
+        <StackLayout
+            Orientation="Horizontal"
+            Margin="10, 5, 10, 5"
+            Spacing="8">
+
+            <Label
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                Text="{Binding Localization[ModelSelection]}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Picker
+                IsVisible="False"
+                SelectedIndexChanged="OnModelChange"
+                SelectedItem="{Binding InspectionVisionModel.ModelSelection}"
+                ItemsSource="{Binding ModelSelectionSource}" />
+            <controls:CustomPicker
+               BackgroundColor="{StaticResource White}"
+               FontSize="{StaticResource RegularFontSize}"
+               HeightRequest="{StaticResource AxisPickerHeight}"
+               HorizontalOptions="Start"
+               ItemsSource="{Binding ModelSelectionSource}"
+               SelectedItem="{Binding SelectedTeachModel}"
+               WidthRequest="{OnPlatform WinUI='180', Android='150'}" />
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical" IsVisible="{Binding IsDisplayTeachPageNccModel}">
+            <Label 
+                Margin="10, 5, 10, 5"
+                Text="{Binding Localization[CreateNCCOperator]}"
+                FontAttributes="Bold"
+                TextColor="{StaticResource Black}" 
+                FontSize="{OnPlatform WinUI='20', Android='15'}"/>
+            <StackLayout
+                Orientation="Horizontal"
+                Margin="10, 5, 10, 5"
+                Spacing="8">
+
+                <Label
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    Text="{Binding Localization[Metric]}"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center" />
+                <Picker
+                    IsVisible="False"
+                    SelectedIndexChanged="OnMetricChange"
+                    SelectedItem="{Binding InspectionVisionModel.MetricSelection}"
+                    ItemsSource="{Binding MetricSelectionSource}" />
+                <controls:CustomPicker
+                   BackgroundColor="{StaticResource White}"
+                   FontSize="{StaticResource RegularFontSize}"
+                   HeightRequest="{StaticResource AxisPickerHeight}"
+                   HorizontalOptions="Start"
+                   ItemsSource="{Binding MetricSelectionSource}"
+                   SelectedItem="{Binding SelectedMetric}"
+                   WidthRequest="{OnPlatform WinUI='245', Android='215'}" />
+            </StackLayout>
+            <StackLayout
+                 Orientation="Horizontal"
+                 Margin="10, 5, 10, 5"
+                 Spacing="8">
+                <Label
+                     FontAttributes="Bold"
+                     FontFamily="{StaticResource OpenSansSemibold}"
+                     Text="{Binding Localization[NumLevels]}"
+                     VerticalOptions="Center"
+                     VerticalTextAlignment="Center" />
+                <controls:CheckboxWithTitle Title="Auto" IsChecked="{Binding InspectionVisionModel.NumLevelAutoNcc}" />
+                <Label
+                     IsVisible="{OnPlatform WinUI='True', Android='False'}"
+                     Margin="123,0,0,0"
+                     FontAttributes="Bold"
+                     FontFamily="{StaticResource OpenSansSemibold}"
+                     Text="{Binding Localization[AngStep]}"
+                     VerticalOptions="Center"
+                     VerticalTextAlignment="Center" />
+                <controls:CheckboxWithTitle IsVisible="{OnPlatform WinUI='True', Android='False'}" Title="Auto" IsChecked="{Binding InspectionVisionModel.AngStepAuto}" />
+            </StackLayout>
+            <StackLayout
+                  Orientation="Horizontal"
+                  Margin="10, 5, 10, 5"
+                  Spacing="8">
+                <Label
+                      IsVisible="{OnPlatform WinUI='False', Android='True'}"
+                      FontAttributes="Bold"
+                      FontFamily="{StaticResource OpenSansSemibold}"
+                      Text="{Binding Localization[AngStep]}"
+                      VerticalOptions="Center"
+                      VerticalTextAlignment="Center" />
+                <controls:CheckboxWithTitle IsVisible="{OnPlatform WinUI='False', Android='True'}" Margin="28,0,0,0" Title="Auto" IsChecked="{Binding InspectionVisionModel.AngStepAuto}" />
+            </StackLayout>
+
+            <StackLayout IsVisible="{Binding InspectionVisionModel.NumLevelAutoNcc, Converter={StaticResource negateConverter}}">
+                <controls:CustomSliderWithEntry 
+                    x:Name="NumLevelsSlider"
+                    SliderLabelName="{Binding Localization [NumLevels]}" 
+                    SliderValue="{Binding InspectionVisionModel.NumLevel}"  
+                    SliderMinValue="0"
+                    SliderMaxValue="10"
+                    SliderValueType=""
+                    IsInteger="False"
+                    IsAllowNegativeInput="False"
+                    IsCheckBoxApplied="False"/>
+            </StackLayout>
+            <controls:CustomSliderWithEntry 
+                x:Name="AngStartSlider"
+                SliderLabelName="{Binding Localization [AngStart]}" 
+                SliderValue="{Binding InspectionVisionModel.AngleStart}"  
+                SliderMinValue="-3.14"
+                SliderMaxValue="0"
+                SliderValueType="rad"
+                IsInteger="False"
+                IsAllowNegativeInput="True"
+                IsCheckBoxApplied="False"/>
+            <controls:CustomSliderWithEntry 
+                x:Name="AngExtentSlider"
+                SliderLabelName="{Binding Localization [AngExtent]}" 
+                SliderValue="{Binding InspectionVisionModel.AngleExtent}"  
+                SliderMinValue="0"
+                SliderMaxValue="6.29"
+                SliderValueType="rad"
+                IsInteger="False"
+                IsAllowNegativeInput="False"
+                IsCheckBoxApplied="False"/>
+            <StackLayout IsVisible="{Binding InspectionVisionModel.AngStepAuto, Converter={StaticResource negateConverter}}">
+                <controls:CustomSliderWithEntry 
+                    x:Name="AngStepSlider"
+                    SliderLabelName="{Binding Localization [AngStep]}" 
+                    SliderValue="{Binding InspectionVisionModel.AngleStep}"  
+                    SliderMinValue="0"
+                    SliderMaxValue="0.0873"
+                    SliderValueType="rad"
+                    IsInteger="False"
+                    IsAllowNegativeInput="False"
+                    IsAllowTwoDecimalPlaces="False"
+                    IsAllowFourDecimalPlaces="True"
+                    IsCheckBoxApplied="False"/>
+            </StackLayout>
+            <Button
+                Margin="10,16,0,16"
+                BackgroundColor="White"
+                BorderColor="{StaticResource GreyNeutral5}"
+                BorderWidth="1"
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                HeightRequest="40"
+                HorizontalOptions="Start"
+                Command="{Binding TeachCommand}"
+                Text="{Binding Localization[Teach]}"
+                TextColor="{StaticResource GreyNeutral14}"
+                WidthRequest="130" />
+        </StackLayout>
+    </StackLayout>
+</ContentView>

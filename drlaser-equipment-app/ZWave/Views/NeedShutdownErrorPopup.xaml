@@ -1,0 +1,44 @@
+<toolkit:Popup
+    x:Class="ZWave.Views.NeedShutdownErrorPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    CanBeDismissedByTappingOutsideOfPopup="False"
+    Color="Transparent">
+    <Border>
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="8" />
+        </Border.StrokeShape>
+        <Grid
+            Padding="0"
+            BackgroundColor="White"
+            RowDefinitions="*, auto"
+            RowSpacing="{StaticResource GenericSpacing}"
+            WidthRequest="{StaticResource NeedShutdownErrorPopupWidth}">
+            <VerticalStackLayout
+                Grid.Row="0"
+                Padding="{StaticResource NeedShutdownErrorPopupContainerPadding}"
+                Spacing="{StaticResource GenericSpacing}">
+                <Label
+                    x:Name="PopupTitle"
+                    Margin="{StaticResource NeedShutdownErrorPopupTitleMargin}"
+                    Style="{StaticResource SubTitle1LabelStyle}" />
+                <Label
+                    x:Name="PopupContent"
+                    Margin="{StaticResource NeedShutdownErrorPopupContentMargin}"
+                    FontSize="{StaticResource Body2FontSize}"
+                    LineBreakMode="WordWrap" />
+            </VerticalStackLayout>
+            <Grid
+                Grid.Row="1"
+                Padding="{StaticResource GenericSpacing}"
+                BackgroundColor="{StaticResource GreyNeutral3}">
+                <Button
+                    Clicked="Button_Clicked"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HorizontalOptions="FillAndExpand"
+                    Text="{Binding Localization[Shutdown]}" />
+            </Grid>
+        </Grid>
+    </Border>
+</toolkit:Popup>

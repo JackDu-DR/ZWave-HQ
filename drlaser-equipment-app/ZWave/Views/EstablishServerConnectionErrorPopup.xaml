@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="ZWave.Views.EstablishServerConnectionErrorPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    CanBeDismissedByTappingOutsideOfPopup="False"
+    Color="Transparent">
+    <Border>
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="8" />
+        </Border.StrokeShape>
+        <Grid
+            Padding="0"
+            BackgroundColor="White"
+            RowDefinitions="*, auto"
+            RowSpacing="{StaticResource GenericSpacing}"
+            WidthRequest="{StaticResource EstablishServerConnectionErrorPopupWidth}">
+            <VerticalStackLayout
+                Grid.Row="0"
+                Padding="{StaticResource EstablishServerConnectionErrorPopupContainerPadding}"
+                Spacing="{StaticResource GenericSpacing}">
+                <Label
+                    x:Name="PopupTitle"
+                    Margin="{StaticResource EstablishServerConnectionErrorPopupTitleMargin}"
+                    Style="{StaticResource SubTitle1LabelStyle}" />
+                <Label
+                    x:Name="PopupContent"
+                    Margin="{StaticResource EstablishServerConnectionErrorPopupContentMargin}"
+                    LineBreakMode="WordWrap"
+                    FontSize="{StaticResource Body2FontSize}" />
+            </VerticalStackLayout>
+            <Grid
+                Grid.Row="1"
+                Padding="{StaticResource GenericSpacing}"
+                BackgroundColor="{StaticResource GreyNeutral3}"
+                ColumnDefinitions="*, *"
+                ColumnSpacing="{StaticResource GenericSpacing}">
+                <Button
+                    Grid.Column="0"
+                    BackgroundColor="White"
+                    Clicked="ShutdownButton_Clicked"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HorizontalOptions="FillAndExpand"
+                    Text="{Binding Localization[Shutdown]}"
+                    TextColor="Black" />
+                <Button
+                    x:Name="RetryButton"
+                    Grid.Column="1"
+                    Clicked="RetryButton_Clicked"
+                    FontSize="{StaticResource Body2FontSize}"
+                    HorizontalOptions="FillAndExpand"
+                    Text="{Binding Localization[Retry]}" />
+            </Grid>
+        </Grid>
+    </Border>
+</toolkit:Popup>

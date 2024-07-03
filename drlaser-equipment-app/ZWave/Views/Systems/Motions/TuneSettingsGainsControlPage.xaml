@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Views.Systems.Motions.TuneSettingsGainsControlPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BackgroundColor="{StaticResource GreyNeutral2}"
+    HorizontalOptions="FillAndExpand">
+    <ContentView.Resources>
+        <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+    </ContentView.Resources>
+    <VerticalStackLayout
+        Padding="{StaticResource MarginT}"
+        HorizontalOptions="FillAndExpand"
+        Spacing="{StaticResource SmallSpacing}">
+        <VerticalStackLayout Spacing="{StaticResource SmallSpacing}">
+            <Label
+                FontAttributes="Bold"
+                FontSize="{StaticResource Body2FontSize}"
+                Text="{Binding Localization[CurrentLoops]}" />
+            <controls:EntryWithTitle
+                Title="{Binding Localization[ProportionalGainWithShortName]}"
+                EntryContainerWidthRequest="{StaticResource TuneSettingsGainsEntryWithTitleControlWidth}"
+                HeightRequest="{StaticResource EntryHeight}"
+                IsTitleWidthAutoResize="True"
+                Keyboard="Numeric"
+                LeftEntryEnabled="False"
+                LeftText="2.00"
+                RightText="2.00" />
+            <controls:EntryWithTitle
+                Title="{Binding Localization[IntergratorGainWithShortName]}"
+                EntryContainerWidthRequest="{StaticResource TuneSettingsGainsEntryWithTitleControlWidth}"
+                HeightRequest="{StaticResource EntryHeight}"
+                IsTitleWidthAutoResize="True"
+                Keyboard="Numeric"
+                LeftEntryEnabled="False"
+                LeftText="2.00"
+                RightText="2.00" />
+        </VerticalStackLayout>
+        <VerticalStackLayout Spacing="{StaticResource SmallSpacing}">
+            <Label
+                FontAttributes="Bold"
+                FontSize="{StaticResource Body2FontSize}"
+                Text="{Binding Localization[PositionAndVelocityLoops]}" />
+            <controls:EntryWithTitle
+                Title="{Binding Localization[VelocityProportionalGain]}"
+                EntryContainerWidthRequest="{StaticResource TuneSettingsGainsEntryWithTitleControlWidth}"
+                HeightRequest="{StaticResource EntryHeight}"
+                IsTitleWidthAutoResize="True"
+                Keyboard="Numeric"
+                LeftEntryEnabled="False"
+                LeftText="2.00"
+                RightText="2.00" />
+            <controls:EntryWithTitle
+                Title="{Binding Localization[IntergratorGain]}"
+                EntryContainerWidthRequest="{StaticResource TuneSettingsGainsEntryWithTitleControlWidth}"
+                HeightRequest="{StaticResource EntryHeight}"
+                IsTitleWidthAutoResize="True"
+                Keyboard="Numeric"
+                LeftEntryEnabled="False"
+                LeftText="2.00"
+                RightText="2.00" />
+            <controls:EntryWithTitle
+                Title="{Binding Localization[PositionProportionalGain]}"
+                EntryContainerWidthRequest="{StaticResource TuneSettingsGainsEntryWithTitleControlWidth}"
+                HeightRequest="{StaticResource EntryHeight}"
+                IsTitleWidthAutoResize="True"
+                Keyboard="Numeric"
+                LeftEntryEnabled="False"
+                LeftText="2.00"
+                RightText="2.00" />
+            <controls:EntryWithTitle
+                Title="{Binding Localization[VelocityLowPassFilterBandwidth]}"
+                EntryContainerWidthRequest="{StaticResource TuneSettingsGainsEntryWithTitleControlWidth}"
+                HeightRequest="{StaticResource EntryHeight}"
+                IsTitleWidthAutoResize="True"
+                Keyboard="Numeric"
+                LeftEntryEnabled="False"
+                LeftText="2.00"
+                RightText="2.00" />
+            <controls:EntryWithTitle
+                Title="{Binding Localization[AccelerationFeedFoward]}"
+                EntryContainerWidthRequest="{StaticResource TuneSettingsGainsEntryWithTitleControlWidth}"
+                HeightRequest="{StaticResource EntryHeight}"
+                IsTitleWidthAutoResize="True"
+                Keyboard="Numeric"
+                LeftEntryEnabled="False"
+                LeftText="2.00"
+                RightText="2.00" />
+        </VerticalStackLayout>
+        <VerticalStackLayout Spacing="{StaticResource SmallSpacing}">
+            <Label
+                FontAttributes="Bold"
+                FontSize="{StaticResource Body2FontSize}"
+                Text="{Binding Localization[MotionCompletion]}" />
+            <controls:EntryWithTitle
+                Title="{Binding Localization[TargetRadiusInMillimeters]}"
+                EntryContainerWidthRequest="{StaticResource TuneSettingsGainsEntryWithTitleControlWidth}"
+                HeightRequest="{StaticResource EntryHeight}"
+                IsTitleWidthAutoResize="True"
+                Keyboard="Numeric"
+                LeftEntryEnabled="False"
+                LeftText="2.00"
+                RightText="2.00" />
+            <controls:EntryWithTitle
+                Title="{Binding Localization[SettingWindowTimeInMilliseconds]}"
+                EntryContainerWidthRequest="{StaticResource TuneSettingsGainsEntryWithTitleControlWidth}"
+                HeightRequest="{StaticResource EntryHeight}"
+                IsTitleWidthAutoResize="True"
+                Keyboard="Numeric"
+                LeftEntryEnabled="False"
+                LeftText="2.00"
+                RightText="2.00" />
+        </VerticalStackLayout>
+        <Button
+            Margin="{StaticResource TuneSettingsGainsButtonPadding}"
+            FontAttributes="Bold"
+            HeightRequest="{StaticResource TuneSettingsGainsButtonHeight}"
+            HorizontalOptions="End"
+            IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+            Style="{StaticResource LightButton}"
+            Text="{Binding Localization[SetAll]}"
+            WidthRequest="{StaticResource TuneSettingsGainsButtonWidth}" />
+    </VerticalStackLayout>
+</ContentView>

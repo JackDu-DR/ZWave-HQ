@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZWave.Views.Systems.ProcessSystem.InspectionVision.CalibrationTab"
+             xmlns:controls="clr-namespace:ZWave.Controls"
+             xmlns:converters="clr-namespace:ZWave.Converters"
+             xmlns:local="clr-namespace:ZWave.Views"
+             xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Systems.ProcessSystem"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:DataType="viewmodel:InspectionVisionPageViewModel">
+    <StackLayout Orientation="Vertical" Spacing="2" >
+        <StackLayout
+            Orientation="Horizontal"
+            Margin="10, 5, 10, 5"
+            Spacing="8">
+            <Label
+                IsVisible="{OnPlatform WinUI='True', Android='False'}"
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                Text="{Binding Localization[ModelIDSelection]}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Picker
+                IsVisible="False"
+                SelectedIndexChanged="OnModelIDChange"
+                SelectedItem="{Binding InspectionVisionModel.CalibrationModelId}"
+                ItemsSource="{Binding InspectionVisionModel.CalibrationModelIdSelection}" />
+            <controls:CustomPicker
+               IsVisible="{OnPlatform WinUI='True', Android='False'}"
+               BackgroundColor="{StaticResource White}"
+               FontSize="{StaticResource RegularFontSize}"
+               HeightRequest="{StaticResource AxisPickerHeight}"
+               HorizontalOptions="Start"
+               SelectedItem="{Binding InspectionVisionModel.CalibrationModelId}"
+               ItemsSource="{Binding InspectionVisionModel.CalibrationModelIdSelection}"
+               WidthRequest="180" />
+        </StackLayout>
+
+        <StackLayout
+               IsVisible="{OnPlatform WinUI='False', Android='True'}"
+               Margin="10, 5, 10, 5"
+               Spacing="8">
+            <Label
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                Text="{Binding Localization[ModelIDSelection]}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Picker
+                IsVisible="False"
+                SelectedIndexChanged="OnModelIDChange"
+                SelectedItem="{Binding InspectionVisionModel.CalibrationModelId}"
+                ItemsSource="{Binding InspectionVisionModel.CalibrationModelIdSelection}" />
+            <controls:CustomPicker
+                BackgroundColor="{StaticResource White}"
+                FontSize="{StaticResource RegularFontSize}"
+                HeightRequest="{StaticResource AxisPickerHeight}"
+                HorizontalOptions="Start"
+                SelectedItem="{Binding InspectionVisionModel.CalibrationModelId}"
+                ItemsSource="{Binding InspectionVisionModel.CalibrationModelIdSelection}"
+                WidthRequest="{OnPlatform WinUI='180', Android='250'}" />
+        </StackLayout>
+
+        <StackLayout
+            Orientation="Vertical"
+            Margin="10, 5, 10, 5"
+            Spacing="8">
+            <StackLayout
+                Orientation="Horizontal"
+                Spacing="8">
+                <Label
+                    Margin="0,0,25,0"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    Text="{Binding Localization[StepSize]}"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center" />
+                <Border
+                    Grid.Column="0"
+                    Stroke="#CCE1E1E1"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle
+                            CornerRadius="4,4,4,4" />
+                    </Border.StrokeShape>
+                    <controls:CustomNumberEntryField 
+                        x:Name="StepSizeEntry" 
+                        EntryFieldValue="{Binding InspectionVisionModel.StepSize}" 
+                        IsBoundaryApplied="False" 
+                        IsInteger="False"
+                        IsAllowNegativeInput="True"
+                        IsAllowTwoDecimalPlaces="False"
+                        FieldTotalWidth="{OnPlatform WinUI= '220', Android='150'}"/>
+                </Border>
+            </StackLayout>
+            <StackLayout
+                Orientation="Horizontal"
+                Spacing="8">
+                <Label
+                    Margin="0,0,10,0"
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource OpenSansSemibold}"
+                    Text="{Binding Localization[StepCount]}"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center" />
+                <Border
+                    Grid.Column="0"
+                    Stroke="#CCE1E1E1"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle
+                            CornerRadius="4,4,4,4" />
+                    </Border.StrokeShape>
+                    <controls:CustomNumberEntryField 
+                        x:Name="StepCountEntry" 
+                        EntryFieldValue="{Binding InspectionVisionModel.StepCount}" 
+                        IsBoundaryApplied="False" 
+                        IsInteger="False"
+                        IsAllowNegativeInput="False"
+                        IsAllowTwoDecimalPlaces="False"
+                        FieldTotalWidth="{OnPlatform WinUI= '220', Android='152'}"/>
+                </Border>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Orientation="{OnPlatform WinUI= 'Horizontal', Android='Vertical'}" HorizontalOptions="Center">
+            <Button
+                Margin="{OnPlatform WinUI= '10,16,0,16', Android='10,8,0,8'}"
+                BackgroundColor="White"
+                BorderColor="{StaticResource GreyNeutral5}"
+                BorderWidth="1"
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                HeightRequest="40"
+                HorizontalOptions="Start"
+                Command="{Binding StepCalibCommand}"
+                Text="{Binding Localization[StepCalib]}"
+                TextColor="{StaticResource GreyNeutral14}"
+                WidthRequest="160" />
+            <Button
+                Margin="{OnPlatform WinUI= '10,16,0,16', Android='10,8,0,8'}"
+                BackgroundColor="White"
+                BorderColor="{StaticResource GreyNeutral5}"
+                BorderWidth="1"
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                HeightRequest="40"
+                HorizontalOptions="Start"
+                Command="{Binding AutoCalibCommand}"
+                Text="{Binding Localization[AutoCalib]}"
+                TextColor="{StaticResource GreyNeutral14}"
+                WidthRequest="160" />
+            <Button
+                Margin="{OnPlatform WinUI= '10,16,0,16', Android='10,8,0,8'}"
+                BackgroundColor="White"
+                BorderColor="{StaticResource GreyNeutral5}"
+                BorderWidth="1"
+                FontAttributes="Bold"
+                FontFamily="{StaticResource OpenSansSemibold}"
+                HeightRequest="40"
+                HorizontalOptions="Start"
+                Command="{Binding StopCalibCommand}"
+                Text="{Binding Localization[Stop]}"
+                TextColor="{StaticResource GreyNeutral14}"
+                WidthRequest="160" />
+        </StackLayout>
+
+        <Border
+             Stroke="#CCE1E1E1"
+             StrokeThickness="3"
+             Margin="0,0,30,0">
+            <Border.StrokeShape>
+                <RoundRectangle
+             CornerRadius="4,4,4,4" />
+            </Border.StrokeShape>
+            <StackLayout Margin="20,10,20,20">
+                <Label Text="{Binding Localization[Result]}" FontSize="20" FontAttributes="Bold"/>
+                <StackLayout HorizontalOptions="Center">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Localization[Transaction]}" />
+                        <Label Text=", tx = " />
+                        <Label Text="{Binding InspectionVisionModel.TransactionX}" Margin="5,0,0,0"/>
+                        <Label Text=" um " />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Localization[Transaction]}" />
+                        <Label Text=", ty = " />
+                        <Label Text="{Binding InspectionVisionModel.TransactionY}" Margin="5,0,0,0"/>
+                        <Label Text=" um " />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Localization[Rotation]}" />
+                        <Label Text=" theta = " />
+                        <Label Text="{Binding InspectionVisionModel.Rotation}" Margin="5,0,0,0"/>
+                        <Label Text=" degree" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Localization[Scale]}" />
+                        <Label Text=" x = " />
+                        <Label Text="{Binding InspectionVisionModel.ScaleX}" Margin="5,0,0,0"/>
+                        <Label Text=" um " />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Localization[Scale]}" />
+                        <Label Text=" y = " />
+                        <Label Text="{Binding InspectionVisionModel.ScaleY}" Margin="5,0,0,0"/>
+                        <Label Text=" um " />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="FOV" />
+                        <Label Text=" x = " />
+                        <Label Text="{Binding InspectionVisionModel.FovX}" Margin="5,0,0,0"/>
+                        <Label Text=" um " />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="FOV" />
+                        <Label Text=" y = " />
+                        <Label Text="{Binding InspectionVisionModel.FovY}" Margin="5,0,0,0"/>
+                        <Label Text=" um " />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Border>
+    </StackLayout>
+</ContentView>

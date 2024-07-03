@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <x:Double x:Key="Body1FontSize">16</x:Double>
+    <x:Double x:Key="Body2FontSize">14</x:Double>
+    <x:Double x:Key="Subtitle2FontSize">16</x:Double>
+    <x:Double x:Key="Caption2FontSize">10</x:Double>
+    <x:Double x:Key="Caption1FontSize">12</x:Double>
+
+    <x:Double x:Key="MasterSquareBarWidth">140</x:Double>
+    <x:Double x:Key="MasterStatusLightWidth">70</x:Double>
+    <Thickness x:Key="MasterTitleBarMargin">16,5</Thickness>
+    <x:Double x:Key="MasterCalendarHeight">20</x:Double>
+    <x:Double x:Key="MasterUserIconHeight">24</x:Double>
+    <Thickness x:Key="MasterTitleDividerMargin">0, 4</Thickness>
+    <x:Double x:Key="MasterLogoutHeight">45</x:Double>
+    <x:Double x:Key="MasterLogoutWidth">90</x:Double>
+    <Thickness x:Key="MasterLightMargin">18,10,18,10</Thickness>
+    <Thickness x:Key="MasterButtonPadding">0,6,0,6</Thickness>
+    <x:Double x:Key="MasterDropDownMenuWidth">180</x:Double>
+    <Thickness x:Key="MasterDropDownMenuContainerMargin">0,10,0,0</Thickness>
+    <x:Double x:Key="MasterDropDownMenuContainerWidth">160</x:Double>
+    <x:Double x:Key="MasterCriticalActionSpinnerSize">30</x:Double>
+
+    <Thickness x:Key="DefaultCustomButtonStylePadding">0,6</Thickness>
+    <Thickness x:Key="NoBorderLightCustomButton">14,10</Thickness>
+    <x:Double x:Key="NoBorderLightCustomButtonMinimumHeight">30</x:Double>
+    <x:Double x:Key="NoBorderLightCustomButtonMaximumHeight">44</x:Double>
+
+    <x:Double x:Key="JobStatusBarHeight">60</x:Double>
+    <x:Double x:Key="JobCameraWidth">800</x:Double>
+    <x:Double x:Key="JobCameraHeight">540</x:Double>
+
+    <x:Double x:Key="NavigationButtonStrokeThickness">2</x:Double>
+    <Thickness x:Key="NavigationButtonShadowOffset">0,2</Thickness>
+    <Thickness x:Key="NavigationButtonTitleMargin">0,4,0,0</Thickness>
+
+    <x:Double x:Key="Margin">16</x:Double>
+
+    <Thickness x:Key="ControlMarginTop">0,10,0,0</Thickness>
+    <Thickness x:Key="ControlBigMarginTop">0,20,0,0</Thickness>
+
+    <x:Double x:Key="IconSize">40</x:Double>
+
+    <x:Double x:Key="EntryHeight">40</x:Double>
+
+    <x:Double x:Key="TitleLayoutHeight">56</x:Double>
+    <x:Double x:Key="LogoHeight">27</x:Double>
+
+    <x:Double x:Key="MessageLayoutHeight">105</x:Double>
+    <x:Double x:Key="MessageButtonHeight">48</x:Double>
+
+    <x:Double x:Key="NavigationBarHeight">155</x:Double>
+    <x:Double x:Key="NavigationButtonWidth">150</x:Double>
+    <x:Double x:Key="NavigationButtonHeight">120</x:Double>
+    <x:Double x:Key="ButtonHeight">40</x:Double>
+    <x:Double x:Key="ControlHeight">40</x:Double>
+    <Thickness x:Key="ButtonPadding">14,10</Thickness>
+    <x:Double x:Key="ButtonMinimumHeightRequest">30</x:Double>
+    <x:Double x:Key="ButtonMinimumWidthRequest">44</x:Double>
+
+    <x:Double x:Key="SmallFontSize">13</x:Double>
+    <x:Double x:Key="RegularFontSize">14</x:Double>
+    <x:Double x:Key="LargeFontSize">16</x:Double>
+    <x:Double x:Key="DoubleRegularFontSize">28</x:Double>
+    <x:Double x:Key="SubTitle1FontSize">20</x:Double>
+
+    <Thickness x:Key="MarginLeft">16,0,0,0</Thickness>
+    <Thickness x:Key="ContainerPadding">16,16,16,0</Thickness>
+
+    <x:Double x:Key="SystemModulePanelWidth">238</x:Double>
+    <x:Double x:Key="ModuleButtonWidth">198</x:Double>
+    <x:Double x:Key="ModuleButtonHeight">40</x:Double>
+
+    <x:Double x:Key="SystemCommandPanelWidth">234</x:Double>
+    <x:Double x:Key="CommandButtonWidth">194</x:Double>
+    <x:Double x:Key="CommandButtonHeight">40</x:Double>
+    <x:Double x:Key="CommandButtonBorderWidth">1</x:Double>
+
+    <Thickness x:Key="TitlePadding">0,6,0,6</Thickness>
+    <x:Double x:Key="GenericSpacing">16</x:Double>
+    <Thickness x:Key="MarginL">16,0,0,0</Thickness>
+    <Thickness x:Key="MarginLT">16,16,0,0</Thickness>
+    <Thickness x:Key="MarginLR">16,0,16,0</Thickness>
+    <Thickness x:Key="MarginT">0,16,0,0</Thickness>
+    <Thickness x:Key="MarginB">0,0,0,16</Thickness>
+    <Thickness x:Key="MarginBT">0,16,0,16</Thickness>
+    <Thickness x:Key="MarginLTR">16,16,16,0</Thickness>
+    <Thickness x:Key="MarginLTB">16,16,0,16</Thickness>
+    <Thickness x:Key="MarginLRB">16,0,16,16</Thickness>
+    <Thickness x:Key="MarginTRB">0,16,16,16</Thickness>
+    <x:Double x:Key="SmallSpacing">10</x:Double>
+    <Thickness x:Key="SmallSpacingT">0,10,0,0</Thickness>
+    <Thickness x:Key="SmallSpacingLR">10,0,10,0</Thickness>
+    <x:Double x:Key="HalvedGenericSpacing">8</x:Double>
+    <x:Double x:Key="QuarterGenericSpacing">4</x:Double>
+    <x:Double x:Key="LargeSpacing">20</x:Double>
+
+    <x:Double x:Key="AxisLabelWidth">140</x:Double>
+    <x:Double x:Key="AxisControlWidth">120</x:Double>
+    <x:Double x:Key="AxisContainerWidth">354</x:Double>
+    <x:Double x:Key="AxisPickerHeight">40</x:Double>
+
+    <x:Double x:Key="MotorEntryControlWidth">100</x:Double>
+    <x:Double x:Key="ControlSettingsPickerWidth">250</x:Double>
+    <x:Double x:Key="ControlSettingsEntryLabelWidth1">70</x:Double>
+    <x:Double x:Key="ControlSettingsEntryControlWidth1">70</x:Double>
+    <x:Double x:Key="ControlSettingsEntryLabelWidth2">150</x:Double>
+    <x:Double x:Key="ControlSettingsEntryControlWidth2">140</x:Double>
+    <x:Double x:Key="ControlSettingsButtonWidth">140</x:Double>
+    <x:Double x:Key="MotionTuneSettingsTabContentWidth">450</x:Double>
+
+    <x:Double x:Key="MotionVideoWidth">500</x:Double>
+    <x:Double x:Key="MotionVideoHeight">500</x:Double>
+
+    <Thickness x:Key="VisionControlMargin">0,0,0,0</Thickness>
+    <Thickness x:Key="VisionEllipseRadioButtonMargin">0,0,0,0</Thickness>
+
+    <x:Double x:Key="LoginContainer">420</x:Double>
+    <x:Double x:Key="LoginButtonWidth">150</x:Double>
+
+    <x:Double x:Key="CustomButtonImageWidth">28</x:Double>
+    <x:Double x:Key="CustomButtonImageHeight">27</x:Double>
+
+    <x:Double x:Key="DatalogDatePickerWidth">250</x:Double>
+    <x:Double x:Key="DatalogTableColumnWidth">200</x:Double>
+
+    <x:Double x:Key="UserSearchBarWidth">400</x:Double>
+    <x:Double x:Key="UserTableRowHeight">40</x:Double>
+    <x:Double x:Key="UserTableActionColumnWidth">380</x:Double>
+    <x:Double x:Key="UserStatusLabelWidth">100</x:Double>
+    <x:Double x:Key="UserStatusLabelHeight">30</x:Double>
+
+    <x:Double x:Key="UserInfoPopupWidth">320</x:Double>
+    <x:Double x:Key="UserInfoPopupEditHeith">360</x:Double>
+    <x:Double x:Key="UserInfoPopupAddNewHeith">540</x:Double>
+    <x:Double x:Key="UserInfoPopupTitleLabelHeight">30</x:Double>
+    <x:Double x:Key="UserInfoPopupButtonWidth">136</x:Double>
+    <Thickness x:Key="ShowHidePasswordIconMargin">-5,0,0,0</Thickness>
+    <Thickness x:Key="ShowHidePasswordIconPadding">5,0</Thickness>
+    <x:Double x:Key="ShowHidePasswordIconSize">24</x:Double>
+
+    <x:Double x:Key="ChangePasswordUserPopupWidth">320</x:Double>
+    <x:Double x:Key="ChangePasswordUserPopupHeight">350</x:Double>
+    <x:Double x:Key="ChangePasswordUserPopupButtonWidth">136</x:Double>
+    <x:Double x:Key="ChangePasswordUserPopupTitleLabelHeight">30</x:Double>
+
+    <x:Double x:Key="TabPagePermissionPopupWidth">784</x:Double>
+    <x:Double x:Key="TabPagePermissionPopupHeight">400</x:Double>
+    <x:Double x:Key="TabPagePermissionPopupButtonWidth">368</x:Double>
+    <x:Double x:Key="TabPagePermissionPopupTableRowHeight">40</x:Double>
+    <x:Double x:Key="TabPagePermissionPopupIconWidth">16</x:Double>
+
+    <x:Double x:Key="CloseIconSize">12</x:Double>
+    <x:Double x:Key="PickerIconSize">12</x:Double>
+    <Thickness x:Key="PickerIconMargin">0,0,10,0</Thickness>
+
+    <x:Double x:Key="AlarmPageSecondsColumnWidth">670</x:Double>
+    <x:Double x:Key="AlarmPageSeverityButtonHeight">40</x:Double>
+    <x:Double x:Key="AlarmPageTableHeaderHeight">40</x:Double>
+    <x:Double x:Key="AlarmPageTableTimeSpanColumnWidth">200</x:Double>
+    <x:Double x:Key="AlarmPageTableErrorCodeColumnWidth">132</x:Double>
+    <x:Double x:Key="AlarmPageTableSeverityColumnWidth">126</x:Double>
+    <x:Double x:Key="AlarmPageDescriptionHeight">210</x:Double>
+    <x:Double x:Key="AlarmPageCommandButtonHeight">40</x:Double>
+
+    <x:Double x:Key="HorizontalButtonMinimumWidth">120</x:Double>
+    <x:Double x:Key="HorizontalButtonDefultHeight">36</x:Double>
+    <x:Double x:Key="HorizontalButtonSelectedHeight">38</x:Double>
+
+    <x:Double x:Key="CustomTabViewTitleHeight">42</x:Double>
+    <Thickness x:Key="CustomTabViewContentMargin">0,-3,0,0</Thickness>
+
+    <x:Double x:Key="CustomTabItemContainerHeight">42</x:Double>
+    <x:Double x:Key="CustomTabItemContainerWidth">200</x:Double>
+    <Thickness x:Key="CustomTabItemContainerMargin">0,1,0,0</Thickness>
+    <Thickness x:Key="CustomTabItemLabelContainerMargin">0,0,0,-5</Thickness>
+    <x:Double x:Key="CustomTabItemLabelContainerHeight">40</x:Double>
+    <x:Double x:Key="CustomTabItemIndicatorViewHeight">3</x:Double>
+    <x:Double x:Key="CustomTabItemIndicatorViewWidth">40</x:Double>
+
+    <x:Double x:Key="LaserBasicLeftSideLabelWidth">200</x:Double>
+    <x:Double x:Key="LaserBasicRightSideControlWidth">300</x:Double>
+    <x:Double x:Key="LaserBasicOtherSettingsWidth">500</x:Double>
+    <Thickness x:Key="LaserBasicControlMarginLeft">10,0,0,0</Thickness>
+    <x:Double x:Key="LaserBasicStateButtonHeight">30</x:Double>
+    <x:Double x:Key="LaserBasicStateButtonWidth">200</x:Double>
+    <Thickness x:Key="LaserBasicPresetContainerMargin">0,10,0,2</Thickness>
+    <x:Double x:Key="LaserBasicPresetEntryWidth">138</x:Double>
+    <x:Double x:Key="LaserBasicPresetPickerWidth">140</x:Double>
+    <x:Double x:Key="LaserBasicApplyButtonWidth">120</x:Double>
+    <x:Double x:Key="LaserBasicApplyButtonHeight">40</x:Double>
+
+    <x:Double x:Key="LaserBurstStateButtonHeight">30</x:Double>
+    <x:Double x:Key="LaserBurstLeftSideLabelWidth">200</x:Double>
+    <x:Double x:Key="LaserBurstRightSideControlWidth">300</x:Double>
+    <x:Double x:Key="LaserBurstOtherSettingsWidth">500</x:Double>
+    <Thickness x:Key="LaserBurstOtherSettingsContainerMargin">0,10,0,0</Thickness>
+    <Thickness x:Key="LaserBurstControlMarginLeft">10,0,0,0</Thickness>
+    <x:Double x:Key="LaserBurstApplyButtonHeight">40</x:Double>
+    <x:Double x:Key="LaserBurstApplyButtonWidth">120</x:Double>
+
+    <x:Double x:Key="EntryWithTitleControlsTitleWidth">140</x:Double>
+    <x:Double x:Key="EntryWithTitleControlsUnitWidth">60</x:Double>
+
+    <x:Double x:Key="EstablishServerConnectionErrorPopupWidth">504</x:Double>
+    <Thickness x:Key="EstablishServerConnectionErrorPopupContainerPadding">16,8</Thickness>
+    <Thickness x:Key="EstablishServerConnectionErrorPopupTitleMargin">0,24,0,8</Thickness>
+    <Thickness x:Key="EstablishServerConnectionErrorPopupContentMargin">0,0,0,40</Thickness>
+
+    <x:Double x:Key="NeedShutdownErrorPopupWidth">504</x:Double>
+    <Thickness x:Key="NeedShutdownErrorPopupContainerPadding">16,8</Thickness>
+    <Thickness x:Key="NeedShutdownErrorPopupTitleMargin">0,24,0,8</Thickness>
+    <Thickness x:Key="NeedShutdownErrorPopupContentMargin">0,0,0,40</Thickness>
+
+    <Thickness x:Key="SystemMotionPadding">16,8</Thickness>
+    <x:Double x:Key="SystemMotionPickerWidth">340</x:Double>
+
+    <x:Double x:Key="MotionSettingMotorEntryLabelWidth">130</x:Double>
+    <x:Double x:Key="MotionSettingCircleStatusWithLabelWidth">154</x:Double>
+    <x:Double x:Key="MotionSettingControlSettingsButtonHeight">40</x:Double>
+    <x:Double x:Key="MotionSettingTableContainerMaximumWidth">1280</x:Double>
+    <x:Double x:Key="MotionSettingMotorTableMaximumHeight">350</x:Double>
+    <Thickness x:Key="MotionSettingMotorTablePadding">16,16,0,8</Thickness>
+
+    <Thickness x:Key="ContainerWithTitleBarLabelPadding">16,8</Thickness>
+    <x:Double x:Key="ContainerWithTitleBarLabelHeight">36</x:Double>
+    <x:Double x:Key="ControlSettingsTableMaximumHeight">400</x:Double>
+    <x:Double x:Key="ControlSettingsTablePickerHeight">40</x:Double>
+
+    <x:Double x:Key="TuneSettingsFilterButtonHeight">40</x:Double>
+    <x:Double x:Key="TuneSettingsFilterButtonWidth">100</x:Double>
+    <Thickness x:Key="TuneSettingsFilterButtonPadding">0,0,9,0</Thickness>
+    <x:Double x:Key="TuneSettingsFilterEntryWithTitleControlWidth">220</x:Double>
+
+    <x:Double x:Key="TuneSettingsGainsButtonHeight">40</x:Double>
+    <x:Double x:Key="TuneSettingsGainsButtonWidth">100</x:Double>
+    <Thickness x:Key="TuneSettingsGainsButtonPadding">0,0,9,0</Thickness>
+    <x:Double x:Key="TuneSettingsGainsEntryWithTitleControlWidth">220</x:Double>
+
+    <x:Double x:Key="AxisControlEntryWithTitleLabelWidth">160</x:Double>
+    <x:Double x:Key="AxisControlEntryWithTitleControlWidth">220</x:Double>
+    <x:Double x:Key="AxisControlEntryContainerWidth">115</x:Double>
+    <x:Double x:Key="AxisControlContainerWidth">480</x:Double>
+    <x:Double x:Key="AxisControlColumnOneWidth">60</x:Double>
+    <x:Double x:Key="AxisControlColumnTwoWidth">78</x:Double>
+    <x:Double x:Key="AxisControlColumnThreeWidth">105</x:Double>
+    <x:Double x:Key="AxisControlColumnFourWidth">160</x:Double>
+    <x:Double x:Key="AxisControlPositonDefaultWidth">100</x:Double>
+    <Thickness x:Key="AxisControlPositionUnitMargin">-10,0,0,0</Thickness>
+
+    <x:Double x:Key="MotionControlLabelWidth">140</x:Double>
+    <x:Double x:Key="MotionControlPickerWidth">140</x:Double>
+    <x:Double x:Key="MotionControlPickerHeight">40</x:Double>
+    <Thickness x:Key="MotionControlLargeMarginLeft">140,0,0,0</Thickness>
+    <x:Double x:Key="MotionControlEntryContainerWidth">240</x:Double>
+    <x:Double x:Key="MotionControlButtonWidth">110</x:Double>
+    <x:Double x:Key="MotionControlColumnOneWidth">540</x:Double>
+    <x:Double x:Key="MotionControlEntryWithTitleLabelWidth">70</x:Double>
+    <x:Double x:Key="MotionControlEstTimeWidth">90</x:Double>
+    <x:Double x:Key="MotionControlDelayWidth">50</x:Double>
+    <x:Double x:Key="MotionControlEntryWithTitleContainerWidth">90</x:Double>
+    <Thickness x:Key="MotionControlTestLabelMargin">30,0,0,0</Thickness>
+    <Thickness x:Key="MotionControlCurrentCyclesMargin">4,0,4,0</Thickness>
+
+    <Thickness x:Key="SelectedROILabelMarin">0,0,2,0</Thickness>
+
+    <x:Double x:Key="CustomScrollViewDefaultThumbSize">8</x:Double>
+
+    <Thickness x:Key="SystemVisionBorderMargin">0,-2,0,0</Thickness>
+    <x:Double x:Key="SystemVisionImageButtonWidth">120</x:Double>
+    <x:Double x:Key="SystemVisionROIButtonWidth">120</x:Double>
+    <x:Double x:Key="SystemVisionROIResultButtonContainerHeight">70</x:Double>
+    <x:Double x:Key="SystemVisionFolderPathMaximumWidth">340</x:Double>
+    <x:Double x:Key="SystemVisionSeperateLineHeight">1</x:Double>
+    <x:Double x:Key="SystemVisionDotSize">16</x:Double>
+    <x:Double x:Key="SystemVisionDotTextSpacing">6</x:Double>
+    <x:Double x:Key="SystemVisionDotStatusWithTitleWidth">110</x:Double>
+    <x:Double x:Key="SystemVisionEntryWithTitleContainerWidth">100</x:Double>
+    <x:Double x:Key="SystemVisionEntryWithTitleLabelWidth">80</x:Double>
+    <Thickness x:Key="SystemVisionToggleWithTitleMargin">30,0,0,0</Thickness>
+    <x:Double x:Key="SystemVisionToggleWithTitleLabelWidth">50</x:Double>
+    <x:Double x:Key="SystemVisionCameraBorderThickness">2</x:Double>
+    <Thickness x:Key="SystemVisionMousePositionMargin">0,0,2,0</Thickness>
+    <x:Double x:Key="SystemVisionZoomButtonHeight">32</x:Double>
+    <x:Double x:Key="SystemVisionZoomButtonWidth">112</x:Double>
+    <x:Double x:Key="SystemVisionRadioHeight">40</x:Double>
+    <x:Double x:Key="SystemVisionCommandButtonHeight">40</x:Double>
+
+    <Thickness x:Key="JobMainViewAxisLabelPadding">5</Thickness>
+    <x:Double x:Key="JobMainViewCommandButtonHeight">40</x:Double>
+
+    <x:Double x:Key="StatusLabelHeight">30</x:Double>
+    <Thickness x:Key="StatusLabelMargin">0,8,0,0</Thickness>
+    <Thickness x:Key="StatusLabelPadding">8,0</Thickness>
+
+    <x:Double x:Key="ButtonInGroupUnderlineWidth">16</x:Double>
+    <x:Double x:Key="ButtonInGroupUnderlineHeight">2</x:Double>
+</ResourceDictionary>

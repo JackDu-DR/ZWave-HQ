@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>dbcc6fed-3daa-406c-848d-6f362f1db5d7</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ZWave.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\LogAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\TabPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\UserRole.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)models\PermissionDto.cs" />
+    <Compile Include="..\ZWave.Shared\Models\AlarmGuidelineDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)models\ChangePasswordDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\LogDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)models\UserDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)models\UserForCreateDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)models\UserForUpdateDto.cs" />
+    <Compile Include="..\ZWave.Shared\Models\UserAuthDto.cs" />
+  </ItemGroup>
+</Project>

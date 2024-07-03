@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZWave.Views.Systems.ProcessSystem.InspectionVision.CameraTab"
+             xmlns:controls="clr-namespace:ZWave.Controls"
+             xmlns:converters="clr-namespace:ZWave.Converters"
+             xmlns:local="clr-namespace:ZWave.Views"
+             xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Systems.ProcessSystem"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:DataType="viewmodel:InspectionVisionPageViewModel">
+    <StackLayout Orientation="Vertical" Spacing="2">
+        <Label 
+            Margin="10, 5, 10, 5"
+            Text="{Binding Localization[Brightness]}"
+            FontAttributes="Bold"
+            TextColor="{StaticResource Black}" 
+            FontSize="{OnPlatform WinUI='20', Android='15'}"/>
+
+        <controls:CustomSliderWithEntry 
+            x:Name="ExposureTimeSlider" 
+            SliderLabelName="{Binding Localization [ExposureTime]}" 
+            SliderValue="{Binding InspectionVisionModel.ExposureTime}"  
+            IsInteger="False"
+            IsCheckBoxApplied="False"
+            PropertyChanged="SliderPropertyChanged"/>
+        <controls:CustomSliderWithEntry 
+            x:Name="GainSlider" 
+            SliderLabelName="{Binding Localization [Gain]}" 
+            SliderValue="{Binding InspectionVisionModel.Gain}" 
+            IsInteger="False"
+            IsCheckBoxApplied="False"
+            PropertyChanged="SliderPropertyChanged"/>
+        <controls:CustomSliderWithEntry 
+            x:Name="GammaSlider" 
+            SliderLabelName="{Binding Localization [Gamma]}" 
+            IsCheckBoxChecked="{Binding InspectionVisionModel.GammaEnable}"
+            SliderValue="{Binding InspectionVisionModel.Gamma}" 
+            IsInteger="False"
+            IsCheckBoxApplied="True" 
+            PropertyChanged="SliderPropertyChanged"/>
+        <controls:CustomSliderWithEntry 
+            x:Name="SharpnessSlider" 
+            SliderLabelName="{Binding Localization [Sharpness]}" 
+            SliderValue="{Binding InspectionVisionModel.Sharpness}" 
+            IsInteger="True"
+            IsCheckBoxApplied="False"
+            PropertyChanged="SliderPropertyChanged"/>
+        <controls:CustomSliderWithEntry 
+            x:Name="BlackLevelSlider" 
+            SliderLabelName="{Binding Localization [BlackLevel]}" 
+            SliderValue="{Binding InspectionVisionModel.BlackLevel}" 
+            IsInteger="False"
+            IsCheckBoxApplied="False"
+            PropertyChanged="SliderPropertyChanged"/>
+    </StackLayout>
+
+</ContentView>

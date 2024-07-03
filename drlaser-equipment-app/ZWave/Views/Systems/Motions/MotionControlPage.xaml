@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Views.Systems.Motions.MotionControlPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodel="clr-namespace:ZWave.ViewModels.Motions"
+    x:DataType="viewmodel:MotionControlPageViewModel">
+    <ContentView.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding LoadedCommand}" EventName="Loaded" />
+        <toolkit:EventToCommandBehavior Command="{Binding UnLoadedCommand}" EventName="Unloaded" />
+    </ContentView.Behaviors>
+    <ContentView.BindingContext>
+        <viewmodel:MotionControlPageViewModel />
+    </ContentView.BindingContext>
+    <ContentView.Resources>
+        <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+    </ContentView.Resources>
+    <Grid Padding="{StaticResource MarginLTB}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{StaticResource MotionControlColumnOneWidth}" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <controls:ContainerWithTitleBar
+            Grid.Column="0"
+            TitleText="{Binding Localization[ControlProfile]}"
+            VerticalOptions="Start">
+            <VerticalStackLayout Padding="{StaticResource MarginLRB}" Spacing="{StaticResource SmallSpacing}">
+                <HorizontalStackLayout Margin="{StaticResource SmallSpacingT}">
+                    <Label
+                        FontSize="{StaticResource Body2FontSize}"
+                        Text="{Binding Localization[ControlProfile]}"
+                        VerticalOptions="Center"
+                        WidthRequest="{StaticResource MotionControlLabelWidth}" />
+                    <controls:CustomPicker
+                        x:Name="picker"
+                        BackgroundColor="White"
+                        FontSize="{StaticResource Body2FontSize}"
+                        HeightRequest="{StaticResource MotionControlPickerHeight}"
+                        HorizontalOptions="Start"
+                        ItemDisplayBinding="Name"
+                        ItemsSource="{Binding ProfileModels}"
+                        SelectedItem="{Binding SelectedProfile}"
+                        VerticalOptions="Center"
+                        WidthRequest="{StaticResource MotionControlPickerWidth}" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="{StaticResource SmallSpacing}">
+                    <controls:EntryWithTitle
+                        Title="{Binding Localization[Distance]}"
+                        EntryContainerWidthRequest="{StaticResource MotionControlEntryWithTitleContainerWidth}"
+                        IsSingleEntry="True"
+                        LeftEntryEnabled="False"
+                        LeftText="{Binding SelectedProfile.Distance}"
+                        TitleWidthRequest="{StaticResource MotionControlEntryWithTitleLabelWidth}" />
+                    <controls:EntryWithTitle
+                        Title="{Binding Localization[Time]}"
+                        EntryContainerWidthRequest="{StaticResource MotionControlEntryWithTitleContainerWidth}"
+                        IsSingleEntry="True"
+                        LeftEntryEnabled="False"
+                        LeftText="{Binding SelectedProfile.Time}"
+                        TitleWidthRequest="{StaticResource MotionControlEntryWithTitleLabelWidth}" />
+                </HorizontalStackLayout>
+                <controls:EntryWithTitle
+                    Title="{Binding Localization[Velocity]}"
+                    EntryContainerWidthRequest="{StaticResource MotionControlEntryContainerWidth}"
+                    LeftEntryEnabled="False"
+                    LeftText="{Binding ActualVelocity}"
+                    RightText="{Binding Velocity}"
+                    TitleWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    Unit="mm/s" />
+                <controls:EntryWithTitle
+                    Title="{Binding Localization[Acceleration]}"
+                    EntryContainerWidthRequest="{StaticResource MotionControlEntryContainerWidth}"
+                    LeftEntryEnabled="False"
+                    LeftText="{Binding ActualAcceleration}"
+                    RightText="{Binding Acceleration}"
+                    TitleWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    Unit="mm/s" />
+                <controls:EntryWithTitle
+                    Title="{Binding Localization[Jerk]}"
+                    EntryContainerWidthRequest="{StaticResource MotionControlEntryContainerWidth}"
+                    LeftEntryEnabled="False"
+                    LeftText="{Binding ActualJerk}"
+                    RightText="{Binding Jerk}"
+                    TitleWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    Unit="mm/s" />
+                <HorizontalStackLayout>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource Body2FontSize}"
+                        Text="{Binding Localization[MotionTest]}" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource Body2FontSize}"
+                        Text=":" />
+                    <Label
+                        Margin="{StaticResource MotionControlTestLabelMargin}"
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource Body2FontSize}"
+                        Text="{Binding SystemMotionData.SelectedAxis.AxisName}"
+                        TextColor="{StaticResource Green6}" />
+                </HorizontalStackLayout>
+
+                <controls:EntryWithTitle
+                    Title="{Binding Localization[Point1]}"
+                    EntryContainerWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    IsSingleEntry="True"
+                    LeftText="{Binding PointOne}"
+                    TitleWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    Unit="cnt" />
+                <HorizontalStackLayout Margin="{StaticResource MotionControlLargeMarginLeft}" Spacing="{StaticResource LargeSpacing}">
+                    <controls:EntryWithTitle
+                        Title="{Binding Localization[EstTime]}"
+                        EntryContainerWidthRequest="{StaticResource MotionControlEntryWithTitleContainerWidth}"
+                        IsSingleEntry="True"
+                        LeftEntryEnabled="False"
+                        LeftText="{Binding PointOneEstTime}"
+                        TitleWidthRequest="{StaticResource MotionControlEstTimeWidth}" />
+                    <controls:EntryWithTitle
+                        Title="{Binding Localization[Delay]}"
+                        EntryContainerWidthRequest="{StaticResource MotionControlEntryWithTitleContainerWidth}"
+                        IsSingleEntry="True"
+                        LeftText="{Binding PointOneDelay}"
+                        TitleWidthRequest="{StaticResource MotionControlDelayWidth}"
+                        Unit="s" />
+                </HorizontalStackLayout>
+
+                <controls:EntryWithTitle
+                    Title="{Binding Localization[Point2]}"
+                    EntryContainerWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    IsSingleEntry="True"
+                    LeftText="{Binding PointTwo}"
+                    TitleWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    Unit="cnt" />
+                <HorizontalStackLayout Margin="{StaticResource MotionControlLargeMarginLeft}" Spacing="{StaticResource LargeSpacing}">
+                    <controls:EntryWithTitle
+                        Title="{Binding Localization[EstTime]}"
+                        EntryContainerWidthRequest="{StaticResource MotionControlEntryWithTitleContainerWidth}"
+                        IsSingleEntry="True"
+                        LeftEntryEnabled="False"
+                        LeftText="{Binding PointOneEstTime}"
+                        TitleWidthRequest="{StaticResource MotionControlEstTimeWidth}" />
+                    <controls:EntryWithTitle
+                        Title="{Binding Localization[Delay]}"
+                        EntryContainerWidthRequest="{StaticResource MotionControlEntryWithTitleContainerWidth}"
+                        IsSingleEntry="True"
+                        LeftText="{Binding PointTwoDelay}"
+                        TitleWidthRequest="{StaticResource MotionControlDelayWidth}"
+                        Unit="s" />
+                </HorizontalStackLayout>
+
+                <controls:EntryWithTitle
+                    Title="{Binding Localization[NoOfCycles]}"
+                    EntryContainerWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    IsSingleEntry="True"
+                    LeftText="{Binding NoOfCycles}"
+                    TitleWidthRequest="{StaticResource MotionControlLabelWidth}" />
+                <controls:EntryWithTitle
+                    Title="{Binding Localization[EstimatedCycleTime]}"
+                    EntryContainerWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    IsSingleEntry="True"
+                    LeftEntryEnabled="False"
+                    LeftText="{Binding TotalEstCycleTime}"
+                    TitleWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    Unit="s" />
+                <HorizontalStackLayout Spacing="{StaticResource LargeSpacing}">
+                    <Button
+                        Command="{Binding CalculateCommand}"
+                        FontAttributes="Bold"
+                        IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                        Style="{StaticResource LightButton}"
+                        Text="{Binding Localization[Calculate]}"
+                        WidthRequest="{StaticResource MotionControlButtonWidth}" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource Body2FontSize}"
+                        Text="{Binding Localization[NonContinous]}"
+                        TextColor="{StaticResource GreyNeutral10}"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="{StaticResource LargeSpacing}">
+                    <Button
+                        Command="{Binding StartCommand}"
+                        FontAttributes="Bold"
+                        IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                        Style="{StaticResource LightButton}"
+                        Text="{Binding Localization[Start]}"
+                        WidthRequest="{StaticResource MotionControlButtonWidth}" />
+                    <Button
+                        Command="{Binding StopCommand}"
+                        FontAttributes="Bold"
+                        IsEnabled="{Binding CriticalAction[MotionControlStart]}"
+                        Style="{StaticResource LightButton}"
+                        Text="{Binding Localization[Stop]}"
+                        WidthRequest="{StaticResource MotionControlButtonWidth}" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        FontSize="{StaticResource Body2FontSize}"
+                        Text="{Binding Localization[CurrentCycles]}"
+                        WidthRequest="{StaticResource MotionControlLabelWidth}" />
+                    <Label
+                        FontSize="{StaticResource Body2FontSize}"
+                        Text="{Binding CurrentCycles}"
+                        VerticalOptions="Center" />
+                    <Label
+                        Margin="{StaticResource MotionControlCurrentCyclesMargin}"
+                        FontSize="{StaticResource Body2FontSize}"
+                        Text="/"
+                        VerticalOptions="Center" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource Body2FontSize}"
+                        Text="{Binding TotalCycles}"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
+                <controls:EntryWithTitle
+                    Title="{Binding Localization[CommandPosition]}"
+                    EntryContainerWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    IsSingleEntry="True"
+                    LeftEntryEnabled="False"
+                    LeftText="{Binding CommandPosition}"
+                    TitleWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    Unit="mm" />
+                <controls:EntryWithTitle
+                    Title="{Binding Localization[EncoderPosition]}"
+                    EntryContainerWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    IsSingleEntry="True"
+                    LeftEntryEnabled="False"
+                    LeftText="{Binding EncoderPosition}"
+                    TitleWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    Unit="mm" />
+                <controls:EntryWithTitle
+                    Title="{Binding Localization[MissingSteps]}"
+                    EntryContainerWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    IsSingleEntry="True"
+                    LeftEntryEnabled="False"
+                    LeftText="{Binding MissingSteps}"
+                    TitleWidthRequest="{StaticResource MotionControlLabelWidth}"
+                    Unit="mm" />
+                <Button
+                    Command="{Binding LogsCommand}"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"
+                    IsEnabled="{Binding CriticalAction[Any], Converter={StaticResource InvertedBoolConverter}}"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding Localization[LogMotion]}"
+                    WidthRequest="{StaticResource MotionControlButtonWidth}" />
+            </VerticalStackLayout>
+        </controls:ContainerWithTitleBar>
+        <lvc:CartesianChart
+            Grid.Column="1"
+            Series="{Binding Series}"
+            SyncContext="{Binding Sync}"
+            XAxes="{Binding XAxes}"
+            YAxes="{Binding YAxes}"
+            ZoomMode="None" />
+    </Grid>
+</ContentView>

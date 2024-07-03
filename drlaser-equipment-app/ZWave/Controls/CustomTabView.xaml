@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ZWave.Controls.CustomTabView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZWave.Controls"
+    BackgroundColor="{StaticResource GreyNeutral3}"
+    VerticalOptions="FillAndExpand">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource CustomTabViewTitleHeight}" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <HorizontalStackLayout x:Name="TabBarItemContainer" Grid.Row="0" />
+        <ContentView
+            x:Name="TabContentView"
+            Grid.Row="1"
+            Margin="{StaticResource CustomTabViewContentMargin}"
+            BackgroundColor="White" />
+    </Grid>
+</ContentView>
